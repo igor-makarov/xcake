@@ -1,5 +1,4 @@
 require 'claide'
-require 'generators/project_generator'
 
 module Xcake
   class Command < CLAide::Command
