@@ -8,7 +8,7 @@ module Xcake
 
     def run
 
-      genrator = ProjectGenerator.new
+      genrator = Generator::Project.new
     end
   end
 end
