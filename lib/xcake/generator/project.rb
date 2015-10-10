@@ -15,7 +15,7 @@ module Xcake
       end
 
       def build
-        project = Xcodeproj::Project.new(output_filepath, true)
+        project = Xcodeproj::Project.new(output_filepath, false)
         project.save
       end
     end
