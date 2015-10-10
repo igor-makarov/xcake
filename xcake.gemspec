@@ -9,9 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["James Campbell"]
   spec.email         = ["james@supmenow.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Xcake make managing your xcode project as easy as cake.}
+  spec.description   = %q{Xcake is a tool which allows you describe your project in
+  an easy to read and mergable format, which you can use to generate a project.
+  If your project gets corrupted xcake has your back.}
+  spec.homepage      = "www.supmenow.com"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

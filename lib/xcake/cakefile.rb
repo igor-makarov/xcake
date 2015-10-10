@@ -1,4 +1,3 @@
-
 module Xcake
   class Cakefile
     attr_accessor :targets
