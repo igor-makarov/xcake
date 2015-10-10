@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-describe Target do
+module Xcake
+  describe Target do
 
+  end
 end
