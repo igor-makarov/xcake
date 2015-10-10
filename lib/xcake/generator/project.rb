@@ -12,6 +12,7 @@ module Xcake
       end
 
       def build
+        puts "Build :)"
       end
     end
   end
