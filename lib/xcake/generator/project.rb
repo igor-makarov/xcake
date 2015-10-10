@@ -11,7 +11,7 @@ module Xcake
       end
 
       def build
-        project = Xcodeproj::Project.new "./#{self.cakefile.project_name}.xcodeproj"
+        project = Xcodeproj::Project.new("./#{self.cakefile.project_name}.xcodeproj", true)
         project.save
         puts "Build :)"
       end
