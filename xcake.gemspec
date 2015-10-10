@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Xcake is a tool which allows you describe your project in
   an easy to read and mergable format, which you can use to generate a project.
   If your project gets corrupted xcake has your back.}
-  spec.homepage      = "www.supmenow.com"
+  spec.homepage      = "http://www.supmenow.com/xcake"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
