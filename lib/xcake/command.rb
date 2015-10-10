@@ -7,8 +7,8 @@ module Xcake
     self.description = 'Create and maintain Xcode project files easily.'
 
     def run
-
-      genrator = Generator::Project.new
+      cakefile = Cakefile.new
+      genrator = Generator::Project.new(cakefile)
     end
   end
 end

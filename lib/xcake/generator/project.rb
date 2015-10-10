@@ -4,8 +4,8 @@ module Xcake
   module Generator
     class Project
 
-      def initialize
-        puts "ProjectGenerator"
+      def initialize(cakefile)
+        puts cakefile
       end
     end
   end
