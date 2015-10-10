@@ -10,10 +10,13 @@ module Xcake
         self.cakefile = cakefile
       end
 
+      def output_filepath
+        "./#{self.cakefile.project_name}.xcodeproj"
+      end
+
       def build
-        project = Xcodeproj::Project.new("./#{self.cakefile.project_name}.xcodeproj", true)
+        project = Xcodeproj::Project.new(output_filepath, true)
         project.save
-        puts "Build :)"
       end
     end
   end
