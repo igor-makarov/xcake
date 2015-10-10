@@ -1,6 +1,7 @@
-require "xcake/version"
 require "xcake/cakefile"
+require "xcake/command"
 require "xcake/target"
+require "xcake/version"
 
 module Xcake
 

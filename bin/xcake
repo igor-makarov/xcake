@@ -2,4 +2,4 @@
 
 require "xcake"
 
-XCake::Command.run(ARGV)
+Xcake::Command.run(ARGV)
