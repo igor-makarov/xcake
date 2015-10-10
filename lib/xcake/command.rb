@@ -8,7 +8,9 @@ module Xcake
 
     def run
       cakefile = Cakefile.new
-      genrator = Generator::Project.new(cakefile)
+      generator = Generator::Project.new(cakefile)
+
+      generator.build
     end
   end
 end

@@ -10,6 +10,9 @@ module Xcake
 
         self.cakefile = cakefile
       end
+
+      def build
+      end
     end
   end
 end
