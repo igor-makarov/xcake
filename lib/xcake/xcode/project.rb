@@ -11,7 +11,7 @@ module Xcake
         end
 
         def object_version
-          Constants::DEFAULT_OBJECT_VERSION.to_s
+          Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
         end
     end
   end
