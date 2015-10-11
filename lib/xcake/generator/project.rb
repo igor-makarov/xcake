@@ -20,7 +20,7 @@ module Xcake
 
         cakefile.build_configurations.each do |c|
           build_configuration = new(XCBuildConfiguration)
-          # build_configuration.name = name
+          build_configuration.name = c.name
           project.build_configuration_list.build_configurations << build_configuration
         end
 
