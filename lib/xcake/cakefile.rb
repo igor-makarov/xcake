@@ -11,6 +11,9 @@ module Xcake
       block.call(self) if block_given?
     end
 
+    def build_configuration
+    end
+
     def target(name)
       self.targets << Target.new(name)
     end
