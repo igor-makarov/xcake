@@ -7,7 +7,6 @@ module Xcake
 
       def initialize(build_configuration)
       end
-
     end
   end
 end
