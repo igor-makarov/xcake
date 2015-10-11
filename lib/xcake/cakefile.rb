@@ -1,6 +1,7 @@
 module Xcake
   class Cakefile
 
+    attr_accessor :build_configurations
     attr_accessor :project_name
     attr_accessor :targets
 
