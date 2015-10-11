@@ -9,6 +9,8 @@ module Xcake
     def run
       cakefile = Cakefile.new do |c|
         c.build_configuration "Debug"
+        c.build_configuration "Beta"
+        c.build_configuration "Release"
       end
 
       generator = Generator::Project.new(cakefile)
