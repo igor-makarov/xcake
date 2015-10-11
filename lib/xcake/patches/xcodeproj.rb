@@ -10,7 +10,7 @@ module Xcodeproj
     end
 
     def archive_version
-      Constants::LAST_KNOWN_ARCHIVE_VERSION
+      Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
     end
   end
 end
