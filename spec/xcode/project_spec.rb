@@ -11,7 +11,7 @@ module Xcake
         expect(project.root_object).to_not be(nil)
       end
 
-      it "should return pbject version as default" do
+      it "should return object version as default" do
         project = Project.new(".", true)
 
         expect(project.object_version).to eq(Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s)
