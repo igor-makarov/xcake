@@ -9,5 +9,11 @@ module Xcodeproj
 
       expect(project.root_object).to_not be(nil)
     end
+
+    it "should return archive version as last known" do
+      project = Xcodeproj::Project.new(".", true)
+
+      expect(project.archive_version).to eq(Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s)
+    end
   end
 end
