@@ -11,6 +11,13 @@ module Xcake
         expect(project.root_object).to_not be(nil)
       end
 
+      it "should set the configuration list when setup" do
+        project = Project.new(".", true)
+        project.setup_for_xcake
+
+        expect(project.root_object.build_configuration_list).to_not be(nil)
+      end
+
       it "should return object version as default" do
         project = Project.new(".", true)
 
