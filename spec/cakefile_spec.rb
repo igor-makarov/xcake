@@ -9,6 +9,12 @@ module Xcake
       expect(cakefile.project_name).to eq("Project")
     end
 
+    it "should initialize build configurations" do
+      cakefile = Cakefile.new
+
+      expect(cakefile.build_configurations).not_to be(nil)
+    end
+
     it "should set project name" do
       cakefile = Cakefile.new("Test")
 
