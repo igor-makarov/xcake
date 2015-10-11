@@ -18,10 +18,11 @@ module Xcake
         project = Xcode::Project.new(output_filepath, true)
         project.setup_for_xcake
 
-        # build_configuration = new(XCBuildConfiguration)
-        # build_configuration.name = name
-
-        project.build_configuration_list.build_configurations << build_configuration
+        cakefile.build_configurations.each do |c|
+          build_configuration = new(XCBuildConfiguration)
+          # build_configuration.name = name
+          project.build_configuration_list.build_configurations << build_configuration
+        end
 
         project.save
       end
