@@ -16,7 +16,8 @@ module Xcake
 
       def build
         project = Xcodeproj::Project.new(output_filepath, true)
-
+        project.setup_for_xcake
+        
         # @archive_version =  Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
         #
         # root_object.remove_referrer(self) if root_object
