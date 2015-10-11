@@ -8,7 +8,6 @@ module Xcake
 
     def run
       cakefile = Cakefile.new do |c|
-
         c.build_configuration "Debug"
       end
 
