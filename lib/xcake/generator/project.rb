@@ -15,7 +15,7 @@ module Xcake
       end
 
       def build
-        project = Xcodeproj::Project.new(output_filepath, true)
+        project = Xcode::Project.new(output_filepath, true)
         project.setup_for_xcake
 
         # root_object.remove_referrer(self) if root_object
