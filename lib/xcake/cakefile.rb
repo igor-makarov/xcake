@@ -14,6 +14,7 @@ module Xcake
     end
 
     def build_configuration
+      self.build_configurations << BuildConfiguration.new
     end
 
     def target(name)

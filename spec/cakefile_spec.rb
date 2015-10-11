@@ -42,16 +42,5 @@ module Xcake
 
       expect(cakefile.targets.count).to eq(1)
     end
-
-    it "should set target name when created" do
-
-      name = "Target"
-
-      cakefile = Cakefile.new do |c|
-        c.target name
-      end
-
-      expect(cakefile.targets.first.name).to eq(name)
-    end
   end
 end

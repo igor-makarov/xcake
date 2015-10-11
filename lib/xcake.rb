@@ -1,3 +1,4 @@
+require "xcake/build_configuration"
 require "xcake/cakefile"
 require "xcake/command"
 require 'xcake/generator/project'

@@ -1,4 +1,4 @@
 module Xcake
-  class Build_configuration
+  class BuildConfiguration
   end
 end
