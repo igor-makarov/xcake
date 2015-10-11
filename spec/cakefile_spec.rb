@@ -29,7 +29,7 @@ module Xcake
 
     it "should store build configuration when created" do
       cakefile = Cakefile.new do |c|
-        c.build_configuration
+        c.build_configuration "Configuration"
       end
 
       expect(cakefile.build_configurations.count).to eq(1)

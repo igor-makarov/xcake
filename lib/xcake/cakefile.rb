@@ -13,8 +13,8 @@ module Xcake
       block.call(self) if block_given?
     end
 
-    def build_configuration
-      self.build_configurations << BuildConfiguration.new
+    def build_configuration(name)
+      self.build_configurations << BuildConfiguration.new(name)
     end
 
     def target(name)
