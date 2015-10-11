@@ -6,6 +6,7 @@ module Xcake
       attr_accessor :build_configuration
 
       def initialize(build_configuration)
+        self.build_configuration = build_configuration
       end
     end
   end
