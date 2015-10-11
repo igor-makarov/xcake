@@ -19,7 +19,7 @@ module Xcake
         project.setup_for_xcake
 
         cakefile.build_configurations.each do |c|
-          build_configuration = project.new(XCBuildConfiguration)
+          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
           build_configuration.name = c.name
           project.build_configuration_list.build_configurations << build_configuration
         end
