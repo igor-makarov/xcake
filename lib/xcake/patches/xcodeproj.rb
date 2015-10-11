@@ -9,10 +9,6 @@ module Xcodeproj
       root_object.add_referrer(self)
     end
 
-    def archive_version
-      Constants::LAST_KNOWN_ARCHIVE_VERSION
-    end
-
     def object_version
       Constants::DEFAULT_OBJECT_VERSION
     end

@@ -13,7 +13,7 @@ module Xcodeproj
     it "should return archive version as last known" do
       project = Xcodeproj::Project.new(".", true)
 
-      expect(project.archive_version).to eq(Constants::LAST_KNOWN_ARCHIVE_VERSION)
+      expect(project.archive_version).to eq(Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s)
     end
 
     it "should return pbject version as default" do
