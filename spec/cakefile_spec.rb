@@ -27,6 +27,14 @@ module Xcake
       expect(cakefile.targets).not_to be(nil)
     end
 
+    it "should store build configuration when created" do
+      cakefile = Cakefile.new do |c|
+        c.build_configuration
+      end
+
+      expect(cakefile.build_configurations.count).to eq(1)
+    end
+
     it "should store targets when created" do
       cakefile = Cakefile.new do |c|
         c.target "Target"
