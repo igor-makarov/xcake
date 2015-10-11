@@ -17,7 +17,7 @@ module Xcake
       def build
         project = Xcodeproj::Project.new(output_filepath, true)
         project.setup_for_xcake
-        
+
         # root_object.remove_referrer(self) if root_object
         # @root_object = new(PBXProject)
         # root_object.add_referrer(self)
