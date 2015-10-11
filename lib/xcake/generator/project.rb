@@ -16,6 +16,26 @@ module Xcake
 
       def build
         project = Xcodeproj::Project.new(output_filepath, false)
+
+        # @archive_version =  Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
+        # @classes         =  {}
+        #
+        # root_object.remove_referrer(self) if root_object
+        # @root_object = new(PBXProject)
+        # root_object.add_referrer(self)
+        #
+        # root_object.main_group = new(PBXGroup)
+        # root_object.product_ref_group = root_object.main_group.new_group('Products')
+        #
+        # config_list = new(XCConfigurationList)
+        # root_object.build_configuration_list = config_list
+        # config_list.default_configuration_name = 'Release'
+        # config_list.default_configuration_is_visible = '0'
+        # add_build_configuration('Debug', :debug)
+        # add_build_configuration('Release', :release)
+        #
+        # new_group('Frameworks')
+
         project.save
       end
     end
