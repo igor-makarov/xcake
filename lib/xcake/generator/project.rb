@@ -15,7 +15,7 @@ module Xcake
       end
 
       def build
-        project = Xcodeproj::Project.new(output_filepath, false)
+        project = Xcodeproj::Project.new(output_filepath, true)
 
         # @archive_version =  Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
         #
