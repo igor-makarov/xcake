@@ -10,7 +10,7 @@ module Xcodeproj
     end
 
     def object_version
-      Constants::DEFAULT_OBJECT_VERSION
+      Constants::DEFAULT_OBJECT_VERSION.to_s
     end
   end
 end
