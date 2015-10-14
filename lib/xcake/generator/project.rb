@@ -26,8 +26,6 @@ module Xcake
         project.save
       end
 
-#TODO: Break into individual generators
-
       def build_xcode_build_configurations(project)
         generator = BuildConfiguration.new(cakefile, project)
         generator.build
