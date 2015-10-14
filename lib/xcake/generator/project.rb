@@ -29,25 +29,13 @@ module Xcake
 #TODO: Break into individual generators
 
       def build_xcode_build_configurations(project)
-        generator = BuildConfiguration.new(cakefile)
+        generator = BuildConfiguration.new(cakefile, project)
         generator.build
-
-        cakefile.build_configurations.each do |b|
-          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
-          build_configuration.name = b.name
-          project.build_configuration_list.build_configurations << build_configuration
-        end
       end
 
       def build_targets(project)
-        generator = Target.new(cakefile)
+        generator = Target.new(cakefile, project)
         generator.build
-
-        cakefile.targets.each do |t|
-          target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
-          target.name = t.name
-          project.targets << target
-        end
       end
     end
   end
