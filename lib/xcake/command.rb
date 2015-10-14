@@ -13,6 +13,7 @@ module Xcake
         c.build_configuration "Release"
 
         c.target "Sup"
+        c.target "SupTests"
       end
 
       generator = Generator::Project.new(cakefile)
