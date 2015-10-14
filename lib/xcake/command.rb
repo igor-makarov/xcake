@@ -11,6 +11,8 @@ module Xcake
         c.build_configuration "Debug"
         c.build_configuration "Beta"
         c.build_configuration "Release"
+
+        c.target "Sup"
       end
 
       generator = Generator::Project.new(cakefile)
