@@ -13,6 +13,7 @@ module Xcake
       end
 
       def build
+        self.project.root_object.main_group = project.new(Xcodeproj::Project::Object::PBXGroup)
       end
     end
   end
