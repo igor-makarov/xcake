@@ -5,9 +5,15 @@ module Xcake
     describe BuildConfiguration do
       it 'stores the cakefile' do
         cakefile = Cakefile.new
-        project = Project.new(cakefile)
+        generator = BuildConfiguration.new(cakefile)
 
-        expect(project.cakefile).to eq(cakefile)
+        expect(generator.cakefile).to eq(cakefile)
+      end
+
+      it 'stores the project' do
+        generator = BuildConfiguration.new(nil, nil)
+
+        expect(generator.project).to eq(project)
       end
     end
   end

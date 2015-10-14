@@ -5,9 +5,15 @@ module Xcake
     describe Target do
       it 'stores the cakefile' do
         cakefile = Cakefile.new
-        project = Project.new(cakefile)
+        generator = Target.new(cakefile)
 
-        expect(project.cakefile).to eq(cakefile)
+        expect(generator.cakefile).to eq(cakefile)
+      end
+
+      it 'stores the project' do
+        generator = Target.new(nil, nil)
+
+        expect(generator.project).to eq(project)
       end
     end
   end

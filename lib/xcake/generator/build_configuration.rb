@@ -5,6 +5,7 @@ module Xcake
     class BuildConfiguration
 
       attr_accessor :cakefile
+      attr_accessor :project
 
       def initialize(cakefile)
         self.cakefile = cakefile

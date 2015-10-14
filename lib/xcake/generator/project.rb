@@ -1,5 +1,7 @@
 require 'xcodeproj'
 
+#TODO: Is this even a true generator ? Maybe move into command ?
+
 module Xcake
   module Generator
     class Project
@@ -27,6 +29,9 @@ module Xcake
 #TODO: Break into individual generators
 
       def build_xcode_build_configurations(project)
+        generator = BuildConfiguration.new(cakefile)
+        generator.build
+
         cakefile.build_configurations.each do |b|
           build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
           build_configuration.name = b.name
@@ -35,6 +40,9 @@ module Xcake
       end
 
       def build_targets(project)
+        generator = Target.new(cakefile)
+        generator.build
+
         cakefile.targets.each do |t|
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name

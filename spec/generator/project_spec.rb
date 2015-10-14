@@ -5,9 +5,9 @@ module Xcake
     describe Project do
       it 'stores the cakefile' do
         cakefile = Cakefile.new
-        project = Project.new(cakefile)
+        generator = Project.new(cakefile)
 
-        expect(project.cakefile).to eq(cakefile)
+        expect(generator.cakefile).to eq(cakefile)
       end
 
       it 'generates the correct output filepath' do
