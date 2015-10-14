@@ -24,6 +24,8 @@ module Xcake
         project.save
       end
 
+#TODO: Break into individual generators
+
       def build_xcode_build_configurations(project)
         cakefile.build_configurations.each do |b|
           build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
