@@ -16,6 +16,8 @@ module Xcake
 
         expect(generator.project).to eq(project)
       end
+
+      #Test Generating Targets
     end
   end
 end

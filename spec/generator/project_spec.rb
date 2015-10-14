@@ -18,6 +18,8 @@ module Xcake
 
         expect(generator.output_filepath).to eq("./Project.xcodeproj")
       end
+
+      #Test Generating Project
     end
   end
 end
