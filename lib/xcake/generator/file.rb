@@ -12,6 +12,12 @@ module Xcake
         self.project = project
       end
 
+      def add_files(pattern, target)
+      end
+
+      def exclude_files(pattern, target)
+      end
+
       def build
       end
     end
