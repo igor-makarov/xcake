@@ -14,6 +14,10 @@ module Xcake
 
       def add_files(pattern, target)
         files = Dir.glob(pattern)
+
+        files.each do |f|
+          puts f
+        end
       end
 
       def exclude_files(pattern, target)
