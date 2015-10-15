@@ -13,9 +13,11 @@ module Xcake
       end
 
       def add_files(pattern, target)
+        files = Dir.glob(pattern)
       end
 
       def exclude_files(pattern, target)
+        files = Dir.glob(pattern)
       end
 
       def build
