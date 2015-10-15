@@ -11,6 +11,8 @@ module Xcake
           config_list = new(XCConfigurationList)
           root_object.build_configuration_list = config_list
 
+          root_object.main_group = new(PBXGroup)
+
           @root_object = root_object
         end
 
