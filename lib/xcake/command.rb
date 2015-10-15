@@ -12,7 +12,12 @@ module Xcake
         c.build_configuration "Beta"
         c.build_configuration "Release"
 
-        c.target "Sup"
+        c.target "Sup" do |t|
+
+          t.include_files = "./*.txt"
+
+        end
+
         c.target "SupTests"
       end
 
