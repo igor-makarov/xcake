@@ -13,11 +13,16 @@ module Xcake
       end
 
       def build
+
+        file_generator = File.new(cakefile, project)
+
         cakefile.targets.each do |t|
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
           project.targets << target
         end
+
+        file_generator.build
       end
     end
   end
