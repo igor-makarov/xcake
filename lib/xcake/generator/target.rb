@@ -18,8 +18,6 @@ module Xcake
 
         cakefile.targets.each do |t|
 
-          puts t.name
-
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
 
