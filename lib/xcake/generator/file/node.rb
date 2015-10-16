@@ -21,7 +21,7 @@ module Xcake
           end
         end
 
-        def create_node(component)
+        def create_child(component)
 
           node = children.find do |n|
             n.component == component
@@ -39,11 +39,11 @@ module Xcake
           node
         end
 
-        def create_node_path(components, target)
+        def create_children_with_path(components, target)
           components = normalize_components(components)
 
-          child = create_node(components.shift)
-          child.create_node_path(components, target) if components.count > 0
+          child = create_child(components.shift)
+          child.create_children_with_path(components, target) if components.count > 0
 
           targets << target unless targets.include? target
         end

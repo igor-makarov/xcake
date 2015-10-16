@@ -19,7 +19,7 @@ module Xcake
 
         files.each do |f|
           components = f.split('/')
-          root_node.create_node_path(components, target)
+          root_node.create_children_with_path(components, target)
         end
 
         root_node.traverse do |n, path|
