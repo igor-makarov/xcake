@@ -32,10 +32,16 @@ module Xcake
       end
 
       def build
+
+        main_group = project.main_group
+
         root_node.traverse do |n|
           if ::File.directory?("./#{n.path}")
-            group = project.main_group
-            group.find_subpath(n.path, true)
+            main_group.find_subpath(n.path, true)
+          else
+#TODO: Handle different types and adding to phases
+            group = main_group.find_subpath(n.parent.path, true)
+            group.new_reference(n.path)
           end
         end
       end
