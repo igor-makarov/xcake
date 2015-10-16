@@ -21,10 +21,6 @@ module Xcake
           components = f.split('/')
           root_node.create_children_with_path(components, target)
         end
-
-        root_node.traverse do |n, path|
-          puts "#{n} -> #{path}"
-        end
       end
 
       def exclude_files(pattern, target)
@@ -36,6 +32,12 @@ module Xcake
       end
 
       def build
+        root_node.traverse do |n|
+          if ::File.directory?("./#{n.path}")
+            group = project.main_group
+            group.find_subpath(n.path, true)
+          end
+        end
       end
     end
   end

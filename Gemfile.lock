@@ -3,7 +3,7 @@ PATH
   specs:
     xcake (0.1.0)
       claide
-      xcodeproj
+      xcodeproj (~> 0.28)
 
 GEM
   remote: https://rubygems.org/

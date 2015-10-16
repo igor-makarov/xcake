@@ -6,6 +6,7 @@ module Xcake
       class Node
 
         attr_accessor :component
+        attr_accessor :path
         attr_accessor :parent
         attr_accessor :children
         attr_accessor :targets
@@ -33,6 +34,12 @@ module Xcake
             node.component = component
             node.parent = self
 
+            if self.path
+              node.path = "#{self.path}/#{component}"
+            else
+              node.path = component
+            end
+
             children << node
           end
 
@@ -48,11 +55,10 @@ module Xcake
           targets << target unless targets.include? target
         end
 
-        def traverse(path=".", &block)
+        def traverse(&block)
           children.each do |c|
-            node_path = "#{path}/#{c.component}"
-            block.call(c, node_path) if block_given?
-            c.traverse(node_path, &block)
+            block.call(c) if block_given?
+            c.traverse(&block)
           end
         end
       end
