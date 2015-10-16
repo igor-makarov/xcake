@@ -34,6 +34,7 @@ module Xcake
             node.component = component
             node.parent = self
 
+#TODO: Move into method and test
             if self.path
               node.path = "#{self.path}/#{component}"
             else
