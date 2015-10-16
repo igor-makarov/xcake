@@ -22,6 +22,10 @@ module Xcake
 
       def exclude_files(pattern, target)
         files = Dir.glob(pattern)
+
+        files.each do |f|
+          puts f
+        end
       end
 
       def build
