@@ -23,8 +23,8 @@ module Xcake
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
 
-          file_generator.add_files(t.include_files, target)
-          file_generator.remove_files(t.exclude_files, target)
+          file_generator.add_files(t.include_files, target) if t.include_files
+          file_generator.remove_files(t.exclude_files, target) if t.exclude_files
 
           project.targets << target
         end

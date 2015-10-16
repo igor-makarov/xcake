@@ -1,0 +1,176 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXGroup section */
+		AC42BAB0000E4386C7E5CC41 = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00DED878BF0CE859BE77B41F /* SupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746F5DEC1BD0D87400176CA9 /* Build configuration list */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SupTests;
+			productName = SupTests;
+		};
+		17B04E96BA962E79E66FD8E5 /* Sup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746F5DEB1BD0D87400176CA9 /* Build configuration list */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sup;
+			productName = Sup;
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0426D16A4AC94895355E1127 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 41F307A1191E4E051ABF1B82 /* Build configuration list for PBXProject "Project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AC42BAB0000E4386C7E5CC41;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17B04E96BA962E79E66FD8E5 /* Sup */,
+				00DED878BF0CE859BE77B41F /* SupTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		4195D94C081277266B12FAF9 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Beta;
+		};
+		6CD8DA664981D040519F333C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		746F5DE51BD0D87400176CA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Sup;
+			};
+			name = Debug;
+		};
+		746F5DE61BD0D87400176CA9 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Sup;
+			};
+			name = Beta;
+		};
+		746F5DE71BD0D87400176CA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Sup;
+			};
+			name = Release;
+		};
+		746F5DE81BD0D87400176CA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SupTests;
+			};
+			name = Debug;
+		};
+		746F5DE91BD0D87400176CA9 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = SupTests;
+			};
+			name = Beta;
+		};
+		746F5DEA1BD0D87400176CA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = SupTests;
+			};
+			name = Release;
+		};
+		762A007EF1B1ADD9B26DF54F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41F307A1191E4E051ABF1B82 /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				762A007EF1B1ADD9B26DF54F /* Debug */,
+				4195D94C081277266B12FAF9 /* Beta */,
+				6CD8DA664981D040519F333C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746F5DEB1BD0D87400176CA9 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746F5DE51BD0D87400176CA9 /* Debug */,
+				746F5DE61BD0D87400176CA9 /* Beta */,
+				746F5DE71BD0D87400176CA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746F5DEC1BD0D87400176CA9 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746F5DE81BD0D87400176CA9 /* Debug */,
+				746F5DE91BD0D87400176CA9 /* Beta */,
+				746F5DEA1BD0D87400176CA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0426D16A4AC94895355E1127 /* Project object */;
+}
