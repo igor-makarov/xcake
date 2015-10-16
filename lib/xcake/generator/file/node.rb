@@ -11,6 +11,7 @@ module Xcake
 
         def initialize
           self.children = []
+          self.targets = []
         end
 
         def normalize_components(components)
@@ -27,10 +28,16 @@ module Xcake
 
           child.component = components.shift
           child.create_node_path(components, target) if components.count > 0
-puts child.component
 
           children << child
           targets << target unless targets.include? target
+        end
+
+        def traverse(&block)
+          children.each do |c|
+            block.call(c) if block_given?
+            c.traverse(&block)
+          end
         end
       end
     end

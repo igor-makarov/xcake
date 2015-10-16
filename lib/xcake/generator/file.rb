@@ -21,6 +21,10 @@ module Xcake
           components = f.split('/')
           root_node.create_node_path(components, target)
         end
+
+        root_node.traverse do |n|
+          puts n.component
+        end
       end
 
       def exclude_files(pattern, target)
