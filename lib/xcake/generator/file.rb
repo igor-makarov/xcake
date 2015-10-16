@@ -23,7 +23,7 @@ module Xcake
         end
 
         root_node.traverse do |n, path|
-          puts "#{n.component} -> #{path}"
+          puts "#{n} -> #{path}"
         end
       end
 

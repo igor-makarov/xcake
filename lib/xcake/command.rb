@@ -14,7 +14,7 @@ module Xcake
 
         c.target "Sup" do |t|
 
-          t.include_files = "./*.*"
+          t.include_files = "./**/*.*"
 
         end
 
