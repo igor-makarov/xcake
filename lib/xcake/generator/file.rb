@@ -6,17 +6,20 @@ module Xcake
 
       attr_accessor :cakefile
       attr_accessor :project
+      attr_accessor :root_node
 
       def initialize(cakefile, project)
         self.cakefile = cakefile
         self.project = project
+        self.root_node = Node.new
       end
 
       def add_files(pattern, target)
         files = Dir.glob(pattern)
 
         files.each do |f|
-          puts f
+          components = f.split('/')
+          root_node.create_node_path(components, target)
         end
       end
 
@@ -24,7 +27,7 @@ module Xcake
         files = Dir.glob(pattern)
 
         files.each do |f|
-          puts f
+
         end
       end
 

@@ -1,0 +1,176 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXGroup section */
+		6CCBD2E8553FD7AE32C2A98D = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6310A84A236501BC357B9C80 /* SupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746D733C1BD1080B000CB34D /* Build configuration list */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SupTests;
+			productName = SupTests;
+		};
+		CE802E143CFDAF49307CA609 /* Sup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746D733B1BD1080B000CB34D /* Build configuration list */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sup;
+			productName = Sup;
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3896282173AEE354D89B055B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = DE898322558AC40B1BB58191 /* Build configuration list for PBXProject "Project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6CCBD2E8553FD7AE32C2A98D;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE802E143CFDAF49307CA609 /* Sup */,
+				6310A84A236501BC357B9C80 /* SupTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		6F5BC331577FB15E103B4FB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		746D73351BD1080B000CB34D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Sup;
+			};
+			name = Debug;
+		};
+		746D73361BD1080B000CB34D /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Sup;
+			};
+			name = Beta;
+		};
+		746D73371BD1080B000CB34D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Sup;
+			};
+			name = Release;
+		};
+		746D73381BD1080B000CB34D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SupTests;
+			};
+			name = Debug;
+		};
+		746D73391BD1080B000CB34D /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = SupTests;
+			};
+			name = Beta;
+		};
+		746D733A1BD1080B000CB34D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = SupTests;
+			};
+			name = Release;
+		};
+		C66CCA828C994E86179D468A /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Beta;
+		};
+		CBDCC30170F980BA904692DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		746D733B1BD1080B000CB34D /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746D73351BD1080B000CB34D /* Debug */,
+				746D73361BD1080B000CB34D /* Beta */,
+				746D73371BD1080B000CB34D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746D733C1BD1080B000CB34D /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746D73381BD1080B000CB34D /* Debug */,
+				746D73391BD1080B000CB34D /* Beta */,
+				746D733A1BD1080B000CB34D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE898322558AC40B1BB58191 /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F5BC331577FB15E103B4FB6 /* Debug */,
+				C66CCA828C994E86179D468A /* Beta */,
+				CBDCC30170F980BA904692DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3896282173AEE354D89B055B /* Project object */;
+}
