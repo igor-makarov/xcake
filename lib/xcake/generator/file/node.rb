@@ -56,6 +56,15 @@ module Xcake
           targets << target unless targets.include? target
         end
 
+        def remove_children_with_path(components, target)
+          components = normalize_components(components)
+          # 
+          # child = create_child(components.shift)
+          # child.create_children_with_path(components, target) if components.count > 0
+          #
+          # targets << target unless targets.include? target
+        end
+
         def traverse(&block)
           children.each do |c|
             block.call(c) if block_given?

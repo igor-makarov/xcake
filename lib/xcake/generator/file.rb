@@ -27,7 +27,8 @@ module Xcake
         files = Dir.glob(pattern)
 
         files.each do |f|
-
+          components = f.split('/')
+          root_node.remove_children_with_path(components, target)
         end
       end
 
