@@ -20,7 +20,7 @@ module Xcake
 
             before :each do
               @node = Node.new
-              @child = @node.create_children_with_path("file", nil)
+              @child = @node.create_children_with_path("./file", nil)
             end
 
             it 'should create child' do
@@ -36,14 +36,14 @@ module Xcake
             end
 
             it 'should set the path' do
-              expect(@child.path).to eq("file")
+              expect(@child.path).to eq("./file")
             end
           end
 
           context "with folder path" do
             before :each do
               @node = Node.new
-              @child = @node.create_children_with_path("folder/file", nil)
+              @child = @node.create_children_with_path("./folder/file", nil)
             end
 
             it 'should create child' do
@@ -59,7 +59,7 @@ module Xcake
             end
 
             it 'should set the path' do
-              expect(@child.path).to eq("folder/file")
+              expect(@child.path).to eq("./folder/file")
             end
           end
         end

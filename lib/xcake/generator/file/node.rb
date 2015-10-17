@@ -22,12 +22,6 @@ module Xcake
         #   end
         # end
 
-        # def normalize_components(components)
-        #   components.keep_if do |i|
-        #     i != "."
-        #   end
-        # end
-
 #         def create_child(component)
 #
 #           node = self[component]
@@ -53,7 +47,9 @@ module Xcake
 
         def create_children_with_path(path, target)
 
-          components = path.split('/')
+          components = path.split('/').keep_if do |c|
+            c != "."
+          end
 
           child = Node.new
           child.component = components.shift
