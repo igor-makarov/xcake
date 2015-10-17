@@ -13,6 +13,18 @@ module Xcake
           node = Node.new
           expect(node.targets).not_to be_nil
         end
+
+        context "when creating children with path" do
+
+          before(:all) do
+            @node = Node.new
+            @node.create_children_with_path("file", nil)
+          end
+
+          it 'should create child' do
+            expect(@node.children.count).to be(1)
+          end
+        end
       end
     end
   end
