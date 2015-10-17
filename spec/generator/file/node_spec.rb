@@ -38,6 +38,10 @@ module Xcake
             it 'should set the path' do
               expect(@child.path).to eq("./file")
             end
+
+            it 'should set the parent' do
+              expect(@child.parent).to be(@node)
+            end
           end
 
           context "with folder path" do
@@ -60,6 +64,10 @@ module Xcake
 
             it 'should set the path' do
               expect(@child.path).to eq("./folder/file")
+            end
+
+            it 'should set the parent' do
+              expect(@child.parent).to be(@node)
             end
           end
         end

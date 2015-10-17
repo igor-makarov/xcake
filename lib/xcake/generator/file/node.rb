@@ -16,35 +16,6 @@ module Xcake
           self.targets = []
         end
 
-        # def [](component)
-        #   children.find do |c|
-        #     c.component == component
-        #   end
-        # end
-
-#         def create_child(component)
-#
-#           node = self[component]
-#
-#           if node == nil
-#
-#             node = Node.new
-#             node.component = component
-#             node.parent = self
-#
-# #TODO: Move into method and test
-#             if self.path
-#               node.path = "#{self.path}/#{component}"
-#             else
-#               node.path = component
-#             end
-#
-#             children << node
-#           end
-#
-#           node
-#         end
-
         def create_children_with_path(path, target)
 
           components = path.split('/').keep_if do |c|
@@ -54,6 +25,7 @@ module Xcake
           child = Node.new
           child.component = components.shift
           child.path = path
+          child.parent = self
 
           # child = create_child(components.shift)
           # child.targets << target unless child.targets.include? target
