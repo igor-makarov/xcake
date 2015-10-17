@@ -64,10 +64,11 @@ module Xcake
           components = normalize_components(components)
 
           child = self[components.shift]
-          # child.remove_children_with_path(components, target) if components.count > 0
-          #
-          # targets.delete(target) if children.count == 0
-          #
+          child.remove_children_with_path(components, target) if components.count > 0
+
+          targets.delete(target) unless children.any? do |c|
+            c.targets.include? target
+          end
 
         end
 
