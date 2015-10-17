@@ -16,69 +16,70 @@ module Xcake
           self.targets = []
         end
 
-        def [](component)
-          children.find do |c|
-            c.component == component
-          end
-        end
+        # def [](component)
+        #   children.find do |c|
+        #     c.component == component
+        #   end
+        # end
 
-        def normalize_components(components)
-          components.keep_if do |i|
-            i != "."
-          end
-        end
+        # def normalize_components(components)
+        #   components.keep_if do |i|
+        #     i != "."
+        #   end
+        # end
 
-        def create_child(component)
-
-          node = self[component]
-
-          if node == nil
-
-            node = Node.new
-            node.component = component
-            node.parent = self
-
-#TODO: Move into method and test
-            if self.path
-              node.path = "#{self.path}/#{component}"
-            else
-              node.path = component
-            end
-
-            children << node
-          end
-
-          node
-        end
+#         def create_child(component)
+#
+#           node = self[component]
+#
+#           if node == nil
+#
+#             node = Node.new
+#             node.component = component
+#             node.parent = self
+#
+# #TODO: Move into method and test
+#             if self.path
+#               node.path = "#{self.path}/#{component}"
+#             else
+#               node.path = component
+#             end
+#
+#             children << node
+#           end
+#
+#           node
+#         end
 
         def create_children_with_path(components, target)
           child = Node.new
           child.component = components
           child.path = components
 
-          children << child
-
-          child
           # components = normalize_components(components)
           #
           # child = create_child(components.shift)
           # child.targets << target unless child.targets.include? target
           # child.create_children_with_path(components, target) if components.count > 0
+
+          children << child
+
+          child
         end
 
-        def remove_children_with_path(components, target)
-          components = normalize_components(components)
-
-          child = self[components.shift]
-          child.targets.delete(target) if components.count == 0
-          child.remove_children_with_path(components, target) if components.count > 0
-
-          children.delete(child) unless child.targets.count > 0
-
-          targets.delete(target) unless children.any? do |c|
-            c.targets.include? target
-          end
-        end
+        # def remove_children_with_path(components, target)
+        #   components = normalize_components(components)
+        #
+        #   child = self[components.shift]
+        #   child.targets.delete(target) if components.count == 0
+        #   child.remove_children_with_path(components, target) if components.count > 0
+        #
+        #   children.delete(child) unless child.targets.count > 0
+        #
+        #   targets.delete(target) unless children.any? do |c|
+        #     c.targets.include? target
+        #   end
+        # end
 
         def traverse(&block)
           children.each do |c|
