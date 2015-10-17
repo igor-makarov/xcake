@@ -23,7 +23,7 @@ module Xcake
         end
       end
 
-      def exclude_files(pattern, target)
+      def remove_files(pattern, target)
         files = Dir.glob(pattern)
 
         files.each do |f|
