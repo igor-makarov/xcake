@@ -52,8 +52,12 @@ module Xcake
         end
 
         def create_children_with_path(components, target)
+          child = Node.new
+          child.component = components
 
-          children << Node.new
+          children << child
+
+          child
           # components = normalize_components(components)
           #
           # child = create_child(components.shift)

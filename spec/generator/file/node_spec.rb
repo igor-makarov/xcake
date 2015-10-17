@@ -16,13 +16,21 @@ module Xcake
 
         context "when creating children with path" do
 
-          before(:all) do
+          before :each do
             @node = Node.new
-            @node.create_children_with_path("file", nil)
+            @child = @node.create_children_with_path("file", nil)
           end
 
           it 'should create child' do
+            expect(@child).not_to be_nil
+          end
+
+          it 'should store child' do
             expect(@node.children.count).to be(1)
+          end
+
+          it 'should set component' do
+            @child.component = "file"
           end
         end
       end
