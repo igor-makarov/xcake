@@ -51,10 +51,13 @@ module Xcake
 #           node
 #         end
 
-        def create_children_with_path(components, target)
+        def create_children_with_path(path, target)
+
+          components = path.split('/')
+
           child = Node.new
-          child.component = components
-          child.path = components
+          child.component = components.shift
+          child.path = path
 
           # components = normalize_components(components)
           #

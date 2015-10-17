@@ -41,7 +41,6 @@ module Xcake
           end
 
           context "with folder path" do
-
             before :each do
               @node = Node.new
               @child = @node.create_children_with_path("folder/file", nil)
