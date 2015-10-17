@@ -54,6 +54,7 @@ module Xcake
         def create_children_with_path(components, target)
           child = Node.new
           child.component = components
+          child.path = components
 
           children << child
 

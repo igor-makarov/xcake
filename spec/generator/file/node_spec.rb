@@ -29,8 +29,12 @@ module Xcake
             expect(@node.children.count).to be(1)
           end
 
-          it 'should set component' do
-            @child.component = "file"
+          it 'should set the component' do
+            expect(@child.component).to eq("file")
+          end
+
+          it 'should set the path' do
+            expect(@child.path).to eq("file")
           end
         end
       end
