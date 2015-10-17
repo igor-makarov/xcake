@@ -55,8 +55,6 @@ module Xcake
           child.component = components.shift
           child.path = path
 
-          # components = normalize_components(components)
-          #
           # child = create_child(components.shift)
           # child.targets << target unless child.targets.include? target
           # child.create_children_with_path(components, target) if components.count > 0
