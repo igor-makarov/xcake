@@ -55,15 +55,15 @@ module Xcake
           components = normalize_components(components)
 
           child = create_child(components.shift)
+          child.targets << target unless child.targets.include? target
           child.create_children_with_path(components, target) if components.count > 0
-
-          targets << target unless targets.include? target
         end
 
         def remove_children_with_path(components, target)
           components = normalize_components(components)
 
           child = self[components.shift]
+          child.targets.delete(target) if components.count == 0
           child.remove_children_with_path(components, target) if components.count > 0
 
           targets.delete(target) unless children.any? do |c|
@@ -71,7 +71,6 @@ module Xcake
           end
 
           children.delete(child) unless child.targets.count > 0
-
         end
 
         def traverse(&block)
