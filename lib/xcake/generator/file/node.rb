@@ -70,6 +70,8 @@ module Xcake
             c.targets.include? target
           end
 
+          children.delete(child) unless child.targets.count > 0
+
         end
 
         def traverse(&block)
