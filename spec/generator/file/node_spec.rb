@@ -14,27 +14,54 @@ module Xcake
           expect(node.targets).not_to be_nil
         end
 
-        context "when creating children with path" do
+        context "when creating children" do
 
-          before :each do
-            @node = Node.new
-            @child = @node.create_children_with_path("file", nil)
+          context "with file path" do
+
+            before :each do
+              @node = Node.new
+              @child = @node.create_children_with_path("file", nil)
+            end
+
+            it 'should create child' do
+              expect(@child).not_to be_nil
+            end
+
+            it 'should store child' do
+              expect(@node.children.count).to be(1)
+            end
+
+            it 'should set the component' do
+              expect(@child.component).to eq("file")
+            end
+
+            it 'should set the path' do
+              expect(@child.path).to eq("file")
+            end
           end
 
-          it 'should create child' do
-            expect(@child).not_to be_nil
-          end
+          context "with folder path" do
 
-          it 'should store child' do
-            expect(@node.children.count).to be(1)
-          end
+            before :each do
+              @node = Node.new
+              @child = @node.create_children_with_path("folder/file", nil)
+            end
 
-          it 'should set the component' do
-            expect(@child.component).to eq("file")
-          end
+            it 'should create child' do
+              expect(@child).not_to be_nil
+            end
 
-          it 'should set the path' do
-            expect(@child.path).to eq("file")
+            it 'should store child' do
+              expect(@node.children.count).to be(1)
+            end
+
+            it 'should set the component' do
+              expect(@child.component).to eq("folder")
+            end
+
+            it 'should set the path' do
+              expect(@child.path).to eq("folder/file")
+            end
           end
         end
       end
