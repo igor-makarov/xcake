@@ -22,14 +22,22 @@ module Xcake
             c != "."
           end
 
-          child = Node.new
-          
-          child.component = components.shift
-          child.path = path
-          child.parent = self
-          child.targets << target
+          component = components.shift
+          child = children.find do |c|
+            c.component == component
+          end
 
-          children << child
+          if child == nil
+
+            child = Node.new
+
+            child.component = component
+            child.path = path
+            child.parent = self
+            child.targets << target
+
+            children << child
+          end
 
           child
         end
