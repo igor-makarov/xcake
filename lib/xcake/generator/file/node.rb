@@ -37,7 +37,13 @@ module Xcake
             child = Node.new
 
             child.component = component
-            child.path = component
+
+            if self.path
+              child.path = "./#{self.path}/#{component}"
+            else
+              child.path = "./#{component}"
+            end
+
             child.parent = self
             child.targets << target
 
