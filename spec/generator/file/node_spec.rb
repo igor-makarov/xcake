@@ -99,7 +99,6 @@ module Xcake
               @target = double()
               @node = Node.new
               @folder = @node.create_children_with_path("./folder/file", @target)
-              @file = @folder.children.first
               @folder2 = @node.create_children_with_path("./folder/file2", @target)
             end
 
@@ -113,24 +112,6 @@ module Xcake
 
             it 'should create child of child' do
               expect(@folder.children.count).to eq(2)
-            end
-
-            it 'should set the component' do
-              expect(@folder.component).to eq("folder")
-              expect(@file.component).to eq("file")
-            end
-
-            it 'should set the path' do
-              expect(@folder.path).to eq("./folder")
-              expect(@file.path).to eq("./folder/file")
-            end
-
-            it 'should set the parent' do
-              expect(@folder.parent).to be(@node)
-            end
-
-            it 'should add the target' do
-              expect(@folder.targets).to include(@target)
             end
 
             it 'should store the target once' do
