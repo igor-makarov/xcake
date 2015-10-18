@@ -37,7 +37,7 @@ module Xcake
             child = Node.new
 
             child.component = component
-            child.path = path
+            child.path = component
             child.parent = self
             child.targets << target
 
