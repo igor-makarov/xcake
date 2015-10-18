@@ -4,14 +4,14 @@ module Xcake
   module Generator
     describe Project do
       it 'stores the cakefile' do
-        cakefile = double('Cakefile')
+        cakefile = double()
         generator = Project.new(cakefile)
 
         expect(generator.cakefile).to eq(cakefile)
       end
 
       it 'generates the correct output filepath' do
-        cakefile = double('Cakefile')
+        cakefile = double()
         allow(cakefile).to receive(:project_name) { 'Project' }
 
         generator = Project.new(cakefile)

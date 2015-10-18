@@ -26,6 +26,7 @@ module Xcake
           child.component = components.shift
           child.path = path
           child.parent = self
+          child.targets << target
 
           children << child
 

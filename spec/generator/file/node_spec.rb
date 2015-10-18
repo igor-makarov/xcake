@@ -19,8 +19,9 @@ module Xcake
           context "with file path" do
 
             before :each do
+              @target = double()
               @node = Node.new
-              @child = @node.create_children_with_path("./file", nil)
+              @child = @node.create_children_with_path("./file", @target)
             end
 
             it 'should create child' do
@@ -42,12 +43,17 @@ module Xcake
             it 'should set the parent' do
               expect(@child.parent).to be(@node)
             end
+
+            it 'should add the target' do
+              expect(@child.targets).to include(@target)
+            end
           end
 
           context "with folder path" do
             before :each do
+              @target = double()
               @node = Node.new
-              @child = @node.create_children_with_path("./folder/file", nil)
+              @child = @node.create_children_with_path("./folder/file", @target)
             end
 
             it 'should create child' do
@@ -68,6 +74,10 @@ module Xcake
 
             it 'should set the parent' do
               expect(@child.parent).to be(@node)
+            end
+
+            it 'should add the target' do
+              expect(@child.targets).to include(@target)
             end
           end
         end

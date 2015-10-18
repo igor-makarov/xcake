@@ -4,14 +4,14 @@ module Xcake
   module Generator
     describe Target do
       it 'stores the cakefile' do
-        cakefile = class_double('Cakefile')
+        cakefile = double()
         generator = Target.new(cakefile, nil)
 
         expect(generator.cakefile).to eq(cakefile)
       end
 
       it 'stores the project' do
-        project = class_double('Project')
+        project = double()
         generator = Target.new(nil, project)
 
         expect(generator.project).to eq(project)
