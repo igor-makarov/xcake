@@ -22,6 +22,11 @@ module Xcake
             c != "."
           end
 
+          create_children_with_components(components, target)
+        end
+
+        def create_children_with_components(components, target)
+
           component = components.shift
           child = children.find do |c|
             c.component == component
@@ -38,6 +43,8 @@ module Xcake
 
             children << child
           end
+
+          child.create_children_with_components(components, target) if components.count > 0
 
           child
         end

@@ -68,6 +68,10 @@ module Xcake
               expect(@node.children.count).to eq(1)
             end
 
+            it 'should create child of child' do
+              expect(@child.children.count).to eq(1)
+            end
+
             it 'should set the component' do
               expect(@child.component).to eq("folder")
             end
@@ -101,6 +105,10 @@ module Xcake
 
             it 'should store one child' do
               expect(@node.children.count).to eq(1)
+            end
+
+            it 'should create child of child' do
+              expect(@child.children.count).to eq(2)
             end
 
             it 'should set the component' do
