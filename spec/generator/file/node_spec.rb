@@ -3,7 +3,9 @@ require 'spec_helper'
 module Xcake
   module Generator
     class File
+      
       describe Node do
+
         it 'initilizes the children' do
           node = Node.new
           expect(node.children).not_to be_nil
@@ -47,9 +49,11 @@ module Xcake
             it 'should add the target' do
               expect(@child.targets).to include(@target)
             end
+
           end
 
           context "with folder path" do
+
             before :each do
               @target = double()
               @node = Node.new
@@ -79,9 +83,11 @@ module Xcake
             it 'should add the target' do
               expect(@child.targets).to include(@target)
             end
+
           end
 
           context "with two files under same folder" do
+
             before :each do
               @target = double()
               @node = Node.new
@@ -116,7 +122,9 @@ module Xcake
             it 'should store the target once' do
               expect(@child.targets.count).to eq(1)
             end
+
           end
+
         end
       end
     end
