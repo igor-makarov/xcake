@@ -23,7 +23,8 @@ module Xcake
             before :each do
               @target = double()
               @node = Node.new
-              @child = @node.create_children_with_path("./file", @target)
+              @folder = @node.create_children_with_path("./file", @target)
+              @file = @folder.children.first
             end
 
             it 'should create child' do
@@ -73,11 +74,13 @@ module Xcake
             end
 
             it 'should set the component' do
-              expect(@child.component).to eq("folder")
+              expect(@folder.component).to eq("folder")
+              expect(@file.component).to eq("file")
             end
 
             it 'should set the path' do
-              expect(@child.path).to eq("./folder/file")
+              expect(@folder.path).to eq("./folder")
+              expect(@file.path).to eq("./file")
             end
 
             it 'should set the parent' do
@@ -95,12 +98,13 @@ module Xcake
             before :each do
               @target = double()
               @node = Node.new
-              @child = @node.create_children_with_path("./folder/file", @target)
-              @child2 = @node.create_children_with_path("./folder/file2", @target)
+              @folder = @node.create_children_with_path("./folder/file", @target)
+              @file = @folder.children.first
+              @folder2 = @node.create_children_with_path("./folder/file2", @target)
             end
 
             it 'should create child' do
-              expect(@child).not_to be_nil
+              expect(@folder).not_to be_nil
             end
 
             it 'should store one child' do
@@ -108,27 +112,29 @@ module Xcake
             end
 
             it 'should create child of child' do
-              expect(@child.children.count).to eq(2)
+              expect(@folder.children.count).to eq(2)
             end
 
             it 'should set the component' do
-              expect(@child.component).to eq("folder")
+              expect(@folder.component).to eq("folder")
+              expect(@file.component).to eq("file")
             end
 
             it 'should set the path' do
-              expect(@child.path).to eq("./folder/file")
+              expect(@folder.path).to eq("./folder")
+              expect(@file.path).to eq("./file")
             end
 
             it 'should set the parent' do
-              expect(@child.parent).to be(@node)
+              expect(@folder.parent).to be(@node)
             end
 
             it 'should add the target' do
-              expect(@child.targets).to include(@target)
+              expect(@folder.targets).to include(@target)
             end
 
             it 'should store the target once' do
-              expect(@child.targets.count).to eq(1)
+              expect(@folder.targets.count).to eq(1)
             end
 
           end
