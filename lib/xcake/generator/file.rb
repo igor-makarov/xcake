@@ -17,16 +17,16 @@ module Xcake
       def add_files(pattern, target)
         files = Dir.glob(pattern)
 
-        files.each do |f|
-          root_node.create_children_with_path(path, target)
+        files.each do |file|
+          root_node.create_children_with_path(file, target)
         end
       end
 
       def remove_files(pattern, target)
         files = Dir.glob(pattern)
 
-        files.each do |f|
-          root_node.remove_children_with_path(path, target)
+        files.each do |file|
+          root_node.remove_children_with_path(file, target)
         end
       end
 
