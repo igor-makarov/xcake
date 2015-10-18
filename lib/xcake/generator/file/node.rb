@@ -23,6 +23,7 @@ module Xcake
           end
 
           child = Node.new
+          
           child.component = components.shift
           child.path = path
           child.parent = self
