@@ -135,6 +135,26 @@ module Xcake
               expect(@node.children.count).to eq(0)
             end
           end
+
+          context "with multiple targets and one is removed" do
+
+            before :each do
+              @target = double()
+              @target2 = double()
+              @node = Node.new
+              @file = @node.create_children_with_path("./file", @target)
+              @node.create_children_with_path("./file", @target2)
+              @node.remove_children_with_path("./file", @target)
+            end
+
+            it 'should keep child' do
+              expect(@node.children.count).to eq(1)
+            end
+
+            it 'should remove correct target' do
+              expect(@file.targets.first).to be(target2)
+            end
+          end
         end
       end
     end
