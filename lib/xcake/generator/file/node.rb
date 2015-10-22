@@ -25,6 +25,15 @@ module Xcake
           create_children_with_components(components, target)
         end
 
+        def remove_children_with_path(path, target)
+
+          components = path.split('/').keep_if do |c|
+            c != "."
+          end
+
+          remove_children_with_components(components, target)
+        end
+
         def create_children_with_components(components, target)
 
           component = components.shift
@@ -55,8 +64,11 @@ module Xcake
           child
         end
 
-        def remove_children_with_path(components, target)
-
+        def remove_children_with_components(components, target)
+          component = components.shift
+          child = children.find do |c|
+            c.component == component
+          end
         end
 
         def traverse(&block)
