@@ -117,9 +117,24 @@ module Xcake
             it 'should store the target once' do
               expect(@folder.targets.count).to eq(1)
             end
-
           end
+        end
 
+        context "when removing children" do
+
+          context "with file path" do
+
+            before :each do
+              @target = double()
+              @node = Node.new
+              @node.create_children_with_path("./file", @target)
+              @node.remove_children_with_path("./file", @target)
+            end
+
+            it 'should remove child' do
+              expect(@node.children.count).to eq(0)
+            end
+          end
         end
       end
     end
