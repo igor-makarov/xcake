@@ -69,6 +69,10 @@ module Xcake
           child = children.find do |c|
             c.component == component
           end
+
+          children.keep_if do |c|
+            c != child
+          end
         end
 
         def traverse(&block)
