@@ -136,7 +136,7 @@ module Xcake
             end
           end
 
-          context "with multiple targets and one is removed" do
+          context "with multiple targets and one target is removed" do
 
             before :each do
               @target = double()
