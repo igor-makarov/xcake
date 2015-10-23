@@ -62,6 +62,18 @@ module Xcake
             it 'should store one child' do
               expect(@node.children.count).to eq(1)
             end
+
+            context "for different targets" do
+
+              before :each do
+                @target2 = double()
+                @node.create_children_with_path("./file", @target2)
+              end
+
+              it 'should store both targets on child' do
+                expect(@node.children.count).to eq(2)
+              end
+            end
           end
 
           context "with folder path" do

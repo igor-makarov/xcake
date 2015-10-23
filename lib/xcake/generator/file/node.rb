@@ -54,10 +54,11 @@ module Xcake
             end
 
             child.parent = self
-            child.targets << target
 
             children << child
           end
+
+          child.targets << target unless child.targets.include? target
 
           child.create_children_with_components(components, target) if components.count > 0
 
@@ -78,7 +79,7 @@ module Xcake
 
           children.keep_if do |c|
             c != child ||
-            c.targets.any?
+            c.targets.count > 0
           end
         end
 
