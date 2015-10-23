@@ -52,6 +52,18 @@ module Xcake
 
           end
 
+          context "with same file" do
+            before :each do
+              @target = double()
+              @node = Node.new
+              @file = @node.create_children_with_path("./file", @target)
+            end
+
+            it 'should store one child' do
+              expect(@node.children.count).to eq(1)
+            end
+          end
+
           context "with folder path" do
 
             before :each do
