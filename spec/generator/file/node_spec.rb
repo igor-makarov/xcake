@@ -152,7 +152,7 @@ module Xcake
             end
 
             it 'should remove correct target' do
-              expect(@file.targets.first).to be(target2)
+              expect(@file.targets.first).to be(@target2)
             end
           end
         end
