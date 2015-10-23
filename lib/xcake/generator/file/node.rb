@@ -65,13 +65,20 @@ module Xcake
         end
 
         def remove_children_with_components(components, target)
+
           component = components.shift
+
           child = children.find do |c|
             c.component == component
           end
 
+          child.targets.keep_if do |t|
+            t != target
+          end
+
           children.keep_if do |c|
-            c != child
+            c != child ||
+            c.targets.any?
           end
         end
 
