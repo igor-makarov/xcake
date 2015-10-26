@@ -4,6 +4,8 @@ module Xcake
   module Generator
     class File
 
+#TODO: Test Path and create subscript tests
+
       describe Node do
 
         it 'initilizes the children' do
