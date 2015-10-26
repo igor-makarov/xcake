@@ -144,6 +144,8 @@ module Xcake
           end
         end
 
+        #TODO: Add tests for sub-children.
+
         context "when removing children" do
 
           context "with file path" do

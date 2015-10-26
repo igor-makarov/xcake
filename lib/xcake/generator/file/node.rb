@@ -75,6 +75,8 @@ module Xcake
 
           if child != nil
 
+            child.remove_children_with_components(components, target)
+
             child.targets.keep_if do |t|
               t != target
             end
