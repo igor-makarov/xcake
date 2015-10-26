@@ -4,7 +4,7 @@ module Xcake
   module Generator
     class File
 
-#TODO: Test Path and create subscript tests
+#TODO: Create subscript tests
 
       describe Node do
 
@@ -41,7 +41,7 @@ module Xcake
             end
 
             it 'should set the path' do
-              expect(@file.path).to eq("./file")
+              expect(@file.path).to eq("file")
             end
 
             it 'should set the parent' do
@@ -105,8 +105,8 @@ module Xcake
             end
 
             it 'should set the path' do
-              expect(@folder.path).to eq("./folder")
-              expect(@file.path).to eq("./folder/file")
+              expect(@folder.path).to eq("folder")
+              expect(@file.path).to eq("folder/file")
             end
 
             it 'should set the parent' do
