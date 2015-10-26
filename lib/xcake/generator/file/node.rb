@@ -83,6 +83,7 @@ module Xcake
 
             children.keep_if do |c|
               c != child ||
+              c.children.count > 0 ||
               c.targets.count > 0
             end
           end
