@@ -50,7 +50,7 @@ module Xcake
             if self.path
               child.path = "#{self.path}/#{component}"
             else
-              child.path = "./#{component}"
+              child.path = "#{component}"
             end
 
             child.parent = self
