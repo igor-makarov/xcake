@@ -73,13 +73,16 @@ module Xcake
             c.component == component
           end
 
-          child.targets.keep_if do |t|
-            t != target
-          end
+          if child != nil
 
-          children.keep_if do |c|
-            c != child ||
-            c.targets.count > 0
+            child.targets.keep_if do |t|
+              t != target
+            end
+
+            children.keep_if do |c|
+              c != child ||
+              c.targets.count > 0
+            end
           end
         end
 
