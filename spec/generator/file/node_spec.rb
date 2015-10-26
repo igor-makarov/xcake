@@ -198,7 +198,7 @@ module Xcake
                 @node.remove_children_with_path("./folder/file", @target)
               end
 
-              it 'should keep one child' do
+              it 'should keep folder' do
                 expect(@node.children.count).to eq(1)
               end
 
