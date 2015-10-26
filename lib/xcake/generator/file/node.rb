@@ -83,9 +83,6 @@ module Xcake
             end
 
             children.keep_if do |c|
-
-              puts child.path
-
               c != child ||
               c.children.count > 0 ||
               c.targets.count > 0
