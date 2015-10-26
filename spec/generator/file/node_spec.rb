@@ -4,7 +4,7 @@ module Xcake
   module Generator
     class File
 
-#TODO: Create subscript tests
+#TODO: Create subscript tests and breakdown existing functions.
 
       describe Node do
 
