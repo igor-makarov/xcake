@@ -160,25 +160,51 @@ module Xcake
             it 'should remove child' do
               expect(@node.children.count).to eq(0)
             end
+
+            context "with multiple targets and one target is removed" do
+
+              before :each do
+                @target = double()
+                @target2 = double()
+                @node = Node.new
+                @file = @node.create_children_with_path("./file", @target)
+                @node.create_children_with_path("./file", @target2)
+                @node.remove_children_with_path("./file", @target)
+              end
+
+              it 'should keep child' do
+                expect(@node.children.count).to eq(1)
+              end
+
+              it 'should remove correct target' do
+                expect(@file.targets.first).to be(@target2)
+              end
+            end
           end
 
-          context "with multiple targets and one target is removed" do
+          context "with folder path" do
 
             before :each do
               @target = double()
               @target2 = double()
               @node = Node.new
-              @file = @node.create_children_with_path("./file", @target)
-              @node.create_children_with_path("./file", @target2)
-              @node.remove_children_with_path("./file", @target)
+              @folder = @node.create_children_with_path("./folder/file", @target)
+              @folder2 = @node.create_children_with_path("./folder/file2", @target2)
             end
 
-            it 'should keep child' do
-              expect(@node.children.count).to eq(1)
-            end
+            context "with multiple targets and one target is removed" do
 
-            it 'should remove correct target' do
-              expect(@file.targets.first).to be(@target2)
+              before :each do
+                @node.remove_children_with_path("./folder/file", @target)
+              end
+
+              it 'should keep child' do
+                expect(@node.children.count).to eq(1)
+              end
+
+              it 'should remove correct target' do
+                expect(@folder.targets.first).to be(@target2)
+              end
             end
           end
         end
