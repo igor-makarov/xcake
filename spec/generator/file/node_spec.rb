@@ -71,7 +71,7 @@ module Xcake
               end
 
               it 'should store both targets on child' do
-                expect(@node.children.count).to eq(2)
+                expect(@file.targets.count).to eq(2)
               end
             end
           end
