@@ -75,7 +75,6 @@ module Xcake
 
           if child != nil
 
-            puts "Removing #{chid.path}"
             child.remove_children_with_components(components, target)
 
             child.targets.keep_if do |t|
