@@ -205,6 +205,10 @@ module Xcake
                 expect(@node.children.count).to eq(1)
               end
 
+              it 'should keep file' do
+                expect(@folder.children.count).to eq(1)
+              end
+
               it 'should remove correct target' do
                 expect(@folder.targets.first).to be(@target2)
               end
