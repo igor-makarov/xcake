@@ -192,6 +192,7 @@ module Xcake
               @node = Node.new
               @folder = @node.create_children_with_path("./folder/file", @target)
               @folder2 = @node.create_children_with_path("./folder/file2", @target2)
+              @node.create_children_with_path("./folder/file2", @target)
             end
 
             context "with multiple targets and one target is removed" do
