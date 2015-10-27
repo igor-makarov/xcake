@@ -5,7 +5,7 @@ module Xcake
     class Node
 
       module Type
-        DIRECTORY = "com.apple.folder"
+        DIRECTORY = "public.folder"
         FILE = "com.apple.file"
         FRAMEWORK = "com.apple.framework"
         LIBRARY = "com.apple.library"
@@ -97,16 +97,12 @@ module Xcake
       end
 
       def type
-        if ::File.directory?("./#{self.path}")
-          Type::DIRECTORY
-        else
-          Type::FILE
-        end
+        `mdls -raw -name kMDItemContentType #{self.path}`
       end
 
       def traverse(&block)
 
-        yield self
+        yield self if parent
 
         children.each do |c|
           c.traverse(&block)
