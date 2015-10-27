@@ -6,10 +6,6 @@ module Xcake
 
       module Type
         DIRECTORY = "public.directory"
-        FILE = "com.apple.file"
-        FRAMEWORK = "com.apple.framework"
-        LIBRARY = "com.apple.library"
-        BUNDLE = "com.apple.bundle"
         SOURCE = "public.source-code"
       end
 
