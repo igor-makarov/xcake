@@ -31,18 +31,9 @@ module Xcake
           project.targets << target
         end
 
-        main_group = project.main_group
         root_node.traverse do |n|
-          if n.type == Node::Type::DIRECTORY
-            main_group.find_subpath(n.path, true)
-          else
-            group = main_group.find_subpath(n.parent.path, true)
-            file = group.new_reference(n.path)
-
-            n.targets.each do |t|
-              t.resources_build_phase.add_file_reference(file)
-            end
-          end
+          installer = NodeInstaller.new(project.main_group)
+          installer.install(n)
         end
       end
     end
