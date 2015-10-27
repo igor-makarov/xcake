@@ -18,7 +18,7 @@ CoreFoundation.module_eval do
     KCFPropertyListImmutable = 0
 
     extern :CFDataCreate, [CFTypeRef, UInt8Pointer, CFIndex], CFTypeRef
-    extern :CFPropertyListCreateWithData, [CFTypeRef, CFTypeRef, CFIndex, CFOptionFlags, CFPropertyListFormatPointer, CFTypeRefPointer], CFTypeRef
+    extern :CFPropertyListCreateWithData, [CFTypeRef, CFTypeRef, CFOptionFlags, CFPropertyListFormatPointer, CFTypeRefPointer], CFTypeRef
 
     def self.RubyStringPropertyListRead(string)
 
@@ -29,7 +29,6 @@ CoreFoundation.module_eval do
       error_ptr = CFTypeRefPointer()
       plist = CFPropertyListCreateWithData(NULL,
                                            data,
-                                           0,
                                            KCFPropertyListImmutable,
                                            NULL,
                                            error_ptr)
