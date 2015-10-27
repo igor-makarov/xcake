@@ -15,15 +15,16 @@ CoreFoundation.module_eval do
     CFPropertyListFormatPointer = VoidPointer
     UInt8Pointer = VoidPointer
 
+    KCFPropertyListImmutable = 0
+
     extern :CFDataCreate, [CFTypeRef, UInt8Pointer, CFIndex], CFTypeRef
-    extern :CFPropertyListCreateWithStream, [CFTypeRef, CFTypeRef, CFIndex, CFOptionFlags, CFPropertyListFormatPointer, CFTypeRefPointer], CFTypeRef
+    extern :CFPropertyListCreateWithData, [CFTypeRef, CFTypeRef, CFIndex, CFOptionFlags, CFPropertyListFormatPointer, CFTypeRefPointer], CFTypeRef
 
     def self.RubyStringPropertyListRead(string)
 
-      string = RubyStringToCFString(string)
       data = CFDataCreate(NULL,
-                          string.to_value,
-                          string.size)
+                          string,
+                          string.bytesize)
 
       error_ptr = CFTypeRefPointer()
       plist = CFPropertyListCreateWithData(NULL,
