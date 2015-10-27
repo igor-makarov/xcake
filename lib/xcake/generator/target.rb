@@ -14,20 +14,25 @@ module Xcake
 
       def build
 
-        file_generator = File.new(cakefile, project)
+        node = Node.new
 
         cakefile.targets.each do |t|
 
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
 
-          file_generator.add_files(t.include_files, target) if t.include_files
-          file_generator.remove_files(t.exclude_files, target) if t.exclude_files
+          Dir.glob(t.include_files).each do |file|
+            root_node.create_children_with_path(file, target)
+          end if t.include_files
+
+          Dir.glob(t.exclude_files).each do |file|
+            root_node.remove_children_with_path(file, target)
+          end if t.exclude_files
 
           project.targets << target
         end
 
-        file_generator.build
+        node.install(project.main_group)
       end
     end
   end
