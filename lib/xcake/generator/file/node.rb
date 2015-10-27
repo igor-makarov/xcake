@@ -89,6 +89,17 @@ module Xcake
           end
         end
 
+        def install(main_group)
+          if ::File.directory?("./#{n.path}")
+#TODO: Handle different types and tweaking so group defaults to select targets in xcode
+            main_group.find_subpath(n.path, true)
+          else
+#TODO: Handle different types (i.e Frameworks and xcassets) and adding to phases for targets
+            group = main_group.find_subpath(n.parent.path, true)
+            group.new_reference(n.path)
+          end
+        end
+
         def traverse(&block)
           children.each do |c|
             block.call(c) if block_given?
