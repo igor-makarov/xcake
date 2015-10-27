@@ -22,11 +22,11 @@ module Xcake
           target.name = t.name
 
           Dir.glob(t.include_files).each do |file|
-            root_node.create_children_with_path(file, target)
+            node.create_children_with_path(file, target)
           end if t.include_files
 
           Dir.glob(t.exclude_files).each do |file|
-            root_node.remove_children_with_path(file, target)
+            node.remove_children_with_path(file, target)
           end if t.exclude_files
 
           project.targets << target
