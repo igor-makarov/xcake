@@ -7,6 +7,9 @@ module Xcake
       module Type
         DIRECTORY = "com.apple.folder"
         FILE = "com.apple.file"
+        FRAMEWORK = "com.apple.framework"
+        LIBRARY = "com.apple.library"
+        BUNDLE = "com.apple.bundle"
       end
 
       attr_accessor :component

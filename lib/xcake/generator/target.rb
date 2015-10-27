@@ -33,7 +33,6 @@ module Xcake
         end
 
         main_group = project.main_group
-
         node.traverse do |n|
           if n.type == Node::Type::DIRECTORY
             main_group.find_subpath(n.path, true)
