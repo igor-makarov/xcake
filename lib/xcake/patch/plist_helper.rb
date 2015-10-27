@@ -2,12 +2,15 @@ require 'xcodeproj'
 
 module CoreFoundation
 
+  extern :CFDataCreate, [CFTypeRef, UInt8Pointer, CFIndex], CFTypeRef
+  extern :CFPropertyListCreateWithStream, [CFTypeRef, CFTypeRef, CFIndex, CFOptionFlags, CFPropertyListFormatPointer, CFTypeRefPointer], CFTypeRef
+
   def self.RubyStringPropertyListRead(string)
 
     string = RubyStringToCFString(string)
     data = CFDataCreate(NULL,
-    string.to_value,
-    string.size)
+                        string.to_value,
+                        string.size)
 
     error_ptr = CFTypeRefPointer()
     plist = CFPropertyListCreateWithData(NULL,
