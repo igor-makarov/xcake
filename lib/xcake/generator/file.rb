@@ -31,12 +31,8 @@ module Xcake
       end
 
       def build
-
         main_group = project.main_group
-
-        root_node.traverse do |n|
-          n.install(main_group)
-        end
+        root_node.install(main_group)
       end
     end
   end
