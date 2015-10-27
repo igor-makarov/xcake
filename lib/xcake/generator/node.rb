@@ -10,6 +10,7 @@ module Xcake
         FRAMEWORK = "com.apple.framework"
         LIBRARY = "com.apple.library"
         BUNDLE = "com.apple.bundle"
+        SOURCE = "public.source-code"
       end
 
       attr_accessor :component

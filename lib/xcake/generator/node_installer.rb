@@ -19,13 +19,21 @@ module Xcake
       end
 
       def install(node)
-        if node.type_tree.include?(Node::Type::DIRECTORY) == false
+
+        type_tree = node.type_tree
+
+        if type_tree.include?(Node::Type::DIRECTORY) == false
           group = group_for_node(node)
-          puts group.class
           file = group.new_reference(node.path)
 
           node.targets.each do |t|
-            t.resources_build_phase.add_file_reference(file)
+
+            if type_tree.include?(Node::Type::SOURCE)
+              t.source_build_phase.add_file_reference(file)
+            else
+              t.resources_build_phase.add_file_reference(file)
+            end
+            
           end
         end
       end
