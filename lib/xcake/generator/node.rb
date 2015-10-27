@@ -5,7 +5,7 @@ module Xcake
     class Node
 
       module Type
-        DIRECTORY = "public.folder"
+        DIRECTORY = "public.directory"
         FILE = "com.apple.file"
         FRAMEWORK = "com.apple.framework"
         LIBRARY = "com.apple.library"
@@ -97,7 +97,7 @@ module Xcake
       end
 
       def type_tree
-        `mdls -plist - -name kMDItemContentTypeTree #{self.path}`
+        ::CoreFoundation.RubyStringPropertyListRead(`mdls -plist - -name kMDItemContentTypeTree #{self.path}`)["kMDItemContentTypeTree"]
       end
 
       def traverse(&block)
