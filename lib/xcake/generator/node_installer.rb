@@ -33,7 +33,7 @@ module Xcake
             else
               t.resources_build_phase.add_file_reference(file)
             end
-            
+
           end
         end
       end
