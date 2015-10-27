@@ -6,33 +6,33 @@ module Xcake
 
       attr_accessor :cakefile
       attr_accessor :project
+      attr_accessor :root_node
 
       def initialize(cakefile, project)
         self.cakefile = cakefile
         self.project = project
+        self.root_node = Node.new
       end
 
       def build
-        node = Node.new
-
         cakefile.targets.each do |t|
 
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
 
           Dir.glob(t.include_files).each do |file|
-            node.create_children_with_path(file, target)
+            root_node.create_children_with_path(file, target)
           end if t.include_files
 
           Dir.glob(t.exclude_files).each do |file|
-            node.remove_children_with_path(file, target)
+            root_node.remove_children_with_path(file, target)
           end if t.exclude_files
 
           project.targets << target
         end
 
         main_group = project.main_group
-        node.traverse do |n|
+        root_node.traverse do |n|
           if n.type == Node::Type::DIRECTORY
             main_group.find_subpath(n.path, true)
           else
