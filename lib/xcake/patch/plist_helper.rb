@@ -1,23 +1,21 @@
 require 'xcodeproj'
 
 module CoreFoundation
+
   def self.RubyStringPropertyListRead(string)
-    url = CFURLCreateFromFileSystemRepresentation(NULL,
-                                                  path,
-                                                  path.bytesize,
-                                                  FALSE)
-    stream = CFReadStreamCreateWithFile(NULL, url)
-    unless CFReadStreamOpen(stream) == TRUE
-      raise IOError, 'Unable to open stream.'
-    end
+
+    string = RubyStringToCFString(string)
+    data = CFDataCreate(NULL,
+    string.to_value,
+    string.size)
 
     error_ptr = CFTypeRefPointer()
-    plist = CFPropertyListCreateWithStream(NULL,
-                                           stream,
-                                           0,
-                                           KCFPropertyListImmutable,
-                                           NULL,
-                                           error_ptr)
+    plist = CFPropertyListCreateWithData(NULL,
+                                         data,
+                                         0,
+                                         KCFPropertyListImmutable,
+                                         NULL,
+                                         error_ptr)
     CFReadStreamClose(stream)
 
     if plist.null?
