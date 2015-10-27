@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F0D81EB9765533C510F782D"
+               BlueprintIdentifier = "F8B54D7C7286D98EB6CD5E9B"
                BuildableName = "SupTests"
                BlueprintName = "SupTests"
                ReferencedContainer = "container:Project.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F0D81EB9765533C510F782D"
+            BlueprintIdentifier = "F8B54D7C7286D98EB6CD5E9B"
             BuildableName = "SupTests"
             BlueprintName = "SupTests"
             ReferencedContainer = "container:Project.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F0D81EB9765533C510F782D"
+            BlueprintIdentifier = "F8B54D7C7286D98EB6CD5E9B"
             BuildableName = "SupTests"
             BlueprintName = "SupTests"
             ReferencedContainer = "container:Project.xcodeproj">

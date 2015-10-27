@@ -7,53 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0486068052828BFF10DB68E9 /* xcake.gemspec in Resources */ = {isa = PBXBuildFile; fileRef = 228500879AE37ED86B0E5988 /* xcake.gemspec */; };
-		23DC8D0B7AB32A7361430F39 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0BC06E9F06FD1A71CB68E253 /* README.md */; };
-		3EB9D8F2F3BE74C48F59B27E /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = 9765215FC8195663DF91B9DF /* CODE_OF_CONDUCT.md */; };
-		4841A82F58913272987D85EE /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 1A294A155F45EED89DB8DD5F /* Gemfile.lock */; };
-		816C6EE04A8B8B6EAD8F102F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3D2D142346AED366C3ABF3C /* LICENSE.txt */; };
-		83ECD8EA2D22C765DDAE6E53 /* txt.c in Sources */ = {isa = PBXBuildFile; fileRef = 44A54E47A6C5C9CD3D75C2E4 /* txt.c */; };
-		8FA51F3AD76D7F8098F86F58 /* xcake-0.1.0.gem in Resources */ = {isa = PBXBuildFile; fileRef = 14600F3534126D8E4500B853 /* xcake-0.1.0.gem */; };
+		146853CA3A68C2A362C1827F /* xcake-0.1.0.gem in Resources */ = {isa = PBXBuildFile; fileRef = CE58D7159174FB429FE3ABF9 /* xcake-0.1.0.gem */; };
+		19138A6ADF8053735826E9F6 /* txt.c in Sources */ = {isa = PBXBuildFile; fileRef = 8204921AEACF2FA1AEA27C52 /* txt.c */; };
+		2C0CE02733C44F6B907021F9 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 11CAC6DE1F922A5CE29E580E /* Gemfile.lock */; };
+		98DDAD05A914D21649250799 /* xcake.gemspec in Resources */ = {isa = PBXBuildFile; fileRef = CF1FD60FB37ED113224A6E23 /* xcake.gemspec */; };
+		ABA39BA73B7DA851BF33CB3F /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = 268390236B661F093071CB83 /* CODE_OF_CONDUCT.md */; };
+		DBF2B037C3C64B63C6E776DD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE3B9CDCB58CEC6F94A8CF5E /* README.md */; };
+		DFE8F448146B588F97D25EB8 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B91DDB62B08F700436B326C /* LICENSE.txt */; };
+		F5EE078ED21312F9D8E1B7F2 /* project.pbxproj in Resources */ = {isa = PBXBuildFile; fileRef = 600931AF7EE4C5A8B1728106 /* project.pbxproj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BC06E9F06FD1A71CB68E253 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		14600F3534126D8E4500B853 /* xcake-0.1.0.gem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "xcake-0.1.0.gem"; path = "pkg/xcake-0.1.0.gem"; sourceTree = "<group>"; };
-		1A294A155F45EED89DB8DD5F /* Gemfile.lock */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
-		228500879AE37ED86B0E5988 /* xcake.gemspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = xcake.gemspec; sourceTree = "<group>"; };
-		44A54E47A6C5C9CD3D75C2E4 /* txt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = txt.c; sourceTree = "<group>"; };
-		9765215FC8195663DF91B9DF /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
-		F3D2D142346AED366C3ABF3C /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		11CAC6DE1F922A5CE29E580E /* Gemfile.lock */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		268390236B661F093071CB83 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		40E613013A17DD795BC98DC7 /* text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		4B91DDB62B08F700436B326C /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		600931AF7EE4C5A8B1728106 /* project.pbxproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.pbxproject; name = project.pbxproj; path = Project.xcodeproj/project.pbxproj; sourceTree = "<group>"; };
+		7AC436E20BFDDBC43CAF956D /* test2.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; path = test2.hpp; sourceTree = "<group>"; };
+		8204921AEACF2FA1AEA27C52 /* txt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = txt.c; sourceTree = "<group>"; };
+		AE3B9CDCB58CEC6F94A8CF5E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CE58D7159174FB429FE3ABF9 /* xcake-0.1.0.gem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "xcake-0.1.0.gem"; path = "pkg/xcake-0.1.0.gem"; sourceTree = "<group>"; };
+		CF1FD60FB37ED113224A6E23 /* xcake.gemspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = xcake.gemspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		3951CC4CAA6DD3ED7B542073 /* pkg */ = {
+		0C8E41808BD0A805ED475990 /* pkg */ = {
 			isa = PBXGroup;
 			children = (
-				14600F3534126D8E4500B853 /* xcake-0.1.0.gem */,
+				CE58D7159174FB429FE3ABF9 /* xcake-0.1.0.gem */,
 			);
 			name = pkg;
 			sourceTree = "<group>";
 		};
-		A3539073340B5F1886FDFA13 = {
+		8D8FFE6942F2A9E3BE8162C4 /* Project.xcodeproj */ = {
 			isa = PBXGroup;
 			children = (
-				9765215FC8195663DF91B9DF /* CODE_OF_CONDUCT.md */,
-				1A294A155F45EED89DB8DD5F /* Gemfile.lock */,
-				F3D2D142346AED366C3ABF3C /* LICENSE.txt */,
-				3951CC4CAA6DD3ED7B542073 /* pkg */,
-				0BC06E9F06FD1A71CB68E253 /* README.md */,
-				44A54E47A6C5C9CD3D75C2E4 /* txt.c */,
-				228500879AE37ED86B0E5988 /* xcake.gemspec */,
+				600931AF7EE4C5A8B1728106 /* project.pbxproj */,
+			);
+			name = Project.xcodeproj;
+			sourceTree = "<group>";
+		};
+		CB674F3FE5DA1682A36EC7D2 = {
+			isa = PBXGroup;
+			children = (
+				268390236B661F093071CB83 /* CODE_OF_CONDUCT.md */,
+				11CAC6DE1F922A5CE29E580E /* Gemfile.lock */,
+				4B91DDB62B08F700436B326C /* LICENSE.txt */,
+				0C8E41808BD0A805ED475990 /* pkg */,
+				8D8FFE6942F2A9E3BE8162C4 /* Project.xcodeproj */,
+				AE3B9CDCB58CEC6F94A8CF5E /* README.md */,
+				7AC436E20BFDDBC43CAF956D /* test2.hpp */,
+				40E613013A17DD795BC98DC7 /* text.h */,
+				8204921AEACF2FA1AEA27C52 /* txt.c */,
+				CF1FD60FB37ED113224A6E23 /* xcake.gemspec */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F0D81EB9765533C510F782D /* SupTests */ = {
+		52E630281683412D35122194 /* Sup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 74F55E651BE0367A00542B5E /* Build configuration list */;
+			buildConfigurationList = 740397251BE03E6A00E7E336 /* Build configuration list */;
+			buildPhases = (
+				2C942C17F4BB11F012B3117C /* Resources */,
+				C651551941C0A8633D9225ED /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sup;
+			productName = Sup;
+		};
+		F8B54D7C7286D98EB6CD5E9B /* SupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 740397261BE03E6A00E7E336 /* Build configuration list */;
 			buildPhases = (
 			);
 			buildRules = (
@@ -63,87 +92,62 @@
 			name = SupTests;
 			productName = SupTests;
 		};
-		E61BBF33EE8767F5B94257D9 /* Sup */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74F55E641BE0367A00542B5E /* Build configuration list */;
-			buildPhases = (
-				E726EAA906597FA6AA0F623F /* Resources */,
-				569C5AD9BF536ABB1BB365D1 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Sup;
-			productName = Sup;
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1CECC60F7BD0825672E52B75 /* Project object */ = {
+		5DB6BB487CCC60C34FEE109F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 29A03CD329127F88AD50BFFE /* Build configuration list for PBXProject "Project" */;
+			buildConfigurationList = A30917867109A0DAF4064A5C /* Build configuration list for PBXProject "Project" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A3539073340B5F1886FDFA13;
+			mainGroup = CB674F3FE5DA1682A36EC7D2;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E61BBF33EE8767F5B94257D9 /* Sup */,
-				5F0D81EB9765533C510F782D /* SupTests */,
+				52E630281683412D35122194 /* Sup */,
+				F8B54D7C7286D98EB6CD5E9B /* SupTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E726EAA906597FA6AA0F623F /* Resources */ = {
+		2C942C17F4BB11F012B3117C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EB9D8F2F3BE74C48F59B27E /* CODE_OF_CONDUCT.md in Resources */,
-				4841A82F58913272987D85EE /* Gemfile.lock in Resources */,
-				816C6EE04A8B8B6EAD8F102F /* LICENSE.txt in Resources */,
-				8FA51F3AD76D7F8098F86F58 /* xcake-0.1.0.gem in Resources */,
-				23DC8D0B7AB32A7361430F39 /* README.md in Resources */,
-				0486068052828BFF10DB68E9 /* xcake.gemspec in Resources */,
+				ABA39BA73B7DA851BF33CB3F /* CODE_OF_CONDUCT.md in Resources */,
+				2C0CE02733C44F6B907021F9 /* Gemfile.lock in Resources */,
+				DFE8F448146B588F97D25EB8 /* LICENSE.txt in Resources */,
+				146853CA3A68C2A362C1827F /* xcake-0.1.0.gem in Resources */,
+				F5EE078ED21312F9D8E1B7F2 /* project.pbxproj in Resources */,
+				DBF2B037C3C64B63C6E776DD /* README.md in Resources */,
+				98DDAD05A914D21649250799 /* xcake.gemspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		569C5AD9BF536ABB1BB365D1 /* Sources */ = {
+		C651551941C0A8633D9225ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83ECD8EA2D22C765DDAE6E53 /* txt.c in Sources */,
+				19138A6ADF8053735826E9F6 /* txt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		14840FE24B84FC4ECD1F66FF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		7457579346F45A3E569F89F6 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Beta;
-		};
-		74F55E5E1BE0367A00542B5E /* Debug */ = {
+		7403971F1BE03E6A00E7E336 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -153,14 +157,14 @@
 			};
 			name = Debug;
 		};
-		74F55E5F1BE0367A00542B5E /* Beta */ = {
+		740397201BE03E6A00E7E336 /* Beta */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = Sup;
 			};
 			name = Beta;
 		};
-		74F55E601BE0367A00542B5E /* Release */ = {
+		740397211BE03E6A00E7E336 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -169,7 +173,7 @@
 			};
 			name = Release;
 		};
-		74F55E611BE0367A00542B5E /* Debug */ = {
+		740397221BE03E6A00E7E336 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -179,14 +183,14 @@
 			};
 			name = Debug;
 		};
-		74F55E621BE0367A00542B5E /* Beta */ = {
+		740397231BE03E6A00E7E336 /* Beta */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = SupTests;
 			};
 			name = Beta;
 		};
-		74F55E631BE0367A00542B5E /* Release */ = {
+		740397241BE03E6A00E7E336 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -195,7 +199,19 @@
 			};
 			name = Release;
 		};
-		CA67B1FB81F2C49E50681A43 /* Release */ = {
+		9B29585DBC1A12AE4D0FE03F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		E71FB85AFA9A1511ED3CD2AB /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Beta;
+		};
+		F3FB8EA8655D6FC975FCF065 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -204,37 +220,37 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29A03CD329127F88AD50BFFE /* Build configuration list for PBXProject "Project" */ = {
+		740397251BE03E6A00E7E336 /* Build configuration list */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14840FE24B84FC4ECD1F66FF /* Debug */,
-				7457579346F45A3E569F89F6 /* Beta */,
-				CA67B1FB81F2C49E50681A43 /* Release */,
+				7403971F1BE03E6A00E7E336 /* Debug */,
+				740397201BE03E6A00E7E336 /* Beta */,
+				740397211BE03E6A00E7E336 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74F55E641BE0367A00542B5E /* Build configuration list */ = {
+		740397261BE03E6A00E7E336 /* Build configuration list */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74F55E5E1BE0367A00542B5E /* Debug */,
-				74F55E5F1BE0367A00542B5E /* Beta */,
-				74F55E601BE0367A00542B5E /* Release */,
+				740397221BE03E6A00E7E336 /* Debug */,
+				740397231BE03E6A00E7E336 /* Beta */,
+				740397241BE03E6A00E7E336 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74F55E651BE0367A00542B5E /* Build configuration list */ = {
+		A30917867109A0DAF4064A5C /* Build configuration list for PBXProject "Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74F55E611BE0367A00542B5E /* Debug */,
-				74F55E621BE0367A00542B5E /* Beta */,
-				74F55E631BE0367A00542B5E /* Release */,
+				9B29585DBC1A12AE4D0FE03F /* Debug */,
+				E71FB85AFA9A1511ED3CD2AB /* Beta */,
+				F3FB8EA8655D6FC975FCF065 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1CECC60F7BD0825672E52B75 /* Project object */;
+	rootObject = 5DB6BB487CCC60C34FEE109F /* Project object */;
 }

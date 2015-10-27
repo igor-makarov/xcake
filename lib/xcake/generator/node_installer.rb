@@ -18,6 +18,10 @@ module Xcake
         end
       end
 
+      def is_header(type_tree)
+        type_tree.first.include?("header")
+      end
+
       def install(node)
 
         type_tree = node.type_tree
@@ -27,13 +31,13 @@ module Xcake
           file = group.new_reference(node.path)
 
           node.targets.each do |t|
-
-            if type_tree.include?(Node::Type::SOURCE)
-              t.source_build_phase.add_file_reference(file)
-            else
-              t.resources_build_phase.add_file_reference(file)
+            if is_header(type_tree) == false
+              if type_tree.include?(Node::Type::SOURCE)
+                t.source_build_phase.add_file_reference(file)
+              else
+                t.resources_build_phase.add_file_reference(file)
+              end
             end
-
           end
         end
       end
