@@ -32,7 +32,16 @@ module Xcake
           project.targets << target
         end
 
-        node.install(project.main_group)
+        main_group = project.main_group
+
+        node.traverse do |n|
+          if n.type == Node::Type::DIRECTORY
+            main_group.find_subpath(n.path, true)
+          else
+            group = main_group.find_subpath(n.parent.path, true)
+            group.new_reference(n.path)
+          end
+        end
       end
     end
   end

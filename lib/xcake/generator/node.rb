@@ -4,6 +4,11 @@ module Xcake
   module Generator
     class Node
 
+      module Type
+        DIRECTORY = "com.apple.folder"
+        FILE = "com.apple.file"
+      end
+
       attr_accessor :component
       attr_accessor :path
       attr_accessor :parent
@@ -88,18 +93,20 @@ module Xcake
         end
       end
 
-      def install(main_group)
+      def type
         if ::File.directory?("./#{self.path}")
-#TODO: Handle different types and tweaking so group defaults to select targets in xcode
-          main_group.find_subpath(self.path, true)
+          Type::DIRECTORY
         else
-#TODO: Handle different types (i.e Frameworks and xcassets) and adding to phases for targets
-          group = main_group.find_subpath(self.parent.path, true)
-          group.new_reference(self.path)
+          Type::FILE
         end
+      end
+
+      def traverse(&block)
+
+        yield self
 
         children.each do |c|
-          c.install(main_group)
+          c.traverse(&block)
         end
       end
     end
