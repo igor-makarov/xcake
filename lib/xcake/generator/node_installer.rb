@@ -11,7 +11,7 @@ module Xcake
       end
 
       def install(node)
-        if node.type == Node::Type::DIRECTORY
+        if node.type_tree.include? Node::Type::DIRECTORY
           main_group.find_subpath(node.path, true)
         else
           group = main_group.find_subpath(node.parent.path, true)

@@ -96,8 +96,8 @@ module Xcake
         end
       end
 
-      def type
-        `mdls -raw -name kMDItemContentType #{self.path}`
+      def type_tree
+        `mdls -plist - -name kMDItemContentTypeTree #{self.path}`
       end
 
       def traverse(&block)
