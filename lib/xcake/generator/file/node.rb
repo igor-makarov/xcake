@@ -90,7 +90,7 @@ module Xcake
         end
 
         def install(main_group)
-          if ::File.directory?("./#{n.path}")
+          if ::File.directory?("./#{self.path}")
 #TODO: Handle different types and tweaking so group defaults to select targets in xcode
             main_group.find_subpath(self.path, true)
           else
