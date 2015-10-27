@@ -6,10 +6,10 @@ require "xcake/generator/node"
 require "xcake/generator/node_installer"
 require "xcake/generator/project"
 require "xcake/generator/target"
-require "xcake/patch/plist_helper"
 require "xcake/target"
 require "xcake/version"
 require "xcake/xcode/project"
+require "xcake/xcode/plist_helper"
 
 module Xcake
 
