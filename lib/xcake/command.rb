@@ -12,7 +12,6 @@ module Xcake
         c.build_configuration "Beta"
         c.build_configuration "Release"
 
-#TODO: Improve this syntax for specifying target type.
         c.target "Sup", :application, :ios do |t|
 
           t.include_files = "./**/*.*"
@@ -21,6 +20,22 @@ module Xcake
         end
 
         c.target "SupTests"
+
+#TODO: Build this new syntax
+        #c.application do |a|
+          #c.name = "Sup"
+          #c.platform = iOS(8.1)
+        #end
+
+        #c.tests_for "Sup" |t|
+          #t.name = "SupTest"
+        #end
+
+        #c.extension_for "Sup"do |e|
+          #e.name = "SupWatchExtension"
+          #e.platform = Watch(2.0)
+        #end
+
       end
 
       generator = Generator::Project.new(cakefile)
