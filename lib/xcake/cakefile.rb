@@ -17,8 +17,8 @@ module Xcake
       self.build_configurations << BuildConfiguration.new(name)
     end
 
-    def target(name, &block)
-      self.targets << Target.new(name, &block)
+    def target(name, type, platform, &block)
+      self.targets << Target.new(name, type, platform, &block)
     end
   end
 end

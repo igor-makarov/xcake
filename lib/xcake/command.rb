@@ -12,7 +12,8 @@ module Xcake
         c.build_configuration "Beta"
         c.build_configuration "Release"
 
-        c.target "Sup" do |t|
+#TODO: Improve this syntax for specifying target type.
+        c.target "Sup", :application, :ios do |t|
 
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
