@@ -26,9 +26,12 @@ module Xcake
       target
     end
 
-    def application_for(platform_type, deployment_version, &block)
+    def application_for(platform, deployment_target, &block)
       application_target = target(&block)
+      
       application_target.type = :application
+      application_target.platform = platform
+      application_target.deployment_target = deployment_target
 
       application_target
     end
