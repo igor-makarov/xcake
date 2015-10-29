@@ -7,6 +7,7 @@ module Xcake
     self.description = 'Create and maintain Xcode project files easily.'
 
     def run
+      
       cakefile = Cakefile.new do |c|
         c.build_configuration "Debug"
         c.build_configuration "Beta"

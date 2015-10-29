@@ -1,5 +1,7 @@
 require 'xcodeproj'
 
+#TODO: Refactor this.
+
 module Xcake
   module Generator
     class Node

@@ -26,7 +26,7 @@ module Xcake
 
         type_tree = node.type_tree
 
-        #TODO: Create Node Installers
+        #TODO: Create Modular Node Installers
         if type_tree.include?(Node::Type::DIRECTORY) == false
           group = group_for_node(node)
           file = group.new_reference(node.path)

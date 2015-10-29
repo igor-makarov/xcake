@@ -14,13 +14,22 @@ module Xcake
         self.root_node = Node.new
       end
 
+      def configure_target(target, platform, deployment_target)
+        puts platform
+        puts deployment_target
+      end
+
       def build
         cakefile.targets.each do |t|
+
+#TODO: Refactor this.
 
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
           target.product_name = t.name
           target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
+
+          configure_target(target, t.platform, t.deployment_target)
 
           Dir.glob(t.include_files).each do |file|
             root_node.create_children_with_path(file, target)
