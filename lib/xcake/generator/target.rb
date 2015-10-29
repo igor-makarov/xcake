@@ -19,6 +19,7 @@ module Xcake
 
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
+          target.product_name = name
           target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
 
           Dir.glob(t.include_files).each do |file|
