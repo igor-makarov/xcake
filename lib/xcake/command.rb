@@ -12,10 +12,9 @@ module Xcake
         c.build_configuration "Beta"
         c.build_configuration "Release"
 
-        c.application "Sup" do |t|
+        c.application do |t|
 
           t.name = "Sup"
-          t.type = :application
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
 
