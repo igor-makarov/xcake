@@ -12,7 +12,7 @@ module Xcake
         c.build_configuration "Beta"
         c.build_configuration "Release"
 
-        c.application_for :ios 8.0 do |t|
+        c.application_for :ios, 8.0 do |t|
 
           t.name = "Sup"
           t.include_files = "./**/*.*"
