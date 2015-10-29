@@ -37,10 +37,26 @@ module Xcake
 
     it "should store targets when created" do
       cakefile = Cakefile.new do |c|
-        c.target "Target"
+        c.target
       end
 
       expect(cakefile.targets.count).to eq(1)
+    end
+
+    context "when creating application" do
+      before :each do
+        @cakefile = Cakefile.new do |c|
+          @target = c.application
+        end
+      end
+
+      it "should store targets when created" do
+        expect(@cakefile.targets.count).to eq(1)
+      end
+
+      it "should store set type to application" do
+        expect(@target.type).to eq(:application)
+      end
     end
   end
 end

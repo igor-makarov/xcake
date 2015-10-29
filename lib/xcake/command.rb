@@ -21,19 +21,39 @@ module Xcake
 
         c.target "SupTests"
 
-#TODO: Build this new syntax
+#TODO: Build this new syntax, but add methods into Target to make it possible with this.
         #c.application do |a|
           #c.name = "Sup"
           #c.platform = iOS(8.1)
+          #c.language = :swift
         #end
 
-        #c.tests_for "Sup" |t|
+        #c.unit_tests_for "Sup" |t|
           #t.name = "SupTest"
+          #t.language = :swift
         #end
 
-        #c.extension_for "Sup"do |e|
+        #c.ui_tests_for "Sup" |t|
+          #t.name = "SupTest"
+          #t.language = :swift
+        #end
+
+        #c.extension_for "Sup" do |e|
           #e.name = "SupWatchExtension"
           #e.platform = Watch(2.0)
+          #e.language = :swift
+        #end
+
+        #c.library do |e|
+          #e.name = "SupCore"
+          #e.platform = Watch(2.0)
+          #e.language = :swift
+        #end
+
+        #c.framework do |e|
+          #e.name = "SupCore"
+          #e.platform = Watch(2.0)
+          #e.language = :swift
         #end
 
       end

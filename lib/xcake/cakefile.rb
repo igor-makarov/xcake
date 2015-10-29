@@ -1,3 +1,5 @@
+require 'xcodeproj'
+
 module Xcake
   class Cakefile
 
@@ -17,8 +19,18 @@ module Xcake
       self.build_configurations << BuildConfiguration.new(name)
     end
 
-    def target(name, type, platform, &block)
-      self.targets << Target.new(name, type, platform, &block)
+    def target(&block)
+      target = Target.new(&block)
+      self.targets << target
+
+      target
+    end
+
+    def application(&block)
+      application_target = target(&block)
+      application_target.type = :application
+
+      application_target
     end
   end
 end

@@ -7,11 +7,7 @@ module Xcake
     attr_accessor :include_files
     attr_accessor :exclude_files
 
-    def initialize(name, type, platform, &block)
-      self.name = name
-      self.type = type
-      self.platform = platform
-
+    def initialize(&block)
       block.call(self) if block_given?
     end
   end
