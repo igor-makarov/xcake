@@ -20,8 +20,6 @@ module Xcake
 
         end
 
-        c.target "SupTests"
-
 #TODO: Build this new syntax, but add methods into Target to make it possible with this.
         #c.application do |a|
           #c.name = "Sup"
