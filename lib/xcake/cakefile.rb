@@ -3,7 +3,7 @@ require 'xcodeproj'
 module Xcake
   class Cakefile
 
-    include Xcake::BuildConfigurable
+    include BuildConfigurable
 
     attr_accessor :project_name
     attr_accessor :targets

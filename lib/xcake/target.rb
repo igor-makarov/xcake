@@ -1,7 +1,7 @@
 module Xcake
   class Target
 
-    include Xcake::BuildConfigurable
+    include BuildConfigurable
 
     attr_accessor :name
     attr_accessor :type
