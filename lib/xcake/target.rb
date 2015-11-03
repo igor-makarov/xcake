@@ -23,13 +23,14 @@ module Xcake
       # product = product_group.new_product_ref_for_target(name, type)
       # target.product_reference = product
       #
-      # # Build phases
-      # target.build_phases << project.new(PBXSourcesBuildPhase)
-      # target.build_phases << project.new(PBXFrameworksBuildPhase)
-      #
-      # # Frameworks
-      # framework_name = (platform == :osx) ? 'Cocoa' : 'Foundation'
-      # target.add_system_framework(framework_name)
+    end
+
+    def system_frameworks
+      @system_frameworks ||= default_system_frameworks_for self.platform
+    end
+
+    def default_system_frameworks_for(platform)
+      (platform == :ios) ? ['Foundation'] : ['Cocoa']
     end
   end
 end
