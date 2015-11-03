@@ -3,20 +3,16 @@ require 'xcodeproj'
 module Xcake
   class Cakefile
 
-    attr_accessor :build_configurations
+    include Xcake::BuildConfigurable
+
     attr_accessor :project_name
     attr_accessor :targets
 
     def initialize(name="Project", &block)
-      self.build_configurations = []
       self.project_name = name
       self.targets = []
 
       block.call(self) if block_given?
-    end
-
-    def build_configuration(name)
-      self.build_configurations << BuildConfiguration.new(name)
     end
 
     def target(&block)
@@ -28,7 +24,7 @@ module Xcake
 
     def application_for(platform, deployment_target, &block)
       application_target = target(&block)
-      
+
       application_target.type = :application
       application_target.platform = platform
       application_target.deployment_target = deployment_target
