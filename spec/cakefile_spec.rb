@@ -46,7 +46,7 @@ module Xcake
     context "when creating application" do
       before :each do
         @cakefile = Cakefile.new do |c|
-          @target = c.application_for :ios 8.0
+          @target = c.application_for :ios, 8.0
         end
       end
 
