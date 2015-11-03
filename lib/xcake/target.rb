@@ -3,7 +3,6 @@ module Xcake
 
     include BuildConfigurable
 
-    attr_accessor :name
     attr_accessor :type
     attr_accessor :platform
     attr_accessor :deployment_target

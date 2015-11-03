@@ -9,6 +9,7 @@ module Xcake
     attr_accessor :targets
 
     def initialize(name="Project", &block)
+      
       self.project_name = name
       self.targets = []
 
