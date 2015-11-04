@@ -31,6 +31,9 @@ module Xcake
       def build_xcode_build_configurations(project)
         generator = BuildConfiguration.new(cakefile, project)
         generator.build
+
+        build_configuration_list = project.build_configuration_list
+        build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
       end
 
       def build_targets(project)
