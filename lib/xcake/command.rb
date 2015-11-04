@@ -14,7 +14,7 @@ module Xcake
 
         c.build_configuration :Debug do |b|
 
-          b.settings = b.debug_settings
+          b.settings = b.debug_settings #TODO: Figure out way of remove need of user to do this.
           b.settings["PRODUCT_NAME"] = "You"
 
           #b.preprocessor_macro["DEBUG"] = 1
@@ -23,7 +23,7 @@ module Xcake
 
         c.build_configuration :Beta do |b|
 
-          b.settings = b.debug_settings
+          b.settings = b.debug_settings #TODO: Figure out way of remove need of user to do this.
           b.settings["PRODUCT_NAME"] = "I Love"
 
           #b.preprocessor_macro["BETA"] = 1
