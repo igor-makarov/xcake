@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04117605A0201A02FA9E0622 /* xcake.gemspec in Resources */ = {isa = PBXBuildFile; fileRef = 8111286B62CC5EA90D20C5D5 /* xcake.gemspec */; };
+		17C37B2A05EB66D2F4AAF21B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E034CADE724567B83F40172A /* LICENSE.txt */; };
+		2FB0B7E2915F00F012D29434 /* txt.c in Sources */ = {isa = PBXBuildFile; fileRef = 13DE6F160C4BEC24AA724242 /* txt.c */; };
+		411B4D1A85269C85C949F09D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DF693993EB29EDA03FF69875 /* README.md */; };
+		589B5905A96F7BEABF331854 /* DTE72PCU7D.cer in Resources */ = {isa = PBXBuildFile; fileRef = 6E0EF79923713ADFD8B07C2A /* DTE72PCU7D.cer */; };
+		A29A0AA04FB8DF76124D1A02 /* xcake-0.1.0.gem in Resources */ = {isa = PBXBuildFile; fileRef = 298050AEA737F8AED34DB3C4 /* xcake-0.1.0.gem */; };
+		CA473C82E06F0AC229F6FB39 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 96920B620AB38AA3D7227CAA /* Gemfile.lock */; };
+		EDD8ABE6259089FABA9EFFF0 /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = 701FA758A8AE35AC27140B98 /* CODE_OF_CONDUCT.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13DE6F160C4BEC24AA724242 /* txt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = txt.c; sourceTree = "<group>"; };
+		298050AEA737F8AED34DB3C4 /* xcake-0.1.0.gem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "xcake-0.1.0.gem"; path = "pkg/xcake-0.1.0.gem"; sourceTree = "<group>"; };
+		6E0EF79923713ADFD8B07C2A /* DTE72PCU7D.cer */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = DTE72PCU7D.cer; path = cache/DTE72PCU7D.cer; sourceTree = "<group>"; };
+		701FA758A8AE35AC27140B98 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		8111286B62CC5EA90D20C5D5 /* xcake.gemspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = xcake.gemspec; sourceTree = "<group>"; };
+		96920B620AB38AA3D7227CAA /* Gemfile.lock */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		A571B34F4F0A05CC4A4E9841 /* text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		DAD92C7B37C29E8FEE875945 /* test2.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; path = test2.hpp; sourceTree = "<group>"; };
+		DF693993EB29EDA03FF69875 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E034CADE724567B83F40172A /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		FB08689FD5A807ABE25701A0 /* Sup. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; name = Sup.; path = Sup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2E11C6E1C91B38E0C4F344E0 /* pkg */ = {
+			isa = PBXGroup;
+			children = (
+				298050AEA737F8AED34DB3C4 /* xcake-0.1.0.gem */,
+			);
+			name = pkg;
+			sourceTree = "<group>";
+		};
+		4BEA69F40EA21EADE2DA105C = {
+			isa = PBXGroup;
+			children = (
+				BC9122F3E9F89327DCA96E8E /* Products */,
+				7E344C7FAB79411BB987DA13 /* cache */,
+				701FA758A8AE35AC27140B98 /* CODE_OF_CONDUCT.md */,
+				96920B620AB38AA3D7227CAA /* Gemfile.lock */,
+				E034CADE724567B83F40172A /* LICENSE.txt */,
+				2E11C6E1C91B38E0C4F344E0 /* pkg */,
+				DF693993EB29EDA03FF69875 /* README.md */,
+				DAD92C7B37C29E8FEE875945 /* test2.hpp */,
+				A571B34F4F0A05CC4A4E9841 /* text.h */,
+				13DE6F160C4BEC24AA724242 /* txt.c */,
+				8111286B62CC5EA90D20C5D5 /* xcake.gemspec */,
+			);
+			sourceTree = "<group>";
+		};
+		7E344C7FAB79411BB987DA13 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				6E0EF79923713ADFD8B07C2A /* DTE72PCU7D.cer */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		BC9122F3E9F89327DCA96E8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB08689FD5A807ABE25701A0 /* Sup. */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		487D3FC5A21D8719CD25EF1C /* Sup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 749D11AB1BEAAE6500163A05 /* Build configuration list */;
+			buildPhases = (
+				7AF896BF1BECCB4FC29C78EE /* Resources */,
+				B3FD24F64A3DE7B4FBD2E109 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sup;
+			productName = Sup;
+			productReference = FB08689FD5A807ABE25701A0 /* Sup. */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBE35B4527325A203E0FB401 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 12119C46BC6833182BAE33D8 /* Build configuration list for PBXProject "Project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4BEA69F40EA21EADE2DA105C;
+			productRefGroup = BC9122F3E9F89327DCA96E8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				487D3FC5A21D8719CD25EF1C /* Sup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AF896BF1BECCB4FC29C78EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				589B5905A96F7BEABF331854 /* DTE72PCU7D.cer in Resources */,
+				EDD8ABE6259089FABA9EFFF0 /* CODE_OF_CONDUCT.md in Resources */,
+				CA473C82E06F0AC229F6FB39 /* Gemfile.lock in Resources */,
+				17C37B2A05EB66D2F4AAF21B /* LICENSE.txt in Resources */,
+				A29A0AA04FB8DF76124D1A02 /* xcake-0.1.0.gem in Resources */,
+				411B4D1A85269C85C949F09D /* README.md in Resources */,
+				04117605A0201A02FA9E0622 /* xcake.gemspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3FD24F64A3DE7B4FBD2E109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FB0B7E2915F00F012D29434 /* txt.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4DEE6A6FE3231A7FA09D1D8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = Helen;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		749D11A81BEAAE6500163A05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Sup;
+			};
+			name = Debug;
+		};
+		749D11A91BEAAE6500163A05 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Sup;
+			};
+			name = Beta;
+		};
+		749D11AA1BEAAE6500163A05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Sup;
+			};
+			name = Release;
+		};
+		D4F777BA9CFE5F3D1A365950 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "I Love";
+			};
+			name = Beta;
+		};
+		F5921500E86A42847799ACD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = You;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12119C46BC6833182BAE33D8 /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5921500E86A42847799ACD5 /* Debug */,
+				D4F777BA9CFE5F3D1A365950 /* Beta */,
+				4DEE6A6FE3231A7FA09D1D8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		749D11AB1BEAAE6500163A05 /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				749D11A81BEAAE6500163A05 /* Debug */,
+				749D11A91BEAAE6500163A05 /* Beta */,
+				749D11AA1BEAAE6500163A05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBE35B4527325A203E0FB401 /* Project object */;
+}
