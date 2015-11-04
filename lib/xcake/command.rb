@@ -13,6 +13,7 @@ module Xcake
         #c.default_configuration :release
 
         #c.build_configuration :all do |b|
+          #b["BRIDGE_HEADER"] = "./Magic.pch"
           #b.preprocessor_macro["API_URL"] = "http://supdev.firebaseio.com/".to_objc
         #end
 
