@@ -6,7 +6,7 @@ module Xcake
     def initialize(name, &block)
       self.name = name
       self.settings = {}
-      
+
       block.call(self) if block_given?
     end
   end

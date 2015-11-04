@@ -6,8 +6,9 @@ module Xcake
       @build_configurations ||= []
     end
 
-    def build_configuration(name)
-      self.build_configurations << BuildConfiguration.new(name)
+    def build_configuration(name, &block)
+      build_configuration = BuildConfiguration.new(name, &block)
+      self.build_configurations << build_configuration
     end
   end
 end

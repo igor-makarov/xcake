@@ -34,7 +34,9 @@ module Xcake
 
         c.build_configuration "Debug"
         c.build_configuration "Beta"
-        c.build_configuration "Release"
+        c.build_configuration "Release" do |b|
+          b.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
+        end
 
         c.application_for :ios, 8.0 do |t|
 

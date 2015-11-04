@@ -1,0 +1,220 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11E515A7743ADDDFB47DFB46 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8A09819C75C002DDA3CCAE34 /* README.md */; };
+		49910136A226F534DA0E0E9C /* CODE_OF_CONDUCT.md in Resources */ = {isa = PBXBuildFile; fileRef = B696B50DD8C093535255BAB1 /* CODE_OF_CONDUCT.md */; };
+		59CF6BAE179EC782F925BCA9 /* xcake.gemspec in Resources */ = {isa = PBXBuildFile; fileRef = 284168969132C137DFB9E18D /* xcake.gemspec */; };
+		6D032187D8C48634BA852CEB /* txt.c in Sources */ = {isa = PBXBuildFile; fileRef = 434048B76D5048C8107854F4 /* txt.c */; };
+		83E45D47CAAAC7A4CBC5D338 /* DTE72PCU7D.cer in Resources */ = {isa = PBXBuildFile; fileRef = B7F2180A186F45CEABEB245C /* DTE72PCU7D.cer */; };
+		CB81E64A3C045000F400E5AA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = FCAA2EE858CBAF395489F2D3 /* LICENSE.txt */; };
+		CBF9ED11EEBD67A5EB261882 /* xcake-0.1.0.gem in Resources */ = {isa = PBXBuildFile; fileRef = 7E6AFC95A48FDA1651D3F28D /* xcake-0.1.0.gem */; };
+		D4B0DB86129936D079A7F51B /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 91F40E662AB5915109B02461 /* Gemfile.lock */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1462050C817DB8259A5C9CA7 /* text.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		284168969132C137DFB9E18D /* xcake.gemspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = xcake.gemspec; sourceTree = "<group>"; };
+		434048B76D5048C8107854F4 /* txt.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = txt.c; sourceTree = "<group>"; };
+		7E6AFC95A48FDA1651D3F28D /* xcake-0.1.0.gem */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "xcake-0.1.0.gem"; path = "pkg/xcake-0.1.0.gem"; sourceTree = "<group>"; };
+		808AB617389FD8A5440FBF74 /* test2.hpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; path = test2.hpp; sourceTree = "<group>"; };
+		8A09819C75C002DDA3CCAE34 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		91F40E662AB5915109B02461 /* Gemfile.lock */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		B696B50DD8C093535255BAB1 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		B7F2180A186F45CEABEB245C /* DTE72PCU7D.cer */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = DTE72PCU7D.cer; path = cache/DTE72PCU7D.cer; sourceTree = "<group>"; };
+		F5CB943C9F61E35A4BF29CC5 /* Sup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCAA2EE858CBAF395489F2D3 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0E8D6FB653B0AD3EDEEB6F5C /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				B7F2180A186F45CEABEB245C /* DTE72PCU7D.cer */,
+			);
+			name = cache;
+			sourceTree = "<group>";
+		};
+		39CB0312186AAB4FF77511B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5CB943C9F61E35A4BF29CC5 /* Sup.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5828691FA07C49C9CD948C19 /* pkg */ = {
+			isa = PBXGroup;
+			children = (
+				7E6AFC95A48FDA1651D3F28D /* xcake-0.1.0.gem */,
+			);
+			name = pkg;
+			sourceTree = "<group>";
+		};
+		D8C4FCDB8DA4E0E1F6642880 = {
+			isa = PBXGroup;
+			children = (
+				39CB0312186AAB4FF77511B3 /* Products */,
+				0E8D6FB653B0AD3EDEEB6F5C /* cache */,
+				B696B50DD8C093535255BAB1 /* CODE_OF_CONDUCT.md */,
+				91F40E662AB5915109B02461 /* Gemfile.lock */,
+				FCAA2EE858CBAF395489F2D3 /* LICENSE.txt */,
+				5828691FA07C49C9CD948C19 /* pkg */,
+				8A09819C75C002DDA3CCAE34 /* README.md */,
+				808AB617389FD8A5440FBF74 /* test2.hpp */,
+				1462050C817DB8259A5C9CA7 /* text.h */,
+				434048B76D5048C8107854F4 /* txt.c */,
+				284168969132C137DFB9E18D /* xcake.gemspec */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B036DBA93809F3586C6463D8 /* Sup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74DB111F1BEAA813008637A9 /* Build configuration list for PBXNativeTarget "Sup" */;
+			buildPhases = (
+				613E5625D1725ABE6E7419B6 /* Resources */,
+				097293692FABA7008CAA5EFC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sup;
+			productName = Sup;
+			productReference = F5CB943C9F61E35A4BF29CC5 /* Sup.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67EFE7BC8644F12BA0825F4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 74885121795BCCBCD8D42E19 /* Build configuration list for PBXProject "Project" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D8C4FCDB8DA4E0E1F6642880;
+			productRefGroup = 39CB0312186AAB4FF77511B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B036DBA93809F3586C6463D8 /* Sup */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		613E5625D1725ABE6E7419B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83E45D47CAAAC7A4CBC5D338 /* DTE72PCU7D.cer in Resources */,
+				49910136A226F534DA0E0E9C /* CODE_OF_CONDUCT.md in Resources */,
+				D4B0DB86129936D079A7F51B /* Gemfile.lock in Resources */,
+				CB81E64A3C045000F400E5AA /* LICENSE.txt in Resources */,
+				CBF9ED11EEBD67A5EB261882 /* xcake-0.1.0.gem in Resources */,
+				11E515A7743ADDDFB47DFB46 /* README.md in Resources */,
+				59CF6BAE179EC782F925BCA9 /* xcake.gemspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		097293692FABA7008CAA5EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D032187D8C48634BA852CEB /* txt.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		74DB111C1BEAA813008637A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Sup;
+			};
+			name = Debug;
+		};
+		74DB111D1BEAA813008637A9 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Sup;
+			};
+			name = Beta;
+		};
+		74DB111E1BEAA813008637A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Sup;
+			};
+			name = Release;
+		};
+		8B2259C34A112199947C0971 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		9105BEF0E8836709EC278A99 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Beta;
+		};
+		A3340A3BB802F854C36A5CE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74885121795BCCBCD8D42E19 /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3340A3BB802F854C36A5CE4 /* Debug */,
+				9105BEF0E8836709EC278A99 /* Beta */,
+				8B2259C34A112199947C0971 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74DB111F1BEAA813008637A9 /* Build configuration list for PBXNativeTarget "Sup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74DB111C1BEAA813008637A9 /* Debug */,
+				74DB111D1BEAA813008637A9 /* Beta */,
+				74DB111E1BEAA813008637A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67EFE7BC8644F12BA0825F4B /* Project object */;
+}
