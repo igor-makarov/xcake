@@ -9,30 +9,25 @@ module Xcake
     def run
 
       cakefile = Cakefile.new do |c|
+        
+        c.debug_build_configuration :Debug do |b|
 
-        c.default_build_configuration = :Beta
-
-        c.build_configuration :Debug do |b|
-
-          b.settings = b.debug_settings #TODO: Figure out way of remove need of user to do this.
           b.settings["PRODUCT_NAME"] = "You"
 
           #b.preprocessor_macro["DEBUG"] = 1
           #b.preprocessor_macro["LOG"] = 1
         end
 
-        c.build_configuration :Beta do |b|
+        c.debug_build_configuration :Beta do |b|
 
-          b.settings = b.debug_settings #TODO: Figure out way of remove need of user to do this.
           b.settings["PRODUCT_NAME"] = "I Love"
 
           #b.preprocessor_macro["BETA"] = 1
           #b.preprocessor_macro["LOG"] = 1
         end
 
-        c.build_configuration :Release do |b|
+        c.release_build_configuration :Release do |b|
 
-          b.settings = b.release_settings
           b.settings["PRODUCT_NAME"] = "Helen"
 
           #b.preprocessor_macro["RELEASE"] = 1
