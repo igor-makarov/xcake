@@ -5,11 +5,12 @@ module Xcake
 
     include BuildConfigurable
 
+    attr_accessor :default_build_configuration
     attr_accessor :project_name
     attr_accessor :targets
 
     def initialize(name="Project", &block)
-      
+
       self.project_name = name
       self.targets = []
 
