@@ -1,14 +1,27 @@
 module Xcake
   module BuildConfigurable
-    attr_accessor :build_configurations
 
-    def build_configurations
+    attr_accessor :debug_build_configurations
+    attr_accessor :release_build_configurations
+
+    def debug_build_configurations
       @build_configurations ||= []
     end
 
-    def build_configuration(name, &block)
+    def release_build_configurations
+      @build_configurations ||= []
+    end
+
+    def debug_build_configuration(name, &block)
       build_configuration = BuildConfiguration.new(name, &block)
-      self.build_configurations << build_configuration
+      build_configuration.build_settings = default_debug_settings
+      self.debug_build_configurations << build_configuration
+    end
+
+    def release_build_configuration(name, &block)
+      build_configuration = BuildConfiguration.new_release(name, &block)
+      build_configuration.build_settings = default_release_settings
+      self.release_build_configurations << build_configuration
     end
   end
 end
