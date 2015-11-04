@@ -24,6 +24,7 @@ module Xcake
     end
 
     def default_settings
+    end
 
     def default_debug_settings
       default_settings.merge({
