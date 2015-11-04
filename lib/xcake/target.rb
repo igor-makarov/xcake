@@ -21,16 +21,6 @@ module Xcake
     #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
     #     common_settings = Constants::COMMON_BUILD_SETTINGS
     #
-    #     # Use intersecting settings for all key sets as base
-    #     settings = deep_dup(common_settings[:all])
-    #
-    #     # Match further common settings by key sets
-    #     keys = [type, platform, target_product_type, language].compact
-    #     key_combinations = (1..keys.length).flat_map { |n| keys.combination(n).to_a }
-    #     key_combinations.each do |key_combination|
-    #       settings.merge!(deep_dup(common_settings[key_combination] || {}))
-    #     end
-    #
     #     if deployment_target
     #       case platform
     #       when :ios then settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
