@@ -10,23 +10,25 @@ module Xcake
 
       cakefile = Cakefile.new do |c|
 
-        #c.build_configuration :all do |a|
-          #a.preprocessor_macro["API_URL"] = "http://supdev.firebaseio.com/".to_objc
+        #c.default_configuration :release
+
+        #c.build_configuration :all do |b|
+          #b.preprocessor_macro["API_URL"] = "http://supdev.firebaseio.com/".to_objc
         #end
 
-        #c.build_configuration :debug do |a|
-          #a.preprocessor_macro["DEBUG"] = 1
-          #a.preprocessor_macro["LOG"] = 1
+        #c.build_configuration :debug do |b|
+          #b.preprocessor_macro["DEBUG"] = 1
+          #b.preprocessor_macro["LOG"] = 1
         #end
 
-        #c.build_configuration :beta do |a|
-          #a.preprocessor_macro["BETA"] = 1
-          #a.preprocessor_macro["LOG"] = 1
+        #c.build_configuration :beta do |b|
+          #b.preprocessor_macro["BETA"] = 1
+          #b.preprocessor_macro["LOG"] = 1
         #end
 
-        #c.build_configuration :release do |a|
-          #a.preprocessor_macro["RELEASE"] = 1
-          #a.preprocessor_macro["LOG"] = 0
+        #c.build_configuration :release do |b|
+          #b.preprocessor_macro["RELEASE"] = 1
+          #b.preprocessor_macro["LOG"] = 0
         #end
 
         c.build_configuration "Debug"
