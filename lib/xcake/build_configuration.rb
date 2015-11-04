@@ -4,7 +4,7 @@ module Xcake
     attr_accessor :settings
 
     def initialize(name, &block)
-      self.name = name
+      self.name = name.to_s
       self.settings = {}
 
       block.call(self) if block_given?

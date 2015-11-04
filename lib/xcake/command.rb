@@ -32,16 +32,16 @@ module Xcake
           #b.preprocessor_macro["LOG"] = 0
         #end
 
-        c.build_configuration "Debug" do |b|
-          b.settings["PRODUCT_NAME"] = "Magic"
+        c.build_configuration :debug do |b|
+          b.settings["PRODUCT_NAME"] = "You"
         end
 
         c.build_configuration "Beta" do |b|
-          b.settings["PRODUCT_NAME"] = "BOO"
+          b.settings["PRODUCT_NAME"] = "I Love"
         end
 
         c.build_configuration "Release" do |b|
-          b.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
+          b.settings["PRODUCT_NAME"] = "Helen"
         end
 
         c.application_for :ios, 8.0 do |t|
