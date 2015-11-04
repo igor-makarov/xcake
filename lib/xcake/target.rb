@@ -13,17 +13,14 @@ module Xcake
 
     def initialize(&block)
       block.call(self) if block_given?
-
-      #TODO: Setup defaults
-      # TODO: Figure out how to pull this off
-      #
-      # target.build_configuration_list = configuration_list(project, platform, deployment_target, type, language)
-      #
-      # # Product
-      # product = product_group.new_product_ref_for_target(name, type)
-      # target.product_reference = product
-      #
     end
+
+    #TODO: Setup defaults
+    #TODO: Figure out how to pull this off
+    #
+    # target.build_configuration_list = configuration_list(project, platform, deployment_target, type, language)
+    #
+    #
 
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform

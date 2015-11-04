@@ -16,13 +16,14 @@ module Xcake
 
       def build
         cakefile.targets.each do |t|
-
-#TODO: Refactor this.
-
           target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
           target.name = t.name
           target.product_name = t.name
           target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
+
+          # Product
+          # product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
+          # target.product_reference = product
 
           Dir.glob(t.include_files).each do |file|
             root_node.create_children_with_path(file, target)
