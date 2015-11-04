@@ -10,9 +10,9 @@ module Xcake
 
       cakefile = Cakefile.new do |c|
 
-        #TODO: Figure out how to do modify All
-
         c.build_configuration :Debug do |b|
+
+          b.settings = b.debug_settings
           b.settings["PRODUCT_NAME"] = "You"
 
           #b.preprocessor_macro["DEBUG"] = 1
@@ -20,6 +20,8 @@ module Xcake
         end
 
         c.build_configuration :Beta do |b|
+
+          b.settings = b.debug_settings
           b.settings["PRODUCT_NAME"] = "I Love"
 
           #b.preprocessor_macro["BETA"] = 1
@@ -27,6 +29,8 @@ module Xcake
         end
 
         c.build_configuration :Release do |b|
+
+          b.settings = b.release_settings
           b.settings["PRODUCT_NAME"] = "Helen"
 
           #b.preprocessor_macro["RELEASE"] = 1
