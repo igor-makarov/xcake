@@ -1,6 +1,6 @@
 module Xcake
   class BuildConfiguration
-    
+
     attr_accessor :name
     attr_accessor :settings
 
