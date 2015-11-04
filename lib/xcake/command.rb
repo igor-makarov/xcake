@@ -32,8 +32,14 @@ module Xcake
           #b.preprocessor_macro["LOG"] = 0
         #end
 
-        c.build_configuration "Debug"
-        c.build_configuration "Beta"
+        c.build_configuration "Debug" do |b|
+          b.settings["PRODUCT_NAME"] = "Magic"
+        end
+
+        c.build_configuration "Beta" do |b|
+          b.settings["PRODUCT_NAME"] = "BOO"
+        end
+
         c.build_configuration "Release" do |b|
           b.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
         end
