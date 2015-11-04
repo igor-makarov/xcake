@@ -10,38 +10,27 @@ module Xcake
 
       cakefile = Cakefile.new do |c|
 
-        #c.default_configuration :release
+        #TODO: Figure out how to do modify All
 
-        #c.build_configuration :all do |b|
-          #b["BRIDGE_HEADER"] = "./Magic.pch"
-          #b.preprocessor_macro["API_URL"] = "http://supdev.firebaseio.com/".to_objc
-        #end
+        c.build_configuration :Debug do |b|
+          b.settings["PRODUCT_NAME"] = "You"
 
-        #c.build_configuration :debug do |b|
           #b.preprocessor_macro["DEBUG"] = 1
           #b.preprocessor_macro["LOG"] = 1
-        #end
+        end
 
-        #c.build_configuration :beta do |b|
+        c.build_configuration :Beta do |b|
+          b.settings["PRODUCT_NAME"] = "I Love"
+
           #b.preprocessor_macro["BETA"] = 1
           #b.preprocessor_macro["LOG"] = 1
-        #end
+        end
 
-        #c.build_configuration :release do |b|
+        c.build_configuration :Release do |b|
+          b.settings["PRODUCT_NAME"] = "Helen"
+
           #b.preprocessor_macro["RELEASE"] = 1
           #b.preprocessor_macro["LOG"] = 0
-        #end
-
-        c.build_configuration :debug do |b|
-          b.settings["PRODUCT_NAME"] = "You"
-        end
-
-        c.build_configuration "Beta" do |b|
-          b.settings["PRODUCT_NAME"] = "I Love"
-        end
-
-        c.build_configuration "Release" do |b|
-          b.settings["PRODUCT_NAME"] = "Helen"
         end
 
         c.application_for :ios, 8.0 do |t|
