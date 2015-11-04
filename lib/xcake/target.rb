@@ -22,6 +22,34 @@ module Xcake
     #
     #
 
+    # def self.configuration_list(project, platform = nil, deployment_target = nil, target_product_type = nil, language = nil)
+    #     cl = project.new(XCConfigurationList)
+    #     cl.default_configuration_is_visible = '0'
+    #     cl.default_configuration_name = 'Release'
+    #
+    #     release_conf = project.new(XCBuildConfiguration)
+    #     release_conf.name = 'Release'
+    #     release_conf.build_settings = common_build_settings(:release, platform, deployment_target, target_product_type, language)
+    #
+    #     debug_conf = project.new(XCBuildConfiguration)
+    #     debug_conf.name = 'Debug'
+    #     debug_conf.build_settings = common_build_settings(:debug, platform, deployment_target, target_product_type, language)
+    #
+    #     cl.build_configurations << release_conf
+    #     cl.build_configurations << debug_conf
+    #
+    #     project.build_configurations.each do |configuration|
+    #       next if cl.build_configurations.map(&:name).include?(configuration.name)
+    #
+    #       new_config = project.new(XCBuildConfiguration)
+    #       new_config.name = configuration.name
+    #       new_config.build_settings = common_build_settings(:release, platform, deployment_target, target_product_type, language)
+    #       cl.build_configurations << new_config
+    #     end
+    #
+    #     cl
+    #   end
+
     # def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc)
     #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
     #     common_settings = Constants::COMMON_BUILD_SETTINGS

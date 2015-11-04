@@ -9,7 +9,7 @@ module Xcake
     def run
 
       cakefile = Cakefile.new do |c|
-        
+
         c.build_configuration "Debug"
         c.build_configuration "Beta"
         c.build_configuration "Release"
@@ -19,15 +19,9 @@ module Xcake
           t.name = "Sup"
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
+          #c.language = :swift
 
         end
-
-#TODO: Build this new syntax, but add methods into Target to make it possible with this.
-        #c.application do |a|
-          #c.name = "Sup"
-          #c.platform = iOS(8.1)
-          #c.language = :swift
-        #end
 
         #c.unit_tests_for "Sup" |t|
           #t.name = "SupTest"
