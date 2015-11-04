@@ -10,7 +10,7 @@ module Xcake
 
       cakefile = Cakefile.new do |c|
 
-        c.default_build_configuration = :Release
+        c.default_build_configuration = :Beta
 
         c.build_configuration :Debug do |b|
 
