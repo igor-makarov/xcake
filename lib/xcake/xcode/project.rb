@@ -13,6 +13,7 @@ module Xcake
           root_object.build_configuration_list = config_list
 
           root_object.main_group = new(PBXGroup)
+          root_object.product_ref_group = root_object.main_group.new_group('Products')
 
           @root_object = root_object
         end
