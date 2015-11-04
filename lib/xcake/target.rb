@@ -15,6 +15,8 @@ module Xcake
       block.call(self) if block_given?
     end
 
+#TODO: Implement Build Configurations
+
     # def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc)
     #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
     #     common_settings = Constants::COMMON_BUILD_SETTINGS
