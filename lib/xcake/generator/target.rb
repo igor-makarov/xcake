@@ -43,7 +43,11 @@ module Xcake
 
           target.build_configuration_list.build_configurations << build_configuration
 
-        #  target.add_system_framework(t.system_frameworks)
+          generator = BuildConfiguration.new(t, project)
+          generator.build
+
+          # TODO: Re-add.
+          #  target.add_system_framework(t.system_frameworks)
 
           project.targets << target
         end
