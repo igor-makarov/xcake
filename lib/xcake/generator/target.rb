@@ -21,6 +21,7 @@ module Xcake
           target.product_name = t.name
           target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
 
+          # TODO: Make Product
           # Product
           # product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
           # target.product_reference = product
