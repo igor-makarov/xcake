@@ -23,8 +23,7 @@ module Xcake
         end
 
         build_configuration_list = project.build_configuration_list
-        build_configuration_list.default_configuration_is_visible = '0'
-        build_configuration_list.default_configuration_name = project.default_build_configuration.to_s if Project.default_build_configuration
+        build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
       end
     end
   end
