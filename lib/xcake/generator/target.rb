@@ -20,6 +20,7 @@ module Xcake
           target.name = t.name
           target.product_name = t.name
           target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
+          target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
           product_group = project.products_group
           product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
@@ -32,6 +33,15 @@ module Xcake
           Dir.glob(t.exclude_files).each do |file|
             root_node.remove_children_with_path(file, target)
           end if t.exclude_files
+
+          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
+
+          build_configuration.name = :Release.to_s
+          build_configuration.build_settings = {
+            "PRODUCT_NAME": "Magic"
+          }
+
+          target.build_configuration_list.build_configurations << build_configuration
 
         #  target.add_system_framework(t.system_frameworks)
 
