@@ -19,8 +19,12 @@ module Xcake
           build_configuration.name = b.name
           build_configuration.build_settings = b.settings
 
-          project.build_configuration_list.build_configurations << build_configuration
+          project.build_configurations << build_configuration
         end
+
+        build_configuration_list = project.build_configuration_list
+        build_configuration_list.default_configuration_is_visible = '0'
+        build_configuration_list.default_configuration_name = project.default_build_configuration.to_s if Project.default_build_configuration
       end
     end
   end
