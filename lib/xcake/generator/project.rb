@@ -16,6 +16,8 @@ module Xcake
         "./#{self.cakefile.project_name}.xcodeproj"
       end
 
+      #TODO: Use Visitor Pattern for other genetators?
+
       def build
         project = Xcode::Project.new(output_filepath, true)
         project.setup_for_xcake

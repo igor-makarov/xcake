@@ -4,8 +4,11 @@ module Xcake
   module Generator
     class BuildConfiguration
 
+      #TODO: Update to make this generic
+
       attr_accessor :cakefile
       attr_accessor :project
+      attr_accessor :build_configurable
 
       def initialize(cakefile, project)
         self.cakefile = cakefile
