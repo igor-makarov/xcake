@@ -33,7 +33,7 @@ module Xcake
             root_node.remove_children_with_path(file, target)
           end if t.exclude_files
 
-          target.add_system_framework(t.system_frameworks)
+        //  target.add_system_framework(t.system_frameworks)
 
           project.targets << target
         end
