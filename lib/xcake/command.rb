@@ -8,6 +8,7 @@ module Xcake
 
     def run
 
+#TODO: Unit test all of this.
       cakefile = Cakefile.new do |c|
 
         c.debug_build_configuration :Debug do |b|
