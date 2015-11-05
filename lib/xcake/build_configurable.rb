@@ -19,7 +19,7 @@ module Xcake
     end
 
     def release_build_configuration(name, &block)
-      build_configuration = BuildConfiguration.new_release(name, &block)
+      build_configuration = BuildConfiguration.new(name, &block)
       build_configuration.settings = default_release_settings
       self.release_build_configurations << build_configuration
     end

@@ -25,7 +25,7 @@ module Xcake
 
     def default_settings
       {
-        "PRODUCT_NAME" : "Magic2"
+        "PRODUCT_NAME" => "Magic2"
       }
       #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
       #     common_settings = Constants::COMMON_BUILD_SETTINGS
