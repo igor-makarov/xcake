@@ -36,6 +36,7 @@ module Xcake
 
         c.application_for :ios, 8.0 do |t|
 
+          #c.language = :swift
           t.name = "Sup"
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
@@ -43,7 +44,14 @@ module Xcake
           c.debug_build_configuration :Debug do |b|
 
           end
-          #c.language = :swift
+
+          c.debug_build_configuration :Beta do |b|
+
+          end
+
+          c.release_build_configuration :Release do |b|
+
+          end
 
         end
 
