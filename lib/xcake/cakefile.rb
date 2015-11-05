@@ -25,12 +25,15 @@ module Xcake
     end
 
     def application_for(platform, deployment_target, language=:objc, &block)
-      application_target = target(&block)
 
-      application_target.type = :application
-      application_target.platform = platform
-      application_target.deployment_target = deployment_target
-      application_target.language = language
+      application_target = target do |t|
+        t.type = :application
+        t.platform = platform
+        t.deployment_target = deployment_target
+        t.language = language
+
+        block.call(t) if block_given?
+      end
 
       application_target
     end
