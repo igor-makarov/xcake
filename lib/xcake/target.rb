@@ -24,33 +24,6 @@ module Xcake
       (platform == :ios) ? ['Foundation'] : ['Cocoa']
     end
 
-    def default_settings
-
-      settings = {
-        'PRODUCT_NAME' => '$(TARGET_NAME)',
-        'ENABLE_STRICT_OBJC_MSGSEND' => 'YES'
-      }
-
-
-
-      case platform
-        when :ios then settings.merge({
-          'SDKROOT' => 'iphoneos',
-          'IPHONEOS_DEPLOYMENT_TARGET' => deployment_target
-        })
-        when :osx then settings.merge({
-          'SDKROOT' => 'macosx',
-          'MACOSX_DEPLOYMENT_TARGET' => deployment_target
-        })
-        when :watchos then settings.merge({
-          'SDKROOT' => 'watchos',
-          'WATCHOS_DEPLOYMENT_TARGET' => deployment_target
-        })
-      end
-
-      settings
-    end
-
     def default_debug_settings
       Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, platform, deployment_target, type, language)
     end
