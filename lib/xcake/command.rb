@@ -41,15 +41,15 @@ module Xcake
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
 
-          c.debug_build_configuration :Debug do |b|
+          t.debug_build_configuration :Debug do |b|
 
           end
 
-          c.debug_build_configuration :Beta do |b|
+          t.debug_build_configuration :Beta do |b|
 
           end
 
-          c.release_build_configuration :Release do |b|
+          t.release_build_configuration :Release do |b|
 
           end
 

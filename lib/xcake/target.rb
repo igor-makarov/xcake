@@ -47,13 +47,13 @@ module Xcake
     def default_debug_settings
       default_settings.merge({
 
-        })
+      })
     end
 
     def default_release_settings
       default_settings.merge({
 
-        })
+      })
     end
 
     #TODO: Implement Build Configurations
