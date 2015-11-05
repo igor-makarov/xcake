@@ -24,47 +24,33 @@ module Xcake
     end
 
     def default_settings
-      {
-        "PRODUCT_NAME" => "Magic2"
-      }
-      #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
-      #     common_settings = Constants::COMMON_BUILD_SETTINGS
-      #
-      #     if deployment_target
-      #       case platform
-      #       when :ios then settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
-      #       when :osx then settings['MACOSX_DEPLOYMENT_TARGET'] = deployment_target
-      #       when :watchos then settings['WATCHOS_DEPLOYMENT_TARGET'] = deployment_target
-      #       end
-      #     end
-      #
-      #     settings
 
-      #     'PRODUCT_NAME'                      => '$(TARGET_NAME)',
-      #     'ENABLE_STRICT_OBJC_MSGSEND'        => 'YES',
+      settings = {
+        'PRODUCT_NAME' => '$(TARGET_NAME)',
+        'ENABLE_STRICT_OBJC_MSGSEND' => 'YES'
+      }
+
+      case platform
+        when :ios then settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+        when :osx then settings['MACOSX_DEPLOYMENT_TARGET'] = deployment_target
+        when :watchos then settings['WATCHOS_DEPLOYMENT_TARGET'] = deployment_target
+      end
+
+      settings
     end
 
     def default_debug_settings
       default_settings.merge({
-
+        'MTL_ENABLE_DEBUG_INFO' => 'YES'
       })
     end
 
     def default_release_settings
       default_settings.merge({
-
+        'MTL_ENABLE_DEBUG_INFO' => 'NO'
       })
     end
 
-    #TODO: Implement Build Configurations
-
-
-        #   [:debug] => {
-        #     'MTL_ENABLE_DEBUG_INFO'             => 'YES',
-        #   }.freeze,
-        #   [:release] => {
-        #     'MTL_ENABLE_DEBUG_INFO'             => 'NO',
-        #   }.freeze,
         #   [:ios] => {
         #     'SDKROOT'                           => 'iphoneos',
         #   }.freeze,
