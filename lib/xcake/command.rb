@@ -9,7 +9,7 @@ module Xcake
     def run
 
       cakefile = Cakefile.new do |c|
-        
+
         c.debug_build_configuration :Debug do |b|
 
           b.settings["PRODUCT_NAME"] = "You"
@@ -39,6 +39,10 @@ module Xcake
           t.name = "Sup"
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
+
+          c.debug_build_configuration :Debug do |b|
+
+          end
           #c.language = :swift
 
         end

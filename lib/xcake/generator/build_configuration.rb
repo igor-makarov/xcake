@@ -4,10 +4,12 @@ module Xcake
   module Generator
     class BuildConfiguration
 
+      attr_accessor :project
       attr_accessor :build_configurable
       attr_accessor :build_configuration_target
 
-      def initialize(build_configurable, build_configuration_target)
+      def initialize(project, build_configurable, build_configuration_target)
+        self.project = project
         self.build_configurable = build_configurable
         self.build_configuration_target = build_configuration_target
       end

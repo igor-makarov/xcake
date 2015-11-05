@@ -34,7 +34,7 @@ module Xcake
             root_node.remove_children_with_path(file, target)
           end if t.exclude_files
 
-          generator = BuildConfiguration.new(t, target)
+          generator = BuildConfiguration.new(project, t, target)
           generator.build
 
           # TODO: Re-add.

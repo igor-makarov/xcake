@@ -16,7 +16,7 @@ module Xcake
         "./#{self.cakefile.project_name}.xcodeproj"
       end
 
-      #TODO: Use Visitor Pattern for other genetators?
+      #TODO: Use Visitor Pattern for other generators?
 
       def build
         project = Xcode::Project.new(output_filepath, true)
@@ -29,7 +29,7 @@ module Xcake
       end
 
       def build_xcode_build_configurations(project)
-        generator = BuildConfiguration.new(cakefile, project)
+        generator = BuildConfiguration.new(project, cakefile, project)
         generator.build
 
         build_configuration_list = project.build_configuration_list
