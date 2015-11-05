@@ -12,23 +12,17 @@ module Xcake
 
         c.debug_build_configuration :Debug do |b|
 
-          b.settings["PRODUCT_NAME"] = "You"
-
           #b.preprocessor_macro["DEBUG"] = 1
           #b.preprocessor_macro["LOG"] = 1
         end
 
         c.debug_build_configuration :Beta do |b|
 
-          b.settings["PRODUCT_NAME"] = "I Love"
-
           #b.preprocessor_macro["BETA"] = 1
           #b.preprocessor_macro["LOG"] = 1
         end
 
         c.release_build_configuration :Release do |b|
-
-          b.settings["PRODUCT_NAME"] = "Helen"
 
           #b.preprocessor_macro["RELEASE"] = 1
           #b.preprocessor_macro["LOG"] = 0
