@@ -25,13 +25,11 @@ module Xcake
     end
 
     def default_debug_settings
-      puts platform.to_s
-      puts Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, platform, deployment_target.to_s, type, language)
+      Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, platform, deployment_target.to_s, type, language)
     end
 
     def default_release_settings
-      puts platform.to_s
-      puts Xcodeproj::Project::ProjectHelper.common_build_settings(:release, platform, deployment_target.to_s, type, language)
+      Xcodeproj::Project::ProjectHelper.common_build_settings(:release, platform, deployment_target.to_s, type, language)
     end
   end
 end
