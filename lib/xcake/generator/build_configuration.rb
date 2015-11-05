@@ -5,11 +5,11 @@ module Xcake
     class BuildConfiguration
 
       attr_accessor :build_configurable
-      attr_accessor :project
+      attr_accessor :build_configuration_target
 
-      def initialize(build_configurable, project)
+      def initialize(build_configurable, build_configuration_target)
         self.build_configurable = build_configurable
-        self.project = projectbuild_configurable
+        self.build_configuration_target = build_configuration_target
       end
 
       def build
@@ -19,7 +19,7 @@ module Xcake
           build_configuration.name = b.name
           build_configuration.build_settings = b.settings
 
-          project.build_configurations << build_configuration
+          build_configuration_target.build_configurations << build_configuration
         end
 
         build_configurable.release_build_configurations.each do |b|
@@ -28,7 +28,7 @@ module Xcake
           build_configuration.name = b.name
           build_configuration.build_settings = b.settings
 
-          project.build_configurations << build_configuration
+          build_configuration_target.build_configurations << build_configuration
         end
       end
     end

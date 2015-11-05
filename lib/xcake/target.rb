@@ -24,6 +24,24 @@ module Xcake
     end
 
     def default_settings
+      {
+        "PRODUCT_NAME" : "Magic2"
+      }
+      #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
+      #     common_settings = Constants::COMMON_BUILD_SETTINGS
+      #
+      #     if deployment_target
+      #       case platform
+      #       when :ios then settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+      #       when :osx then settings['MACOSX_DEPLOYMENT_TARGET'] = deployment_target
+      #       when :watchos then settings['WATCHOS_DEPLOYMENT_TARGET'] = deployment_target
+      #       end
+      #     end
+      #
+      #     settings
+
+      #     'PRODUCT_NAME'                      => '$(TARGET_NAME)',
+      #     'ENABLE_STRICT_OBJC_MSGSEND'        => 'YES',
     end
 
     def default_debug_settings
@@ -40,26 +58,7 @@ module Xcake
 
     #TODO: Implement Build Configurations
 
-        # def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc)
-        #     target_product_type = (Constants::PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
-        #     common_settings = Constants::COMMON_BUILD_SETTINGS
-        #
-        #     if deployment_target
-        #       case platform
-        #       when :ios then settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
-        #       when :osx then settings['MACOSX_DEPLOYMENT_TARGET'] = deployment_target
-        #       when :watchos then settings['WATCHOS_DEPLOYMENT_TARGET'] = deployment_target
-        #       end
-        #     end
-        #
-        #     settings
-        #   end
 
-        # COMMON_BUILD_SETTINGS = {
-        #   :all => {
-        #     'PRODUCT_NAME'                      => '$(TARGET_NAME)',
-        #     'ENABLE_STRICT_OBJC_MSGSEND'        => 'YES',
-        #   }.freeze,
         #   [:debug] => {
         #     'MTL_ENABLE_DEBUG_INFO'             => 'YES',
         #   }.freeze,

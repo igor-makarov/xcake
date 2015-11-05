@@ -34,16 +34,7 @@ module Xcake
             root_node.remove_children_with_path(file, target)
           end if t.exclude_files
 
-          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
-
-          build_configuration.name = :Release.to_s
-          build_configuration.build_settings = {
-            "PRODUCT_NAME": "Magic"
-          }
-
-          target.build_configuration_list.build_configurations << build_configuration
-
-          generator = BuildConfiguration.new(t, project)
+          generator = BuildConfiguration.new(t, target)
           generator.build
 
           # TODO: Re-add.
