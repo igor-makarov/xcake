@@ -20,7 +20,7 @@ module Xcake
     def debug_build_configuration(name, &block)
 
       build_configuration = self.debug_build_configurations.find do |c|
-        build_configuration.name == name
+        c.name == name
       end
 
       if build_configuration == nil
@@ -36,7 +36,7 @@ module Xcake
 
     def release_build_configuration(name, &block)
       build_configuration = self.release_build_configurations.find do |c|
-        build_configuration.name == name
+        c.name == name
       end
 
       if build_configuration == nil

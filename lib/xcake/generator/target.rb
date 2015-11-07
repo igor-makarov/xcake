@@ -34,12 +34,12 @@ module Xcake
             root_node.remove_children_with_path(file, target)
           end if t.exclude_files
 
-          project.debug_build_configurations.each do |b|
-            target.debug_build_configuration(b.name)
+          cakefile.debug_build_configurations.each do |b|
+            t.debug_build_configuration(b.name)
           end
 
-          project.release_build_configurations.each do |b|
-            target.release_build_configuration(b.name)
+          cakefile.release_build_configurations.each do |b|
+            t.release_build_configuration(b.name)
           end
 
           generator = BuildConfiguration.new(project, t, target)
