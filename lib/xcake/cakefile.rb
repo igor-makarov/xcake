@@ -38,8 +38,6 @@ module Xcake
       application_target
     end
 
-    private
-
     def default_settings
     {
           'ALWAYS_SEARCH_USER_PATHS'           => 'NO',

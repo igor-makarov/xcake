@@ -11,23 +11,9 @@ module Xcake
 #TODO: Unit test all of this.
       cakefile = Cakefile.new do |c|
 
-        c.debug_build_configuration :Debug do |b|
-
-          #b.preprocessor_macro["DEBUG"] = 1
-          #b.preprocessor_macro["LOG"] = 1
-        end
-
-        c.debug_build_configuration :Beta do |b|
-
-          #b.preprocessor_macro["BETA"] = 1
-          #b.preprocessor_macro["LOG"] = 1
-        end
-
-        c.release_build_configuration :Release do |b|
-
-          #b.preprocessor_macro["RELEASE"] = 1
-          #b.preprocessor_macro["LOG"] = 0
-        end
+        c.debug_build_configuration :Debug
+        c.debug_build_configuration :Beta
+        c.release_build_configuration :Release
 
         c.application_for :ios, 8.0 do |t|
 
@@ -36,17 +22,7 @@ module Xcake
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
 
-          t.debug_build_configuration :Debug do |b|
-
-          end
-
-          t.debug_build_configuration :Beta do |b|
-
-          end
-
-          t.release_build_configuration :Release do |b|
-
-          end
+          t.all_build_configurations.settings["INFOPLIST_FILE"] = "Info.plist"
 
         end
 
