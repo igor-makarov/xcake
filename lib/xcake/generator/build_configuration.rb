@@ -15,11 +15,16 @@ module Xcake
       end
 
       def build
+
+        default_debug_settings = build_configurable.default_debug_settings
+        default_release_settings = build_configurable.default_release_settings
+        all_settings = build_configurable.all_build_configurations.settings
+
         build_configurable.debug_build_configurations.each do |b|
           build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
 
           build_configuration.name = b.name
-          build_configuration.build_settings = b.settings
+          build_configuration.build_settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
 
           build_configuration_target.build_configurations << build_configuration
         end
@@ -28,7 +33,7 @@ module Xcake
           build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
 
           build_configuration.name = b.name
-          build_configuration.build_settings = b.settings
+          build_configuration.build_settings = default_release_settings.merge!(all_settings).merge!(b.settings)
 
           build_configuration_target.build_configurations << build_configuration
         end
