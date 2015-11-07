@@ -24,6 +24,8 @@ module Xcake
 
       def install(node)
 
+        puts "Installing #{node.path}..."
+
         type_tree = node.type_tree
 
         #TODO: Create Modular Node Installers
