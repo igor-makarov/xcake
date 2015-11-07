@@ -28,6 +28,10 @@ module Xcake
 
         type_tree = node.type_tree
 
+        if type_tree == nil
+          raise "No Type Tree for Node."
+        end
+
         #TODO: Create Modular Node Installers
         if type_tree.include?(Node::Type::DIRECTORY) == false
           group = group_for_node(node)
