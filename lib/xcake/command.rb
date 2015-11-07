@@ -22,6 +22,9 @@ module Xcake
           t.include_files = "./**/*.*"
           t.exclude_files = "./**/*.rb"
 
+          t.debug_build_configuration :Debug
+          t.debug_build_configuration :Beta
+          t.release_build_configuration :Release
           t.all_build_configurations.settings["INFOPLIST_FILE"] = "Info.plist"
 
         end
