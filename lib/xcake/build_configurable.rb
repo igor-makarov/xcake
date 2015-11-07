@@ -18,19 +18,36 @@ module Xcake
     end
 
     def debug_build_configuration(name, &block)
-      build_configuration = BuildConfiguration.new(name) do |b|
-        block.call(b) if block_given?
+
+      build_configuration = self.debug_build_configurations.find do |c|
+        build_configuration.name == name
       end
 
-      self.debug_build_configurations << build_configuration
+      if build_configuration == nil
+        build_configuration = BuildConfiguration.new(name) do |b|
+          block.call(b) if block_given?
+        end
+
+        self.debug_build_configurations << build_configuration
+      end
+
+      build_configuration
     end
 
     def release_build_configuration(name, &block)
-      build_configuration = BuildConfiguration.new(name) do |b|
-        block.call(b) if block_given?
+      build_configuration = self.release_build_configurations.find do |c|
+        build_configuration.name == name
       end
 
-      self.release_build_configurations << build_configuration
+      if build_configuration == nil
+        build_configuration = BuildConfiguration.new(name) do |b|
+          block.call(b) if block_given?
+        end
+
+        self.release_build_configurations << build_configuration
+      end
+
+      build_configuration
     end
   end
 end
