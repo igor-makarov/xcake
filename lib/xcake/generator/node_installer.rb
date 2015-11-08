@@ -18,8 +18,8 @@ module Xcake
         end
       end
 
-      def is_header(type_tree)
-        type_tree.first.include?("header")
+      def is_header(node)
+        [".h", ".hpp"].include?(File.extname(node.path))
       end
 
       def install(node)
@@ -34,7 +34,7 @@ module Xcake
           file = group.new_reference(node.path)
 
           node.targets.each do |t|
-            if is_header(type_tree) == false
+            if is_header(node) == false
               if [".c", ".m", ".mm", ".cpp", ".swift"].include?(File.extname(node.path))
                 t.source_build_phase.add_file_reference(file)
               else
