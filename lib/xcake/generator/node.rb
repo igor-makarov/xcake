@@ -96,6 +96,7 @@ module Xcake
       end
 
       def type_tree
+        puts `mdls -name kMDItemContentTypeTree #{self.path}`
         ::CoreFoundation.RubyStringPropertyListRead(`mdls -plist - -name kMDItemContentTypeTree #{self.path}`)["kMDItemContentTypeTree"]
       end
 
