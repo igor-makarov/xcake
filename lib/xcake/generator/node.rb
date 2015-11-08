@@ -6,11 +6,6 @@ module Xcake
   module Generator
     class Node
 
-      module Type
-        DIRECTORY = "public.directory"
-        SOURCE = "public.source-code"
-      end
-
       attr_accessor :component
       attr_accessor :path
       attr_accessor :parent
@@ -97,7 +92,6 @@ module Xcake
 
 #TODO: Figure out better way of figuring out type of node without mdls
       def type_tree
-        puts `mdls #{self.path}`
         ::CoreFoundation.RubyStringPropertyListRead(`mdls -plist - -name kMDItemContentTypeTree #{self.path}`)["kMDItemContentTypeTree"]
       end
 

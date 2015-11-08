@@ -28,18 +28,14 @@ module Xcake
 
         type_tree = node.type_tree
 
-        if type_tree == nil
-          raise "No Type Tree for Node."
-        end
-
         #TODO: Create Modular Node Installers
-        if type_tree.include?(Node::Type::DIRECTORY) == false
+        if File.directory?(node.path) == false
           group = group_for_node(node)
           file = group.new_reference(node.path)
 
           node.targets.each do |t|
             if is_header(type_tree) == false
-              if type_tree.include?(Node::Type::SOURCE)
+              if [".c", ".m", ".mm", ".cpp", ".swift"].include?(File.extname(node.path))
                 t.source_build_phase.add_file_reference(file)
               else
                 t.resources_build_phase.add_file_reference(file)
