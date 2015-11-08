@@ -45,9 +45,6 @@ module Xcake
           generator = BuildConfiguration.new(project, t, target)
           generator.build
 
-          generator = Scheme.new(project, t)
-          generator.build
-
           target.add_system_framework(t.system_frameworks)
 
           project.targets << target
