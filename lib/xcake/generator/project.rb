@@ -25,6 +25,7 @@ module Xcake
         build_xcode_build_configurations(project)
         build_targets(project)
 
+        project.recreate_user_schemes
         project.save
       end
 
