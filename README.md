@@ -6,7 +6,7 @@
 ###Xcode Projects made a piece of cake.
 
 You describe your project in a simple text file: your `Cakefile`. 
-Xcake creates your project based on this including importing all of your file and creating groups
+Xcake creates your project based on this including importing all of your files and creating groups
 to match the file hiearchy.
 
 This is perfect for working in teams or with cocoapods as it reduces conflicts,
