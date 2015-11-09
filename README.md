@@ -18,8 +18,6 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 <p align="center">
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
-    <a href="#quick-start">Quick Start</a> &bull;
-    <a href="#roadmap">Roadmap</a> &bull;
     <a href="#need-help">Need help?</a>
 </p>
 
@@ -41,11 +39,11 @@ Cakefile.new do |c|
 end
 ```
 
-<!--To launch the `appstore` lane, just run:-->
+To launch create the project, just run:
 
-<!--```sh-->
-<!--fastlane appstore-->
-<!--```-->
+```sh
+xcake
+```
 
 <!--              |  fastlane-->
 <!----------------------------|-------------------------------------------------------------->
@@ -73,52 +71,25 @@ end
 
 ## Installation
 
-<!--I recommend following the [fastlane guide](https://github.com/fastlane/fastlane/blob/master/docs/Guide.md) to get started.-->
+    sudo gem install xcake --verbose
 
-<!--    sudo gem install fastlane --verbose-->
+Make sure, you have the latest version of the Xcode command line tools installed:
 
-<!--Make sure, you have the latest version of the Xcode command line tools installed:-->
+    xcode-select --install
 
-<!--    xcode-select --install-->
+If you experience slow launch times of xcake, try running
 
-<!--If you experience slow launch times of fastlane, try running-->
+    gem cleanup
 
-<!--    gem cleanup-->
+to clean up outdated gems.
 
-<!--to clean up outdated gems.-->
+System Requirements: `xcake` requires Mac OS X or Linux with Ruby 2.0.0 or above.
 
-<!--System Requirements: `fastlane` requires Mac OS X or Linux with Ruby 2.0.0 or above.-->
+## Available commands
 
+Usually you'll use xcake by running the command
 
-<!--If you want to take a look at a project, already using `fastlane`, check out the [fastlane-examples](https://github.com/fastlane/examples) with `fastlane` setups by Wikipedia, Product Hunt, MindNode and more.-->
-
-## Quick Start
-
-<!--The setup assistant will create all the necessary files for you, using the existing app metadata from iTunes Connect.-->
-
-<!--- ```cd [your_project_folder]```-->
-<!--- ```fastlane init```-->
-<!--- Follow the setup assistant, which will set up ```fastlane``` for you-->
-<!--- Further customise the ```Fastfile``` with [actions](https://github.com/fastlane/fastlane/blob/master/docs/Actions.md).-->
-
-<!--For more details, please follow the [fastlane guide](https://github.com/fastlane/fastlane/blob/master/docs/Guide.md) or [documentation](https://github.com/fastlane/fastlane/tree/master/docs).-->
-
-<!--There are also 2 Japanese fastlane guides available: [qiita](http://qiita.com/gin0606/items/162d756dfda7b84e97d4) and [mercari](http://tech.mercari.com/entry/2015/07/13/143000)-->
-
-<!--## Available commands-->
-
-<!--Usually you'll use fastlane by triggering individual lanes:-->
-
-<!--    fastlane [lane_name]-->
-
-<!--#### Other commands-->
-
-<!--- `fastlane actions`: List all available `fastlane` actions-->
-<!--- `fastlane action [action_name]`: Shows a more detailed description of an action-->
-<!--- `fastlane lanes`: Lists all available lanes with description-->
-<!--- `fastlane list`: Lists all available lanes without description-->
-<!--- `fastlane docs`: Generates a markdown based documentation of all your lanes-->
-<!--- `fastlane new_action`: Create a new action (integration) for fastlane  -->
+    xcake
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
