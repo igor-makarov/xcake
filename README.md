@@ -3,7 +3,7 @@
 [![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 
-###Xcode Projects made a piece of cake.
+###Xcode projects made a piece of cake.
 
 You describe your project in a simple text file: your `Cakefile`. 
 Xcake creates your project based on this including importing all of your files and creating groups
