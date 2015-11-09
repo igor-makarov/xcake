@@ -131,7 +131,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 <!--- `fastlane docs`: Generates a markdown based documentation of all your lanes-->
 <!--- `fastlane new_action`: Create a new action (integration) for fastlane  -->
 
-<!--## Examples-->
+## Examples
 
 <!--See how [Wikipedia](https://github.com/fastlane/examples#wikipedia-by-wikimedia-foundation), [Product Hunt](https://github.com/fastlane/examples#product-hunt) and [MindNode](https://github.com/fastlane/examples#mindnode) use `fastlane` to automate their iOS submission process.-->
 
