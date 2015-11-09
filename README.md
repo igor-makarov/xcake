@@ -19,7 +19,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 -------
 
-<!--## Features-->
+## Features
 
 <!--Why should you have to remember complicated commands and parameters?-->
 
@@ -75,7 +75,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 <!--##### Like this tool? [Be the first to know about updates and new fastlane tools](https://tinyletter.com/krausefx).-->
 
-<!--## Installation-->
+## Installation
 
 <!--I recommend following the [fastlane guide](https://github.com/fastlane/fastlane/blob/master/docs/Guide.md) to get started.-->
 
@@ -96,7 +96,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 <!--If you want to take a look at a project, already using `fastlane`, check out the [fastlane-examples](https://github.com/fastlane/examples) with `fastlane` setups by Wikipedia, Product Hunt, MindNode and more.-->
 
-<!--## Quick Start-->
+## Quick Start
 
 <!--The setup assistant will create all the necessary files for you, using the existing app metadata from iTunes Connect.-->
 
@@ -145,26 +145,15 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 <!--- [`boarding`](https://github.com/fastlane/boarding): The easiest way to invite your TestFlight beta testers -->
 <!--- [`gym`](https://github.com/fastlane/gym): Building your iOS apps has never been easier-->
 
-<!--## Statistics-->
-
-<!--`fastlane` tracks the number of errors for each action to detect integration issues. The data will be sent to [fastlane-enhancer](https://github.com/fastlane/enhancer) and is available publicly.-->
-
-<!--You can easily opt-out by adding `opt_out_usage` to your `Fastfile` or by setting the environment variable `FASTLANE_OPT_OUT_USAGE`. To also disable update checks, set the `FASTLANE_SKIP_UPDATE_CHECK` variable.-->
-
-<!--You can optionally submit crash reports, run `fastlane enable_crash_reporting` to get started. This makes resolving issues much easier and helps improving fastlane. [More information](https://github.com/fastlane/fastlane/releases/tag/1.33.3)-->
-
-<!--## Credentials-->
-<!--A detailed description about how `fastlane` stores your credentials is available on a [separate repo](https://github.com/fastlane/credentials_manager).-->
-
-<!--## Need help?-->
-<!--Please submit an issue on GitHub and provide information about your setup-->
+## Need help?
+Please submit an issue on GitHub and provide information about your setup
 
 <!--## Special Thanks-->
 
 <!--Thanks to all [contributors](https://github.com/fastlane/fastlane/graphs/contributors) for extending and improving `fastlane`. Check out the project pages of the other tools for more sponsors and contributors.-->
 
-<!--## License-->
-<!--This project is licensed under the terms of the MIT license. See the LICENSE file.-->
+## License
+This project is licensed under the terms of the MIT license. See the LICENSE file.
 
-<!--This project and all fastlane tools are in no way affiliated with Apple Inc. This project is open source under the MIT license, which means you have full access to the source code and can modify it to fit your own needs. All fastlane tools run on your own computer or server, so your credentials or other sensitive information will never leave your own computer. You are responsible for how you use fastlane tools.-->
+This project is no way affiliated with Apple Inc. This project is open source under the MIT license, which means you have full access to the source code and can modify it to fit your own needs. Xcake runs on your own computer or server, so your sensitive information will never leave your own computer. You are responsible for how you use xcake.
 
