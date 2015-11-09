@@ -52,24 +52,16 @@ To launch create the project, just run:
 xcake
 ```
 
-<!--              |  fastlane-->
-<!----------------------------|-------------------------------------------------------------->
-<!--:sparkles: | Connect all iOS build tools into one workflow (both `fastlane` tools and third party tools)-->
-<!--:monorail: | Define different `deployment lanes` for App Store deployment, beta builds or testing-->
-<!--:ship: | Deploy from any computer, including a CI-server-->
-<!--:wrench: | Extend and customise the functionality -->
-<!--:thought_balloon: | Never remember any difficult commands, just `fastlane`-->
-<!--:tophat: | Easy setup assistant to get started in a few minutes-->
-<!--:email: | Automatically pass on information from one build step to another (e.g. path to the `ipa` file)-->
-<!--:page_with_curl: | Store **everything** in git. Never again lookup the build commands in the `Jenkins` configs-->
-<!--:rocket: | Saves you **hours** for every app update you release-->
-<!--:pencil2: | Very flexible configuration using a fully customisable `Fastfile`-->
-<!--:mountain_cableway: | Implement a fully working Continuous Delivery process-->
-<!--:ghost: | [Jenkins Integration](https://github.com/fastlane/fastlane/blob/master/docs/Jenkins.md): Show the output directly in the Jenkins test results-->
-<!--:book: | Automatically generate a markdown documentation of your lane config-->
-<!--:hatching_chick: | Over 90 built-in integrations available-->
-<!--:computer: | Support for both iOS and Mac OS apps-->
-<!--:octocat: | Full git and mercurial support-->
+              |  xcake
+--------------------------|------------------------------------------------------------
+:sparkles: | Create xcode project from one easy to read file.
+:ship: | Generate from any computer, including a CI-server
+:thought_balloon: | Never remember any difficult commands, just `xcake`
+:page_with_curl: | Store **everything** in git. Never again manually fix any corruptions or merge issues with the project.
+:rocket: | Saves you **hours** for every app update you release
+:pencil2: | Very flexible configuration using a fully customisable `Cakefile`
+:mountain_cableway: | Implement a fully working Continuous Delivery process
+:computer: | Support for both iOS and Mac OS apps
 
 
 <!--###### Take a look at the [fastlane website](https://fastlane.tools) for more information about why and when to use `fastlane`.-->
