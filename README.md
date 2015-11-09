@@ -46,7 +46,7 @@ Cakefile.new do |c|
 end
 ```
 
-To launch create the project, just run:
+To generate the xcode project, just run:
 
 ```sh
 xcake
