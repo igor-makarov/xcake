@@ -33,8 +33,15 @@ You define a project like this:
 
 ```ruby
 Cakefile.new do |c|
-    c.application "test", :ios, 8.0 do |t|
+    
+    c.debug_build_configuration :Debug
+    c.release_build_configuration :Release
 
+    c.application_for :ios, 8.0 do |t|
+        t.name = "test"
+        
+        t.include_files = "./test/*.*"
+        t.all_build_configurations.settings["INFOPLIST_FILE"] = "test/Info.plist"
     end
 end
 ```
