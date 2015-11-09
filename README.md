@@ -167,7 +167,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
 
-<!--## Roadmap -->
+## Roadmap 
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
