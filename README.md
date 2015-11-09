@@ -29,7 +29,8 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 ## Features
 
-<!--Why should you have to remember complicated commands and parameters?-->
+Xcode projects were once described as "the closest thing to taboo we have to deal with on a regular basis", but it doesnt have to be this way.
+
 
 <!--Store your configuration in a text file to easily test, build, and deploy from _any_ computer.-->
 
