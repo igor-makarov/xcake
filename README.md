@@ -29,12 +29,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 Xcode projects were once described as "the closest thing to taboo we have to deal with on a regular basis", but it doesnt have to be this way.
 
-
-<!--Store your configuration in a text file to easily test, build, and deploy from _any_ computer.-->
-
-<!--[Take a look at how Wikipedia and Product Hunt use `fastlane`](https://github.com/fastlane/examples).-->
-
-<!--Define different environments (`lanes`) in your `Fastfile`: Examples are: `appstore`, `beta` and `test`.-->
+Store a simple description of your project in a text file to easily create a xcode project from _any_ computer. Easily see, merge and maintain the structure of your project, *hello* lazy week days.
 
 <!--You define a `lane` like this (more details about the commands in the [Actions](https://github.com/fastlane/fastlane/blob/master/docs/Actions.md) documentation):-->
 
