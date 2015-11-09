@@ -38,7 +38,7 @@ You define a project like this:
 Cakefile.new do |c|
 
     c.application "test", :ios, 8.0 do |t|
-.
+
     end
 end
 ```
