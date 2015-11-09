@@ -69,7 +69,7 @@ xcake
 
 ## Installation
 
-Xcake isn't fully launched just yet, so just clone this repo by running `rake install`
+Xcake isn't fully launched just yet, so just clone this repo and install the gem by running `rake install`
 
 <!--    sudo gem install xcake --verbose-->
 
