@@ -14,7 +14,7 @@ makes it easy to modify settings and allows you to create a clean project anytim
 
 Isn't this just like liftoff or crafter? No, although you could say all of these tools are project generators, their philosophy is very different. Liftoff and crafter are akin to Yeoman or Rail's generators (Essentially templates from the terminal), you can create an overall project structure (Folders etc) to get you started and even generate new classes. However xcake is not for this, xcake is simpily a way to generate an xcodeproject using an easy to read textfile.
 
-You could use it on its own and configure it from scratch but you could also have liftoff or crafter generate the Cakefile and then hand over to xcake to do all the xcodeproj creation. Which I believe is a much better enforcement of SRP than the status quo we have now.
+You could use it on its own and configure it from scratch but you could also have liftoff or crafter generate the Cakefile and then hand over to xcake to do all the xcodeproj creation like they already do for libraries with Cocoapods. Which I believe is a much better enforcement of SRP than the status quo we have now.
 
 Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
 
