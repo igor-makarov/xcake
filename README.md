@@ -16,12 +16,12 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 -------
 <p align="center">
-<!--    <a href="#features">Features</a> &bull;-->
-<!--    <a href="#installation">Installation</a> &bull;-->
-<!--    <a href="#quick-start">Quick Start</a> &bull;-->
-<!--    <a href="#examples">Example Setups</a> &bull; -->
-<!--    <a href="https://github.com/fastlane/fastlane/tree/master/docs">Documentation</a> &bull; -->
-<!--    <a href="#need-help">Need help?</a>-->
+    <a href="#features">Features</a> &bull;
+    <a href="#installation">Installation</a> &bull;
+    <a href="#quick-start">Quick Start</a> &bull;
+    <a href="#examples">Example Setups</a> &bull; 
+    <!--<a href="https://github.com/fastlane/fastlane/tree/master/docs">Documentation</a> &bull; -->
+    <a href="#need-help">Need help?</a>
 </p>
 
 -------
