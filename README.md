@@ -34,9 +34,7 @@ Store a simple description of your project in a text file to easily create a xco
 You define a project like this:
 
 ```ruby
-
 Cakefile.new do |c|
-
     c.application "test", :ios, 8.0 do |t|
 
     end
