@@ -14,35 +14,6 @@ makes it easy to modify settings and allows you to create a clean project anytim
 
 Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
 
-
-<!--Installing and updating CocoaPods is very easy. Don't miss the [Installation-->
-<!--guide](http://guides.cocoapods.org/using/getting-started.html#installation) and the-->
-<!--[Getting started guide](https://guides.cocoapods.org/using/getting-started.html).-->
-
-<!--## Project Goals-->
-
-<!--CocoaPods aims to improve the engagement with, and discoverability -->
-<!--of, third party open-source Cocoa libraries. These-->
-<!--project goals influence and drive the design of CocoaPods:-->
-
-<!--- Create and share libraries, and use them in your own projects,-->
-<!--  without creating extra work for library authors. Integrate-->
-<!--  non-CocoaPods libraries and hack on your own fork of any-->
-<!--  CocoaPods library with a simple transparent `Podspec` standard.-->
-<!--- Allow library authors to structure their libraries however they like.-->
-<!--- Save time for library authors by automating a lot of Xcode work not -->
-<!--  related to their libraries' functionality.-->
-<!--- Support any source management system. (Currently supported are `git`, -->
-<!--  `svn`, `mercurial`, `bazaar`, and various types of archives downloaded over HTTP.)-->
-<!--- Promote a culture of distributed collaboration on pods, but also provide-->
-<!--  features only possible with a centralised solution to foster a community.-->
-<!--- Build tools on top of the core Cocoa development system, including those -->
-<!--  typically deployed to other operating systems, such as web-services.-->
-<!--- Provide opinionated and automated integration, but make it completely-->
-<!--  optional. You may manually integrate your CocoaPods dependencies-->
-<!--  into your Xcode project as you see fit, with or without a workspace.-->
-<!--- Solve everyday problems for Cocoa and Xcode developers.-->
-
 -------
 <p align="center">
 <!--    <a href="#features">Features</a> &bull;-->
