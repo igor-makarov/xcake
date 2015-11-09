@@ -69,19 +69,21 @@ xcake
 
 ## Installation
 
-    sudo gem install xcake --verbose
+Xcake isn't fully launched just yet, so just clone this repo by running `rake install`
 
-Make sure, you have the latest version of the Xcode command line tools installed:
+<!--    sudo gem install xcake --verbose-->
 
-    xcode-select --install
+<!--Make sure, you have the latest version of the Xcode command line tools installed:-->
 
-If you experience slow launch times of xcake, try running
+<!--    xcode-select --install-->
 
-    gem cleanup
+<!--If you experience slow launch times of xcake, try running-->
 
-to clean up outdated gems.
+<!--    gem cleanup-->
 
-System Requirements: `xcake` requires Mac OS X or Linux with Ruby 2.0.0 or above.
+<!--to clean up outdated gems.-->
+
+<!--System Requirements: `xcake` requires Mac OS X or Linux with Ruby 2.0.0 or above.-->
 
 ## Available commands
 
