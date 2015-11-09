@@ -31,21 +31,23 @@ Xcode projects were once described as "the closest thing to taboo we have to dea
 
 Store a simple description of your project in a text file to easily create a xcode project from _any_ computer. Easily see, merge and maintain the structure of your project, *hello* lazy week days.
 
-<!--You define a `lane` like this (more details about the commands in the [Actions](https://github.com/fastlane/fastlane/blob/master/docs/Actions.md) documentation):-->
+You define a project like this:
 
-<!--```ruby-->
-<!--lane :appstore do-->
-<!--  increment_build_number-->
-<!--  cocoapods-->
-<!--  xctool-->
-<!--  snapshot-->
-<!--  sigh-->
-<!--  deliver-->
-<!--  sh "./customScript.sh"-->
+```ruby
 
-<!--  slack-->
-<!--end-->
-<!--```-->
+Cakefile.new do |c|
+​
+    c.debug_build_configuration :Debug
+    c.release_build_configuration :Release
+​
+    c.application_for :ios, 8.0 do |t|
+​
+      t.name = "test"
+      t.include_files = "./test/*.*"
+.
+    end
+end
+```
 
 <!--To launch the `appstore` lane, just run:-->
 
