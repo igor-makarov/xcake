@@ -54,13 +54,12 @@ xcake
 
               |  xcake
 --------------------------|------------------------------------------------------------
-:sparkles: | Create xcode project from one easy to read file.
+:sparkles: | Flexibly configure and create xcode project from one easy to read `Cakefile`
 :ship: | Generate from any computer, including a CI-server
 :thought_balloon: | Never remember any difficult commands, just `xcake`
-:page_with_curl: | Store **everything** in git. Never again manually fix any corruptions or merge issues with the project.
-:rocket: | Saves you **hours** for every app update you release
-:pencil2: | Very flexible configuration using a fully customisable `Cakefile`
-:mountain_cableway: | Implement a fully working Continuous Delivery process
+:page_with_curl: | Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
+:rocket: | Saves you **hours** when working with xcode projects
+:anchor: | Confidence that project file is exactly the same during Continuous Delivery
 :computer: | Support for both iOS and Mac OS apps
 
 
