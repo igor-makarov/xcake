@@ -19,9 +19,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#quick-start">Quick Start</a> &bull;
-    <a href="#examples">Example Setups</a> &bull; 
-    <a href="#roadmap">Roadmap</a> &bull; 
-    <!--<a href="https://github.com/fastlane/fastlane/tree/master/docs">Documentation</a> &bull; -->
+    <a href="#roadmap">Roadmap</a> &bull;
     <a href="#need-help">Need help?</a>
 </p>
 
@@ -132,10 +130,6 @@ Xcode projects were once described as "the closest thing to taboo we have to dea
 <!--- `fastlane list`: Lists all available lanes without description-->
 <!--- `fastlane docs`: Generates a markdown based documentation of all your lanes-->
 <!--- `fastlane new_action`: Create a new action (integration) for fastlane  -->
-
-## Examples
-
-<!--See how [Wikipedia](https://github.com/fastlane/examples#wikipedia-by-wikimedia-foundation), [Product Hunt](https://github.com/fastlane/examples#product-hunt) and [MindNode](https://github.com/fastlane/examples#mindnode) use `fastlane` to automate their iOS submission process.-->
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
