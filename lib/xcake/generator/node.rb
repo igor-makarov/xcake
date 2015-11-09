@@ -90,11 +90,6 @@ module Xcake
         end
       end
 
-#TODO: Figure out better way of figuring out type of node without mdls
-      def type_tree
-        ::CoreFoundation.RubyStringPropertyListRead(`mdls -plist - -name kMDItemContentTypeTree #{self.path}`)["kMDItemContentTypeTree"]
-      end
-
       def traverse(&block)
 
         yield self if parent
