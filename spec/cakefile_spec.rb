@@ -9,12 +9,6 @@ module Xcake
       expect(cakefile.project_name).to eq("Project")
     end
 
-    it "should initialize build configurations" do
-      cakefile = Cakefile.new
-
-      expect(cakefile.build_configurations).not_to be(nil)
-    end
-
     it "should set project name" do
       cakefile = Cakefile.new("Test")
 
@@ -25,14 +19,6 @@ module Xcake
       cakefile = Cakefile.new
 
       expect(cakefile.targets).not_to be(nil)
-    end
-
-    it "should store build configuration when created" do
-      cakefile = Cakefile.new do |c|
-        c.build_configuration "Configuration"
-      end
-
-      expect(cakefile.build_configurations.count).to eq(1)
     end
 
     it "should store targets when created" do
