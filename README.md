@@ -27,7 +27,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
 
 Xcode projects were once described as "the closest thing to taboo we have to deal with on a regular basis", but it doesnt have to be this way.
 
-Store a simple description of your project in a text file to easily create a xcode project from _any_ computer. Easily see, merge and maintain the structure of your project, *hello* lazy week days.
+Store a simple description of your project in a text file, your `Cakefile`, to easily create a xcode project from _any_ computer. Easily see, merge and maintain the structure of your project, say *hello* lazy week days.
 
 You define a project like this:
 
