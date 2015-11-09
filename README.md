@@ -5,12 +5,16 @@
 
 ###Xcode projects made a piece of cake.
 
-You describe your project in a simple text file: your `Cakefile`. 
+You describe your project in a simple text file: your `Cakefile`.
 Xcake creates your project based on this including importing all of your files and creating groups
 to match the file hiearchy.
 
 This is perfect for working in teams or with cocoapods as it reduces conflicts,
 makes it easy to modify settings and allows you to create a clean project anytime you need to.
+
+Isn't this just like liftoff or crafter? No, although you could say all of these tools are project generators, their philosophy is very different. Liftoff and crafter are akin to Yeoman or Rail's generators (Essentially templates from the terminal), you can create an overall project structure (Folders etc) to get you started and even generate new classes. However xcake is not for this, xcake is simpily a way to generate an xcodeproject using an easy to read textfile.
+
+You could use it on its own and configure it from scratch but you could also have liftoff or crafter generate the Cakefile and then hand over to xcake to do all the xcodeproj creation. Which I believe is a much better enforcement of SRP than the status quo we have now.
 
 Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
 
@@ -33,12 +37,12 @@ You define a project like this:
 
 ```ruby
 Cakefile.new do |c|
-    
+
     c.debug_build_configuration :Debug
     c.release_build_configuration :Release
 
     c.application_for :ios, 8.0 do |t|
-    
+
         t.name = "test"
         t.include_files = "./test/*.*"
         t.all_build_configurations.settings["INFOPLIST_FILE"] = "test/Info.plist"
@@ -94,7 +98,7 @@ Usually you'll use xcake by running the command
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
 
-## Roadmap 
+## Roadmap
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
