@@ -72,11 +72,11 @@ Xcake isn't fully launched just yet, so just clone this repo and install the gem
 
 Make sure, you have the latest version of the Xcode command line tools installed:
 
-   xcode-select --install
+    xcode-select --install
 
 If you experience slow launch times of xcake, try running
 
-   gem cleanup
+    gem cleanup
 
 to clean up outdated gems.
 
