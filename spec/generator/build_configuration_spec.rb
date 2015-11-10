@@ -9,8 +9,6 @@ module Xcake
 
         expect(generator.project).to eq(project)
       end
-      
-        #Test Generating Build Configurations
     end
   end
 end
