@@ -52,10 +52,17 @@ module Xcake
       end
     end
 
-    # context "when accessing all configuration" do
-    #   it "should store new one" do
-    #
-    #   end
-    # end
+    context "when accessing all configurations" do
+      it "should return configuration" do
+        expect(@build_configurable.all_build_configurations).not_to be(nil)
+      end
+
+      it "should be same configuration" do
+
+        build_configuration = @build_configurable.all_build_configurations
+
+        expect(@build_configurable.all_build_configurations).to be(build_configuration)
+      end
+    end
   end
 end
