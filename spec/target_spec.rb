@@ -29,5 +29,29 @@ module Xcake
         end
       end
     end
+
+    it "should have the correct default debug settings" do
+      target = Target.new
+
+      target.platform = :ios
+      target.deployment_target = 8.0
+      target.type = :application
+      target.language = :objc
+
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, target.platform, target.deployment_target.to_s, target.type, target.language)
+      expect(target.default_debug_settings).to eq(settings)
+    end
+
+    it "should have the correct default release settings" do
+      target = Target.new
+
+      target.platform = :ios
+      target.deployment_target = 8.0
+      target.type = :application
+      target.language = :objc
+
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, target.platform, target.deployment_target.to_s, target.type, target.language)
+      expect(target.default_release_settings).to eq(settings)
+    end
   end
 end
