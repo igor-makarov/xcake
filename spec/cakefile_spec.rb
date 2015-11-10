@@ -44,5 +44,34 @@ module Xcake
         expect(@target.type).to eq(:application)
       end
     end
+
+    it "should have the correct default settings" do
+      @cakefile = Cakefile.new
+
+      common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
+      settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
+
+      expect(@cakefile.default_settings).to eq(settings)
+    end
+
+    it "should have the correct default debug settings" do
+      @cakefile = Cakefile.new
+
+      common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
+      settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
+      settings = settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:debug]))
+
+      expect(@cakefile.default_debug_settings).to eq(settings)
+    end
+
+    it "should have the correct default release settings" do
+      @cakefile = Cakefile.new
+
+      common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
+      settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
+      settings = settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:release]))
+
+      expect(@cakefile.default_release_settings).to eq(settings)
+    end
   end
 end
