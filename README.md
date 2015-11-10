@@ -21,6 +21,7 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a>
+    <a href="#roadmap">Roadmap</a> &bull;
 </p>
 
 -------
