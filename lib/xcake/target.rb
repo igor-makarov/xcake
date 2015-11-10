@@ -21,7 +21,7 @@ module Xcake
     end
 
     def default_system_frameworks_for(platform)
-      (platform == :ios) ? ['Foundation'] : ['Cocoa']
+      (platform == :ios) ? ['Foundation', 'UIKit'] : ['Cocoa']
     end
 
     def default_debug_settings
