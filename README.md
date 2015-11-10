@@ -12,7 +12,7 @@ to match the file hiearchy.
 This is perfect for working in teams or with cocoapods as it reduces conflicts,
 makes it easy to modify settings and allows you to create a clean project anytime you need to.
 
-Isn't this just like liftoff or crafter? No, although you could say all of these tools are project generators, their philosophy is very different. Liftoff and crafter are akin to Yeoman or Rail's generators (Essentially templates from the terminal), they create a whole project structure (Folders etc) to get you started and even initilize a git repo. However xcake is not for this, xcake is simpily a way to generate an xcodeproject using an easy to read textfile.
+Isn't this just like liftoff or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject, in fact these tools could work together.
 
 You could use it on its own and configure it from scratch but you could also have liftoff or crafter generate the Cakefile and then hand over to xcake to do all the xcodeproj creation like they already do for libraries with Cocoapods. Which I believe is a much better enforcement of SRP than the status quo we have now.
 
