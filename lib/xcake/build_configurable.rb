@@ -35,6 +35,7 @@ module Xcake
     end
 
     def release_build_configuration(name, &block)
+      
       build_configuration = self.release_build_configurations.find do |c|
         c.name == name
       end
