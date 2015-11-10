@@ -12,7 +12,7 @@ to match the file hiearchy.
 This is perfect for working in teams or with cocoapods as it reduces conflicts,
 makes it easy to modify settings and allows you to create a clean project anytime you need to.
 
-Isn't this just like liftoff or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject, in fact; these tools could work together.
+Isn't this just like liftoff or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject.
 
 Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
 
