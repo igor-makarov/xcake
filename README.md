@@ -93,19 +93,16 @@ Please submit an issue on GitHub and provide information about your setup
 
 ## Roadmap
 
-:white_check_mark: Flexibly configure and create xcode project from one easy to read `Cakefile`
+:white_check_mark: Generate basic iOS or Mac application.
 
-:white_medium_square: Generate from any computer, including a CI-server
+:white_check_mark: Generate from any computer, including a CI-server.
 
-:white_medium_square: Never remember any difficult commands, just `xcake`
+:white_medium_square: Generate testing targets.
 
-:white_medium_square: Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
+:white_medium_square: Generate library targets.
 
-:white_medium_square: Saves you **hours** when working with xcode projects
- 
-:white_medium_square: Confidence that project file is exactly the same during Continuous Delivery
+:white_medium_square: Generate extension or Watch OS targets.
 
-:white_medium_square: Support for both iOS and Mac OS apps
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
