@@ -8,20 +8,18 @@ module Xcake
 
       include Visitor
 
-      attr_accessor :project
-
       def visit_cakefile(cakefile)
 
         puts "Creating Project..."
 
         output_filepath = "./#{cakefile.project_name}.xcodeproj"
 
-        project = Xcode::Project.new(output_filepath, true)
-        project.setup_for_xcake
+        @project = Xcode::Project.new(output_filepath, true)
+        @project.setup_for_xcake
       end
 
       def visit_target(target)
-        generator = Target.new(project)
+        generator = Target.new(@project)
         target.accept(generator)
       end
 

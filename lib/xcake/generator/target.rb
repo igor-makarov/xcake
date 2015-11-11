@@ -28,11 +28,11 @@ module Xcake
 
         root_node = Node.new
 
-        Dir.glob(t.include_files).each do |file|
+        Dir.glob(target.include_files).each do |file|
           root_node.create_children_with_path(file, native_target)
         end if target.include_files
 
-        Dir.glob(t.exclude_files).each do |file|
+        Dir.glob(target.exclude_files).each do |file|
           root_node.remove_children_with_path(file, native_target)
         end if target.exclude_files
 
