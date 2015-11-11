@@ -51,6 +51,9 @@ module Xcake
         # generator = BuildConfiguration.new(@project, target, @native_target)
         # build_configuration.accept(generator)
       end
+
+      def leave_buildconfiguration(build_configuration)
+      end
     end
   end
 end
