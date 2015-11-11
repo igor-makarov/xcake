@@ -22,42 +22,39 @@ module Xcake
         target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
         target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
+        product_group = project.products_group
+        product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
+        target.product_reference = product
+
         root_node = Node.new
 
+        Dir.glob(t.include_files).each do |file|
+          root_node.create_children_with_path(file, target)
+        end if t.include_files
 
+        Dir.glob(t.exclude_files).each do |file|
+          root_node.remove_children_with_path(file, target)
+        end if t.exclude_files
 
-      #   product_group = project.products_group
-      #   product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
-      #   target.product_reference = product
-      #
-      #   Dir.glob(t.include_files).each do |file|
-      #     root_node.create_children_with_path(file, target)
-      #   end if t.include_files
-      #
-      #   Dir.glob(t.exclude_files).each do |file|
-      #     root_node.remove_children_with_path(file, target)
-      #   end if t.exclude_files
-      #
-      #   cakefile.debug_build_configurations.each do |b|
-      #     t.debug_build_configuration(b.name)
-      #   end
-      #
-      #   cakefile.release_build_configurations.each do |b|
-      #     t.release_build_configuration(b.name)
-      #   end
-      #
-      #   generator = BuildConfiguration.new(project, t, target)
-      #   generator.build
-      #
-      #   target.add_system_framework(t.system_frameworks)
-      #
-      #   project.targets << target
-      # end
-      #
-      # root_node.traverse do |n|
-      #   installer = NodeInstaller.new(project.main_group)
-      #   installer.install(n)
-      # end
+        cakefile.debug_build_configurations.each do |b|
+          t.debug_build_configuration(b.name)
+        end
+
+        cakefile.release_build_configurations.each do |b|
+          t.release_build_configuration(b.name)
+        end
+
+        generator = BuildConfiguration.new(project, t, target)
+        generator.build
+
+        target.add_system_framework(t.system_frameworks)
+
+        project.targets << target
+
+        root_node.traverse do |n|
+          installer = NodeInstaller.new(project.main_group)
+          installer.install(n)
+        end
       end
     end
   end
