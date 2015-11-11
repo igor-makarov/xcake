@@ -14,6 +14,7 @@ module Xcake
 
         puts "Creating Project..."
 
+        output_filepath = "./#{cakefile.project_name}.xcodeproj"
         project = Xcode::Project.new(output_filepath, true)
         project.setup_for_xcake
       end
@@ -21,10 +22,6 @@ module Xcake
       def visit_target(target)
         generator = Target.new(project)
         target.accept(generator)
-      end
-
-      def output_filepath
-        "./#{self.cakefile.project_name}.xcodeproj"
       end
 
       #TODO: Use Visitor Pattern for other generators?
