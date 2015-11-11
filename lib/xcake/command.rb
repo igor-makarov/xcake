@@ -7,6 +7,9 @@ module Xcake
     self.description = 'Create and maintain Xcode project files easily.'
 
     def run
+
+      puts "Reading Cakefile..."
+
       file_contents = File.read("#{Dir.pwd}/Cakefile")
       cakefile = eval(file_contents)
 
