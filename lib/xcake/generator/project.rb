@@ -15,6 +15,8 @@ module Xcake
       end
 
       def visit_cakefile(cakefile)
+
+        puts "Reading Cakefile..."
         self.cakefile = cakefile
       end
 
