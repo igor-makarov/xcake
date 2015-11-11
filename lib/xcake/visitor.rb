@@ -7,7 +7,7 @@ module Xcake
       class_name.gsub!('::', '_')
 
       method = "visit_#{class_name.downcase!}"
-      send(method, self)
+      send(method, item)
     end
   end
 end
