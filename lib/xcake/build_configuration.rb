@@ -1,7 +1,7 @@
 module Xcake
   class BuildConfiguration
 
-    include Visitable
+    include Xcake::Visitable
 
     attr_accessor :name
     attr_accessor :settings
