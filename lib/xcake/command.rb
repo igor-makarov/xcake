@@ -12,13 +12,12 @@ module Xcake
       file_contents = File.read("#{Dir.pwd}/Cakefile")
       cakefile = eval(file_contents)
 
-      #Old Generator System
-      # generator = Generator::Project.new(cakefile)
-      # generator.build
+      defaults_generator = Generator::Defaults.new
+      cakefile.accept(defaults_generator)
 
-      generator = Generator::Project.new
-      cakefile.accept(generator)
-      #generator.build - Needed ?
+      project_generator = Generator::Project.new
+      cakefile.accept(project_generator)
+      #project_generator.build - Needed ?
     end
   end
 end
