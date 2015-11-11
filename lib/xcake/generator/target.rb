@@ -16,40 +16,40 @@ module Xcake
 
         puts "Creating target #{target.name}..."
 
-        target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
-        target.name = t.name
-        target.product_name = t.name
-        target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
-        target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
+        native_target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
+        native_target.name = target.name
+        native_target.product_name = target.name
+        native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
+        native_target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
         product_group = project.products_group
-        product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
-        target.product_reference = product
+        product = product_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
+        native_target.product_reference = product
 
         root_node = Node.new
 
         Dir.glob(t.include_files).each do |file|
-          root_node.create_children_with_path(file, target)
-        end if t.include_files
+          root_node.create_children_with_path(file, native_target)
+        end if target.include_files
 
         Dir.glob(t.exclude_files).each do |file|
-          root_node.remove_children_with_path(file, target)
-        end if t.exclude_files
+          root_node.remove_children_with_path(file, native_target)
+        end if target.exclude_files
 
         cakefile.debug_build_configurations.each do |b|
-          t.debug_build_configuration(b.name)
+          target.debug_build_configuration(b.name)
         end
 
         cakefile.release_build_configurations.each do |b|
-          t.release_build_configuration(b.name)
+          target.release_build_configuration(b.name)
         end
 
-        generator = BuildConfiguration.new(project, t, target)
+        generator = BuildConfiguration.new(project, target, native_target)
         generator.build
 
-        target.add_system_framework(t.system_frameworks)
+        native_target.add_system_framework(t.system_frameworks)
 
-        project.targets << target
+        project.targets << native_target
 
         root_node.traverse do |n|
           installer = NodeInstaller.new(project.main_group)
