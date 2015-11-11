@@ -47,8 +47,9 @@ module Xcake
       end
 
       def visit_buildconfiguration(build_configuration)
-        generator = BuildConfiguration.new(@project, target, @native_target)
-        build_configuration.accept(generator)
+        #TODO: Crack this
+        # generator = BuildConfiguration.new(@project, target, @native_target)
+        # build_configuration.accept(generator)
       end
     end
   end
