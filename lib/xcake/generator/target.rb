@@ -47,7 +47,7 @@ module Xcake
       end
 
       def visit_build_configuration(build_configuration)
-        #TODO: Move into Leave method.
+        #TODO: Move into Leave, Other Generator or else where.
         # cakefile.debug_build_configurations.each do |b|
         #   target.debug_build_configuration(b.name)
         # end
@@ -56,8 +56,8 @@ module Xcake
         #   target.release_build_configuration(b.name)
         # end
 
-        # generator = BuildConfiguration.new(project, target, native_target)
-        # generator.build
+        generator = BuildConfiguration.new(project, target, native_target)
+        build_configuration.accept(generator)
       end
     end
   end
