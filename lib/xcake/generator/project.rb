@@ -19,7 +19,6 @@ module Xcake
       end
 
       def visit_target(target)
-
         generator = Target.new
         generator.visit(target)
       end
