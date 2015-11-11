@@ -18,7 +18,7 @@ module Xcake
 
     def visit_target(target)
 
-      puts "Resolving Target #{target.name}..."
+      puts "Resolving target #{target.name}..."
 
       @cakefile.debug_build_configurations.each do |b|
         target.debug_build_configuration(b.name)
