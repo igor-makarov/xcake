@@ -24,6 +24,10 @@ module Xcake
         product = product_group.new_product_ref_for_target(@native_target.product_name, @native_target.product_type)
         @native_target.product_reference = product
 
+        @project.targets << @native_target
+
+        #File Node Code
+
         root_node = Node.new
 
         Dir.glob(target.include_files).each do |file|
@@ -39,7 +43,8 @@ module Xcake
           installer.install(n)
         end
 
-        @project.targets << @native_target
+        #Build Configuration Code
+
       end
 
       def leave_target(target)
