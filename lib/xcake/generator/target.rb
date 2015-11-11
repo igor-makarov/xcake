@@ -46,7 +46,7 @@ module Xcake
         @native_target.add_system_framework(t.system_frameworks)
       end
 
-      def visit_build_configuration(build_configuration)
+      def visit_buildconfiguration(build_configuration)
         generator = BuildConfiguration.new(@project, target, @native_target)
         build_configuration.accept(generator)
       end
