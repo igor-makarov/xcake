@@ -18,6 +18,12 @@ module Xcake
         self.cakefile = cakefile
       end
 
+      def visit_target(target)
+
+        generator = Target.new
+        generator.visit(target)
+      end
+
       def output_filepath
         "./#{self.cakefile.project_name}.xcodeproj"
       end
