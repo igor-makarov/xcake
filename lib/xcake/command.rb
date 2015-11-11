@@ -16,6 +16,7 @@ module Xcake
 
       generator = Generator::Project.new
       cakefile.accept(generator)
+      #generator.build - Needed ?
     end
   end
 end
