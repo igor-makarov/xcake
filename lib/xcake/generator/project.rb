@@ -8,16 +8,18 @@ module Xcake
 
       include Visitor
 
-      attr_accessor :cakefile
+      attr_accessor :project
 
       def visit_cakefile(cakefile)
 
-        puts "Reading Cakefile..."
-        self.cakefile = cakefile
+        puts "Creating Project..."
+
+        project = Xcode::Project.new(output_filepath, true)
+        project.setup_for_xcake
       end
 
       def visit_target(target)
-        generator = Target.new
+        generator = Target.new(project)
         target.accept(generator)
       end
 
@@ -28,9 +30,6 @@ module Xcake
       #TODO: Use Visitor Pattern for other generators?
 
       def build
-        project = Xcode::Project.new(output_filepath, true)
-        project.setup_for_xcake
-
         build_xcode_build_configurations(project)
         build_targets(project)
 
