@@ -1,5 +1,5 @@
 module Xcake
-  module ProjectStructureResolver
+  class ProjectStructureResolver
 
     include Visitor
   end
