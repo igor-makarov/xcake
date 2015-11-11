@@ -14,6 +14,10 @@ module Xcake
         self.cakefile = cakefile
       end
 
+      def visit_cakefile(cakefile)
+        self.cakefile = cakefile
+      end
+
       def output_filepath
         "./#{self.cakefile.project_name}.xcodeproj"
       end
