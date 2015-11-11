@@ -1,6 +1,8 @@
 module Xcake
   module BuildConfigurable
 
+    #TODO: Implement visitable and figure out how to mix it in with Project and Target
+
     attr_accessor :all_build_configuration
     attr_accessor :debug_build_configurations
     attr_accessor :release_build_configurations

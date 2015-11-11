@@ -4,6 +4,7 @@ module Xcake
   class Cakefile
 
     include BuildConfigurable
+    include Visitable
 
     attr_accessor :default_build_configuration
     attr_accessor :project_name
@@ -38,6 +39,8 @@ module Xcake
       application_target
     end
 
+    #BuildConfigurable
+
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
@@ -51,6 +54,16 @@ module Xcake
     def default_release_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       default_settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:release]))
+    end
+
+    #Visitable
+
+    def accept(visitor)
+      visitor.visit(self)
+
+      self.targets.each do |t|
+        visitor.visit(visitor)
+      end
     end
   end
 end

@@ -8,6 +8,8 @@ require "xcake/generator/node_installer"
 require "xcake/generator/project"
 require "xcake/generator/target"
 require "xcake/target"
+require "xcake/visitable"
+require "xcake/visitor"
 require "xcake/version"
 require "xcake/xcode/project"
 

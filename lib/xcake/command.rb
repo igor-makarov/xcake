@@ -10,8 +10,12 @@ module Xcake
       file_contents = File.read("#{Dir.pwd}/Cakefile")
       cakefile = eval(file_contents)
 
-      generator = Generator::Project.new(cakefile)
-      generator.build
+      #Old Generator System
+      # generator = Generator::Project.new(cakefile)
+      # generator.build
+
+      generator = Generator::Project.new
+      cakefile.accept(generator)
     end
   end
 end

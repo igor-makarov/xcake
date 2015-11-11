@@ -2,6 +2,7 @@ module Xcake
   class Target
 
     include BuildConfigurable
+    include Visitable
 
     attr_accessor :name
     attr_accessor :type
