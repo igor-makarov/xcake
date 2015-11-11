@@ -16,13 +16,13 @@ module Xcake
 
         puts "Creating target #{target.name}..."
 
-        native_target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
+        native_target = self.project.new(Xcodeproj::Project::Object::PBXNativeTarget)
         native_target.name = target.name
         native_target.product_name = target.name
         native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
-        native_target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
+        native_target.build_configuration_list = self.project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
-        product_group = project.products_group
+        product_group = self.project.products_group
         product = product_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
         native_target.product_reference = product
 
