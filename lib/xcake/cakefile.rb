@@ -63,10 +63,7 @@ module Xcake
 
       self.targets.each do |t|
         visitor.visit(t)
-        visitor.leave(t)
       end
-
-      visitor.leave(self)
     end
   end
 end

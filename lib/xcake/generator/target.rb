@@ -28,20 +28,10 @@ module Xcake
         end
 
         #Build Configuration Code
-
-      end
-
-      def leave_target(target)
-        @native_target.add_system_framework(target.system_frameworks)
-      end
-
-      def visit_buildconfiguration(build_configuration)
-        #TODO: Crack this
         # generator = BuildConfiguration.new(@project, target, @native_target)
         # build_configuration.accept(generator)
-      end
 
-      def leave_buildconfiguration(build_configuration)
+        #@native_target.add_system_framework(target.system_frameworks)
       end
     end
   end
