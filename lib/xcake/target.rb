@@ -32,5 +32,23 @@ module Xcake
     def default_release_settings
       Xcodeproj::Project::ProjectHelper.common_build_settings(:release, platform, deployment_target.to_s, type, language)
     end
+
+    #Visitable
+
+    def accept(visitor)
+      visitor.visit(self)
+
+      self.debug_build_configurations.each do |c|
+        visitor.visit(c)
+        visitor.leave(c)
+      end
+
+      self.release_build_configurations.each do |c|
+        visitor.visit(c)
+        visitor.leave(c)
+      end
+
+      visitor.leave(self)
+    end
   end
 end

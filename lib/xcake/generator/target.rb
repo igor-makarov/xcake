@@ -36,13 +36,14 @@ module Xcake
           root_node.remove_children_with_path(file, native_target)
         end if target.exclude_files
 
-        cakefile.debug_build_configurations.each do |b|
-          target.debug_build_configuration(b.name)
-        end
-
-        cakefile.release_build_configurations.each do |b|
-          target.release_build_configuration(b.name)
-        end
+        #TODO: Move into Leave method.
+        # cakefile.debug_build_configurations.each do |b|
+        #   target.debug_build_configuration(b.name)
+        # end
+        #
+        # cakefile.release_build_configurations.each do |b|
+        #   target.release_build_configuration(b.name)
+        # end
 
         generator = BuildConfiguration.new(project, target, native_target)
         generator.build
