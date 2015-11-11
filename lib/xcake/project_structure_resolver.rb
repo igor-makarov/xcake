@@ -4,19 +4,22 @@ module Xcake
     include Visitor
 
     def visit_cakefile(cakefile)
-      cakefile.debug_build_configuration :debug if cakefile.debug_build_configurations.count == 0
-      cakefile.release_build_configuration :release if cakefile.release_build_configurations.count == 0
+
+      @cakefile = cakefile
+
+      @cakefile.debug_build_configuration :debug if @cakefile.debug_build_configurations.count == 0
+      @cakefile.release_build_configuration :release if @cakefile.release_build_configurations.count == 0
     end
 
     def leave_cakefile(cakefile)
     end
 
     def visit_target(target)
-      cakefile.debug_build_configurations.each do |b|
+      @cakefile.debug_build_configurations.each do |b|
         target.debug_build_configuration(b.name)
       end
 
-      cakefile.release_build_configurations.each do |b|
+      @cakefile.release_build_configurations.each do |b|
         target.release_build_configuration(b.name)
       end
     end
