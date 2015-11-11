@@ -6,12 +6,10 @@ module Xcake
 
       include Visitor
 
-      attr_accessor :cakefile
       attr_accessor :project
       attr_accessor :root_node
 
-      def initialize(cakefile, project)
-        self.cakefile = cakefile
+      def initialize(project)
         self.project = project
         self.root_node = Node.new
       end

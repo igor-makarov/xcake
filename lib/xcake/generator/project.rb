@@ -18,7 +18,7 @@ module Xcake
 
       def visit_target(target)
         generator = Target.new
-        generator.visit(target)
+        target.accept(generator)
       end
 
       def output_filepath
