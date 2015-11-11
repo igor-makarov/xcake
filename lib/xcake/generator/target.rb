@@ -35,11 +35,11 @@ module Xcake
         end if target.exclude_files
 
         root_node.traverse do |n|
-          installer = NodeInstaller.new(project.main_group)
+          installer = NodeInstaller.new(@project.main_group)
           installer.install(n)
         end
 
-        project.targets << @native_target
+        @project.targets << @native_target
       end
 
       def leave_target(target)
