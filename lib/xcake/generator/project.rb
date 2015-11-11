@@ -18,9 +18,15 @@ module Xcake
         @project.setup_for_xcake
       end
 
+      def leave_cakefile(cakefile)
+      end
+
       def visit_target(target)
         generator = Target.new(@project)
         target.accept(generator)
+      end
+
+      def leave_target(target)
       end
 
       def build
