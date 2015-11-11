@@ -21,6 +21,8 @@ module Xcake
         def object_version
           Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
         end
+
+        #TODO: Add convinience methods for other things.
     end
   end
 end
