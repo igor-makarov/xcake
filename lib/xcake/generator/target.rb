@@ -21,6 +21,8 @@ module Xcake
         root_node.create_children_for_target(target)
 
         root_node.traverse do |n|
+
+          #TODO: Break Node Install into visitors.
           installer = NodeInstaller.new(@project.main_group)
           installer.install(n)
         end
