@@ -61,9 +61,17 @@ module Xcake
     def accept(visitor)
       visitor.visit(self)
 
+      self.flatten_build_configurations.each do |c|
+        visitor.visit(c)
+        visitor.leave(c)
+      end
+
       self.targets.each do |t|
         visitor.visit(t)
+        visitor.leave(t)
       end
+
+      visitor.leave(self)
     end
   end
 end

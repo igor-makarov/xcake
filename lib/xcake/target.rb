@@ -25,12 +25,27 @@ module Xcake
       (platform == :ios) ? ['Foundation', 'UIKit'] : ['Cocoa']
     end
 
+    #BuildConfigurable
+
     def default_debug_settings
       Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, platform, deployment_target.to_s, type, language)
     end
 
     def default_release_settings
       Xcodeproj::Project::ProjectHelper.common_build_settings(:release, platform, deployment_target.to_s, type, language)
+    end
+
+    #Visitable
+
+    def accept(visitor)
+      visitor.visit(self)
+
+      self.flatten_build_configurations.each do |c|
+        visitor.visit(c)
+        visitor.leave(c)
+      end
+
+      visitor.leave(self)
     end
   end
 end

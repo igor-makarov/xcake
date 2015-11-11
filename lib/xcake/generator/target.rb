@@ -26,12 +26,17 @@ module Xcake
           installer = NodeInstaller.new(@project.main_group)
           installer.install(n)
         end
+      end
 
-        #Build Configuration Code
-        # generator = BuildConfiguration.new(@project, target, @native_target)
-        # build_configuration.accept(generator)
+      def leave_target(target)
+      end
 
-        #@native_target.add_system_framework(target.system_frameworks)
+      def visit_buildconfiguration(configuration)
+        generator = BuildConfiguration.new(project, target)
+        generator.visit(configuration)
+      end
+
+      def leave_buildconfiguration(configuration)
       end
     end
   end

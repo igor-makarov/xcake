@@ -31,5 +31,11 @@ module Xcake
 
     def leave_target(target)
     end
+
+    def visit_buildconfiguration(configuration)
+    end
+
+    def leave_buildconfiguration(configuration)
+    end
   end
 end

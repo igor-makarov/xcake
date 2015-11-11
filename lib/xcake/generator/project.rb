@@ -19,6 +19,14 @@ module Xcake
       end
 
       def leave_cakefile(cakefile)
+
+        build_configuration_list = @project.build_configuration_list
+        build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
+
+        puts "Writing Project..."
+
+        @project.recreate_user_schemes
+        @project.save
       end
 
       def visit_target(target)
@@ -29,19 +37,12 @@ module Xcake
       def leave_target(target)
       end
 
-      def build
-        build_xcode_build_configurations(project)
-
-        project.recreate_user_schemes
-        project.save
+      def visit_buildconfiguration(configuration)
+        generator = BuildConfiguration.new(project, project)
+        generator.visit(configuration)
       end
 
-      def build_xcode_build_configurations(project)
-        generator = BuildConfiguration.new(project, cakefile, project)
-        generator.build
-
-        build_configuration_list = project.build_configuration_list
-        build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
+      def leave_buildconfiguration(configuration)
       end
     end
   end
