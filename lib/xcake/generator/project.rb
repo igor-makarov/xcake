@@ -10,10 +10,6 @@ module Xcake
 
       attr_accessor :cakefile
 
-      def initialize(cakefile)
-        self.cakefile = cakefile
-      end
-
       def visit_cakefile(cakefile)
 
         puts "Reading Cakefile..."
