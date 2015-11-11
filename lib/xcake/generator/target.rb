@@ -15,14 +15,17 @@ module Xcake
       def visit_target(target)
 
         puts "Creating target #{target.name}..."
+
+        target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
+        target.name = t.name
+        target.product_name = t.name
+        target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
+        target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
+
         root_node = Node.new
 
-      #   target = project.new(Xcodeproj::Project::Object::PBXNativeTarget)
-      #   target.name = t.name
-      #   target.product_name = t.name
-      #   target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[t.type]
-      #   target.build_configuration_list = project.new(Xcodeproj::Project::Object::XCConfigurationList)
-      #
+
+
       #   product_group = project.products_group
       #   product = product_group.new_product_ref_for_target(target.product_name, target.product_type)
       #   target.product_reference = product

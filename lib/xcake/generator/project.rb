@@ -25,8 +25,6 @@ module Xcake
         target.accept(generator)
       end
 
-      #TODO: Use Visitor Pattern for other generators?
-
       def build
         build_xcode_build_configurations(project)
 
