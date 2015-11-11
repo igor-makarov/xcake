@@ -6,6 +6,8 @@ module Xcake
   module Generator
     class Project
 
+      include Visitor
+
       attr_accessor :cakefile
 
       def initialize(cakefile)

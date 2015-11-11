@@ -4,6 +4,8 @@ module Xcake
   module Generator
     class Target
 
+      include Visitor
+
       attr_accessor :cakefile
       attr_accessor :project
       attr_accessor :root_node

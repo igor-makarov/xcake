@@ -4,6 +4,8 @@ module Xcake
   module Generator
     class BuildConfiguration
 
+      include Visitor
+
       attr_accessor :project
       attr_accessor :build_configurable
       attr_accessor :build_configuration_target
