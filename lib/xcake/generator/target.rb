@@ -6,23 +6,21 @@ module Xcake
 
       include Visitor
 
-      attr_accessor :project
-
       def initialize(project)
-        self.project = project
+        @project = project
       end
 
       def visit_target(target)
 
         puts "Creating target #{target.name}..."
 
-        native_target = self.project.new(Xcodeproj::Project::Object::PBXNativeTarget)
-        native_target.name = target.name
-        native_target.product_name = target.name
-        native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
-        native_target.build_configuration_list = self.project.new(Xcodeproj::Project::Object::XCConfigurationList)
+        @native_target = @project.new(Xcodeproj::Project::Object::PBXNativeTarget)
+        @native_target.name = target.name
+        @native_target.product_name = target.name
+        @native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
+        @native_target.build_configuration_list = @project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
-        product_group = self.project.products_group
+        product_group = @project.products_group
         product = product_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
         native_target.product_reference = product
 
@@ -36,6 +34,19 @@ module Xcake
           root_node.remove_children_with_path(file, native_target)
         end if target.exclude_files
 
+        root_node.traverse do |n|
+          installer = NodeInstaller.new(project.main_group)
+          installer.install(n)
+        end
+
+        project.targets << native_target
+      end
+
+      def leave_target(target)
+        native_target.add_system_framework(t.system_frameworks)
+      end
+
+      def visit_build_configuration(build_configuration)
         #TODO: Move into Leave method.
         # cakefile.debug_build_configurations.each do |b|
         #   target.debug_build_configuration(b.name)
@@ -45,17 +56,8 @@ module Xcake
         #   target.release_build_configuration(b.name)
         # end
 
-        generator = BuildConfiguration.new(project, target, native_target)
-        generator.build
-
-        native_target.add_system_framework(t.system_frameworks)
-
-        project.targets << native_target
-
-        root_node.traverse do |n|
-          installer = NodeInstaller.new(project.main_group)
-          installer.install(n)
-        end
+        # generator = BuildConfiguration.new(project, target, native_target)
+        # generator.build
       end
     end
   end
