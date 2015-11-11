@@ -12,7 +12,7 @@ module Xcake
       end
 
       def visit_buildconfiguration(configuration)
-        puts "Creating build configuration #{configuration.name} for #{project}..."
+        puts "Creating build configuration #{configuration.name} for #{@build_configuration_target}..."
 
         build_configuration = @project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
 
