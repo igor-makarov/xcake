@@ -21,17 +21,17 @@ module Xcake
         @native_target.build_configuration_list = @project.new(Xcodeproj::Project::Object::XCConfigurationList)
 
         product_group = @project.products_group
-        product = product_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
-        native_target.product_reference = product
+        product = product_group.new_product_ref_for_target(@native_target.product_name, @native_target.product_type)
+        @native_target.product_reference = product
 
         root_node = Node.new
 
         Dir.glob(target.include_files).each do |file|
-          root_node.create_children_with_path(file, native_target)
+          root_node.create_children_with_path(file, @native_target)
         end if target.include_files
 
         Dir.glob(target.exclude_files).each do |file|
-          root_node.remove_children_with_path(file, native_target)
+          root_node.remove_children_with_path(file, @native_target)
         end if target.exclude_files
 
         root_node.traverse do |n|
@@ -39,7 +39,7 @@ module Xcake
           installer.install(n)
         end
 
-        project.targets << native_target
+        project.targets << @native_target
       end
 
       def leave_target(target)
