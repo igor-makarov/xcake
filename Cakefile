@@ -1,9 +1,5 @@
 Cakefile.new do |c|
 
-        c.debug_build_configuration :Debug
-        c.debug_build_configuration :Beta
-        c.release_build_configuration :Release
-
         c.application_for :ios, 8.0 do |t|
 
           #c.language = :swift
