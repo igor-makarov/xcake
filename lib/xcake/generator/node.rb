@@ -17,13 +17,14 @@ module Xcake
         self.targets = []
       end
 
-      def create_children_for_target(target)
+      def create_children_for_target(target, native_target)
+
         Dir.glob(target.include_files).each do |file|
-          root_node.create_children_with_path(file, @native_target)
+          root_node.create_children_with_path(file, native_target)
         end if target.include_files
 
         Dir.glob(target.exclude_files).each do |file|
-          root_node.remove_children_with_path(file, @native_target)
+          root_node.remove_children_with_path(file, native_target)
         end if target.exclude_files
       end
 

@@ -18,7 +18,9 @@ module Xcake
 
         #File Node Code
         root_node = Node.new
-        root_node.create_children_for_target(target)
+
+        #TODO: Break node creation into a visitor.
+        root_node.create_children_for_target(target, native_target)
 
         root_node.traverse do |n|
 
