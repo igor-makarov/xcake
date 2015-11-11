@@ -43,7 +43,7 @@ module Xcake
       end
 
       def leave_target(target)
-        @native_target.add_system_framework(t.system_frameworks)
+        @native_target.add_system_framework(target.system_frameworks)
       end
 
       def visit_buildconfiguration(build_configuration)
