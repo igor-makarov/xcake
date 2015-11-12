@@ -37,9 +37,6 @@ You define a project like this:
 ```ruby
 Cakefile.new do |c|
 
-    c.debug_build_configuration :Debug
-    c.release_build_configuration :Release
-
     c.application_for :ios, 8.0 do |t|
 
         t.name = "test"
