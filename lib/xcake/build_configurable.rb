@@ -23,11 +23,11 @@ module Xcake
     end
 
     def debug_build_configurations
-      @build_configurations ||= []
+      @debug_build_configurations ||= []
     end
 
     def release_build_configurations
-      @build_configurations ||= []
+      @release_build_configurations ||= []
     end
 
     def all_build_configurations
