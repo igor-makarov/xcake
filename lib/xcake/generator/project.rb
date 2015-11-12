@@ -6,40 +6,43 @@ module Xcake
   module Generator
     class Project
 
-      attr_accessor :cakefile
+      include Visitor
 
-      def initialize(cakefile)
-        self.cakefile = cakefile
+      def visit_cakefile(cakefile)
+
+        puts "Creating Project..."
+
+        output_filepath = "./#{cakefile.project_name}.xcodeproj"
+
+        @project = Xcode::Project.new(output_filepath, true)
+        @project.setup_for_xcake
       end
 
-      def output_filepath
-        "./#{self.cakefile.project_name}.xcodeproj"
-      end
+      def leave_cakefile(cakefile)
 
-      #TODO: Use Visitor Pattern for other generators?
-
-      def build
-        project = Xcode::Project.new(output_filepath, true)
-        project.setup_for_xcake
-
-        build_xcode_build_configurations(project)
-        build_targets(project)
-
-        project.recreate_user_schemes
-        project.save
-      end
-
-      def build_xcode_build_configurations(project)
-        generator = BuildConfiguration.new(project, cakefile, project)
-        generator.build
-
-        build_configuration_list = project.build_configuration_list
+        build_configuration_list = @project.build_configuration_list
         build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
+
+        puts "Writing Project..."
+
+        @project.recreate_user_schemes
+        @project.save
       end
 
-      def build_targets(project)
-        generator = Target.new(cakefile, project)
-        generator.build
+      def visit_target(target)
+        generator = Target.new(@project)
+        target.accept(generator)
+      end
+
+      def leave_target(target)
+      end
+
+      def visit_buildconfiguration(configuration)
+        generator = BuildConfiguration.new(@project, @project)
+        generator.visit(configuration)
+      end
+
+      def leave_buildconfiguration(configuration)
       end
     end
   end

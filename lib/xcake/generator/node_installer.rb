@@ -26,8 +26,6 @@ module Xcake
 
         puts "Installing #{node.path}..."
 
-        type_tree = node.type_tree
-
         #TODO: Create Modular Node Installers
         if File.directory?(node.path) == false
           group = group_for_node(node)

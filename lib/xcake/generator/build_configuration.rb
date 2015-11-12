@@ -4,39 +4,25 @@ module Xcake
   module Generator
     class BuildConfiguration
 
-      attr_accessor :project
-      attr_accessor :build_configurable
-      attr_accessor :build_configuration_target
+      include Visitor
 
-      def initialize(project, build_configurable, build_configuration_target)
-        self.project = project
-        self.build_configurable = build_configurable
-        self.build_configuration_target = build_configuration_target
+      def initialize(project, build_configuration_target)
+        @project = project
+        @build_configuration_target = build_configuration_target
       end
 
-      def build
+      def visit_buildconfiguration(configuration)
+        puts "Creating build configuration #{configuration.name} for #{@build_configuration_target}..."
 
-        default_debug_settings = build_configurable.default_debug_settings
-        default_release_settings = build_configurable.default_release_settings
-        all_settings = build_configurable.all_build_configurations.settings
+        build_configuration = @project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
 
-        build_configurable.debug_build_configurations.each do |b|
-          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
+        build_configuration.name = configuration.name
+        build_configuration.build_settings = configuration.settings
 
-          build_configuration.name = b.name
-          build_configuration.build_settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
+        @build_configuration_target.build_configurations << build_configuration
+      end
 
-          build_configuration_target.build_configurations << build_configuration
-        end
-
-        build_configurable.release_build_configurations.each do |b|
-          build_configuration = project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
-
-          build_configuration.name = b.name
-          build_configuration.build_settings = default_release_settings.merge!(all_settings).merge!(b.settings)
-
-          build_configuration_target.build_configurations << build_configuration
-        end
+      def leave_buildconfiguration(configuration)
       end
     end
   end

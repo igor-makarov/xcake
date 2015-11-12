@@ -17,6 +17,17 @@ module Xcake
         self.targets = []
       end
 
+      def create_children_for_target(target, native_target)
+
+        Dir.glob(target.include_files).each do |file|
+          self.create_children_with_path(file, native_target)
+        end if target.include_files
+
+        Dir.glob(target.exclude_files).each do |file|
+          self.remove_children_with_path(file, native_target)
+        end if target.exclude_files
+      end
+
       def create_children_with_path(path, target)
 
         components = path.split('/').keep_if do |c|
