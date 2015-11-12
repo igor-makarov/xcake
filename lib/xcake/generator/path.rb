@@ -18,14 +18,14 @@ module Xcake
 
       def visit_node(node)
 
-        group = group_for_node(n)
+        group = group_for_node(node)
         file_reference = group.new_reference(node.path)
 
         installer = BuildPhase::Registry.generator_for_file_reference(file_reference)
 
         node.targets.each do |t|
 
-          puts "Adding #{n.path} to #{t}..."
+          puts "Adding #{node.path} to #{t}..."
 
           installer.visit_target(t)
         end
