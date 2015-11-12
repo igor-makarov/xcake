@@ -6,8 +6,9 @@ module Xcake
 
       include Visitor
 
-      def initialize(project)
+      def initialize(project, root_node)
         @project = project
+        @root_node = root_node
       end
 
       def visit_target(target)
@@ -16,18 +17,13 @@ module Xcake
 
         @native_target = @project.new_target(target)
 
-        #File Node Code
-        root_node = Node.new
+        Dir.glob(target.include_files).each do |file|
+          @root_node.create_children_with_path(file, @native_target)
+        end if target.include_files
 
-        #TODO: Break node creation into a visitor.
-        root_node.create_children_for_target(target, @native_target)
-
-        root_node.traverse do |n|
-
-          #TODO: Break Node Install into visitors.
-          installer = NodeInstaller.new(@project.main_group)
-          installer.install(n)
-        end
+        Dir.glob(target.exclude_files).each do |file|
+          @root_node.remove_children_with_path(file, @native_target)
+        end if target.exclude_files
       end
 
       def leave_target(target)

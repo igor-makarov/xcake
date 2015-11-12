@@ -16,9 +16,17 @@ module Xcake
 
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
+
+        @root_node = Node.new
       end
 
       def leave_cakefile(cakefile)
+
+        @root_node.traverse do |n|
+          generator = Path.new(@project)
+          generator.visit(n)
+          generator.leave(n)
+        end
 
         build_configuration_list = @project.build_configuration_list
         build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
@@ -30,7 +38,7 @@ module Xcake
       end
 
       def visit_target(target)
-        generator = Target.new(@project)
+        generator = Target.new(@project, @root_node)
         target.accept(generator)
       end
 
