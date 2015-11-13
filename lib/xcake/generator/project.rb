@@ -8,6 +8,8 @@ module Xcake
 
       include Visitor
 
+      attr_accessor :project
+
       def output_filepath_for_cakefile(cakefile)
         "./#{cakefile.project_name}.xcodeproj"
       end

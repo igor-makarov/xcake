@@ -14,6 +14,16 @@ module Xcake
         expect(output_filepath).to eq("./Project.xcodeproj")
       end
 
+      it 'generates the project' do
+        cakefile = double()
+        allow(cakefile).to receive(:project_name) { 'Project' }
+
+        generator = Project.new
+        generator.visit_cakefile(cakefile)
+
+        expect(generator.project).not_to be_nil
+      end
+
       #Test Generating Project
     end
   end
