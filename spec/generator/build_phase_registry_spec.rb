@@ -10,6 +10,8 @@ module Xcake
               CopyResourcesBuildPhase
           ])
         end
+
+        #Find Generator for file reference
       end
     end
   end
