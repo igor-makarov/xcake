@@ -3,6 +3,7 @@ module Xcake
     class CompileSourceBuildPhase < BuildPhase
 
       def self.can_install_path(file_reference)
+        File.directory?(file_reference.path) == false &&
         [".c", ".m", ".mm", ".cpp", ".swift"].include?(File.extname(file_reference.path))
       end
 
