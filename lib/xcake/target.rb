@@ -17,6 +17,10 @@ module Xcake
       block.call(self) if block_given?
     end
 
+    def include_files
+      @include_files ||= "./#{self.name}/*.*"
+    end
+
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
     end
