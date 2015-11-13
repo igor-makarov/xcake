@@ -2,6 +2,8 @@ module Xcake
   module Generator
     class BuildPhase
 
+      attr_accessor :file_reference
+
       def self.can_install_file_reference(file_reference)
         true
       end
