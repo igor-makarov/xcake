@@ -3,6 +3,8 @@ require 'xcodeproj'
 module Xcake
   class Node
 
+    include Visitable
+
     attr_accessor :component
     attr_accessor :path
     attr_accessor :parent
@@ -87,13 +89,15 @@ module Xcake
       end
     end
 
-    def traverse(&block)
+    def accept(visitor)
 
-      yield self if parent
+      visitor.visit(self)
 
       children.each do |c|
-        c.traverse(&block)
+        c.accept(visitor)
       end
+
+      visitor.leave(self)
     end
   end
 end

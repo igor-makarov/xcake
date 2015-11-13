@@ -28,11 +28,8 @@ module Xcake
 
       def leave_cakefile(cakefile)
 
-        @root_node.traverse do |n|
-          generator = Path.new(@project)
-          generator.visit(n)
-          generator.leave(n)
-        end
+        generator = Path.new(@project)
+        @root_node.accept(generator)
 
         build_configuration_list = @project.build_configuration_list
         build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
