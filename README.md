@@ -37,7 +37,7 @@ You define a project like this:
 ```ruby
 Cakefile.new do |c|
     c.application_for :ios, 8.0 do |t|
-        t.name = "test"
+        t.name = "MyApp"
     end
 end
 ```
