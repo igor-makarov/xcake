@@ -8,11 +8,15 @@ module Xcake
 
       include Visitor
 
+      def output_filepath_for_cakefile(cakefile)
+        "./#{cakefile.project_name}.xcodeproj"
+      end
+
       def visit_cakefile(cakefile)
 
         puts "Creating Project..."
 
-        output_filepath = "./#{cakefile.project_name}.xcodeproj"
+        output_filepath = output_filepath_for_cakefile(cakefile)
 
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
