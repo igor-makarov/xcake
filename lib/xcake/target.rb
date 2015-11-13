@@ -18,7 +18,7 @@ module Xcake
     end
 
     def include_files
-      @include_files ||= "./#{self.name}/*.*"
+      @include_files ||= "./#{self.name}/**/*.*"
     end
 
     def system_frameworks

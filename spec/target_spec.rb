@@ -30,6 +30,13 @@ module Xcake
       end
     end
 
+    it "should have the correct default include files" do
+      target = Target.new
+      target.name = "test"
+
+      expect(target.include_files).to eq("./test/**/*.*")
+    end
+
     it "should have the correct default debug settings" do
       target = Target.new
 
