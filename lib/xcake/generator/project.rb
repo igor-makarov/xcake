@@ -41,6 +41,8 @@ module Xcake
 
         @project.recreate_user_schemes
         @project.save
+
+        puts "Done!"
       end
 
       def visit_target(target)

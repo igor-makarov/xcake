@@ -24,7 +24,15 @@ module Xcake
         expect(generator.project).not_to be_nil
       end
 
-      #Test Generating Project
+      #Test Node
+
+      #Test Build Configuration
+
+      #Test Build Configuration
+
+      #Test Schemes
+
+      #Test Writing Out
     end
   end
 end
