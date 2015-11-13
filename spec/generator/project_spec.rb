@@ -26,7 +26,7 @@ module Xcake
 
       #Test Node
 
-      #Test Build Configuration
+      #Test Targets
 
       #Test Build Configuration
 
