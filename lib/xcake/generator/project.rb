@@ -31,8 +31,7 @@ module Xcake
         generator = Path.new(@project)
         @root_node.accept(generator)
 
-        build_configuration_list = @project.build_configuration_list
-        build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
+        @project.build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
 
         puts "Writing Project..."
 
