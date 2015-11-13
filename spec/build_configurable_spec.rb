@@ -64,5 +64,7 @@ module Xcake
         expect(@build_configurable.all_build_configurations).to be(build_configuration)
       end
     end
+
+    #Test flattening configurations
   end
 end
