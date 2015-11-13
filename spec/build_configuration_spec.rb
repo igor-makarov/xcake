@@ -18,5 +18,7 @@ module Xcake
         expect(@configuration.settings).not_to be(nil)
       end
     end
+
+    #Create way of merging build configurations
   end
 end
