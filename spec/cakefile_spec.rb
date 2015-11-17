@@ -63,7 +63,7 @@ module Xcake
             @target = c.application_for :ios, 8.0, :swift
           end
         end
-        
+
         it "should set lanuggae" do
           expect(@target.language).to eq(:swift)
         end
@@ -98,5 +98,7 @@ module Xcake
 
       expect(@cakefile.default_release_settings).to eq(settings)
     end
+
+    #TODO: Some of the node system stuff.
   end
 end
