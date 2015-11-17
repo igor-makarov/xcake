@@ -2,7 +2,7 @@ module Xcake
   module Generator
     class CompileSourceBuildPhase < BuildPhase
 
-      def self.can_install_path(file_reference)
+      def self.can_install_file_reference(file_reference)
         File.directory?(file_reference.path) == false &&
         [".c", ".m", ".mm", ".cpp", ".swift"].include?(File.extname(file_reference.path))
       end
