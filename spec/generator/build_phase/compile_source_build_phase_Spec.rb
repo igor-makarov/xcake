@@ -13,7 +13,7 @@ module Xcake
 
       it "should not able to install non source code file" do
         file_reference = double()
-        allow(file_reference).to receive(:path) { 'File.x' }
+        allow(file_reference).to receive(:path) { 'File.txt' }
 
         expect(CompileSourceBuildPhase.can_install_file_reference(file_reference)).to be(false)
       end
@@ -52,6 +52,8 @@ module Xcake
 
         expect(CompileSourceBuildPhase.can_install_file_reference(file_reference)).to be(true)
       end
+
+      #Test adding file reference
     end
   end
 end
