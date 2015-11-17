@@ -11,7 +11,7 @@ module Xcake
           ])
         end
 
-        #Find Generator for file reference
+        #TODO: Test Find Generator for file reference
       end
     end
   end
