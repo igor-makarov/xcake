@@ -1,5 +1,7 @@
 require 'xcodeproj'
 
+#Rename to project.
+
 module Xcake
   class Cakefile
 
