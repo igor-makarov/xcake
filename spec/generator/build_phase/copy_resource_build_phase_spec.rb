@@ -25,16 +25,29 @@ module Xcake
         file_reference = double()
         allow(file_reference).to receive(:path) { 'File.h' }
 
-        expect(CompileSourceBuildPhase.can_install_file_reference(file_reference)).to be(false)
+        expect(CopyResourcesBuildPhase.can_install_file_reference(file_reference)).to be(false)
       end
 
       it "shouldnot be able to install c++ header file" do
         file_reference = double()
         allow(file_reference).to receive(:path) { 'File.hpp' }
 
-        expect(CompileSourceBuildPhase.can_install_file_reference(file_reference)).to be(false)
+        expect(CopyResourcesBuildPhase.can_install_file_reference(file_reference)).to be(false)
       end
-      #Test adding file reference
+
+      it "should add file reference to copy resources build phase" do
+
+        file_reference = double()
+
+        resources_build_phase = double()
+        expect(resources_build_phase).to receive(:add_file_reference).with(file_reference)
+
+        target = double()
+        allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
+
+        generator = CopyResourcesBuildPhase.new(file_reference)
+        generator.visit_target(target)
+      end
     end
   end
 end
