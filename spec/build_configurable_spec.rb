@@ -79,6 +79,36 @@ module Xcake
     #   end
 
     context "when flattening configurations" do
+
+      context "for debug" do
+
+        it "should merge in default settings" do
+
+        end
+
+        it "should merge in all settings" do
+
+        end
+
+        it "should merge in configuration settings" do
+
+        end
+      end
+
+      context "for release" do
+        it "should merge in default settings" do
+
+        end
+
+        it "should merge in all settings" do
+
+        end
+
+        it "should merge in configuration settings" do
+
+        end
+      end
+
       it "should have same combined number of configurations" do
         @build_configurable.debug_build_configuration :debug
         @build_configurable.debug_build_configuration :release
