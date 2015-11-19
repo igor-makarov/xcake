@@ -25,19 +25,35 @@ module Xcake
         expect(@generator.root_node).not_to be_nil
       end
 
+    context 'when finished parsing cakefile' do
+
+      before :each do
+        @project = double().as_null_object
+        @root_node = double().as_null_object
+        @path_generator = double().as_null_object
+
+        @generator.project = @project
+        @generator.root_node = @root_node
+      end
+
       it 'run path generator on root node' do
+        expect(@root_node).to receive(:accept).with(@path_generator)
+        allow(Path).to receive(:new).and_return(@path_generator)
 
-        project = double().as_null_object
-        root_node = double().as_null_object
-        path_generator = double().as_null_object
-
-        expect(root_node).to receive(:accept).with(path_generator)
-        allow(Path).to receive(:new).and_return(path_generator)
-
-        @generator.project = project
-        @generator.root_node = root_node
         @generator.leave_cakefile(@cakefile)
       end
+
+      it 'should recreate user schemes' do
+        expect(@project).to receive(:recreate_user_schemes)
+        @generator.leave_cakefile(@cakefile)
+      end
+
+      it 'should save project' do
+        expect(@project).to receive(:save)
+        @generator.leave_cakefile(@cakefile)
+      end
+    end
+
 
       #Test Writing Out
 
