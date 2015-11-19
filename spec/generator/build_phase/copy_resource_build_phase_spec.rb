@@ -4,7 +4,6 @@ module Xcake
   module Generator
     describe CopyResourcesBuildPhase do
 
-      #TODO: Get test working
       it "should not able to install folder" do
         folder_path = 'Folder/'
 
