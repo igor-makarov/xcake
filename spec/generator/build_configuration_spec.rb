@@ -17,9 +17,27 @@ module Xcake
         generator.visit_buildconfiguration(build_configuration)
       end
 
-      #test sets name
+      context "when configuring XCBuildConfiguration" do
 
-      #test sets build settings
+        before :each do
+          @xcode_build_configuration = double().as_null_object
+          @project = double()
+          expect(project).to receive(:new).and_return(@xcode_build_configuration)
+
+          @build_configuration_target = double().as_null_object
+          @build_configuration = double().as_null_object
+        end
+
+        it "should set name" do
+          generator = BuildConfiguration.new(@project, @build_configuration_target)
+          generator.visit_buildconfiguration(@build_configuration)
+        end
+
+        it "should set settings" do
+          generator = BuildConfiguration.new(@project, @build_configuration_target)
+          generator.visit_buildconfiguration(@build_configuration)
+        end
+    end
 
       #test add build configurations.
 
