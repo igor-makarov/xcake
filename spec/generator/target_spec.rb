@@ -5,7 +5,10 @@ module Xcake
     describe Target do
 
       before :each do
-        @generator = Target.new
+        @project = double()
+        @root_node = double()
+
+        @generator = Target.new(@project, @root_node)
       end
 
       it 'run build configuration generator when visiting build configuration' do

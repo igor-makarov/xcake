@@ -31,7 +31,7 @@ module Xcake
 
       def visit_buildconfiguration(configuration)
         generator = BuildConfiguration.new(@project, @native_target)
-        generator.visit(configuration)
+        configuration.accept(generator)
       end
 
       def leave_buildconfiguration(configuration)
