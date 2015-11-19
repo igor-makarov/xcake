@@ -11,7 +11,15 @@ module Xcake
           ])
         end
 
-        #TODO: Test Find Generator for file reference
+        it 'should return correct generator for file reference' do
+
+          allow(Registry).to receive(:build_phase_generators).and_return([BuildPhase])
+
+          file_reference = double()
+          generator = Registry.generator_for_file_reference(file_reference)
+
+          expect(generator).to be_a(BuildPhase)
+        end
       end
     end
   end
