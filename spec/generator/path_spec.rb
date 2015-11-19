@@ -43,7 +43,32 @@ module Xcake
         end
       end
 
-      #Visit node
+      context 'when visiting node' do
+
+        it 'should create a reference if a directoy' do
+
+          file_reference = double()
+          expect(@main_group).to receive(:new_reference).with(@node.path).and_return(file_reference)
+
+          allow(@generator).to receive(:group_for_node).and_return(@main_group)
+          allow(File).to receive(:directory?).and_return(true)
+          allow(BuildPhase::Registry).to receive(:generator_for_file_reference)
+
+          @generator.visit_node(@node)
+
+        end
+
+        # group = group_for_node(node)
+        # file_reference = group.new_reference(node.path) if File.directory?(node.path)
+        #
+        # installer = BuildPhase::Registry.generator_for_file_reference(file_reference)
+        #
+        # node.targets.each do |t|
+        #
+        #   puts "Added to #{t}"
+        #   installer.visit_target(t)
+        # end
+      end
     end
   end
 end
