@@ -53,7 +53,19 @@ module Xcake
         expect(CompileSourceBuildPhase.can_install_file_reference(file_reference)).to be(true)
       end
 
-      #Test adding file reference
+      it "should add file reference to source build phase" do
+
+        file_reference = double()
+
+        source_build_phase = double()
+        expect(source_build_phase).to receive(:add_file_reference).with(file_reference)
+
+        target = double()
+        allow(target).to receive(:source_build_phase).and_return(source_build_phase)
+
+        generator = CompileSourceBuildPhase.new(file_reference)
+        generator.visit_target(target)
+      end
     end
   end
 end
