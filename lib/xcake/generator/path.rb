@@ -4,6 +4,8 @@ module Xcake
 
       include Visitor
 
+      attr_accessor :project
+
       def initialize(project)
         @project = project
       end
