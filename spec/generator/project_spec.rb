@@ -7,7 +7,7 @@ module Xcake
       before :each do
         @generator = Project.new
 
-        @cakefile = double()
+        @cakefile = double().as_null_object
         allow(@cakefile).to receive(:project_name) { 'Project' }
       end
 
@@ -26,6 +26,16 @@ module Xcake
       end
 
       it 'run path generator on root node' do
+
+        project = double().as_null_object
+        root_node = double().as_null_object
+        path_generator = double().as_null_object
+
+        expect(root_node).to receive(:accept).with(path_generator)
+        allow(Path).to receive(:new).and_return(path_generator)
+
+        @generator.project = project
+        @generator.root_node = root_node
         @generator.leave_cakefile(@cakefile)
       end
 
