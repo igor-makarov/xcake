@@ -4,30 +4,25 @@ module Xcake
   module Generator
     describe BuildConfiguration do
 
+      before :each do
+        @xcode_build_configuration = double().as_null_object
+        @project = double()
+
+        @build_configuration_target = double().as_null_object
+        @build_configuration = double().as_null_object
+
+        @generator = BuildConfiguration.new(@project, @build_configuration_target)
+      end
+
       it "should create a new XCBuildConfiguration" do
-
-        xcode_build_configuration = double().as_null_object
-        project = double()
-        expect(project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(xcode_build_configuration)
-
-        build_configuration_target = double().as_null_object
-        build_configuration = double().as_null_object
-
-        generator = BuildConfiguration.new(project, build_configuration_target)
-        generator.visit_buildconfiguration(build_configuration)
+        expect(@project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(@xcode_build_configuration)
+        @generator.visit_buildconfiguration(@build_configuration)
       end
 
       context "when configuring XCBuildConfiguration" do
 
         before :each do
-          @xcode_build_configuration = double().as_null_object
-          @project = double()
-          expect(@project).to receive(:new).and_return(@xcode_build_configuration)
-
-          @build_configuration_target = double().as_null_object
-          @build_configuration = double().as_null_object
-
-          @generator = BuildConfiguration.new(@project, @build_configuration_target)
+          allow(@project).to receive(:new).and_return(@xcode_build_configuration)
         end
 
         it "should set name" do
