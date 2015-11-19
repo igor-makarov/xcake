@@ -6,7 +6,6 @@ module Xcake
 
       #TODO: Get test working
       it "should not able to install folder" do
-
         folder_path = 'Folder/'
 
         file_reference = double()
