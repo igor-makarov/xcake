@@ -24,7 +24,10 @@ module Xcake
         expect(generator.project).not_to be_nil
       end
 
-      #Test Node
+      it 'should create root node' do
+        generator = Project.new
+        expect(generator.root_node).not_to be_nil
+      end
 
       #Test Targets
 

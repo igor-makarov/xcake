@@ -9,6 +9,11 @@ module Xcake
       include Visitor
 
       attr_accessor :project
+      attr_accessor :root_node
+
+      def initialize
+        @root_node = Node.new
+      end
 
       def output_filepath_for_cakefile(cakefile)
         "./#{cakefile.project_name}.xcodeproj"
@@ -22,8 +27,6 @@ module Xcake
 
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
-
-        @root_node = Node.new
       end
 
       def leave_cakefile(cakefile)
