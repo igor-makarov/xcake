@@ -33,7 +33,7 @@ module Xcake
           allow(@project).to receive(:new_target).and_return(native_target)
 
           target = double().as_null_object
-          
+
           allow(target).to receive(:include_files).and_return('**/*.swift')
           allow(target).to receive(:exclude_files).and_return(nil)
           allow(Dir).to receive(:glob).and_return(['File.swift'])
