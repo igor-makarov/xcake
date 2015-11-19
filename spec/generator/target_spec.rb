@@ -33,9 +33,10 @@ module Xcake
           allow(@project).to receive(:new_target).and_return(native_target)
 
           target = double().as_null_object
+          
           allow(target).to receive(:include_files).and_return('**/*.swift')
-          allow(Dir).to receive(:glob).with(any_args).and_return([])
-          allow(Dir).to receive(:glob).with('*/*.swift').and_return(['File.swift'])
+          allow(target).to receive(:exclude_files).and_return(nil)
+          allow(Dir).to receive(:glob).and_return(['File.swift'])
 
           expect(@root_node).to receive(:create_children_with_path).with('File.swift', native_target)
 
@@ -47,9 +48,10 @@ module Xcake
           allow(@project).to receive(:new_target).and_return(native_target)
 
           target = double().as_null_object
+
+          allow(target).to receive(:include_files).and_return(nil)
           allow(target).to receive(:exclude_files).and_return('**/*.swift')
-          allow(Dir).to receive(:glob).with(any_args).and_return([])
-          allow(Dir).to receive(:glob).with('*/*.swift').and_return(['File.swift'])
+          allow(Dir).to receive(:glob).and_return(['File.swift'])
 
           expect(@root_node).to receive(:remove_children_with_path).with('File.swift', native_target)
 
