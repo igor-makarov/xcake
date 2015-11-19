@@ -54,14 +54,9 @@ module Xcake
       end
     end
 
-
-      #Test Writing Out
-
       #Test Targets
 
       #Test Build Configuration
-
-      #Test Schemes
     end
   end
 end
