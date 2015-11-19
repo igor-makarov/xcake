@@ -1,7 +1,5 @@
 require 'xcodeproj'
 
-#TODO: Is this even a true generator ? Maybe move into command ?
-
 module Xcake
   module Generator
     class Project
