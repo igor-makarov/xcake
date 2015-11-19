@@ -67,11 +67,7 @@ module Xcake
         expect(@build_configurable.all_build_configurations).to be(build_configuration)
       end
     end
-    #
-    # def flatten_build_configurations
-    #   all_settings = all_build_configurations.settings
-    #   flattened_build_configurations = []
-    #
+
     #   debug_build_configurations.each do |b|
     #     b.settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
     #     flattened_build_configurations << b
@@ -81,9 +77,6 @@ module Xcake
     #     b.settings = default_release_settings.merge!(all_settings).merge!(b.settings)
     #     flattened_build_configurations << b
     #   end
-    #
-    #   flattened_build_configurations
-    # end
 
     context "when flattening configurations" do
       it "should have same combined number of configurations" do
