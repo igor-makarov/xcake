@@ -11,7 +11,7 @@ module Xcake
       end
 
       def group_for_node(node)
-        if node.parent.path
+        if node.parent
           @project.main_group.find_subpath(node.parent.path, true)
         else
           @project.main_group
