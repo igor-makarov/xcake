@@ -6,6 +6,9 @@ module Xcake
     before :each do
       @build_configurable = Object.new
       @build_configurable.extend(BuildConfigurable)
+
+      allow(@build_configurable).to receive(:default_debug_settings).and_return({})
+      allow(@build_configurable).to receive(:default_release_settings).and_return({})
     end
 
     context "when creating debug configuration" do
@@ -64,7 +67,32 @@ module Xcake
         expect(@build_configurable.all_build_configurations).to be(build_configuration)
       end
     end
+    #
+    # def flatten_build_configurations
+    #   all_settings = all_build_configurations.settings
+    #   flattened_build_configurations = []
+    #
+    #   debug_build_configurations.each do |b|
+    #     b.settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
+    #     flattened_build_configurations << b
+    #   end
+    #
+    #   release_build_configurations.each do |b|
+    #     b.settings = default_release_settings.merge!(all_settings).merge!(b.settings)
+    #     flattened_build_configurations << b
+    #   end
+    #
+    #   flattened_build_configurations
+    # end
 
-    #Test flattening configurations
+    context "when flattening configurations" do
+      it "should have same combined number of configurations" do
+        @build_configurable.debug_build_configuration :debug
+        @build_configurable.debug_build_configuration :release
+
+        flattened_configurations = @build_configurable.flatten_build_configurations
+        expect(flattened_configurations.count).to be(2)
+      end
+    end
   end
 end
