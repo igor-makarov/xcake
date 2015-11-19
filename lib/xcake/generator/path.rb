@@ -25,12 +25,11 @@ module Xcake
         group = group_for_node(node)
         file_reference = group.new_reference(node.path) if File.directory?(node.path)
 
-        installer = BuildPhase::Registry.generator_for_file_reference(file_reference)
+        generator = BuildPhase::Registry.generator_for_file_reference(file_reference)
 
         node.targets.each do |t|
-
           puts "Added to #{t}"
-          installer.visit_target(t)
+          generator.visit_target(t)
         end
       end
 

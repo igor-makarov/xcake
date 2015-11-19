@@ -55,19 +55,21 @@ module Xcake
           allow(BuildPhase::Registry).to receive(:generator_for_file_reference)
 
           @generator.visit_node(@node)
-
         end
 
-        # group = group_for_node(node)
-        # file_reference = group.new_reference(node.path) if File.directory?(node.path)
-        #
-        # installer = BuildPhase::Registry.generator_for_file_reference(file_reference)
-        #
-        # node.targets.each do |t|
-        #
-        #   puts "Added to #{t}"
-        #   installer.visit_target(t)
-        # end
+        it 'should visit target with build phase generator' do
+
+          target = double()
+          build_phase_generator = double()
+          expect(build_phase_generator).to receive(:visit_target).with(target)
+
+          allow(@node).to receive(:targets).and_return([target])
+          allow(@generator).to receive(:group_for_node).and_return(@main_group)
+          allow(File).to receive(:directory?).and_return(false)
+          allow(BuildPhase::Registry).to receive(:generator_for_file_reference).and_return(build_phase_generator)
+
+          @generator.visit_node(@node)
+        end
       end
     end
   end
