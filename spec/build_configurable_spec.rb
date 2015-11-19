@@ -93,6 +93,7 @@ module Xcake
 
         before :each do
           @build_configuration = @build_configurable.debug_build_configuration(:debug)
+          @build_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
           @build_configurable.flatten_build_configurations
         end
 
@@ -105,7 +106,7 @@ module Xcake
         end
 
         it "should merge in configuration settings" do
-
+          expect(@build_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
@@ -113,6 +114,7 @@ module Xcake
 
         before :each do
           @build_configuration = @build_configurable.debug_build_configuration(:release)
+          @build_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
           @build_configurable.flatten_build_configurations
         end
 
@@ -125,7 +127,7 @@ module Xcake
         end
 
         it "should merge in configuration settings" do
-
+          expect(@build_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
