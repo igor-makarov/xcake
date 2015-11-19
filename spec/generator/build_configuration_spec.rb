@@ -41,11 +41,6 @@ module Xcake
 
       #test add build configurations.
 
-
-
-      # build_configuration.name = configuration.name
-      # build_configuration.build_settings = configuration.settings
-      #
       # @build_configuration_target.build_configurations << build_configuration
 
     end
