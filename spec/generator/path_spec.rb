@@ -46,7 +46,6 @@ module Xcake
       context 'when visiting node' do
 
         it 'should create a reference if a directoy' do
-
           file_reference = double()
           expect(@main_group).to receive(:new_reference).with(@node.path).and_return(file_reference)
 
@@ -58,7 +57,6 @@ module Xcake
         end
 
         it 'should visit target with build phase generator' do
-
           target = double()
           build_phase_generator = double()
           expect(build_phase_generator).to receive(:visit_target).with(target)
