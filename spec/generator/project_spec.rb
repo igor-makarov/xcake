@@ -4,40 +4,38 @@ module Xcake
   module Generator
     describe Project do
 
+      before :each do
+        @generator = Project.new
+
+        @cakefile = double()
+        allow(@cakefile).to receive(:project_name) { 'Project' }
+      end
+
       it 'generates the correct output filepath' do
-        cakefile = double()
-        allow(cakefile).to receive(:project_name) { 'Project' }
-
-        generator = Project.new
-        output_filepath = generator.output_filepath_for_cakefile(cakefile)
-
+        output_filepath = @generator.output_filepath_for_cakefile(@cakefile)
         expect(output_filepath).to eq("./Project.xcodeproj")
       end
 
       it 'generates the project' do
-        cakefile = double()
-        allow(cakefile).to receive(:project_name) { 'Project' }
-
-        generator = Project.new
-        generator.visit_cakefile(cakefile)
-
-        expect(generator.project).not_to be_nil
+        @generator.visit_cakefile(@cakefile)
+        expect(@generator.project).not_to be_nil
       end
 
       it 'should create root node' do
-        generator = Project.new
-        expect(generator.root_node).not_to be_nil
+        expect(@generator.root_node).not_to be_nil
       end
+
+      it 'run path generator on root node' do
+        @generator.leave_cakefile(@cakefile)
+      end
+
+      #Test Writing Out
 
       #Test Targets
 
       #Test Build Configuration
 
       #Test Schemes
-
-      #Test Writing Out
-
-      #Test Visits
     end
   end
 end
