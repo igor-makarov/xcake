@@ -6,6 +6,9 @@ module Xcake
 
       include Visitor
 
+      attr_accessor :project
+      attr_accessor :root_node
+
       def initialize(project, root_node)
         @project = project
         @root_node = root_node

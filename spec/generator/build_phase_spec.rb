@@ -9,7 +9,7 @@ module Xcake
         expect(BuildPhase.can_install_file_reference(file_reference)).to be(true)
       end
 
-      it "should store file reference" do
+      it "should store the file reference" do
         file_reference = double()
         build_phase = BuildPhase.new(file_reference)
 
