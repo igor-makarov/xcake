@@ -89,10 +89,11 @@ module Xcake
 
         before :each do
           @build_configuration = @build_configurable.debug_build_configuration(:debug)
+          @build_configurable.flatten_build_configurations
         end
 
         it "should merge in default settings" do
-
+          expect(@build_configuration.settings["DEFAULT_SETTING"]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
@@ -108,10 +109,11 @@ module Xcake
 
         before :each do
           @build_configuration = @build_configurable.debug_build_configuration(:release)
+          @build_configurable.flatten_build_configurations
         end
 
         it "should merge in default settings" do
-
+          expect(@build_configuration.settings["DEFAULT_SETTING"]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
