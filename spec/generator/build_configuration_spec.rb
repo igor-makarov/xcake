@@ -22,20 +22,22 @@ module Xcake
         before :each do
           @xcode_build_configuration = double().as_null_object
           @project = double()
-          expect(project).to receive(:new).and_return(@xcode_build_configuration)
+          expect(@project).to receive(:new).and_return(@xcode_build_configuration)
 
           @build_configuration_target = double().as_null_object
           @build_configuration = double().as_null_object
+
+          @generator = BuildConfiguration.new(@project, @build_configuration_target)
         end
 
         it "should set name" do
-          generator = BuildConfiguration.new(@project, @build_configuration_target)
-          generator.visit_buildconfiguration(@build_configuration)
+          expect(@xcode_build_configuration).to receive(:name=).with(@build_configuration.name)
+          @generator.visit_buildconfiguration(@build_configuration)
         end
 
         it "should set settings" do
-          generator = BuildConfiguration.new(@project, @build_configuration_target)
-          generator.visit_buildconfiguration(@build_configuration)
+          expect(@xcode_build_configuration).to receive(:build_settings=).with(@build_configuration.settings)
+          @generator.visit_buildconfiguration(@build_configuration)
         end
     end
 
