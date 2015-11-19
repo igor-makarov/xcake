@@ -3,16 +3,25 @@ require 'spec_helper'
 module Xcake
   describe ProjectStructureResolver do
 
-    # def visit_cakefile(cakefile)
+    before :each do
+      @cakefile = Cakefile.new
+
+      @resolver = ProjectStructureResolver.new
+      @resolver.visit_cakefile(@cakefile)
+    end
+
+    context "when resolving cakefile with no configiuarations" do
+      
+      it "should create a default debug configuration" do
+        expect(@cakefile.debug_build_configurations.count).to be(1)
+      end
+
+      it "should create a default release configuration" do
+        expect(@cakefile.release_build_configurations.count).to be(1)
+      end
+    end
+
     #
-    #   puts "Resolving Project..."
-    #
-    #   @cakefile = cakefile
-    #
-    #   @cakefile.debug_build_configuration :debug if @cakefile.debug_build_configurations.count == 0
-    #   @cakefile.release_build_configuration :release if @cakefile.release_build_configurations.count == 0
-    # end
-    # 
     # def visit_target(target)
     #
     #   puts "Resolving target #{target.name}..."
