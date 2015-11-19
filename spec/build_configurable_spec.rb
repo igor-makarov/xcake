@@ -7,8 +7,13 @@ module Xcake
       @build_configurable = Object.new
       @build_configurable.extend(BuildConfigurable)
 
-      allow(@build_configurable).to receive(:default_debug_settings).and_return({})
-      allow(@build_configurable).to receive(:default_release_settings).and_return({})
+      allow(@build_configurable).to receive(:default_debug_settings).and_return({
+        "DEFAULT_SETTING": "DEFAULT_VALUE"
+      })
+
+      allow(@build_configurable).to receive(:default_release_settings).and_return({
+        "DEFAULT_SETTING": "DEFAULT_VALUE"
+      })
     end
 
     context "when creating debug configuration" do
@@ -82,6 +87,10 @@ module Xcake
 
       context "for debug" do
 
+        before :each do
+          @build_configuration = @build_configurable.debug_build_configuration(:debug)
+        end
+
         it "should merge in default settings" do
 
         end
@@ -96,6 +105,11 @@ module Xcake
       end
 
       context "for release" do
+
+        before :each do
+          @build_configuration = @build_configurable.debug_build_configuration(:release)
+        end
+
         it "should merge in default settings" do
 
         end

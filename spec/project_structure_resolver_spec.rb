@@ -37,14 +37,5 @@ module Xcake
         expect(@target.release_build_configurations.count).to be(1)
       end
     end
-
-
-    #   @cakefile.debug_build_configurations.each do |b|
-    #     target.debug_build_configuration(b.name)
-    #   end
-    #
-    #   @cakefile.release_build_configurations.each do |b|
-    #     target.release_build_configuration(b.name)
-    #   end
   end
 end
