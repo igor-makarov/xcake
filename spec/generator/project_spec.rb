@@ -54,6 +54,26 @@ module Xcake
       end
     end
 
+    it 'run target generator when visiting target' do
+      target = double()
+      target_generator = double()
+      
+      expect(target_generator).to receive(:visit).with(target)
+      allow(Target).to receive(:new).and_return(target_generator)
+
+      @generator.visit_target(target)
+    end
+
+    it 'run build configuration generator when visiting build configuration' do
+      build_configuration = double()
+      build_configuration_generator = double()
+
+      expect(build_configuration_generator).to receive(:visit).with(build_configuration)
+      allow(BuildConfiguration).to receive(:new).and_return(build_configuration_generator)
+
+      @generator.visit_buildconfiguration(build_configuration)
+    end
+
       #Test Targets
 
       #Test Build Configuration
