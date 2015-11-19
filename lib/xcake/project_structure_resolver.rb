@@ -3,6 +3,8 @@ module Xcake
 
     include Visitor
 
+    attr_accessor :cakefile
+
     def visit_cakefile(cakefile)
 
       puts "Resolving Project..."
