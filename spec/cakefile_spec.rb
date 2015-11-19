@@ -98,7 +98,5 @@ module Xcake
 
       expect(@cakefile.default_release_settings).to eq(settings)
     end
-
-    #TODO: Some of the node system stuff.
   end
 end
