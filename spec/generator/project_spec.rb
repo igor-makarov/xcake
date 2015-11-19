@@ -55,7 +55,6 @@ module Xcake
       end
 
       it 'run target generator when visiting target' do
-
         target_generator = double()
         allow(Target).to receive(:new).and_return(target_generator)
 
