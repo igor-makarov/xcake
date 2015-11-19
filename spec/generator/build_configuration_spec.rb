@@ -36,9 +36,8 @@ module Xcake
         end
 
         it 'should store it in it\'s targets build configurations' do
-          #test add build configurations.
-
-          # @build_configuration_target.build_configurations << build_configuration
+          expect(@build_configuration_target).to receive(:<<).with(@xcode_build_configuration)
+          @generator.visit_buildconfiguration(@build_configuration)
         end
     end
 
