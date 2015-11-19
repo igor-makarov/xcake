@@ -33,7 +33,6 @@ module Xcake
       context 'when finding group for child node' do
 
         it 'should return sub group' do
-
           sub_group = double()
 
           allow(@main_group).to receive(:find_subpath).with('path', true).and_return(sub_group)
@@ -43,8 +42,6 @@ module Xcake
           expect(group).to be(sub_group)
         end
       end
-
-      #Group For Node
 
       #Visit node
     end
