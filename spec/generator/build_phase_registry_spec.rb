@@ -12,7 +12,6 @@ module Xcake
         end
 
         it 'should return correct generator for file reference' do
-
           allow(Registry).to receive(:build_phase_generators).and_return([BuildPhase])
 
           file_reference = double()
