@@ -4,53 +4,43 @@ module Xcake
   module Generator
     describe CompileSourceBuildPhase do
 
-      it "should not able to install folder" do
-        node = double()
-        allow(node).to receive(:path) { 'Folder/' }
+      before :each do
+        @node = double()
+      end
 
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(false)
+      it "should not able to install folder" do
+        allow(@node).to receive(:path).and_return('Folder/')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(false)
       end
 
       it "should not able to install non source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.txt' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(false)
+        allow(@node).to receive(:path).and_return('File.txt')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(false)
       end
 
       it "should be able to install c source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.c' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.c')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should be able to install objective-c source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.m' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.m')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should be able to install objective-c++ source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.mm' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.mm')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should be able to install c++ source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.cpp' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.cpp')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should be able to install swift source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.swift' }
-
-        expect(CompileSourceBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.swift')
+        expect(CompileSourceBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should add file reference to source build phase" do

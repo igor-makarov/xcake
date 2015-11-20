@@ -4,35 +4,32 @@ module Xcake
   module Generator
     describe CopyResourcesBuildPhase do
 
+      before :each do
+        @node = double()
+      end
+
       it "should not able to install folder" do
         folder_path = 'Folder/'
 
-        node = double()
-        allow(node).to receive(:path) { folder_path }
+        allow(@node).to receive(:path).and_return(folder_path)
         allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-        expect(CopyResourcesBuildPhase.can_install_node(node)).to be(false)
+        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(false)
       end
 
       it "should be able to install non source code file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.txt' }
-
-        expect(CopyResourcesBuildPhase.can_install_node(node)).to be(true)
+        allow(@node).to receive(:path).and_return('File.txt')
+        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should not be able to install c header file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.h' }
-
-        expect(CopyResourcesBuildPhase.can_install_node(node)).to be(false)
+        allow(@node).to receive(:path).and_return('File.h')
+        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(false)
       end
 
       it "shouldnot be able to install c++ header file" do
-        node = double()
-        allow(node).to receive(:path) { 'File.hpp' }
-
-        expect(CopyResourcesBuildPhase.can_install_node(node)).to be(false)
+        allow(@node).to receive(:path).and_return('File.hpp')
+        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(false)
       end
 
       it "should add file reference to copy resources build phase" do
