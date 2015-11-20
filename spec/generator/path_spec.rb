@@ -11,6 +11,12 @@ module Xcake
 
         expect(generator.project).to be(project)
       end
+
+      #No Path
+
+      #Path - No generator
+
+      #Path - Generator
     end
   end
 end
