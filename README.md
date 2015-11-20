@@ -35,7 +35,7 @@ Store a simple description of your project in a text file, your `Cakefile`, to e
 You define a project like this:
 
 ```ruby
-Cakefile.new do |c|
+Project.new do |c|
     c.application_for :ios, 8.0 do |t|
         t.name = "MyApp"
     end
@@ -55,7 +55,7 @@ xcake
 :thought_balloon: | Never remember any difficult commands, just `xcake`
 :page_with_curl: | Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
 :rocket: | Saves you **hours** when working with xcode projects
-:anchor: | Confidence that project file is exactly the same during Continuous Delivery
+:anchor: | Confidence that the project file is exactly the same during Continuous Delivery
 :computer: | Support for both iOS and Mac OS apps
 
 ## Installation
