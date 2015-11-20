@@ -13,26 +13,26 @@ module Xcake
         @root_node = Node.new
       end
 
-      def output_filepath_for_cakefile(cakefile)
-        "./#{cakefile.project_name}.xcodeproj"
+      def output_filepath_for_project(project)
+        "./#{project.project_name}.xcodeproj"
       end
 
-      def visit_project(cakefile)
+      def visit_project(project)
 
         puts "Creating Project..."
 
-        output_filepath = output_filepath_for_cakefile(cakefile)
+        output_filepath = output_filepath_for_project(project)
 
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
       end
 
-      def leave_project(cakefile)
+      def leave_project(project)
 
         generator = Path.new(@project)
         @root_node.accept(generator)
 
-        @project.build_configuration_list.default_configuration_name = cakefile.default_build_configuration.to_s if cakefile.default_build_configuration
+        @project.build_configuration_list.default_configuration_name = project.default_build_configuration.to_s if project.default_build_configuration
 
         puts "Writing Project..."
 
