@@ -12,8 +12,6 @@ module Xcake
 
       def visit_node(node)
 
-        return unless node.path
-
         puts "Adding #{node.path}..."
 
         generator_class = BuildPhase::Registry.generator_for_node(node)
