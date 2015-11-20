@@ -29,14 +29,14 @@ module Xcake
 
         node.targets.each do |t|
            puts "Added to #{t}"
-           add_file_reference_to_build_phase(file_reference, t)
+           add_file_reference_to_target(file_reference, t)
         end
       end
 
       def leave_node(node)
       end
 
-      def add_file_reference_to_build_phase(file_reference, target)
+      def add_file_reference_to_target(file_reference, target)
       end
 
     end
