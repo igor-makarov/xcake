@@ -1,7 +1,6 @@
 require "xcake/visitable"
 require "xcake/visitor"
 
-require "xcake/action"
 require "xcake/build_configuration"
 require "xcake/build_configurable"
 require "xcake/cakefile"
