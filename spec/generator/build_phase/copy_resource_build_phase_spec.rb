@@ -34,20 +34,20 @@ module Xcake
 
         expect(CopyResourcesBuildPhase.can_install_node(node)).to be(false)
       end
-      #
-      # it "should add file reference to copy resources build phase" do
-      #
-      #   node = double()
-      #
-      #   resources_build_phase = double()
-      #   expect(resources_build_phase).to receive(:add_node).with(node)
-      #
-      #   target = double()
-      #   allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
-      #
-      #   generator = CopyResourcesBuildPhase.new(node)
-      #   generator.visit_target(target)
-      # end
+
+      it "should add file reference to copy resources build phase" do
+
+        file_reference = double()
+
+        resources_build_phase = double()
+        expect(resources_build_phase).to receive(:add_file_reference).with(file_reference)
+
+        target = double()
+        allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
+
+        generator = CopyResourcesBuildPhase.new(nil)
+        generator.add_file_reference_to_target(file_reference, target)
+      end
     end
   end
 end
