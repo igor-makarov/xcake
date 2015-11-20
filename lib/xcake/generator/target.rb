@@ -27,6 +27,8 @@ module Xcake
         Dir.glob(target.exclude_files).each do |file|
           @root_node.remove_children_with_path(file, @native_target)
         end if target.exclude_files
+
+        #System Framework
       end
 
       def leave_target(target)
