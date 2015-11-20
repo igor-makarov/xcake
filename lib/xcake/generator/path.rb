@@ -20,6 +20,8 @@ module Xcake
 
       def visit_node(node)
 
+        return unless node.path
+
         puts "Adding #{node.path}..."
 
         group = group_for_node(node)

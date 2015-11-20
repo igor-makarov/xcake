@@ -11,8 +11,6 @@ module Xcake
           allow(@project).to receive(:main_group).and_return(@main_group)
 
           @node = double().as_null_object
-          allow(@node).to receive(:path).and_return('path')
-
           @generator = Path.new(@project)
       end
 
@@ -35,6 +33,7 @@ module Xcake
         it 'should return sub group' do
           sub_group = double()
 
+          allow(@node).to receive(:path).and_return('path')
           allow(@main_group).to receive(:find_subpath).with('path', true).and_return(sub_group)
           allow(@node).to receive(:parent).and_return(@node)
 
@@ -45,15 +44,36 @@ module Xcake
 
       context 'when visiting node' do
 
-        it 'should create a reference if a directoy' do
-          file_reference = double()
-          expect(@main_group).to receive(:new_reference).with(@node.path).and_return(file_reference)
+        context 'when path' do
 
-          allow(@generator).to receive(:group_for_node).and_return(@main_group)
-          allow(File).to receive(:directory?).and_return(true)
-          allow(BuildPhase::Registry).to receive(:generator_for_file_reference)
+          context 'is nil' do
 
-          @generator.visit_node(@node)
+            it 'should not create a reference' do
+              file_reference = double()
+
+              allow(@node).to receive(:path).and_return(nil)
+              expect(@main_group).to_not receive(:new_reference)
+
+              @generator.visit_node(@node)
+            end
+          end
+
+          context 'is directory' do
+
+            it 'should create a reference' do
+
+              allow(@node).to receive(:path).and_return('path')
+
+              file_reference = double()
+              expect(@main_group).to receive(:new_reference).with(@node.path).and_return(file_reference)
+
+              allow(@generator).to receive(:group_for_node).and_return(@main_group)
+              allow(File).to receive(:directory?).and_return(true)
+              allow(BuildPhase::Registry).to receive(:generator_for_file_reference)
+
+              @generator.visit_node(@node)
+            end
+          end
         end
 
         it 'should visit target with build phase generator' do
