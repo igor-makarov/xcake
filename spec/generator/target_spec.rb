@@ -59,6 +59,17 @@ module Xcake
         end
       end
 
+      it "should add system frameworks" do
+        native_target = double().as_null_object
+        target = double().as_null_object
+
+        allow(target).to receive(:system_frameworks).and_return(['Foundation'])
+        expect(native_target).to receive(:add_system_frameworks).with(target.system_frameworks)
+
+        @generator.native_target = native_target
+        @generator.leave_target(target)
+      end
+
       it 'run build configuration generator when visiting build configuration' do
         build_configuration_generator = double()
         allow(BuildConfiguration).to receive(:new).and_return(build_configuration_generator)
