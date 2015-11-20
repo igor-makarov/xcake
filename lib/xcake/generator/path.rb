@@ -32,7 +32,7 @@ module Xcake
         node.targets.each do |t|
           puts "Added to #{t}"
           generator.visit_target(t)
-        end
+        end if generator
       end
 
       def leave_node(node)

@@ -15,7 +15,7 @@ module Xcake
             g.can_install_file_reference(file_reference)
           end
 
-          generator = generator_class.new(file_reference)
+          generator = generator_class.new(file_reference) if generator_class
         end
       end
     end
