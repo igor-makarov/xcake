@@ -17,7 +17,7 @@ module Xcake
         "./#{cakefile.project_name}.xcodeproj"
       end
 
-      def visit_cakefile(cakefile)
+      def visit_project(cakefile)
 
         puts "Creating Project..."
 
@@ -27,7 +27,7 @@ module Xcake
         @project.setup_for_xcake
       end
 
-      def leave_cakefile(cakefile)
+      def leave_project(cakefile)
 
         generator = Path.new(@project)
         @root_node.accept(generator)

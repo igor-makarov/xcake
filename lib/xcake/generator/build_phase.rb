@@ -8,6 +8,10 @@ module Xcake
         true
       end
 
+      def self.can_install_node(node)
+        true
+      end
+
       def initialize(file_reference)
         @file_reference = file_reference
       end

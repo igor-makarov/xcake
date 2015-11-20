@@ -17,6 +17,14 @@ module Xcake
 
           generator = generator_class.new(file_reference) if generator_class
         end
+
+        def self.generator_for_node(node)
+          generator_class = self.build_phase_generators.find do |g|
+            g.can_install_node(node)
+          end
+
+          generator = generator_class.new(file_reference) if generator_class
+        end
       end
     end
   end

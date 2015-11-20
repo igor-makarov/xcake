@@ -7,17 +7,17 @@ module Xcake
       before :each do
         @generator = Project.new
 
-        @cakefile = double().as_null_object
-        allow(@cakefile).to receive(:project_name) { 'Project' }
+        @project = double().as_null_object
+        allow(@project).to receive(:project_name) { 'Project' }
       end
 
       it 'generates the correct output filepath' do
-        output_filepath = @generator.output_filepath_for_cakefile(@cakefile)
+        output_filepath = @generator.output_filepath_for_project(@project)
         expect(output_filepath).to eq("./Project.xcodeproj")
       end
 
       it 'generates the project' do
-        @generator.visit_cakefile(@cakefile)
+        @generator.visit_project(@project)
         expect(@generator.project).not_to be_nil
       end
 
@@ -25,7 +25,7 @@ module Xcake
         expect(@generator.root_node).not_to be_nil
       end
 
-      context 'when finished parsing cakefile' do
+      context 'when finished parsing project' do
 
         before :each do
           @project = double().as_null_object
@@ -40,17 +40,17 @@ module Xcake
           expect(@root_node).to receive(:accept).with(@path_generator)
           allow(Path).to receive(:new).and_return(@path_generator)
 
-          @generator.leave_cakefile(@cakefile)
+          @generator.leave_project(@project)
         end
 
         it 'should recreate user schemes' do
           expect(@project).to receive(:recreate_user_schemes)
-          @generator.leave_cakefile(@cakefile)
+          @generator.leave_project(@project)
         end
 
         it 'should save project' do
           expect(@project).to receive(:save)
-          @generator.leave_cakefile(@cakefile)
+          @generator.leave_project(@project)
         end
       end
 

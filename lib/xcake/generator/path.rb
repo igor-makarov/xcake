@@ -24,6 +24,8 @@ module Xcake
 
         puts "Adding #{node.path}..."
 
+        generator = BuildPhase::Registry.generator_for_node(node)
+
         group = group_for_node(node)
         file_reference = group.new_reference(node.path) if File.directory?(node.path) == false
 
