@@ -1,3 +1,5 @@
+require "fastlane"
+
 module Xcake
     # To share this integration with the other fastlane users:
     # - Fork https://github.com/KrauseFx/fastlane
