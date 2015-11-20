@@ -11,7 +11,7 @@ module Xcake
     def self.run(params)
       # fastlane will take care of reading in the parameter and fetching the environment variable:
 
-      Actions.sh("xcake")
+      Fastlane::Actions.sh("xcake")
     end
 
     #####################################################
