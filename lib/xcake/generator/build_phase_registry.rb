@@ -10,20 +10,10 @@ module Xcake
           ]
         end
 
-        def self.generator_for_file_reference(file_reference)
-          generator_class = self.build_phase_generators.find do |g|
-            g.can_install_file_reference(file_reference)
-          end
-
-          generator = generator_class.new(file_reference) if generator_class
-        end
-
         def self.generator_for_node(node)
           generator_class = self.build_phase_generators.find do |g|
             g.can_install_node(node)
           end
-
-          generator = generator_class.new(file_reference) if generator_class
         end
       end
     end
