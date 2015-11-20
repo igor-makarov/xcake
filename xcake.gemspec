@@ -32,5 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_dependency "claide"
+  spec.add_dependency "fastlane"
   spec.add_dependency "xcodeproj", "~> 0.28"
 end
