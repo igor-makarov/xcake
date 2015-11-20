@@ -3,30 +3,30 @@ module Xcake
 
     include Visitor
 
-    attr_accessor :cakefile
+    attr_accessor :project
 
-    def visit_cakefile(cakefile)
+    def visit_project(project)
 
       puts "Resolving Project..."
 
-      @cakefile = cakefile
+      @project = project
 
-      @cakefile.debug_build_configuration :debug if @cakefile.debug_build_configurations.count == 0
-      @cakefile.release_build_configuration :release if @cakefile.release_build_configurations.count == 0
+      @project.debug_build_configuration :debug if @project.debug_build_configurations.count == 0
+      @project.release_build_configuration :release if @project.release_build_configurations.count == 0
     end
 
-    def leave_cakefile(cakefile)
+    def leave_project(project)
     end
 
     def visit_target(target)
 
       puts "Resolving target #{target.name}..."
 
-      @cakefile.debug_build_configurations.each do |b|
+      @project.debug_build_configurations.each do |b|
         target.debug_build_configuration(b.name)
       end
 
-      @cakefile.release_build_configurations.each do |b|
+      @project.release_build_configurations.each do |b|
         target.release_build_configuration(b.name)
       end
     end

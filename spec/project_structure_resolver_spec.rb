@@ -4,26 +4,26 @@ module Xcake
   describe ProjectStructureResolver do
 
     before :each do
-      @cakefile = Cakefile.new
+      @project = Project.new
       @target = Target.new
 
       @resolver = ProjectStructureResolver.new
-      @resolver.visit_cakefile(@cakefile)
+      @resolver.visit_project(@project)
       @resolver.visit_target(@target)
     end
 
-    context "when resolving cakefile with no configiuarations" do
+    context "when resolving project with no configiuarations" do
 
       it "should create a default debug configuration" do
-        expect(@cakefile.debug_build_configurations.count).to be(1)
+        expect(@project.debug_build_configurations.count).to be(1)
       end
 
       it "should create a default release configuration" do
-        expect(@cakefile.release_build_configurations.count).to be(1)
+        expect(@project.release_build_configurations.count).to be(1)
       end
 
-      it "should store cakefile" do
-        expect(@resolver.cakefile).to be(@cakefile)
+      it "should store project" do
+        expect(@resolver.project).to be(@project)
       end
     end
 

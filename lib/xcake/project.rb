@@ -1,9 +1,7 @@
 require 'xcodeproj'
 
-#Rename to project.
-
 module Xcake
-  class Cakefile
+  class Project
 
     include BuildConfigurable
     include Visitable
