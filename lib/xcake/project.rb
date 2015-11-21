@@ -39,6 +39,20 @@ module Xcake
       application_target
     end
 
+    def unit_test()
+
+      unit_test_target = target do |t|
+        t.type = :unit_test_bundle
+        # t.platform = platform
+        # t.deployment_target = deployment_target
+        # t.language = language
+
+        block.call(t) if block_given?
+      end
+
+      unit_test_target
+    end
+
     #BuildConfigurable
 
     def default_settings
