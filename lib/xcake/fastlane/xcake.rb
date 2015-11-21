@@ -1,4 +1,6 @@
-module Fastlane
+require "fastlane"
+
+module Xcake
   module Actions
     module SharedValues
       XCAKE_CUSTOM_VALUE = :XCAKE_CUSTOM_VALUE
@@ -10,7 +12,7 @@ module Fastlane
     # - Move this integration into lib/fastlane/actions
     # - Commit, push and submit the pull request
 
-    class XcakeAction < Action
+    class XcakeAction < Fastlane::Action
       def self.run(params)
         # fastlane will take care of reading in the parameter and fetching the environment variable:
 
