@@ -39,9 +39,11 @@ module Xcake
       application_target
     end
 
-    def unit_test_for(host_target, &block)
+    def unit_tests_for(host_target, &block)
 
       unit_test_target = target do |t|
+
+        t.name = "#{host_target.name}Tests"
         t.type = :unit_test_bundle
         t.platform = host_target.platform
         t.deployment_target = host_target.deployment_target
