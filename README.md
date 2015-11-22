@@ -91,7 +91,7 @@ Please submit an issue on GitHub and provide information about your setup
 
 :white_check_mark: Generate from any computer, including a CI-server.
 
-:white_medium_square: Generate testing targets.
+:white_check_mark: Generate testing targets.
 
 :white_medium_square: Generate library targets.
 
