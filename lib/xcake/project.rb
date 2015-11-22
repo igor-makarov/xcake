@@ -49,7 +49,7 @@ module Xcake
         t.deployment_target = host_target.deployment_target
         t.language = host_target.language
 
-        t.all_build_settings.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}";
+        t.all_build_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}";
 
         block.call(t) if block_given?
       end
