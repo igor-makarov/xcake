@@ -39,15 +39,15 @@ module Xcake
       application_target
     end
 
-    def unit_test(&block)
+    def unit_test_for(host_target, &block)
 
       unit_test_target = target do |t|
         t.type = :unit_test_bundle
-        t.platform = :ios
-        # t.deployment_target = deployment_target
-        # t.language = language
+        t.platform = host_target.platform
+        t.deployment_target = host_target.deployment_target
+        t.language = host_target.language
 
-        #TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test.app/test";
+        t.all_build_settings.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}";
 
         block.call(t) if block_given?
       end
