@@ -50,9 +50,6 @@ module Xcake
         t.deployment_target = host_target.deployment_target
         t.language = host_target.language
 
-        t.include_files << host_target.include_files
-        t.exclude_files << host_target.exclude_files
-
         t.all_build_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
         t.all_build_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
 
