@@ -6,6 +6,7 @@ module Xcake
 
       include Visitor
 
+#TODO: BDD these are stored
       def initialize(project, build_configuration_target)
         @project = project
         @build_configuration_target = build_configuration_target

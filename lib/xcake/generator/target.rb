@@ -40,6 +40,8 @@ module Xcake
       end
 
       def leave_buildconfiguration(configuration)
+        generator = Scheme.new(@project, @native_target)
+        configuration.accept(generator)
       end
     end
   end
