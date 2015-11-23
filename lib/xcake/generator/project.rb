@@ -36,7 +36,6 @@ module Xcake
 
         puts "Writing Project..."
 
-        @project.recreate_user_schemes
         @project.save
 
         puts "Done!"
