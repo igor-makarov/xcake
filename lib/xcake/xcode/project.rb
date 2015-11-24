@@ -36,9 +36,33 @@ module Xcake
           native_target
         end
 
-        #TODO: BDD this / should we create new method i.e new_scheme ?
+        #TODO: BDD these
         def schemes
           @schemes ||= []
+        end
+
+        def new_scheme
+          scheme = XCScheme.new
+          schemes << scheme
+          scheme
+        end
+
+        def save(save_path = nil)
+          super
+
+          puts "Writing Schemes..."
+
+          schemes_dir = XCScheme.user_data_dir(path)
+
+          FileUtils.rm_rf(schemes_dir)
+          FileUtils.mkdir_p(schemes_dir)
+
+          xcschememanagement = {}
+          xcschememanagement['SchemeUserState'] = {}
+          xcschememanagement['SuppressBuildableAutocreation'] = {}
+
+          xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
+          Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
         end
     end
   end
