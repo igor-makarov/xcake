@@ -32,6 +32,7 @@ module Xcake
         generator = Path.new(@project)
         @root_node.accept(generator)
 
+        @project.recreate_user_schemes
         @project.build_configuration_list.default_configuration_name = project.default_build_configuration.to_s if project.default_build_configuration
 
         puts "Writing Project..."
