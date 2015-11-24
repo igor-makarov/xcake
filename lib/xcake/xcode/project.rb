@@ -66,7 +66,7 @@ module Xcake
             s.save_as(schemes_dir, s.name, false)
 
             xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-            xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = visible
+            xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
           end
 
           xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
