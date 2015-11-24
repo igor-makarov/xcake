@@ -5,9 +5,11 @@ module Xcake
     class SchemeList
 
       attr_accessor :project
+      attr_accessor :schemes
 
       def initialize(project)
         @project = project
+        @schemes = []
       end
 
       def recreate_schemes
@@ -16,16 +18,22 @@ module Xcake
         end
       end
 
-      def create_schemes_for_target(t)
-        create_schemes_for_application(t)
+      def create_schemes_for_target(target)
+        create_schemes_for_application(target)
       end
 
-      def create_schemes_for_application(t)
-        #Scheme for each configuration list.
+      def create_schemes_for_application(target)
+        target.build_configurations.each do |c|
+          scheme = Scheme.new
+
+          scheme.name = "#{target.name}-#{c.name}"
+          scheme.add_build_target(target)
+
+          schemes << scheme
+        end
       end
 
       def save(writing_path)
-        #Do Scheme Stuff Here.
 
         schemes_dir = Xcodeproj::XCScheme.shared_data_dir(writing_path)
         FileUtils.rm_rf(schemes_dir)
@@ -34,6 +42,15 @@ module Xcake
         xcschememanagement = {}
         xcschememanagement['SchemeUserState'] = {}
         xcschememanagement['SuppressBuildableAutocreation'] = {}
+
+        schemes.each do |s|
+
+          puts "Saving Scheme #{s.name}..."
+
+          scheme.save_as(@project.path, s.name, false)
+          xcschememanagement['SchemeUserState']["#{s.name,}.xcscheme"] = {}
+          xcschememanagement['SchemeUserState']["#{s.name,}.xcscheme"]['isShown'] = visible
+        end
 
         puts "Saving Scheme List..."
 
