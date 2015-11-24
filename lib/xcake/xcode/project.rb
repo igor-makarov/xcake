@@ -70,9 +70,7 @@ module Xcake
           end
 
           xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-          Xcodeproj::PlistHelper.write_plist(xcschememanagement, xcschememanagement_path)
-
-          #Figure out where extra scheme is generated
+          Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
         end
     end
   end
