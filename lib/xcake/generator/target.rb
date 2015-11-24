@@ -8,6 +8,7 @@ module Xcake
 
       attr_accessor :project
       attr_accessor :root_node
+      attr_accessor :target
       attr_accessor :native_target
 
       def initialize(project, root_node)
@@ -19,6 +20,7 @@ module Xcake
 
         puts "Creating target #{target.name}..."
 
+        @target = target
         @native_target = @project.new_target(target)
 
         Dir.glob(target.include_files).each do |file|
@@ -40,8 +42,10 @@ module Xcake
       end
 
       def leave_buildconfiguration(configuration)
-        generator = Scheme.new(@project, @native_target)
-        configuration.accept(generator)
+        if @target.type != :unit_test_bundle then
+          generator = Scheme.new(@project, @native_target)
+          configuration.accept(generator)
+        end
       end
     end
   end
