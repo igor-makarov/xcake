@@ -6,10 +6,15 @@ module Xcake
 
       attr_accessor :project
       attr_accessor :schemes
+      attr_accessor :xcschememanagement
 
       def initialize(project)
         @project = project
         @schemes = []
+
+        @xcschememanagement = {}
+        @xcschememanagement['SchemeUserState'] = {}
+        @xcschememanagement['SuppressBuildableAutocreation'] = {}
       end
 
       def recreate_schemes
@@ -35,6 +40,9 @@ module Xcake
           unit_test_target = unit_test_target_for_target(target)
           scheme.add_test_target(unit_test_target) if unit_test_target
 
+          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = true
+          @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = true if unit_test_target
+
           schemes << scheme
         end
       end
@@ -51,23 +59,19 @@ module Xcake
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
 
-        xcschememanagement = {}
-        xcschememanagement['SchemeUserState'] = {}
-        xcschememanagement['SuppressBuildableAutocreation'] = {}
-
         schemes.each do |s|
 
           puts "Saving Scheme #{s.name}..."
           s.save_as(@project.path, s.name, true)
 
-          xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-          xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
+          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
+          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
         end
 
         puts "Saving Scheme List..."
 
         xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-        Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
+        Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
       end
     end
   end
