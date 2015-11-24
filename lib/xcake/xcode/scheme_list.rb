@@ -32,9 +32,16 @@ module Xcake
           scheme.name = "#{target.name}-#{c.name}"
           scheme.add_build_target(target)
 
-          #Find way of detecting unit-tests
+          unit_test_target = unit_test_target_for_target(target)
+          scheme.add_test_target(unit_test_target) if unit_test_target
 
           schemes << scheme
+        end
+      end
+
+      def unit_test_target_for_target(target)
+        project.targets.find do |t|
+          t.name = "#{target.name}Tests"
         end
       end
 
