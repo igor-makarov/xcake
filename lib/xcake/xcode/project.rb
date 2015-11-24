@@ -52,7 +52,7 @@ module Xcake
 
           puts "Writing Schemes..."
 
-          schemes_dir = Scheme.user_data_dir(path)
+          schemes_dir = Scheme.shared_data_dir(path)
 
           FileUtils.rm_rf(schemes_dir)
           FileUtils.mkdir_p(schemes_dir)
@@ -63,7 +63,7 @@ module Xcake
 
           schemes.each do |s|
             puts "Writing Scheme #{s.name}.."
-            s.save_as(path, s.name, false)
+            s.save_as(path, s.name, true)
 
             xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
             xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
