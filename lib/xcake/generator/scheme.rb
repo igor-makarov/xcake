@@ -20,9 +20,7 @@ module Xcake
 
         scheme = @project.new_scheme
         scheme.add_build_target(@target)
-        scheme.save_as(@project.path, scheme_name, false)
-        #     xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"] = {}
-        #     xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"]['isShown'] = visible
+        scheme.name = scheme_name
       end
 
       def leave_buildconfiguration(configuration)

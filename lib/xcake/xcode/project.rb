@@ -42,7 +42,7 @@ module Xcake
         end
 
         def new_scheme
-          scheme = Xcodeproj::XCScheme.new
+          scheme = Scheme.new
           schemes << scheme
           scheme
         end
@@ -52,7 +52,7 @@ module Xcake
 
           puts "Writing Schemes..."
 
-          schemes_dir = Xcodeproj::XCScheme.user_data_dir(path)
+          schemes_dir = Scheme.user_data_dir(path)
 
           FileUtils.rm_rf(schemes_dir)
           FileUtils.mkdir_p(schemes_dir)
@@ -61,13 +61,13 @@ module Xcake
           xcschememanagement['SchemeUserState'] = {}
           xcschememanagement['SuppressBuildableAutocreation'] = {}
 
-#           targets.each do |target|
-#   scheme = XCScheme.new
-#   scheme.add_build_target(target)
-#   scheme.save_as(path, target.name, false)
-#   xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"] = {}
-#   xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"]['isShown'] = visible
-# end
+          schemes.each do |s|
+            puts "Writing Scheme #{s.name}.."
+            s.save_as(schemes_dir, s.name, false)
+
+            xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
+            xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = visible
+          end
 
           xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
           Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
