@@ -48,8 +48,8 @@ module Xcake
           puts "Saving Scheme #{s.name}..."
 
           scheme.save_as(@project.path, s.name, false)
-          xcschememanagement['SchemeUserState']["#{s.name,}.xcscheme"] = {}
-          xcschememanagement['SchemeUserState']["#{s.name,}.xcscheme"]['isShown'] = visible
+          xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
+          xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = visible
         end
 
         puts "Saving Scheme List..."
