@@ -17,10 +17,11 @@ module Xcake
       end
 
       def create_schemes_for_target(t)
-        #If Application - Make Schemes for each build configuration and add to build and add unit test target
+        create_schemes_for_application(t)
       end
 
-      def create_application_schemes(target)
+      def create_schemes_for_application(t)
+        #Scheme for each configuration list.
       end
 
       def save(writing_path)
