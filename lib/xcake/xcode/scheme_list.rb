@@ -40,8 +40,8 @@ module Xcake
           unit_test_target = unit_test_target_for_target(target)
           scheme.add_test_target(unit_test_target) if unit_test_target
 
-          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = true
-          @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = true if unit_test_target
+          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
+          @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true} if unit_test_target
 
           schemes << scheme
         end
@@ -55,7 +55,7 @@ module Xcake
 
       def save(writing_path)
 
-        schemes_dir = Scheme.shared_data_dir(writing_path)
+        schemes_dir = Scheme.user_data_dir(writing_path)
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
 
@@ -64,8 +64,8 @@ module Xcake
           puts "Saving Scheme #{s.name}..."
           s.save_as(@project.path, s.name, true)
 
-          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
+          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {}
+          @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"]['isShown'] = true
         end
 
         puts "Saving Scheme List..."
