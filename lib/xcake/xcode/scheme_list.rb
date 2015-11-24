@@ -4,9 +4,17 @@ module Xcake
   module Xcode
     class SchemeList
 
+      def recreate_schemes_for_project(project)
+        project.targets.each do |t|
+
+          
+          recreate_schemes_for_target(t, visible)
+        end
+      end
+
       def save(writing_path)
 
-        puts "Saving Schemes..."
+
 
         #Do Scheme Stuff Here.
 

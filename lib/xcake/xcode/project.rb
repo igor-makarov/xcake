@@ -44,25 +44,8 @@ module Xcake
 
           puts "Creating Schemes..."
 
-          targets.each do |t|
-            recreate_schemes_for_target(t, visible)
-          end
-
+          scheme_list.recreate_schemes_for_project
           scheme_list.save(path)
-        end
-
-        def recreate_schemes_for_target(target, visible = true)
-          #t.build_configuration_list.build_configurations.each do |c|
-
-          #end
-          #target.product_type = Constants::PRODUCT_TYPE_UTI[type]
-          #scheme = Xcodeproj::XCScheme.new
-
-          #   puts "Writing Scheme #{s.name}.."
-          #   s.save_as(path, s.name, true)
-          #
-          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
         end
     end
   end
