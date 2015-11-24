@@ -35,7 +35,7 @@ module Xcake
 
       def save(writing_path)
 
-        schemes_dir = Xcodeproj::XCScheme.shared_data_dir(writing_path)
+        schemes_dir = Scheme.shared_data_dir(writing_path)
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
 

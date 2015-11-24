@@ -22,6 +22,8 @@ require "xcake/target"
 require "xcake/version"
 
 require "xcake/xcode/project"
+require "xcake/xcode/scheme"
+require "xcake/xcode/scheme_list"
 
 module Xcake
 
