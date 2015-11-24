@@ -19,7 +19,10 @@ module Xcake
       end
 
       def create_schemes_for_target(target)
-        create_schemes_for_application(target)
+        case target.product_type
+          when Constants::PRODUCT_TYPE_UTI[:application]
+            create_schemes_for_application(target)
+        end
       end
 
       def create_schemes_for_application(target)
