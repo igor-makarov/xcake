@@ -12,11 +12,12 @@ module Xcake
 
       def recreate_schemes
         @project.targets.each do |t|
-
-          #If Application - Make Schemes for each build configuration and add to build and add unit test target
-
-          create_application_schemes(t)
+          create_schemes_for_target(t)
         end
+      end
+
+      def create_schemes_for_target(t)
+        #If Application - Make Schemes for each build configuration and add to build and add unit test target
       end
 
       def create_application_schemes(target)
