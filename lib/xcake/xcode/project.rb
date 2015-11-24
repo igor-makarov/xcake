@@ -36,44 +36,33 @@ module Xcake
           native_target
         end
 
-        #TODO: BDD these
-        def schemes
-          @schemes ||= []
-        end
-
-        def new_scheme
-          scheme = Xcodeproj::XCScheme.new
-          schemes << scheme
-          scheme
+        def scheme_list
+          @scheme_list ||= SchemeList.new
         end
 
         def recreate_user_schemes(visible = true)
 
-          puts "Writing Schemes..."
-
-          schemes_dir = Xcodeproj::XCScheme.shared_data_dir(path)
-          FileUtils.rm_rf(schemes_dir)
-          FileUtils.mkdir_p(schemes_dir)
-
-          xcschememanagement = {}
-          xcschememanagement['SchemeUserState'] = {}
-          xcschememanagement['SuppressBuildableAutocreation'] = {}
+          puts "Creating Schemes..."
 
           targets.each do |t|
-
-            #target.product_type = Constants::PRODUCT_TYPE_UTI[type]
-            scheme = new_scheme
-
-            #   puts "Writing Scheme #{s.name}.."
-            #   s.save_as(path, s.name, true)
-            #
-            #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-            #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
-
+            recreate_schemes_for_target(t, visible)
           end
 
-          xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-          Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
+          scheme_list.save(path)
+        end
+
+        def recreate_schemes_for_target(target, visible = true)
+          #t.build_configuration_list.build_configurations.each do |c|
+
+          #end
+          #target.product_type = Constants::PRODUCT_TYPE_UTI[type]
+          #scheme = Xcodeproj::XCScheme.new
+
+          #   puts "Writing Scheme #{s.name}.."
+          #   s.save_as(path, s.name, true)
+          #
+          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
+          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
         end
     end
   end
