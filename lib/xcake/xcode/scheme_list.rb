@@ -20,8 +20,8 @@ module Xcake
 
       def create_schemes_for_target(target)
         case target.product_type
-        when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
-            create_schemes_for_application(target)
+          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
+              create_schemes_for_application(target)
         end
       end
 
