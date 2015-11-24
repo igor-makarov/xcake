@@ -63,7 +63,7 @@ module Xcake
 
           schemes.each do |s|
             puts "Writing Scheme #{s.name}.."
-            s.save_as(save_path, s.name, false)
+            s.save_as(path, s.name, false)
 
             xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
             xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
