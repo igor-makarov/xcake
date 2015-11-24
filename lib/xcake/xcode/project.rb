@@ -42,7 +42,7 @@ module Xcake
         end
 
         def new_scheme
-          scheme = XCScheme.new
+          scheme = Xcodeproj::XCScheme.new
           schemes << scheme
           scheme
         end
