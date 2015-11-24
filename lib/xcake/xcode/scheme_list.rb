@@ -32,6 +32,8 @@ module Xcake
           scheme.name = "#{target.name}-#{c.name}"
           scheme.add_build_target(target)
 
+          #Find way of detecting unit-tests
+
           schemes << scheme
         end
       end
