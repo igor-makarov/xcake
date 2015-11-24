@@ -52,7 +52,7 @@ module Xcake
 
           puts "Writing Schemes..."
 
-          schemes_dir = XCScheme.user_data_dir(path)
+          schemes_dir = Xcodeproj::XCScheme.user_data_dir(path)
 
           FileUtils.rm_rf(schemes_dir)
           FileUtils.mkdir_p(schemes_dir)
