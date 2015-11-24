@@ -61,6 +61,14 @@ module Xcake
           xcschememanagement['SchemeUserState'] = {}
           xcschememanagement['SuppressBuildableAutocreation'] = {}
 
+#           targets.each do |target|
+#   scheme = XCScheme.new
+#   scheme.add_build_target(target)
+#   scheme.save_as(path, target.name, false)
+#   xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"] = {}
+#   xcschememanagement['SchemeUserState']["#{target.name}.xcscheme"]['isShown'] = visible
+# end
+
           xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
           Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
         end
