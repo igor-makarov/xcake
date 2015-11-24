@@ -37,14 +37,14 @@ module Xcake
         end
 
         def scheme_list
-          @scheme_list ||= SchemeList.new
+          @scheme_list ||= SchemeList.new(self)
         end
 
         def recreate_user_schemes(visible = true)
 
           puts "Creating Schemes..."
 
-          scheme_list.recreate_schemes_for_project
+          scheme_list.recreate_schemes
           scheme_list.save(path)
         end
     end
