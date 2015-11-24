@@ -42,42 +42,39 @@ module Xcake
         end
 
         def new_scheme
-          scheme = Scheme.new
+          scheme = Xcodeproj::XCScheme.new
           schemes << scheme
           scheme
         end
 
         def recreate_user_schemes(visible = true)
-          # 
-          # puts "Writing Schemes..."
-          #
-          # # if @target.type != :unit_test_bundle then
-          # #   generator = Scheme.new(@project, @native_target)
-          # #   configuration.accept(generator)
-          # # end
-          #
-          # schemes_dir = Scheme.shared_data_dir(path)
-          #
-          # FileUtils.rm_rf(schemes_dir)
-          # FileUtils.mkdir_p(schemes_dir)
-          #
-          # xcschememanagement = {}
-          # xcschememanagement['SchemeUserState'] = {}
-          # xcschememanagement['SuppressBuildableAutocreation'] = {}
-          #
-          # schemes.each do |s|
-          #   puts "Writing Scheme #{s.name}.."
-          #   s.save_as(path, s.name, true)
-          #
-          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
-          #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
-          # end
-          #
-          # xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-          # Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
+
+          puts "Writing Schemes..."
+
+          schemes_dir = Xcodeproj::XCScheme.shared_data_dir(path)
+          FileUtils.rm_rf(schemes_dir)
+          FileUtils.mkdir_p(schemes_dir)
+
+          xcschememanagement = {}
+          xcschememanagement['SchemeUserState'] = {}
+          xcschememanagement['SuppressBuildableAutocreation'] = {}
+
+          targets.each do |t|
+
+            #target.product_type = Constants::PRODUCT_TYPE_UTI[type]
+            scheme = new_scheme
+
+            #   puts "Writing Scheme #{s.name}.."
+            #   s.save_as(path, s.name, true)
+            #
+            #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"] = {}
+            #   xcschememanagement['SchemeUserState']["#{s.name}.xcscheme"]['isShown'] = true
+
+          end
+
+          xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
+          Xcodeproj.write_plist(xcschememanagement, xcschememanagement_path)
         end
-
-
     end
   end
 end

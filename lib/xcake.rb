@@ -14,7 +14,6 @@ require "xcake/generator/build_phase_registry"
 require "xcake/generator/path"
 require "xcake/generator/project"
 require "xcake/generator/target"
-require "xcake/generator/scheme"
 
 require "xcake/project"
 require "xcake/project_structure_resolver"
@@ -23,7 +22,6 @@ require "xcake/target"
 require "xcake/version"
 
 require "xcake/xcode/project"
-require "xcake/xcode/scheme"
 
 module Xcake
 
