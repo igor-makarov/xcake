@@ -44,6 +44,10 @@ module Xcake
         @scheme_list.create_schemes_for_target(target)
       end
 
+      context "when creating build configurations for application" do
+
+        
+      end
       # def create_schemes_for_application(target)
       #   target.build_configurations.each do |c|
       #     scheme = Scheme.new
