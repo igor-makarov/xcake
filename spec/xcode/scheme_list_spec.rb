@@ -108,19 +108,15 @@ module Xcake
           @scheme_list.save(".")
         end
 
-        #   FileUtils.mkdir_p(schemes_dir)
-        #
-        #   schemes.each do |s|
-        #
-        #     puts "Saving Scheme #{s.name}..."
-        #     s.save_as(@project.path, s.name, true)
-        #
-        #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {}
-        #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"]['isShown'] = true
-        #   end
-        #
-        #   puts "Saving Scheme List..."
-        #
+        context "schemes" do
+          #
+          #     puts "Saving Scheme #{s.name}..."
+          #     s.save_as(@project.path, s.name, true)
+          #
+          #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {}
+          #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"]['isShown'] = true
+        end
+
         #   xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
         #   Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
       end
