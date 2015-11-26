@@ -12,9 +12,10 @@ module Xcake
         @project = project
         @schemes = []
 
-        @xcschememanagement = {}
-        @xcschememanagement['SchemeUserState'] = {}
-        @xcschememanagement['SuppressBuildableAutocreation'] = {}
+        @xcschememanagement = {
+          'SchemeUserState' => {},
+          'SuppressBuildableAutocreation' => {}
+        }
       end
 
       def recreate_schemes
