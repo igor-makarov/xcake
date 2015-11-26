@@ -6,9 +6,10 @@ module Xcake
       describe Registry do
         it 'should return registered generators in correct order' do
           expect(Registry.build_phase_generators).to eq([
-              CompileSourceBuildPhase,
-              CopyResourcesBuildPhase,
-              HeaderFileBuildPhase
+            CompileSourceBuildPhase,
+            HeaderFileBuildPhase,
+            CopyXCAssetsBuildPhase,
+            CopyResourcesBuildPhase
           ])
         end
 
