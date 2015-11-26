@@ -109,10 +109,15 @@ module Xcake
         end
 
         context "schemes" do
-          #
-          #     puts "Saving Scheme #{s.name}..."
-          #     s.save_as(@project.path, s.name, true)
-          #
+
+          it "should save scheme" do
+            scheme = double().as_null_object
+            allow(@scheme_list).to receive(:schemes).and_return([scheme])
+
+            expect(scheme).to receive(:save_as).with(@project.path, scheme.name, true)
+            @scheme_list.save(".")
+          end
+
           #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {}
           #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"]['isShown'] = true
         end
