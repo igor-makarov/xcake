@@ -71,17 +71,30 @@ module Xcake
           @scheme_list.create_schemes_for_application(@target)
           expect(@scheme_list.schemes.count).to eq(1)
         end
-        
+
         context "and adding unit test" do
 
-          def initialize(argument)
+          before :each do
+            @unit_test_target = double().as_null_object
+            allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
+          end
 
+          it "should add test target" do
+            expect(@scheme).to receive(:add_test_target).with(@unit_test_target)
+            @scheme_list.create_schemes_for_application(@target)
+          end
+
+          it "add target as depedancy for unit test target" do
+            expect(@unit_test_target).to receive(:add_dependency).with(@target)
+            @scheme_list.create_schemes_for_application(@target)
+          end
+
+          it "should suppress unit test target scheme autocreation" do
+            @scheme_list.create_schemes_for_application(@target)
+            autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@unit_test_target.uuid]['primary']
+            expect(autocreation_setting).to eq(true)
           end
         end
-
-        #       scheme.add_test_target(unit_test_target)
-        #       unit_test_target.add_dependency(target)
-        #       @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
       end
 
 
