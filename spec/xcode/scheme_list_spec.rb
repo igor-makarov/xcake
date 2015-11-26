@@ -42,19 +42,6 @@ module Xcake
 
       context "when creating scheme for application" do
 
-
-        #     @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
-        #
-        #     unit_test_target = project.find_unit_test_target_for_target(target)
-        #
-        #     if unit_test_target then
-        #       scheme.add_test_target(unit_test_target)
-        #       unit_test_target.add_dependency(target)
-        #       @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
-        #     end
-        #
-        #     schemes << scheme
-
         before :each do
           @build_configuration = double().as_null_object
           allow(@target).to receive(:build_configurations).and_return([@build_configuration])
@@ -79,6 +66,22 @@ module Xcake
           autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']
           expect(autocreation_setting).to eq(true)
         end
+
+        it "should store scheme" do
+          @scheme_list.create_schemes_for_application(@target)
+          expect(@scheme_list.schemes.count).to eq(1)
+        end
+        
+        context "and adding unit test" do
+
+          def initialize(argument)
+
+          end
+        end
+
+        #       scheme.add_test_target(unit_test_target)
+        #       unit_test_target.add_dependency(target)
+        #       @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
       end
 
 
