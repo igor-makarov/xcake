@@ -25,6 +25,18 @@ module Xcake
         expect(@project.scheme_list).to_not be(nil)
       end
 
+      it "should find unit test target for target" do
+        target = double()
+        allow(target).to receive(:name).and_return('app')
+
+        unit_test_target = double()
+        allow(unit_test_target).to receive(:name).and_return('appTests')
+
+        allow(@project).to receive(:targets).and_return([target, unit_test_target])
+        found_target = @project.find_unit_test_target_for_target(target)
+        expect(found_target).to be(unit_test_target)
+      end
+
       context "when recreating schemes" do
 
         before :each do

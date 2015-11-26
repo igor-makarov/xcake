@@ -38,7 +38,7 @@ module Xcake
 
         def find_unit_test_target_for_target(target)
           targets.find do |t|
-            t.name = "#{target.name}Tests"
+            t.name == "#{target.name}Tests"
           end
         end
 
