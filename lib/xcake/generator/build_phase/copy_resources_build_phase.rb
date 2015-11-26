@@ -3,8 +3,7 @@ module Xcake
     class CopyResourcesBuildPhase < BuildPhase
 
       def self.can_install_node(node)
-        File.directory?(node.path) == false &&
-        [".h", ".hpp"].include?(File.extname(node.path)) == false
+        File.directory?(node.path) == false
       end
 
       def add_file_reference_to_target(file_reference, target)
