@@ -60,6 +60,7 @@ module Xcake
       def save(writing_path)
 
         schemes_dir = Scheme.user_data_dir(writing_path)
+        
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
 
