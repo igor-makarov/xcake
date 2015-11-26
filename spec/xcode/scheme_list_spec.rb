@@ -23,6 +23,21 @@ module Xcake
           'SuppressBuildableAutocreation' => {}
         })
       end
+
+      # def recreate_schemes
+      #   @project.targets.each do |t|
+      #     create_schemes_for_target(t)
+      #   end
+      # end
+      it "should create schemes for each target" do
+
+        target = double()
+
+        allow(@project).to receive(:targets).and_return([target])
+        expect(@scheme_list).to receive(:create_schemes_for_target).with(target)
+
+        @scheme_list.recreate_schemes
+      end
     end
   end
 end
