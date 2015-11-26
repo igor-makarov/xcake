@@ -35,6 +35,24 @@ module Xcake
           self.targets << native_target
           native_target
         end
+
+        def find_unit_test_target_for_target(target)
+          targets.find do |t|
+            t.name == "#{target.name}Tests"
+          end
+        end
+
+        def scheme_list
+          @scheme_list ||= SchemeList.new(self)
+        end
+
+        def recreate_user_schemes(visible = true)
+
+          puts "Creating Schemes..."
+
+          scheme_list.recreate_schemes
+          scheme_list.save(path)
+        end
     end
   end
 end

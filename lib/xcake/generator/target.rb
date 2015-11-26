@@ -8,6 +8,7 @@ module Xcake
 
       attr_accessor :project
       attr_accessor :root_node
+      attr_accessor :target
       attr_accessor :native_target
 
       def initialize(project, root_node)
@@ -19,6 +20,7 @@ module Xcake
 
         puts "Creating target #{target.name}..."
 
+        @target = target
         @native_target = @project.new_target(target)
 
         Dir.glob(target.include_files).each do |file|

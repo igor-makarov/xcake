@@ -29,6 +29,8 @@ module Xcake
       @project.release_build_configurations.each do |b|
         target.release_build_configuration(b.name)
       end
+
+      #Generate Schemes
     end
 
     def leave_target(target)
