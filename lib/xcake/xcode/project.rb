@@ -36,6 +36,12 @@ module Xcake
           native_target
         end
 
+        def find_unit_test_target_for_target(target)
+          targets.find do |t|
+            t.name = "#{target.name}Tests"
+          end
+        end
+
         def scheme_list
           @scheme_list ||= SchemeList.new(self)
         end
