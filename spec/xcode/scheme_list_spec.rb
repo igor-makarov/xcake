@@ -131,8 +131,13 @@ module Xcake
         end
 
         context "scheme management list" do
-          #   xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-          #   Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
+
+          it "should be saved" do
+            xcschememanagement_path = Scheme.user_data_dir(".") + 'xcschememanagement.plist'
+            expect(Xcodeproj).to receive(:write_plist).with(@scheme_list.xcschememanagement, xcschememanagement_path)
+
+            @scheme_list.save(".")
+          end
         end
       end
     end
