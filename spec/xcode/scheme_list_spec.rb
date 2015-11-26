@@ -43,11 +43,6 @@ module Xcake
       context "when creating scheme for application" do
 
 
-
-        #     scheme = Scheme.new
-        #
-        #     scheme.name = "#{target.name}-#{c.name}"
-        #     scheme.add_build_target(target)
         #     @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
         #
         #     unit_test_target = project.find_unit_test_target_for_target(target)
@@ -77,6 +72,12 @@ module Xcake
         it "should add build target" do
           expect(@scheme).to receive(:add_build_target).with(@target)
           @scheme_list.create_schemes_for_application(@target)
+        end
+
+        it "should suppress target scheme autocreation" do
+          @scheme_list.create_schemes_for_application(@target)
+          autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']
+          expect(autocreation_setting).to eq(true)
         end
       end
 
