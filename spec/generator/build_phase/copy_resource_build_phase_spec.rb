@@ -22,16 +22,6 @@ module Xcake
         expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(true)
       end
 
-      it "should not be able to install c header file" do
-        allow(@node).to receive(:path).and_return('File.h')
-        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(false)
-      end
-
-      it "shouldnot be able to install c++ header file" do
-        allow(@node).to receive(:path).and_return('File.hpp')
-        expect(CopyResourcesBuildPhase.can_install_node(@node)).to be(false)
-      end
-
       it "should add file reference to copy resources build phase" do
 
         file_reference = double()
