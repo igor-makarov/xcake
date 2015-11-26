@@ -24,11 +24,6 @@ module Xcake
         })
       end
 
-      # def recreate_schemes
-      #   @project.targets.each do |t|
-      #     create_schemes_for_target(t)
-      #   end
-      # end
       it "should create schemes for each target" do
 
         target = double()
@@ -37,6 +32,16 @@ module Xcake
         expect(@scheme_list).to receive(:create_schemes_for_target).with(target)
 
         @scheme_list.recreate_schemes
+      end
+
+      it "should create scheme for application" do
+
+        target = double()
+        
+        allow(target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
+        expect(@scheme_list).to receive(:create_schemes_for_application).with(target)
+
+        @scheme_list.create_schemes_for_target(target)
       end
     end
   end
