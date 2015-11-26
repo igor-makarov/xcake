@@ -64,12 +64,6 @@ module Xcake
       #   end
       # end
 
-      # def unit_test_target_for_target(target)
-      #   project.targets.find do |t|
-      #     t.name = "#{target.name}Tests"
-      #   end
-      # end
-
       # def save(writing_path)
       #
       #   schemes_dir = Scheme.user_data_dir(writing_path)
