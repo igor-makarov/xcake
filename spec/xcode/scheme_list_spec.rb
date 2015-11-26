@@ -7,6 +7,9 @@ module Xcake
       before :each do
         @project = double()
         @scheme_list = SchemeList.new(@project)
+
+        @target = double()
+        allow(@project).to receive(:targets).and_return([@target])
       end
 
       it "should store project" do
@@ -25,48 +28,46 @@ module Xcake
       end
 
       it "should create schemes for each target" do
-
-        target = double()
-
-        allow(@project).to receive(:targets).and_return([target])
-        expect(@scheme_list).to receive(:create_schemes_for_target).with(target)
-
+        expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
         @scheme_list.recreate_schemes
       end
 
       it "should create scheme for application" do
-
-        target = double()
-
-        allow(target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
-        expect(@scheme_list).to receive(:create_schemes_for_application).with(target)
-
-        @scheme_list.create_schemes_for_target(target)
+        allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
+        expect(@scheme_list).to receive(:create_schemes_for_application).with(@target)
+        @scheme_list.create_schemes_for_target(@target)
       end
 
-      context "when creating build configurations for application" do
+      context "when creating scheme for application" do
 
-        
+        it "should set correct name" do
+          # build_configuration = double()
+          # allow(@target).to receive(:build_configurations).and_return([build_configuration])
+          #
+          # scheme = double()
+          # allow(Scheme).to receive(:new).and_return(scheme)
+          #
+          # @scheme_list.create_schemes_for_application(target)
+        end
+        #   target.build_configurations.each do |c|
+        #     scheme = Scheme.new
+        #
+        #     scheme.name = "#{target.name}-#{c.name}"
+        #     scheme.add_build_target(target)
+        #     @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
+        #
+        #     unit_test_target = project.find_unit_test_target_for_target(target)
+        #
+        #     if unit_test_target then
+        #       scheme.add_test_target(unit_test_target)
+        #       unit_test_target.add_dependency(target)
+        #       @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
+        #     end
+        #
+        #     schemes << scheme
+        #   end
       end
-      # def create_schemes_for_application(target)
-      #   target.build_configurations.each do |c|
-      #     scheme = Scheme.new
-      #
-      #     scheme.name = "#{target.name}-#{c.name}"
-      #     scheme.add_build_target(target)
-      #     @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
-      #
-      #     unit_test_target = project.find_unit_test_target_for_target(target)
-      #
-      #     if unit_test_target then
-      #       scheme.add_test_target(unit_test_target)
-      #       unit_test_target.add_dependency(target)
-      #       @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
-      #     end
-      #
-      #     schemes << scheme
-      #   end
-      # end
+
 
       # def save(writing_path)
       #
