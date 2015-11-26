@@ -5,10 +5,13 @@ module Xcake
     describe SchemeList do
 
       before :each do
-        @project = double()
+        @project = double().as_null_object
         @scheme_list = SchemeList.new(@project)
 
-        @target = double()
+        @target = double().as_null_object
+        allow(@target).to receive(:name).and_return("app")
+        allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
+
         allow(@project).to receive(:targets).and_return([@target])
       end
 
@@ -33,23 +36,14 @@ module Xcake
       end
 
       it "should create scheme for application" do
-        allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
         expect(@scheme_list).to receive(:create_schemes_for_application).with(@target)
         @scheme_list.create_schemes_for_target(@target)
       end
 
       context "when creating scheme for application" do
 
-        it "should set correct name" do
-          # build_configuration = double()
-          # allow(@target).to receive(:build_configurations).and_return([build_configuration])
-          #
-          # scheme = double()
-          # allow(Scheme).to receive(:new).and_return(scheme)
-          #
-          # @scheme_list.create_schemes_for_application(target)
-        end
-        #   target.build_configurations.each do |c|
+
+
         #     scheme = Scheme.new
         #
         #     scheme.name = "#{target.name}-#{c.name}"
@@ -65,7 +59,25 @@ module Xcake
         #     end
         #
         #     schemes << scheme
-        #   end
+
+        before :each do
+          @build_configuration = double().as_null_object
+          allow(@target).to receive(:build_configurations).and_return([@build_configuration])
+
+          @scheme = double().as_null_object
+          allow(Scheme).to receive(:new).and_return(@scheme)
+        end
+
+        it "should set correct name" do
+          allow(@build_configuration).to receive(:name).and_return("debug")
+          expect(@scheme).to receive(:name=).with("#{@target.name}-#{@build_configuration.name}")
+          @scheme_list.create_schemes_for_application(@target)
+        end
+
+        it "should add build target" do
+          expect(@scheme).to receive(:add_build_target).with(@target)
+          @scheme_list.create_schemes_for_application(@target)
+        end
       end
 
 
