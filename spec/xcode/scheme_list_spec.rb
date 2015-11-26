@@ -110,16 +110,24 @@ module Xcake
 
         context "schemes" do
 
-          it "should save scheme" do
-            scheme = double().as_null_object
-            allow(@scheme_list).to receive(:schemes).and_return([scheme])
+          before :each do
+            @scheme = double().as_null_object
+            allow(@scheme_list).to receive(:schemes).and_return([@scheme])
+          end
 
-            expect(scheme).to receive(:save_as).with(@project.path, scheme.name, true)
+          it "should save scheme" do
+            expect(@scheme).to receive(:save_as).with(@project.path, @scheme.name, true)
             @scheme_list.save(".")
           end
 
-          #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {}
-          #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"]['isShown'] = true
+          it "should add scheme to scheme managment list" do
+            @scheme_list.save(".")
+            scheme_entry = @scheme_list.xcschememanagement['SchemeUserState']["#{@scheme.name}.xcscheme_^#shared#^_"]
+
+            expect(scheme_entry).to eq({
+              "isShown" => true
+            })
+          end
         end
 
         context "scheme management list" do
