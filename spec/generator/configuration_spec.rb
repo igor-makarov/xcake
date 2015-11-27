@@ -6,38 +6,38 @@ module Xcake
 
       before :each do
         @xcode_build_configuration = double().as_null_object
-        @project = double()
+        @project = double('Project')
 
-        @configuration_target = double().as_null_object
-        @configuration = double().as_null_object
+        @configuration_target = double('Configuration Target').as_null_object
+        @configuration = double('Configuration').as_null_object
 
-        @generator = Configuration.new(@project, @build_configuration_target)
+        @generator = Configuration.new(@project, @configuration_target)
       end
 
       it "should create a new XCBuildConfiguration" do
         expect(@project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(@xcode_build_configuration)
-        @generator.visit_configuration(@build_configuration)
+        @generator.visit_configuration(@configuration)
       end
 
       context "when configuring XCBuildConfiguration" do
 
         before :each do
-          allow(@project).to receive(:new).and_return(@project)
+          allow(@project).to receive(:new).and_return(@xcode_build_configuration)
         end
 
         it "should set name" do
-          expect(@xcode_build_configuration).to receive(:name=).with(@build_configuration.name)
-          @generator.visit_configuration(@build_configuration)
+          expect(@xcode_build_configuration).to receive(:name=).with(@configuration.name)
+          @generator.visit_configuration(@configuration)
         end
 
         it "should set settings" do
-          expect(@xcode_build_configuration).to receive(:build_settings=).with(@build_configuration.settings)
-          @generator.visit_configuration(@build_configuration)
+          expect(@xcode_build_configuration).to receive(:build_settings=).with(@configuration.settings)
+          @generator.visit_configuration(@configuration)
         end
 
         it 'should store it in it\'s targets build configurations' do
-          expect(@build_configuration_target).to receive(:<<).with(@xcode_build_configuration)
-          @generator.visit_configuration(@build_configuration)
+          expect(@configuration_target).to receive(:<<).with(@xcode_build_configuration)
+          @generator.visit_configuration(@configuration)
         end
     end
 
