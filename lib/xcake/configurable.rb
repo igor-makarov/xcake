@@ -1,5 +1,5 @@
 module Xcake
-  module BuildConfigurable
+  module Configurable
 
     attr_accessor :all_build_configuration
     attr_accessor :debug_build_configurations

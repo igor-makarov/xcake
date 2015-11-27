@@ -1,5 +1,5 @@
 module Xcake
-  class BuildConfiguration
+  class Configuration
 
     include Visitable
 
