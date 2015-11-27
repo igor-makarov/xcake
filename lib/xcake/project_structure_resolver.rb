@@ -23,11 +23,11 @@ module Xcake
       puts "Resolving target #{target.name}..."
 
       @project.debug_configurations.each do |b|
-        target.debug_configurations(b.name)
+        target.debug_configuration(b.name)
       end
 
       @project.release_configurations.each do |b|
-        target.release_configurations(b.name)
+        target.release_configuration(b.name)
       end
     end
 
