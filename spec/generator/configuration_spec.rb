@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Xcake
   module Generator
-    describe BuildConfiguration do
+    describe Configuration do
 
       before :each do
         @xcode_build_configuration = double().as_null_object
@@ -11,7 +11,7 @@ module Xcake
         @build_configuration_target = double().as_null_object
         @build_configuration = double().as_null_object
 
-        @generator = BuildConfiguration.new(@project, @build_configuration_target)
+        @generator = Configuration.new(@project, @build_configuration_target)
       end
 
       it "should create a new XCBuildConfiguration" do
