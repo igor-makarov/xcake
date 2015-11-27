@@ -1,6 +1,8 @@
 module Xcake
   class Configuration
 
+    #TODO: Add sugar to Configurations.
+
     include Visitable
 
     attr_accessor :name

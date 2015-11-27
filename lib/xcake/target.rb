@@ -1,8 +1,6 @@
 module Xcake
   class Target
-
-    #TODO: Add sugar to Configurations.
-
+    
     include Configurable
     include Visitable
 

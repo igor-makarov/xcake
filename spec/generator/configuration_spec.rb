@@ -8,8 +8,8 @@ module Xcake
         @xcode_build_configuration = double().as_null_object
         @project = double()
 
-        @build_configuration_target = double().as_null_object
-        @build_configuration = double().as_null_object
+        @configuration_target = double().as_null_object
+        @configuration = double().as_null_object
 
         @generator = Configuration.new(@project, @build_configuration_target)
       end
