@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 module Xcake
-  describe BuildConfiguration do
+  describe Configuration do
 
     context "when created" do
 
       before :each do
         @name = :configuration
-        @configuration = BuildConfiguration.new(@name)
+        @configuration = Configuration.new(@name)
       end
 
       it "should set the name" do

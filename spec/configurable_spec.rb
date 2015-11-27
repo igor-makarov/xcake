@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 module Xcake
-  describe BuildConfigurable do
+  describe Configurable do
 
     before :each do
       @build_configurable = Object.new
-      @build_configurable.extend(BuildConfigurable)
+      @build_configurable.extend(Configurable)
 
       allow(@build_configurable).to receive(:default_debug_settings).and_return({
         :DEFAULT_SETTING => "DEFAULT_VALUE"
