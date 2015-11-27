@@ -4,7 +4,7 @@ module Xcake
   describe Configurable do
 
     before :each do
-      @onfigurable = Object.new
+      @configurable = Object.new
       @configurable.extend(Configurable)
 
       allow(@configurable).to receive(:default_debug_settings).and_return({
