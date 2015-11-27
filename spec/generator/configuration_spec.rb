@@ -16,28 +16,28 @@ module Xcake
 
       it "should create a new XCBuildConfiguration" do
         expect(@project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(@xcode_build_configuration)
-        @generator.visit_buildconfiguration(@build_configuration)
+        @generator.visit_configuration(@build_configuration)
       end
 
       context "when configuring XCBuildConfiguration" do
 
         before :each do
-          allow(@project).to receive(:new).and_return(@xcode_build_configuration)
+          allow(@project).to receive(:new).and_return(@project)
         end
 
         it "should set name" do
           expect(@xcode_build_configuration).to receive(:name=).with(@build_configuration.name)
-          @generator.visit_buildconfiguration(@build_configuration)
+          @generator.visit_configuration(@build_configuration)
         end
 
         it "should set settings" do
           expect(@xcode_build_configuration).to receive(:build_settings=).with(@build_configuration.settings)
-          @generator.visit_buildconfiguration(@build_configuration)
+          @generator.visit_configuration(@build_configuration)
         end
 
         it 'should store it in it\'s targets build configurations' do
           expect(@build_configuration_target).to receive(:<<).with(@xcode_build_configuration)
-          @generator.visit_buildconfiguration(@build_configuration)
+          @generator.visit_configuration(@build_configuration)
         end
     end
 

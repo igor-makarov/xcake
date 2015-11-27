@@ -27,7 +27,7 @@ module Xcake
     end
 
     def release_configurations
-      @release_build_configurations ||= []
+      @release_configurations ||= []
     end
 
     def all_configurations
@@ -38,7 +38,7 @@ module Xcake
 
     def debug_configuration(name, &block)
 
-      configuration = self.debug_build_configurations.find do |c|
+      configuration = self.debug_configurations.find do |c|
         c.name == name.to_s
       end
 
@@ -55,7 +55,7 @@ module Xcake
 
     def release_configuration(name, &block)
 
-      configuration = self.release_build_configurations.find do |c|
+      configuration = self.release_configurations.find do |c|
         c.name == name.to_s
       end
 

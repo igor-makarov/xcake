@@ -4,14 +4,14 @@ module Xcake
   describe Configurable do
 
     before :each do
-      @build_configurable = Object.new
-      @build_configurable.extend(Configurable)
+      @onfigurable = Object.new
+      @configurable.extend(Configurable)
 
-      allow(@build_configurable).to receive(:default_debug_settings).and_return({
+      allow(@configurable).to receive(:default_debug_settings).and_return({
         :DEFAULT_SETTING => "DEFAULT_VALUE"
       })
 
-      allow(@build_configurable).to receive(:default_release_settings).and_return({
+      allow(@configurable).to receive(:default_release_settings).and_return({
         :DEFAULT_SETTING => "DEFAULT_VALUE"
       })
     end
@@ -19,21 +19,21 @@ module Xcake
     context "when creating debug configuration" do
 
       before :each do
-        @build_configuration = @build_configurable.debug_build_configuration :debug
+        @configuration = @configurable.debug_configuration :debug
       end
 
       it "should store build configuration" do
-        expect(@build_configurable.debug_build_configurations.count).to eq(1)
+        expect(@configurable.debug_configurations.count).to eq(1)
       end
 
       context "that already exists" do
 
         before :each do
-          @duplicate_build_configuration = @build_configurable.debug_build_configuration :debug
+          @duplicate_configuration = @configurable.debug_configuration :debug
         end
 
         it "should return same build configuration" do
-          expect(@duplicate_build_configuration).to be(@build_configuration)
+          expect(@duplicate_configuration).to be(@configuration)
         end
       end
     end
@@ -41,91 +41,91 @@ module Xcake
     context "when creating release configuration" do
 
       before :each do
-        @build_configuration = @build_configurable.release_build_configuration :release
+        @configuration = @configurable.release_configuration :release
       end
 
       it "should store build configuration" do
-        expect(@build_configurable.release_build_configurations.count).to eq(1)
+        expect(@configurable.release_configurations.count).to eq(1)
       end
 
       context "that already exists" do
 
         before :each do
-          @duplicate_build_configuration = @build_configurable.release_build_configuration :release
+          @duplicate_configuration = @configurable.release_configuration :release
         end
 
         it "should return same build configuration" do
-          expect(@duplicate_build_configuration).to be(@build_configuration)
+          expect(@duplicate_configuration).to be(@configuration)
         end
       end
     end
 
     context "when accessing all configurations" do
       it "should return configuration" do
-        expect(@build_configurable.all_build_configurations).not_to be(nil)
+        expect(@configurable.all_configurations).not_to be(nil)
       end
 
       it "should be same configuration" do
 
-        build_configuration = @build_configurable.all_build_configurations
+        configuration = @configurable.all_configurations
 
-        expect(@build_configurable.all_build_configurations).to be(build_configuration)
+        expect(@configurable.all_configurations).to be(configuration)
       end
     end
 
     context "when flattening configurations" do
 
       before :each do
-        @build_configurable.all_build_configurations.settings[:ALL_SETTING] = "ALL_VALUE"
+        @configurable.all_configurations.settings[:ALL_SETTING] = "ALL_VALUE"
       end
 
       context "for debug" do
 
         before :each do
-          @build_configuration = @build_configurable.debug_build_configuration(:debug)
-          @build_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
-          @build_configurable.flatten_build_configurations
+          @configuration = @configurable.debug_configuration(:debug)
+          @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
+          @configurable.flatten_configurations
         end
 
         it "should merge in default settings" do
-          expect(@build_configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
+          expect(@configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
-          expect(@build_configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
+          expect(@configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
         end
 
         it "should merge in configuration settings" do
-          expect(@build_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
+          expect(@configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
       context "for release" do
 
         before :each do
-          @build_configuration = @build_configurable.debug_build_configuration(:release)
-          @build_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
-          @build_configurable.flatten_build_configurations
+          @configuration = @configurable.debug_configuration(:release)
+          @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
+          @configurable.flatten_configurations
         end
 
         it "should merge in default settings" do
-          expect(@build_configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
+          expect(@configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
-          expect(@build_configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
+          expect(@configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
         end
 
         it "should merge in configuration settings" do
-          expect(@build_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
+          expect(@configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
       it "should have same combined number of configurations" do
-        @build_configurable.debug_build_configuration :debug
-        @build_configurable.debug_build_configuration :release
+        @configurable.debug_configuration :debug
+        @configurable.debug_configuration :release
 
-        flattened_configurations = @build_configurable.flatten_build_configurations
+        flattened_configurations = @configurable.flatten_configurations
         expect(flattened_configurations.count).to be(2)
       end
     end
