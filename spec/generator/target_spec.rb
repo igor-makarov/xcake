@@ -70,14 +70,14 @@ module Xcake
         @generator.leave_target(target)
       end
 
-      it 'run build configuration generator when visiting build configuration' do
-        build_configuration_generator = double()
-        allow(BuildConfiguration).to receive(:new).and_return(build_configuration_generator)
+      it 'run configuration generator when visiting configuration' do
+        configuration_generator = double()
+        allow(Configuration).to receive(:new).and_return(configuration_generator)
 
-        build_configuration = double()
-        expect(build_configuration).to receive(:accept).with(build_configuration_generator)
+        configuration = double()
+        expect(configuration).to receive(:accept).with(configuration_generator)
 
-        @generator.visit_buildconfiguration(build_configuration)
+        @generator.visit_configuration(configuration)
       end
     end
   end
