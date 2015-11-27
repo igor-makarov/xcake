@@ -73,16 +73,6 @@ module Xcake
       end
     end
 
-    #   debug_build_configurations.each do |b|
-    #     b.settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
-    #     flattened_build_configurations << b
-    #   end
-    #
-    #   release_build_configurations.each do |b|
-    #     b.settings = default_release_settings.merge!(all_settings).merge!(b.settings)
-    #     flattened_build_configurations << b
-    #   end
-
     context "when flattening configurations" do
 
       before :each do

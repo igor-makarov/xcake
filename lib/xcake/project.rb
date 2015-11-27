@@ -38,6 +38,26 @@ module Xcake
       application_target
     end
 
+    def unit_tests_for(host_target, &block)
+
+      unit_test_target = target do |t|
+
+        t.name = "#{host_target.name}Tests"
+
+        t.type = :unit_test_bundle
+        t.platform = host_target.platform
+        t.deployment_target = host_target.deployment_target
+        t.language = host_target.language
+
+        t.all_build_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+        t.all_build_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
+
+        block.call(t) if block_given?
+      end
+
+      unit_test_target
+    end
+
     #Configurable
 
     def default_settings
