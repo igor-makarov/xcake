@@ -34,11 +34,9 @@ module Xcake
       @all_configuration ||= Configuration.new(:all)
     end
 
-#TODO: Refactor same code.
-
     def debug_configuration(name, &block)
 
-      configuration = self.debug_configurations.find do |c|
+      configuration = debug_configurations.find do |c|
         c.name == name.to_s
       end
 
@@ -47,7 +45,7 @@ module Xcake
           block.call(b) if block_given?
         end
 
-        self.debug_configurations << configuration
+        debug_configurations << configuration
       end
 
       configuration
@@ -55,7 +53,7 @@ module Xcake
 
     def release_configuration(name, &block)
 
-      configuration = self.release_configurations.find do |c|
+      configuration = release_configurations.find do |c|
         c.name == name.to_s
       end
 
@@ -64,7 +62,7 @@ module Xcake
           block.call(b) if block_given?
         end
 
-        self.release_configurations << configuration
+        release_configurations << configuration
       end
 
       configuration
