@@ -15,11 +15,11 @@ module Xcake
     context "when resolving project with no configiuarations" do
 
       it "should create a default debug configuration" do
-        expect(@project.debug_build_configurations.count).to be(1)
+        expect(@project.debug_configurations.count).to be(1)
       end
 
       it "should create a default release configuration" do
-        expect(@project.release_build_configurations.count).to be(1)
+        expect(@project.release_configurations.count).to be(1)
       end
 
       it "should store project" do
@@ -30,11 +30,11 @@ module Xcake
     context "when resolving target" do
 
       it "should propogate debug configurations" do
-        expect(@target.debug_build_configurations.count).to be(1)
+        expect(@target.debug_configurations.count).to be(1)
       end
 
       it "should propogate release configurations" do
-        expect(@target.release_build_configurations.count).to be(1)
+        expect(@target.release_configurations.count).to be(1)
       end
     end
   end

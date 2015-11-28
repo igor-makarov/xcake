@@ -3,10 +3,9 @@ require 'xcodeproj'
 module Xcake
   class Project
 
-    include BuildConfigurable
+    include Configurable
     include Visitable
 
-    attr_accessor :default_build_configuration
     attr_accessor :project_name
     attr_accessor :targets
 
@@ -59,7 +58,7 @@ module Xcake
       unit_test_target
     end
 
-    #BuildConfigurable
+    #Configurable
 
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS

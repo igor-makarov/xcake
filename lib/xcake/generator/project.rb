@@ -50,12 +50,12 @@ module Xcake
       def leave_target(target)
       end
 
-      def visit_buildconfiguration(configuration)
-        generator = BuildConfiguration.new(@project, @project)
+      def visit_configuration(configuration)
+        generator = Configuration.new(@project, @project)
         configuration.accept(generator)
       end
 
-      def leave_buildconfiguration(configuration)
+      def leave_configuration(configuration)
       end
     end
   end

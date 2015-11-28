@@ -36,12 +36,12 @@ module Xcake
         @native_target.add_system_frameworks(target.system_frameworks) if target.system_frameworks
       end
 
-      def visit_buildconfiguration(configuration)
-        generator = BuildConfiguration.new(@project, @native_target)
+      def visit_configuration(configuration)
+        generator = Configuration.new(@project, @native_target)
         configuration.accept(generator)
       end
 
-      def leave_buildconfiguration(configuration)
+      def leave_configuration(configuration)
       end
     end
   end

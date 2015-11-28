@@ -1,5 +1,7 @@
 module Xcake
-  class BuildConfiguration
+  class Configuration
+
+    #TODO: Add sugar to Configurations.
 
     include Visitable
 
