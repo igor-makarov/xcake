@@ -1,5 +1,3 @@
-
-
 module Xcake
   class Configuration
 
