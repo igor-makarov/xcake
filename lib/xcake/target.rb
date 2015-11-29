@@ -1,6 +1,5 @@
 module Xcake
   class Target
-
     include Configurable
     include Visitable
 

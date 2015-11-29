@@ -32,10 +32,8 @@ module Xcake
         generator = Path.new(@project)
         @root_node.accept(generator)
 
-        @project.recreate_user_schemes
-        
         puts "Writing Project..."
-
+        @project.recreate_user_schemes
         @project.save
 
         puts "Done!"
