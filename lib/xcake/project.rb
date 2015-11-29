@@ -80,7 +80,7 @@ module Xcake
     def accept(visitor)
       visitor.visit(self)
 
-      self.flatten_build_configurations.each do |c|
+      self.flatten_configurations.each do |c|
         visitor.visit(c)
         visitor.leave(c)
       end

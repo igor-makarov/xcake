@@ -3,6 +3,7 @@ require "xcake/visitor"
 
 require "xcake/command"
 require "xcake/configuration"
+require "xcake/configuration/sugar"
 require "xcake/configurable"
 
 require "xcake/generator/build_phase"

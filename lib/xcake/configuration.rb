@@ -1,5 +1,3 @@
-require "configuration/sugar"
-
 module Xcake
   class Configuration
 
