@@ -1,6 +1,5 @@
 module Xcake
   class Configuration
-
     SUPPORTED_DEVICES = {
       iphone_only: "1",
       ipad_only: "2",
