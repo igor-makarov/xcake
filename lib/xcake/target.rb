@@ -50,7 +50,7 @@ module Xcake
     def accept(visitor)
       visitor.visit(self)
 
-      self.flatten_configurations.each do |c|
+      flatten_configurations.each do |c|
         visitor.visit(c)
         visitor.leave(c)
       end
