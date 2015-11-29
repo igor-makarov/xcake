@@ -6,7 +6,7 @@ module Xcake
     attr_accessor :release_configurations
 
     def flatten_configurations
-      all_settings = all_configuration.settings
+      all_settings = all_configurations.settings
       flattened_configurations = []
 
       debug_configurations.each do |b|
