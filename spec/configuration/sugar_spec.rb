@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Xcake
   describe Configurable do
 
     before :each do
-      @configuration = Configuration.new('test')
+      @configuration = Configuration.new(:test)
     end
 
     context "should set supported devices" do
