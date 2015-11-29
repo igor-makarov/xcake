@@ -4,9 +4,9 @@ module Xcake
   class Configuration
 
     SUPPORTED_DEVICES = {
-      :iphone_only => "1",
-      :ipad_only => "2",
-      :universal => "1,2"
+      :iphone_only: "1",
+      :ipad_only: "2",
+      :universal: "1,2"
     }
 
     def supported_devices=(devices)
