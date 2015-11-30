@@ -3,6 +3,7 @@
 [![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
+[![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
 
 ###Xcode projects made a piece of cake.
 
