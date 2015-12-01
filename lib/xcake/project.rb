@@ -66,18 +66,18 @@ module Xcake
     # Defines a new application target.
     #
     # @param  [Symbol] platform
-    #         an optional block that configures the target through the DSL.
+    #         platform for the application, either :ios or :osx.
     #
     # @param  [Float] deployment_target
-    #         an optional block that configures the target through the DSL.
+    #         the minimum deployment version for the platform.
     #
     # @param  [Symbol] language
-    #         an optional block that configures the target through the DSL.
+    #         main language for the application, either :objc or :swift.
     #
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
     #
-    # @return [Target] the target
+    # @return [Target] the application target
     #         the newly created application target
     #
     def application_for(platform, deployment_target, language=:objc, &block)
