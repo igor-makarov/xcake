@@ -3,5 +3,3 @@ require "xcake"
 
 require "coveralls"
 Coveralls.wear!
-
-#TODO: Fix all doubles()
