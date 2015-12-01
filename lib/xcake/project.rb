@@ -13,6 +13,8 @@ module Xcake
     include Configurable
     include Visitable
 
+    # @!group Configuring a project
+
     # @return [String] the name of the project file. This is used as
     #                  the filename.
     #
@@ -21,6 +23,8 @@ module Xcake
     # @return [Array<Target>] the list of targets for the project.
     #
     attr_accessor :targets
+
+    # @!group Creating a project
 
     # @param    [String] name
     #           the name of the project file. This is used as the filename.
@@ -42,6 +46,16 @@ module Xcake
       block.call(self) if block_given?
     end
 
+    # @!group Working with a project
+
+    # Defines a new target.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the target
+    #         the newly created target
+    #
     def target(&block)
       target = Target.new(&block)
       self.targets << target
