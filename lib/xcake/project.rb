@@ -94,6 +94,17 @@ module Xcake
       application_target
     end
 
+    # Defines a new unit test target.
+    #
+    # @param  [Target] host_target
+    #         host target for which the unit tests are for.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the unit test target
+    #         the newly created unit test target
+    #
     def unit_tests_for(host_target, &block)
 
       unit_test_target = target do |t|
