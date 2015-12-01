@@ -70,6 +70,7 @@ GEM
       activesupport (>= 3)
       claide (~> 0.9.1)
       colored (~> 1.2)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -80,6 +81,7 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec
   xcake!
+  yard
 
 BUNDLED WITH
    1.10.6
