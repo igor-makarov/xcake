@@ -63,6 +63,26 @@ module Xcake
       target
     end
 
+    # Defines a new application target.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the target
+    #         the newly created target
+    #
     def application_for(platform, deployment_target, language=:objc, &block)
 
       application_target = target do |t|
