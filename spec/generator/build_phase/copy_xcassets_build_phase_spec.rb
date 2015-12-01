@@ -5,7 +5,7 @@ module Xcake
     describe CopyXCAssetsBuildPhase do
 
       before :each do
-        @node = double().as_null_object
+        @node = double("Node").as_null_object
       end
 
       it "should not able to install folder" do
@@ -30,7 +30,7 @@ module Xcake
 
         expect(@node).to receive(:children=).with([])
 
-        project = double().as_null_object
+        project = double("Project").as_null_object
 
         build_phase = CopyXCAssetsBuildPhase.new(project)
         build_phase.visit_node(@node)

@@ -18,7 +18,7 @@ module Xcake
       context "with file path" do
 
         before :each do
-          @target = double()
+          @target = double("Target")
           @node = Node.new
           @file = @node.create_children_with_path("./file", @target)
         end
@@ -51,7 +51,7 @@ module Xcake
 
       context "with same file" do
         before :each do
-          @target = double()
+          @target = double("Target")
           @node = Node.new
           @file = @node.create_children_with_path("./file", @target)
         end
@@ -63,7 +63,7 @@ module Xcake
         context "for different targets" do
 
           before :each do
-            @target2 = double()
+            @target2 = double("Target 2")
             @node.create_children_with_path("./file", @target2)
           end
 
@@ -76,7 +76,7 @@ module Xcake
       context "with folder path" do
 
         before :each do
-          @target = double()
+          @target = double("Target")
           @node = Node.new
           @folder = @node.create_children_with_path("./folder/file", @target)
           @file = @folder.children.first
@@ -117,7 +117,7 @@ module Xcake
       context "with two files under same folder" do
 
         before :each do
-          @target = double()
+          @target = double("Target")
           @node = Node.new
           @folder = @node.create_children_with_path("./folder/file", @target)
           @folder2 = @node.create_children_with_path("./folder/file2", @target)
@@ -146,7 +146,7 @@ module Xcake
       context "with file path" do
 
         before :each do
-          @target = double()
+          @target = double("Target")
           @node = Node.new
           @node.create_children_with_path("./file", @target)
           @node.remove_children_with_path("./file", @target)
@@ -159,8 +159,8 @@ module Xcake
         context "with multiple targets and one target is removed" do
 
           before :each do
-            @target = double()
-            @target2 = double()
+            @target = double("Target")
+            @target2 = double("Target 2")
             @node = Node.new
             @file = @node.create_children_with_path("./file", @target)
             @node.create_children_with_path("./file", @target2)
@@ -180,8 +180,8 @@ module Xcake
       context "with folder path" do
 
         before :each do
-          @target = double()
-          @target2 = double()
+          @target = double("Target")
+          @target2 = double("Target 2")
           @node = Node.new
           @folder = @node.create_children_with_path("./folder/file", @target)
           @folder2 = @node.create_children_with_path("./folder/file2", @target2)

@@ -26,10 +26,10 @@ module Xcake
       end
 
       it "should find unit test target for target" do
-        target = double()
+        target = double("Target")
         allow(target).to receive(:name).and_return('app')
 
-        unit_test_target = double()
+        unit_test_target = double("Unit Test Target")
         allow(unit_test_target).to receive(:name).and_return('appTests')
 
         allow(@project).to receive(:targets).and_return([target, unit_test_target])
@@ -40,7 +40,7 @@ module Xcake
       context "when recreating schemes" do
 
         before :each do
-          @scheme_list = double().as_null_object
+          @scheme_list = double("Scheme List").as_null_object
           allow(@project).to receive(:scheme_list).and_return(@scheme_list)
         end
 

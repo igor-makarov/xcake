@@ -5,11 +5,11 @@ module Xcake
     describe Configuration do
 
       before :each do
-        @xcode_build_configuration = double().as_null_object
-        @project = double('Project')
+        @xcode_build_configuration = double("Xcode Build configuration").as_null_object
+        @project = double("Project")
 
-        @configuration_target = double('Configuration Target').as_null_object
-        @configuration = double('Configuration').as_null_object
+        @configuration_target = double("Configuration Target").as_null_object
+        @configuration = double("Configuration").as_null_object
 
         @generator = Configuration.new(@project, @configuration_target)
       end
