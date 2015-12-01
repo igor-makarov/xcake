@@ -78,7 +78,7 @@ module Xcake
     #         an optional block that configures the target through the DSL.
     #
     # @return [Target] the target
-    #         the newly created target
+    #         the newly created application target
     #
     def application_for(platform, deployment_target, language=:objc, &block)
 
