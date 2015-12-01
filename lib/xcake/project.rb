@@ -7,7 +7,7 @@ module Xcake
   #and is stored in files name `Cakefile`.
   #
   #The Project creates a hiearchy of targets and configurations
-  #nessary to generate a xcode project.
+  #necessary to generate a xcode project.
   class Project
 
     include Configurable
