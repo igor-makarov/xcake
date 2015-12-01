@@ -5,13 +5,13 @@ module Xcake
     describe BuildPhase do
 
       before :each do
-          @main_group = double("Main Group")
+        @main_group = double("Main Group")
 
-          @project = double("Project")
-          allow(@project).to receive(:main_group).and_return(@main_group)
+        @project = double("Project")
+        allow(@project).to receive(:main_group).and_return(@main_group)
 
-          @node = double("Node").as_null_object
-          @build_phase = BuildPhase.new(@project)
+        @node = double("Node").as_null_object
+        @build_phase = BuildPhase.new(@project)
       end
 
       it "should be able to install node" do

@@ -20,8 +20,7 @@ module Xcake
       end
 
       context 'when visiting a target' do
-
-        #TODO: Refactor
+        # TODO: Refactor
         it "should create a new target" do
           target = double("Target").as_null_object
           expect(@project).to receive(:new_target).with(target)
