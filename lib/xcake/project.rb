@@ -13,9 +13,27 @@ module Xcake
     include Configurable
     include Visitable
 
+    # @return [String] the name of the project file. This is used as
+    #                  the filename.
+    #
     attr_accessor :project_name
+
+    # @return [Array<Target>] the list of targets for the project.
+    #
     attr_accessor :targets
 
+    # @param    [String] name
+    #           the name of the project file. This is used as the filename.
+    #
+    # @param    [Proc] block
+    #           an optional block that configures the project through the DSL.
+    #
+    # @example  Creating a Project.
+    #
+    #           Project.new do |c|
+    #             c.application_for :ios, 8.0
+    #           end
+    #
     def initialize(name="Project", &block)
 
       self.project_name = name
