@@ -5,7 +5,7 @@ module Xcake
     describe CompileSourceBuildPhase do
 
       before :each do
-        @node = double()
+        @node = double("Node")
       end
 
       it "should not able to install folder" do
@@ -45,12 +45,12 @@ module Xcake
 
       it "should add file reference to source build phase" do
 
-        file_reference = double()
+        file_reference = double("File Reference")
 
-        source_build_phase = double()
+        source_build_phase = double("Source Build Phase")
         expect(source_build_phase).to receive(:add_file_reference).with(file_reference)
 
-        target = double()
+        target = double("Target")
         allow(target).to receive(:source_build_phase).and_return(source_build_phase)
 
         generator = CompileSourceBuildPhase.new(nil)

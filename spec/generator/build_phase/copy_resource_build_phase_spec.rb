@@ -5,7 +5,7 @@ module Xcake
     describe CopyResourcesBuildPhase do
 
       before :each do
-        @node = double()
+        @node = double("Node")
       end
 
       it "should not able to install folder" do
@@ -24,12 +24,12 @@ module Xcake
 
       it "should add file reference to copy resources build phase" do
 
-        file_reference = double()
+        file_reference = double("File Reference")
 
-        resources_build_phase = double()
+        resources_build_phase = double("Resources Build Pahse")
         expect(resources_build_phase).to receive(:add_file_reference).with(file_reference)
 
-        target = double()
+        target = double("Target")
         allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
 
         generator = CopyResourcesBuildPhase.new(nil)

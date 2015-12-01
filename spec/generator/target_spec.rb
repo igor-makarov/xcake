@@ -5,8 +5,8 @@ module Xcake
     describe Target do
 
       before :each do
-        @project = double().as_null_object
-        @root_node = double().as_null_object
+        @project = double("Project").as_null_object
+        @root_node = double("Root Node").as_null_object
 
         @generator = Target.new(@project, @root_node)
       end
@@ -20,19 +20,19 @@ module Xcake
       end
 
       context 'when visiting a target' do
+        # TODO: Refactor
         it "should create a new target" do
-          target = double().as_null_object
+          target = double("Target").as_null_object
           expect(@project).to receive(:new_target).with(target)
 
           @generator.visit_target(target)
         end
 
         it "should include files" do
-
-          native_target = double()
+          native_target = double("Native Target")
           allow(@project).to receive(:new_target).and_return(native_target)
 
-          target = double().as_null_object
+          target = double("Target").as_null_object
 
           allow(target).to receive(:include_files).and_return('**/*.swift')
           allow(target).to receive(:exclude_files).and_return(nil)
@@ -44,10 +44,10 @@ module Xcake
         end
 
         it "should exclude files" do
-          native_target = double()
+          native_target = double("Native Target")
           allow(@project).to receive(:new_target).and_return(native_target)
 
-          target = double().as_null_object
+          target = double("Target").as_null_object
 
           allow(target).to receive(:include_files).and_return(nil)
           allow(target).to receive(:exclude_files).and_return('**/*.swift')
@@ -60,8 +60,8 @@ module Xcake
       end
 
       it "should add system frameworks" do
-        native_target = double().as_null_object
-        target = double().as_null_object
+        native_target = double("Native Target").as_null_object
+        target = double("Target").as_null_object
 
         allow(target).to receive(:system_frameworks).and_return(['Foundation'])
         expect(native_target).to receive(:add_system_frameworks).with(target.system_frameworks)
@@ -71,10 +71,10 @@ module Xcake
       end
 
       it 'run configuration generator when visiting configuration' do
-        configuration_generator = double()
+        configuration_generator = double("Configuration Generator")
         allow(Configuration).to receive(:new).and_return(configuration_generator)
 
-        configuration = double()
+        configuration = double("Configuration")
         expect(configuration).to receive(:accept).with(configuration_generator)
 
         @generator.visit_configuration(configuration)

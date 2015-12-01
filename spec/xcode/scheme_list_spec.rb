@@ -5,10 +5,10 @@ module Xcake
     describe SchemeList do
 
       before :each do
-        @project = double().as_null_object
+        @project = double("Project").as_null_object
         @scheme_list = SchemeList.new(@project)
 
-        @target = double().as_null_object
+        @target = double("Target").as_null_object
         allow(@target).to receive(:name).and_return("app")
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
 
@@ -43,10 +43,10 @@ module Xcake
       context "when creating scheme for application" do
 
         before :each do
-          @build_configuration = double().as_null_object
+          @build_configuration = double("Build Configuration").as_null_object
           allow(@target).to receive(:build_configurations).and_return([@build_configuration])
 
-          @scheme = double().as_null_object
+          @scheme = double("Scheme").as_null_object
           allow(Scheme).to receive(:new).and_return(@scheme)
         end
 
@@ -75,7 +75,7 @@ module Xcake
         context "and adding unit test" do
 
           before :each do
-            @unit_test_target = double().as_null_object
+            @unit_test_target = double("Unit Test Target").as_null_object
             allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
           end
 
@@ -111,7 +111,7 @@ module Xcake
         context "schemes" do
 
           before :each do
-            @scheme = double().as_null_object
+            @scheme = double("Scheme").as_null_object
             allow(@scheme_list).to receive(:schemes).and_return([@scheme])
           end
 

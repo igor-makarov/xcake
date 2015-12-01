@@ -5,7 +5,7 @@ module Xcake
     describe HeaderFileBuildPhase do
 
       before :each do
-        @node = double()
+        @node = double("Node")
       end
 
       it "should not able to install folder" do

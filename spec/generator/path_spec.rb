@@ -5,7 +5,7 @@ module Xcake
     describe Path do
 
       before :each do
-        @project = double()
+        @project = double("Project")
       end
 
       it "should store the project" do
@@ -17,7 +17,7 @@ module Xcake
 
         before :each do
           @generator = Path.new(nil)
-          @node = double().as_null_object
+          @node = double("Node").as_null_object
         end
 
         context "with no path" do
@@ -41,7 +41,7 @@ module Xcake
           context "and generator class" do
 
             before :each do
-              @build_phase = double().as_null_object
+              @build_phase = double("Build Phase").as_null_object
               allow(BuildPhase::Registry).to receive(:generator_for_node).and_return(@build_phase)
             end
 

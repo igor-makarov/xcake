@@ -5,13 +5,13 @@ module Xcake
     describe BuildPhase do
 
       before :each do
-          @main_group = double()
+        @main_group = double("Main Group")
 
-          @project = double()
-          allow(@project).to receive(:main_group).and_return(@main_group)
+        @project = double("Project")
+        allow(@project).to receive(:main_group).and_return(@main_group)
 
-          @node = double().as_null_object
-          @build_phase = BuildPhase.new(@project)
+        @node = double("Node").as_null_object
+        @build_phase = BuildPhase.new(@project)
       end
 
       it "should be able to install node" do
@@ -35,7 +35,7 @@ module Xcake
       context 'when finding group for child node' do
 
         it 'should return sub group' do
-          sub_group = double()
+          sub_group = double("Sub Group")
 
           allow(@node).to receive(:path).and_return('path')
           allow(@main_group).to receive(:find_subpath).with('path', true).and_return(sub_group)

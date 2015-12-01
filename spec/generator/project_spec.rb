@@ -7,7 +7,7 @@ module Xcake
       before :each do
         @generator = Project.new
 
-        @project = double().as_null_object
+        @project = double("Project").as_null_object
         allow(@project).to receive(:project_name) { 'Project' }
       end
 
@@ -28,9 +28,9 @@ module Xcake
       context 'when finished parsing project' do
 
         before :each do
-          @project = double().as_null_object
-          @root_node = double().as_null_object
-          @path_generator = double().as_null_object
+          @project = double("Project").as_null_object
+          @root_node = double("Root Node").as_null_object
+          @path_generator = double("Path Generator").as_null_object
 
           @generator.project = @project
           @generator.root_node = @root_node
@@ -55,20 +55,20 @@ module Xcake
       end
 
       it 'run target generator when visiting target' do
-        target_generator = double()
+        target_generator = double("Target Generator")
         allow(Target).to receive(:new).and_return(target_generator)
 
-        target = double()
+        target = double("Target")
         expect(target).to receive(:accept).with(target_generator)
 
         @generator.visit_target(target)
       end
 
       it 'run configuration generator when visiting configuration' do
-        configuration_generator = double()
+        configuration_generator = double("Configuration Generator")
         allow(Configuration).to receive(:new).and_return(configuration_generator)
 
-        configuration = double()
+        configuration = double("Configuration")
         expect(configuration).to receive(:accept).with(configuration_generator)
 
         @generator.visit_configuration(configuration)

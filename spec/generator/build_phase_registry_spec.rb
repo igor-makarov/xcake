@@ -16,7 +16,7 @@ module Xcake
         it 'should return correct generator for node' do
           allow(Registry).to receive(:build_phase_generators).and_return([BuildPhase])
 
-          node = double()
+          node = double("Node")
           generator = Registry.generator_for_node(node)
 
           expect(generator).to eq(BuildPhase)
