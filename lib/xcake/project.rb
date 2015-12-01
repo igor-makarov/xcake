@@ -125,7 +125,7 @@ module Xcake
       unit_test_target
     end
 
-    private
+    protected
 
     #Configurable
     def default_settings
