@@ -125,8 +125,9 @@ module Xcake
       unit_test_target
     end
 
-    #Configurable
+    private
 
+    #Configurable
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
@@ -143,7 +144,6 @@ module Xcake
     end
 
     #Visitable
-
     def accept(visitor)
       visitor.visit(self)
 
