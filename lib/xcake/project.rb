@@ -65,13 +65,13 @@ module Xcake
 
     # Defines a new application target.
     #
-    # @param  [Proc] platform
+    # @param  [Symbol] platform
     #         an optional block that configures the target through the DSL.
     #
-    # @param  [Proc] deployment_target
+    # @param  [Float] deployment_target
     #         an optional block that configures the target through the DSL.
     #
-    # @param  [Proc] language
+    # @param  [Symbol] language
     #         an optional block that configures the target through the DSL.
     #
     # @param  [Proc] block
