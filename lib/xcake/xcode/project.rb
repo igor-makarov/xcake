@@ -62,8 +62,6 @@ module Xcake
           @scheme_list ||= SchemeList.new(self)
         end
 
-        protected
-
         def object_version
           Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
         end

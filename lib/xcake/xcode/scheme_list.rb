@@ -15,8 +15,8 @@ module Xcake
       #
       attr_accessor :schemes
 
-      protected
-
+      # @return [Hash<String, Object>] the contents for the xcschememanagement file
+      #
       attr_accessor :xcschememanagement
 
       public
