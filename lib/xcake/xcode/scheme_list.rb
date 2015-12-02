@@ -2,11 +2,24 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
+
+    # This class is used to represent a list of Schemes.
+    #
     class SchemeList
 
+      # @return [Project] the project for the scheme list
+      #
       attr_accessor :project
+
+      # @return [Array<Scheme>] the schemes in the list
+      #
       attr_accessor :schemes
+
+      protected
+      
       attr_accessor :xcschememanagement
+
+      public
 
       def initialize(project)
         @project = project
