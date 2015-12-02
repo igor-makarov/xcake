@@ -138,6 +138,15 @@ module Xcake
     #
     attr_accessor :system_frameworks
 
+    # @param    [Proc] block
+    #           an optional block that configures the project through the DSL.
+    #
+    # @example  Creating a Target.
+    #
+    #           Target.new do |t|
+    #             t.name "test"
+    #           end
+    #
     def initialize(&block)
       block.call(self) if block_given?
     end
