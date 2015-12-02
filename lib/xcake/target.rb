@@ -110,8 +110,8 @@ module Xcake
 
     #-----------------------------------------------------------------------#
 
-    # @return [String] files to include for the target.
-    #                  Supports regualar expressions.
+    # @return [String](defaults to: "./<Target Name>/*\*/\*.*") files to include for the target.
+    #                  Supports regular expressions.
     #
     #   @example
     #
@@ -120,17 +120,21 @@ module Xcake
     attr_accessor :include_files
 
     # @return [String] files to exclude for the target.
-    #                  Supports regualar expressions.
+    #                  Supports regular expressions
     #
-    #   @example
+    #@example
     #
-    #     spec.exclude_files = "Classes/**/unused.{h,m}"
+    #    spec.exclude_files = "Classes/**/unused.{h,m}"
     #
     attr_accessor :exclude_files
 
     # @!group Frameworks
 
     # @return [Array<String>] system frameworks to include for the target
+    #
+    #@example
+    #
+    #    spec.system_frameworks = ["Foundation"]
     #
     attr_accessor :system_frameworks
 
