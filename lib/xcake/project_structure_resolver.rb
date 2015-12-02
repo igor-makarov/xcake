@@ -1,9 +1,7 @@
 module Xcake
 
   # This class handles resolving the structure
-  # of a project.
-  #
-  # This make sure that the structure of the
+  # of a project. Making sure that the structure of the
   # project is one Xcode can open and makes sense.
   #
   # As part of this it will create default configurations
