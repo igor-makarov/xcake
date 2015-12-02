@@ -113,7 +113,7 @@ module Xcake
     #                  Supports regular expressions,
     #                  Defaults to: "./<Target Name>/*\*/\*.*"
     #
-    #   @example
+    # @example
     #
     #     spec.include_files = "Classes/**/*.{h,m}"
     #
@@ -122,7 +122,7 @@ module Xcake
     # @return [String] files to exclude for the target.
     #                  Supports regular expressions
     #
-    #@example
+    # @example
     #
     #    spec.exclude_files = "Classes/**/unused.{h,m}"
     #

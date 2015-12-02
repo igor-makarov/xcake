@@ -1,7 +1,6 @@
 module Xcake
   module Generator
     class BuildPhase
-
       # This namespace contains methods
       # for working with Build Phase generators.
       #

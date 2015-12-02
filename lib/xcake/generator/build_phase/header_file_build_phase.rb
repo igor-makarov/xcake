@@ -1,7 +1,6 @@
 module Xcake
   module Generator
     class HeaderFileBuildPhase < BuildPhase
-
       # This build phase generator detects header files
       # and ignores them.
       #

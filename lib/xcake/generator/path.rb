@@ -1,6 +1,5 @@
 module Xcake
   module Generator
-
     # This generator processes the include and
     # exclude paths, and adds them to the
     # root node to be added to the project.

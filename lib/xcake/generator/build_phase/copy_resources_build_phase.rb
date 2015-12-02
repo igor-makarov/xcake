@@ -1,6 +1,5 @@
 module Xcake
   module Generator
-
     # This build phase generator detects
     # files and adds them to the copy resources phase.
     #

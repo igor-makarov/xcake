@@ -2,7 +2,6 @@ require 'xcodeproj'
 
 module Xcake
   module Generator
-
     # This generator processes the configuraions
     # and creates xcode build configurations.
     #
