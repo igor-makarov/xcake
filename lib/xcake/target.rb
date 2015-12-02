@@ -105,7 +105,7 @@ module Xcake
     #       "*.[a-z][a-z]" #=> ["CHANGELOG.md", "README.md"]
     #       "*.[^m]*"      #=> ["JSONKit.h"]
     #       "*.{h,m}"      #=> ["JSONKit.h", "JSONKit.m"]
-    #       "*"            #=> ["CHANGELOG.md", "JSONKit.h", "JSONKit.m", "README.md"]
+    #       "*"            #=> ["CHANGELOG.md", "JSONKit.h"]
 
     #-----------------------------------------------------------------------#
 
