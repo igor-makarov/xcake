@@ -1,13 +1,12 @@
 require 'xcodeproj'
 
 module Xcake
-
-  #This class is used to describe the overall
-  #Xcode project structure; This forms part of the DSL
-  #and is usally stored in files named `Cakefile`.
+  # This class is used to describe the overall
+  # Xcode project structure; This forms part of the DSL
+  # and is usally stored in files named `Cakefile`.
   #
-  #The Project creates a hiearchy of targets and configurations
-  #necessary to generate a xcode project.
+  # The Project creates a hiearchy of targets and configurations
+  # necessary to generate a xcode project.
   class Project
 
     include Configurable
