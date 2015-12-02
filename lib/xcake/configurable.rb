@@ -5,7 +5,7 @@ module Xcake
   #
   # Classes for the DSL which want to either
   # specifiy build settings or scheme launch arguments
-  # (i.e The Projects or Targets) include this namespace.
+  # (i.e The Project or Targets) include this namespace.
   #
   # @example
   #   class Application
