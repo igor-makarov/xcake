@@ -1,5 +1,9 @@
 module Xcake
   module Generator
+
+    # This build phase generator detects XCAsset bundles
+    # and adds them to the copy resources phase.
+    #
     class CopyXCAssetsBuildPhase < CopyResourcesBuildPhase
 
       def self.can_install_node(node)
