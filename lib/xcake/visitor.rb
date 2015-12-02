@@ -1,8 +1,6 @@
 module Xcake
   module Visitor
 
-    #TODO: Dry
-
     def visit(item)
       item_name = item_name(item)
 
