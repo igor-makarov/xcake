@@ -14,9 +14,13 @@ module Xcake
   #
   module Configurable
 
+    private
+
     attr_accessor :all_configuration
     attr_accessor :debug_configurations
     attr_accessor :release_configurations
+
+    public
 
     def flatten_configurations
       all_settings = all_configurations.settings
