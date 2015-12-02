@@ -1,9 +1,22 @@
 module Xcake
+
+  # This class handles resolving the structure
+  # of a project.
+  #
+  # This make sure that the structure of the
+  # project is one Xcode can open and makes sense.
+  #
+  # As part of this it will create default configurations
+  # if none are provided and will make sure both the project
+  # and targets have all of the same configurations.
   class ProjectStructureResolver
 
     include Visitor
 
+    # @return [Project] the project to resolve structure for
     attr_accessor :project
+
+    protected
 
     def visit_project(project)
 
