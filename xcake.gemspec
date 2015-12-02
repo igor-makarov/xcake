@@ -16,15 +16,15 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://www.supmenow.com/xcake"
   spec.license       = "MIT"
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "https://rubygems.org"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.executables   =  %w{ xcake }
   spec.require_paths = ["lib"]
+
+  spec.required_ruby_version = '>= 2.0.0'
+  s.rubygems_version = "1.6.2"
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.required_ruby_version = '>= 2.0.0'
+  s.specification_version = 3 if s.respond_to? :specification_version
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
