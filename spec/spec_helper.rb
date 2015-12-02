@@ -3,3 +3,11 @@ require "xcake"
 
 require "coveralls"
 Coveralls.wear!
+
+#Make all of our methods public
+RSpec.configure do |config|
+  config.before(:each) do
+    described_class.send(:public, *described_class.protected_instance_methods)
+    described_class.send(:public, *described_class.private_instance_methods)
+  end
+end
