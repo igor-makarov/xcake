@@ -23,7 +23,8 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a> &bull;
-    <a href="#roadmap">Roadmap</a>
+    <a href="#roadmap">Roadmap</a> &bull;
+    <a href="http://www.rubydoc.info/github/jcampbell05/xcake/">Documentation</a>
 </p>
 
 -------

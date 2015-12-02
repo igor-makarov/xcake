@@ -1,14 +1,42 @@
 require 'xcodeproj'
 
 module Xcake
+  # This class is used to describe the overall
+  # Xcode project structure; This forms part of the DSL
+  # and is usally stored in files named `Cakefile`.
+  #
+  # The Project creates a hiearchy of targets and configurations
+  # necessary to generate a xcode project.
   class Project
 
     include Configurable
     include Visitable
 
+    # @!group Configuring a project
+
+    # @return [String] the name of the project file. This is used as
+    #                  the filename.
+    #
     attr_accessor :project_name
+
+    # @return [Array<Target>] the list of targets for the project.
+    #
     attr_accessor :targets
 
+    # @!group Creating a project
+
+    # @param    [String] name
+    #           the name of the project file. This is used as the filename.
+    #
+    # @param    [Proc] block
+    #           an optional block that configures the project through the DSL.
+    #
+    # @example  Creating a Project.
+    #
+    #           Project.new do |c|
+    #             c.application_for :ios, 8.0
+    #           end
+    #
     def initialize(name="Project", &block)
 
       self.project_name = name
@@ -17,6 +45,16 @@ module Xcake
       block.call(self) if block_given?
     end
 
+    # @!group Working with a project
+
+    # Defines a new target.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the target
+    #         the newly created target
+    #
     def target(&block)
       target = Target.new(&block)
       self.targets << target
@@ -24,6 +62,23 @@ module Xcake
       target
     end
 
+    # Defines a new application target.
+    #
+    # @param  [Symbol] platform
+    #         platform for the application, can be either `:ios` or `:osx`.
+    #
+    # @param  [Float] deployment_target
+    #         the minimum deployment version for the platform.
+    #
+    # @param  [Symbol] language
+    #         language for application, can be either `:objc` or `:swift`.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the application target
+    #         the newly created application target
+    #
     def application_for(platform, deployment_target, language=:objc, &block)
 
       application_target = target do |t|
@@ -38,6 +93,17 @@ module Xcake
       application_target
     end
 
+    # Defines a new unit test target.
+    #
+    # @param  [Target] host_target
+    #         host target for which the unit tests are for.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the unit test target
+    #         the newly created unit test target
+    #
     def unit_tests_for(host_target, &block)
 
       unit_test_target = target do |t|
@@ -58,8 +124,9 @@ module Xcake
       unit_test_target
     end
 
-    #Configurable
+    protected
 
+    # Configurable
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
@@ -75,8 +142,7 @@ module Xcake
       default_settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:release]))
     end
 
-    #Visitable
-
+    # Visitable
     def accept(visitor)
       visitor.visit(self)
 
