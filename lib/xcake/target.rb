@@ -130,7 +130,7 @@ module Xcake
 
     # @!group Frameworks
 
-    # @return [Array<String>] system frameworks to include for the target
+    # @return [Array<String>](defaults to: ["Foundation", "UIKit"] on iOS and ["Cocoa"] on OSX) system frameworks to include for the target
     #
     #@example
     #
