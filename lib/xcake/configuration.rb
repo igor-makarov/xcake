@@ -27,7 +27,8 @@ module Xcake
     attr_accessor :settings
 
     # @param    [String] name
-    #           the name of the configuration This is used for the build configuration name.
+    #           the name of the configuration.
+    #           This is used for the build configuration name.
     #
     # @param    [Proc] block
     #           an optional block that configures the
