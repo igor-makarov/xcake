@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Xcake is a tool which allows you describe your project in
   an easy to read and mergable format, which you can use to generate a project.
   If your project gets corrupted xcake has your back.}
-  spec.homepage      = "http://www.supmenow.com/xcake"
+  spec.homepage      = "https://github.com/jcampbell05/xcake/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
