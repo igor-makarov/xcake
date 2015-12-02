@@ -1,4 +1,17 @@
 module Xcake
+
+  # This namespace provides all of methods for
+  # the DSL where configurations are specified.
+  #
+  # Classes for the DSL which want to either
+  # specifiy build settings or scheme launch arguments
+  # (i.e The Projects or Targets) include this namespace.
+  #
+  # @example
+  #   class Application
+  #     include Xcake::Configurable
+  #   end
+  #
   module Configurable
 
     attr_accessor :all_configuration
