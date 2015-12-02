@@ -186,6 +186,8 @@ module Xcake
 
     #Visitable
 
+    public
+
     def accept(visitor)
       visitor.visit(self)
 
