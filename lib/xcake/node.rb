@@ -26,7 +26,7 @@ module Xcake
     #
     attr_accessor :children
 
-    # @return [Array<Xcodeproj::Project::Object::PBXNativeTarget>] the targets for the node
+    # @return [Array<PBXNativeTarget>] the targets for the node
     #
     attr_accessor :targets
 

@@ -1,5 +1,4 @@
 module Xcake
-
   # This namespace provides all of methods for
   # the DSL where configurations are specified.
   #
@@ -15,9 +14,11 @@ module Xcake
   module Configurable
 
     private
+
     attr_accessor :all_configuration
 
     public
+
     attr_accessor :debug_configurations
     attr_accessor :release_configurations
 
@@ -32,7 +33,7 @@ module Xcake
     # - shared settings
     # - configuration settings
     #
-    # @return [Array<Configuration>] list of collected and flattened configurations
+    # @return [Array<Configuration>] list of all configurations flattened
     #
     def flatten_configurations
       all_settings = all_configurations.settings

@@ -1,5 +1,4 @@
 module Xcake
-
   # This class repesents configurations
   # in a xcode project. This is an abstraction
   # of Schemes and Build Configurations.
@@ -31,7 +30,8 @@ module Xcake
     #           the name of the configuration This is used for the build configuration name.
     #
     # @param    [Proc] block
-    #           an optional block that configures the configuration through the DSL.
+    #           an optional block that configures the
+    #           configuration through the DSL.
     #
     # @example  Creating a Configuration.
     #

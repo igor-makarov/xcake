@@ -1,6 +1,5 @@
 module Xcake
   module Generator
-
     # This generator handles adding nodes
     # to the project and creating a build phase
     # for it.
@@ -18,7 +17,7 @@ module Xcake
       #
       # @param [Node] the node
       #
-      # @return [Boolean] boolean for whether this generator can handle the node.
+      # @return [Boolean] true if build phase can handle the node.
       #
       def self.can_install_node(node)
         true
@@ -54,7 +53,11 @@ module Xcake
       # to add the file reference the correct
       # build phase.
       #
-      def add_file_reference_to_target(file_reference, target)
+      # @param [PBXFileReference] the file reference
+      #
+      # @param [PBXTarget] the xcode target
+      #
+      def add_file_reference_to_target(_file_reference, _target)
       end
 
       protected

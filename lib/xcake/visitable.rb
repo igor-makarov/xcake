@@ -3,7 +3,6 @@ module Xcake
   # implementing the Visitable in the  Visitor pattern.
   #
   module Visitable
-
     # This method accepts the visitors.
     #
     # The default implementatio lets the
