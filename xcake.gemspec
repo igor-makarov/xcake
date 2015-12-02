@@ -21,10 +21,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.required_ruby_version = '>= 2.0.0'
-  s.rubygems_version = "1.6.2"
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.required_ruby_version = '>= 2.0.0'
-  s.specification_version = 3 if s.respond_to? :specification_version
+  spec.rubygems_version = "1.6.2"
+  spec.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  spec.required_ruby_version = '>= 2.0.0'
+  spec.specification_version = 3 if s.respond_to? :specification_version
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
