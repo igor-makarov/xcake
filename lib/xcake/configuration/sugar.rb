@@ -1,6 +1,5 @@
 module Xcake
   class Configuration
-
     # @return [Hash<Symbol, String>] the constants for the
     #                                supported_devices setting
     #
