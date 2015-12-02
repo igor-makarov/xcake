@@ -1,8 +1,7 @@
 module Xcake
-
-  #This class is used to describe a target for a
-  #Xcode project; This forms part of the DSL
-  #and is usally stored in files named `Cakefile`.
+  # This class is used to describe a target for a
+  # Xcode project; This forms part of the DSL
+  # and is usally stored in files named `Cakefile`.
   #
   class Target
     include Configurable
