@@ -150,6 +150,8 @@ module Xcake
       @system_frameworks ||= default_system_frameworks_for self.platform
     end
 
+    protected
+
     def default_system_frameworks_for(platform)
       (platform == :ios) ? ['Foundation', 'UIKit'] : ['Cocoa']
     end
