@@ -109,8 +109,9 @@ module Xcake
 
     #-----------------------------------------------------------------------#
 
-    # @return [String](defaults to: "./<Target Name>/*\*/\*.*") files to include for the target.
-    #                  Supports regular expressions.
+    # @return [String] files to include for the target.
+    #                  Supports regular expressions,
+    #                  Defaults to: "./<Target Name>/*\*/\*.*"
     #
     #   @example
     #
