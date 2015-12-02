@@ -22,8 +22,6 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.0.0'
   spec.rubygems_version = "1.6.2"
-  spec.required_rubygems_version = Gem::Requirement.new(">= 0") if spec.respond_to? :required_rubygems_version=
-  spec.specification_version = 3 if spec.respond_to? :specification_version
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
