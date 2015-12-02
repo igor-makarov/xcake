@@ -11,10 +11,24 @@ module Xcake
 
     include Visitable
 
+    # @return [String] the component of this node in the path.
+    #
     attr_accessor :component
+
+    # @return [String] the path to this node relative to the Cakefile.
+    #
     attr_accessor :path
+
+    # @return [String] the parent node.
+    #
     attr_accessor :parent
+
+    # @return [Array<Node>] the child nodes.
+    #
     attr_accessor :children
+
+    # @return [Array<Xcodeproj::Project::Object::PBXNativeTarget>] the targets for the node
+    #
     attr_accessor :targets
 
     def initialize
@@ -94,6 +108,8 @@ module Xcake
         end
       end
     end
+
+    protected
 
     def accept(visitor)
 
