@@ -1,6 +1,12 @@
 require 'xcodeproj'
 
 module Xcake
+
+  # This class is used to represent a
+  # node (File or Directory) in the File System.
+  #
+  # This tracks which target the node should be
+  # added to.
   class Node
 
     include Visitable
