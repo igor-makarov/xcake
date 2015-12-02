@@ -63,9 +63,9 @@ xcake
 
 ## Installation
 
-Xcake isn't fully launched just yet, so just clone this repo and install the gem by running `rake install`
+Install the gem by running:
 
-<!--    sudo gem install xcake --verbose-->
+    sudo gem install xcake --verbose
 
 Make sure, you have the latest version of the Xcode command line tools installed:
 
