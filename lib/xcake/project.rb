@@ -4,7 +4,7 @@ module Xcake
 
   #This class is used to describe the overall
   #Xcode project structure; This forms part of the DSL
-  #and is stored in files name `Cakefile`.
+  #and is usally stored in files named `Cakefile`.
   #
   #The Project creates a hiearchy of targets and configurations
   #necessary to generate a xcode project.
@@ -66,13 +66,13 @@ module Xcake
     # Defines a new application target.
     #
     # @param  [Symbol] platform
-    #         platform for the application, either :ios or :osx.
+    #         platform for the application, can be either `:ios` or `:osx`.
     #
     # @param  [Float] deployment_target
     #         the minimum deployment version for the platform.
     #
     # @param  [Symbol] language
-    #         main language for the application, either :objc or :swift.
+    #         main language for the application, can be either `:objc` or `:swift`.
     #
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
