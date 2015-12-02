@@ -1,7 +1,6 @@
 require 'xcodeproj'
 
 module Xcake
-
   # This class is used to represent a
   # node (File or Directory) in the File System.
   #
@@ -42,8 +41,8 @@ module Xcake
     # @param [String] path
     #                 path to create children for
     #
-    # @param [Xcodeproj::Project::Object::PBXNativeTarget] target
-    #                                                      target to add for the child nodes
+    # @param [PBXNativeTarget] target
+    #                          target to add for the child nodes
     #
     def create_children_with_path(path, target)
 
@@ -60,8 +59,8 @@ module Xcake
     # @param [String] path
     #                 path to remove children for
     #
-    # @param [Xcodeproj::Project::Object::PBXNativeTarget] target
-    #                                                      target to remove for child nodes
+    # @param [PBXNativeTarget] target
+    #                          target to remove for child nodes
     #
     def remove_children_with_path(path, target)
 

@@ -2,11 +2,9 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
-
     # This class is used to represent a list of Schemes.
     #
     class SchemeList
-
       # @return [Project] the project for the scheme list
       #
       attr_accessor :project
@@ -15,7 +13,8 @@ module Xcake
       #
       attr_accessor :schemes
 
-      # @return [Hash<String, Object>] the contents for the xcschememanagement file
+      # @return [Hash<String, Object>] xcschememanagementfile contents
+      #
       #
       attr_accessor :xcschememanagement
 

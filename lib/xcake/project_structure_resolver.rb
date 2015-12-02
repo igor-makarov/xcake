@@ -1,5 +1,4 @@
 module Xcake
-
   # This class handles resolving the structure
   # of a project. Making sure that the structure of the
   # project is one Xcode can open and makes sense.

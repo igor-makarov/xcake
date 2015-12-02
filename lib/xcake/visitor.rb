@@ -1,5 +1,4 @@
 module Xcake
-
   # This namespace provides all of methods for
   # implementing the Vistor in the  Visitor pattern.
   #

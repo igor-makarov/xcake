@@ -71,7 +71,7 @@ module Xcake
     #         the minimum deployment version for the platform.
     #
     # @param  [Symbol] language
-    #         main language for the application, can be either `:objc` or `:swift`.
+    #         language for application, can be either `:objc` or `:swift`.
     #
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
@@ -126,7 +126,7 @@ module Xcake
 
     protected
 
-    #Configurable
+    # Configurable
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
@@ -142,7 +142,7 @@ module Xcake
       default_settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:release]))
     end
 
-    #Visitable
+    # Visitable
     def accept(visitor)
       visitor.visit(self)
 
