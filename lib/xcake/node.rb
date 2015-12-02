@@ -36,6 +36,15 @@ module Xcake
       self.targets = []
     end
 
+    # Creates child nodes for the path and
+    # target.
+    #
+    # @param [String] path
+    #                 path to create children for
+    #
+    # @param [Xcodeproj::Project::Object::PBXNativeTarget] target
+    #                                                      target to add for the child nodes
+    #
     def create_children_with_path(path, target)
 
       components = path.split('/').keep_if do |c|
@@ -45,6 +54,15 @@ module Xcake
       create_children_with_components(components, target)
     end
 
+    # Removes child nodes for the path and
+    # target.
+    #
+    # @param [String] path
+    #                 path to remove children for
+    #
+    # @param [Xcodeproj::Project::Object::PBXNativeTarget] target
+    #                                                      target to remove for child nodes
+    #
     def remove_children_with_path(path, target)
 
       components = path.split('/').keep_if do |c|
@@ -53,6 +71,8 @@ module Xcake
 
       remove_children_with_components(components, target)
     end
+
+    protected
 
     def create_children_with_components(components, target)
 
@@ -108,8 +128,6 @@ module Xcake
         end
       end
     end
-
-    protected
 
     def accept(visitor)
 
