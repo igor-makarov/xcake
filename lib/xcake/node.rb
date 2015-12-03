@@ -128,6 +128,8 @@ module Xcake
       end
     end
 
+    public
+
     def accept(visitor)
 
       visitor.visit(self)

@@ -9,16 +9,17 @@ Gem::Specification.new do |spec|
   spec.authors       = ["James Campbell"]
   spec.email         = ["james@supmenow.com"]
 
-  spec.summary       = %q{Xcake make managing your xcode project as easy as cake.}
-  spec.description   = %q{Xcake is a tool which allows you describe your project in
-  an easy to read and mergable format, which you can use to generate a project.
-  If your project gets corrupted xcake has your back.}
+  spec.summary       = %q{DSL for Xcode Projects.}
+  spec.description   = %q{Create your Xcode projects automatically using a stupid simple
+  DSL.}
   spec.homepage      = "https://github.com/jcampbell05/xcake/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.executables   =  %w{ xcake }
   spec.require_paths = ["lib"]
+
+  spec.required_ruby_version = '>= 2.0.0'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
