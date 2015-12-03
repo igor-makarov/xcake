@@ -58,4 +58,24 @@ So lets add it, configurations are defined project-wide so we do it like this:
     end
 
 Again we run `xcake` and voilla! Pretty easy but now if we open up our project
-our `debug` and `release` configurations are gone. Why is that?
+our `debug` and `release` configurations are gone. Xcake operates an opt-out system, Xcode projects won't open
+without any configurations so Xcake provides these configurations as a sensible default. But as soon as we
+provide our own configurations we are opting out of these defaults.
+
+Xcake does this to force us to make sure we have everything setup as we need it, to get these configurations back
+its just an extra couple of lines:
+
+    Project.new do |c|
+
+      c.debug_configuration :staging
+      c.debug_configuration :debug
+      c.release_configuration :release
+
+      c.application_for :ios, 9.0 do |t|
+        t.name = "MyApp"
+      end
+
+   end
+
+And there you have it, that is your first project created by Xcake. To learn what else you can do, read the
+[Cakefile syntax reference](Cakefile.md).
