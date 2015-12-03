@@ -75,7 +75,7 @@ its just an extra couple of lines:
         t.name = "MyApp"
       end
 
-   end
+    end
 
 And there you have it, that is your first project created by Xcake. To learn what else you can do, read the
 [Cakefile syntax reference](Cakefile.md).
