@@ -142,9 +142,9 @@ module Xcake
       default_settings.merge!(Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:release]))
     end
 
-    # Visitable
     public
 
+    # Visitable
     def accept(visitor)
       visitor.visit(self)
 
