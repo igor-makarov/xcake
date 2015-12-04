@@ -68,6 +68,8 @@ allows you to drop down a level if you need more power.
 
 ###Custom Targets
 
+<!-- Properties -->
+
 ## Configurations
 
 ### Debug Configurations
@@ -77,3 +79,5 @@ allows you to drop down a level if you need more power.
 ### All Configurations
 
 ### Configuration Hiearchy
+
+<!-- Properties -->
