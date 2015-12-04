@@ -69,3 +69,11 @@ allows you to drop down a level if you need more power.
 ###Custom Targets
 
 ## Configurations
+
+### Debug Configurations
+
+### Release Configurations
+
+### All Configurations
+
+### Configuration Hiearchy
