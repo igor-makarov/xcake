@@ -1,7 +1,7 @@
 #Cakefile Syntax Reference
 
 The `Cakefile` contains a lightweight DSL which provides the instructions on how to generate
-a project file, here is an example of a simple project:
+a project file. We adopt the convention over configuration and thus it can be very simple:
 
 ```ruby
 Project.new do |c|
