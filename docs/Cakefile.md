@@ -65,11 +65,60 @@ allows you to drop down a level if you need more power.
 
 ###Applications
 
+A project can specify any application targets such as iOS or Mac Apps.
+
+iOS App:
+
+```ruby
+Project.new "Workspace" do |c|
+  c.application_for :ios, 8.0
+end
+```
+
+Mac App:
+
+```ruby
+Project.new "Workspace" do |c|
+  c.application_for :mac, 8.0
+end
+```
+
 ###Tests
+
+We can also specify a testing targets for other targets as well
+
+```ruby
+Project.new "Workspace" do |c|
+  c.application_for :mac, 8.0 do |t|
+    c.unit_tests_for(t)
+  end
+end
+```
 
 ###Custom Targets
 
-<!-- Properties -->
+If these aren't enough for you then you can specify a target
+and manually set up it's properties.
+
+```ruby
+Project.new "Workspace" do |c|
+  c.target do |t|
+    t.name = "Target"
+  end
+end
+```
+
+###Properties
+
+#### Name
+
+#### Type
+
+#### Platform
+
+#### Deployment Target
+
+#### Language
 
 ## Configurations
 
@@ -81,4 +130,6 @@ allows you to drop down a level if you need more power.
 
 ### Configuration Hiearchy
 
-<!-- Properties -->
+###Properties
+
+#### Build Settings
