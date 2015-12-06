@@ -112,6 +112,12 @@ end
 
 #### Name
 
+Sets the name of the project
+
+```ruby
+t.name = "Target"
+```
+
 #### Type
 
 #### Platform
