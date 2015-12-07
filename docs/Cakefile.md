@@ -178,7 +178,16 @@ project.release_configuration :release
 
 ### All Configurations
 
+We can apply a particular shared setting across all of our configurations.
+Xcake provides a simply way of doing this via an "all" configuration.
+
+```ruby
+project.all_configurations.supported_devices = :iphone_only
+```
+
 ### Configuration Hiearchy
+
+
 
 ###Properties
 
