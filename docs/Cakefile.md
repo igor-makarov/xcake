@@ -120,11 +120,36 @@ t.name = "Target"
 
 #### Type
 
+Sets the type of the target, Can be `:application`, `:dynamic_library`,
+`:framework` or `:static_library`.
+
+```ruby
+t.type = :application
+```
+
 #### Platform
+
+Sets the platform of the target. Can be `:ios` or `:osx`
+
+```ruby
+t.platform = :ios
+```
 
 #### Deployment Target
 
+Sets the deployment target for the platform.
+
+```ruby
+t.deployment_target = 8.0
+```
+
 #### Language
+
+Sets the primary language of the target, can be `:objc` or `:swift`.
+
+```ruby
+t.language = :swift
+```
 
 ## Configurations
 
