@@ -111,7 +111,7 @@ end
 
 #### Name
 
-Sets the name of the project
+Sets the name of the target
 
 ```ruby
 target.name = "Target"
@@ -187,8 +187,46 @@ project.all_configurations.supported_devices = :iphone_only
 
 ### Configuration Hiearchy
 
+Xcake allows you to manage the configurations for the project and the target but
+it also has its own hiearchy of settings, which are in the following order
+(One at the top of the list are overwritten by ones at the bottom):
 
+- Default Settings
+  These are the sensible defaults xcake provides for the configuration.
+
+- All Settings
+  These are any settings set via the "All" configuration
+
+- Custom Settings
+  These are the settings set directly on the configuration.
 
 ###Properties
 
+#### Name
+
+Sets the name of the configuration
+
+```ruby
+configuration.name = "Release"
+```
+
 #### Build Settings
+
+A hash of all the build settings for a configuration
+
+```ruby
+configuration.build_settings["ENABLE_BITCODE"] = false
+```
+
+###Build Settings Shortcuts
+
+Xcake also provides some shortcuts for some more common build settings.
+
+#### Supported Devices
+
+Allows you specify the devices an iOS App can run on, can be `:iphone_only`,
+`:ipad_only` or `:universal`
+
+```ruby
+configuration.supported_devices = :iphone_only
+```
