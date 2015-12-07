@@ -1,13 +1,12 @@
-<!-- TODO: Maybe split into files ? -->
 #Cakefile Syntax Reference
 
 The `Cakefile` contains a lightweight DSL which provides the instructions on how to generate
 a project file. We adopt the convention over configuration and thus it can be very simple:
 
 ```ruby
-Project.new do |c|
-    c.application_for :ios, 8.0 do |t|
-        t.name = "MyApp"
+Project.new do |project|
+    project.application_for :ios, 8.0 do |target|
+        target.name = "MyApp"
     end
 end
 ```
@@ -15,17 +14,17 @@ end
 and here is much more complicated one:
 
 ```ruby
-Project.new do |c|
+Project.new do |project|
 
-    c.debug_configuration :staging
-    c.debug_configuration :debug
-    c.release_configuration :release
+    project.debug_configuration :staging
+    project.debug_configuration :debug
+    project.release_configuration :release
 
-    c.application_for :ios, 8.0 do |t|
-      t.name = "test"
-      t.all_configurations.supported_devices = :iphone_only
+    project.application_for :ios, 8.0 do |target|
+      target.name = "test"
+      target.all_configurations.supported_devices = :iphone_only
 
-      c.unit_tests_for(t)
+      project.unit_tests_for(target)
     end
 end
 ```
@@ -38,21 +37,21 @@ readable, efficient and concise.
 To create a project we must write the following:
 
 ```ruby
-Project.new do |c|
+Project.new do |project|
 end
 ```
 By default Xcake will create a project named "Project" but we can change the name
 by passing a String argument with the name we would like it to be called:
 
 ```ruby
-Project.new "Workspace" do |c|
+Project.new "Workspace" do |project|
 end
 ```
 We can also customize the structure of the project between the first and second lines, like so:
 
 ```ruby
-Project.new "Workspace" do |c|
-  c.debug_configuration :debug
+Project.new "Workspace" do |project|
+  project.debug_configuration :debug
 end
 ```
 There are two main ways you can customize a Project, Targets and Configurations.
@@ -70,16 +69,16 @@ A project can specify any application targets such as iOS or Mac Apps.
 iOS App:
 
 ```ruby
-Project.new "Workspace" do |c|
-  c.application_for :ios, 8.0
+Project.new "Workspace" do |project|
+  project.application_for :ios, 8.0
 end
 ```
 
 Mac App:
 
 ```ruby
-Project.new "Workspace" do |c|
-  c.application_for :mac, 8.0
+Project.new "Workspace" do |project|
+  project.application_for :mac, 8.0
 end
 ```
 
@@ -88,9 +87,9 @@ end
 We can also specify a testing targets for other targets as well
 
 ```ruby
-Project.new "Workspace" do |c|
-  c.application_for :mac, 8.0 do |t|
-    c.unit_tests_for(t)
+Project.new "Workspace" do |project|
+  project.application_for :mac, 8.0 do |target|
+    project.unit_tests_for(target)
   end
 end
 ```
@@ -101,9 +100,9 @@ If these aren't enough for you then you can specify a target
 and manually set up it's properties.
 
 ```ruby
-Project.new "Workspace" do |c|
-  c.target do |t|
-    t.name = "Target"
+Project.new "Workspace" do |project|
+  project.target do |target|
+    target.name = "Target"
   end
 end
 ```
@@ -115,7 +114,7 @@ end
 Sets the name of the project
 
 ```ruby
-t.name = "Target"
+target.name = "Target"
 ```
 
 #### Type
@@ -124,7 +123,7 @@ Sets the type of the target, Can be `:application`, `:dynamic_library`,
 `:framework` or `:static_library`.
 
 ```ruby
-t.type = :application
+target.type = :application
 ```
 
 #### Platform
@@ -132,7 +131,7 @@ t.type = :application
 Sets the platform of the target. Can be `:ios` or `:osx`
 
 ```ruby
-t.platform = :ios
+target.platform = :ios
 ```
 
 #### Deployment Target
@@ -140,7 +139,7 @@ t.platform = :ios
 Sets the deployment target for the platform.
 
 ```ruby
-t.deployment_target = 8.0
+target.deployment_target = 8.0
 ```
 
 #### Language
@@ -148,14 +147,34 @@ t.deployment_target = 8.0
 Sets the primary language of the target, can be `:objc` or `:swift`.
 
 ```ruby
-t.language = :swift
+target.language = :swift
 ```
 
 ## Configurations
 
+Configurations are an abstraction of build settings and scheme settings. Depending
+on the target Xcake will create a scheme per target and per configuration.
+
+Xcake allows you define a hierarchy of build settings like you would in Xcode
+for the Project and the Targets.
+
 ### Debug Configurations
 
+For configurations used for internal testing we create a debug configuration,
+this comes with sensible defaults optimized for debugging (i.e Assertions enabled).
+
+```ruby
+project.debug_configuration :staging
+```
+
 ### Release Configurations
+
+For configurations used for release we create a release configuration,
+this comes with sensible defaults optimized for releasing (i.e Compiler optimizations enabled).
+
+```ruby
+project.release_configuration :release
+```
 
 ### All Configurations
 
