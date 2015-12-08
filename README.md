@@ -1,5 +1,5 @@
 # Xcake
-[![Gem](https://img.shields.io/gem/v/xcake)](https://rubygems.org/gems/xcake)
+[![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
 [![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
 [![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
