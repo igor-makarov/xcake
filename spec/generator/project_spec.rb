@@ -27,7 +27,7 @@ module Xcake
         allow(@project).to receive(:class_prefix).and_return(prefix)
         @generator.visit_project(@project)
 
-        expect(@generator.project.attributes['CLASSPREFIX']).to eq(prefix)
+        expect(@generator.project.class_prefix).to eq(prefix)
       end
 
       it 'should set organization name' do
@@ -36,7 +36,7 @@ module Xcake
         allow(@project).to receive(:organization).and_return(organization)
         @generator.visit_project(@project)
 
-        expect(@generator.project.attributes['ORGANIZATIONNAME']).to eq(organization)
+        expect(@generator.project.organization).to eq(organization)
       end
 
       it 'should create root node' do

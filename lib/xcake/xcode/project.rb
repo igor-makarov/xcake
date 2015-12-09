@@ -4,11 +4,43 @@ module Xcake
   module Xcode
     class Project < Xcodeproj::Project
 
-        # @return [SchemeList] the attributes of
-        #                      the project
+        # @return [Hash] the attributes of
+        #                the project
         #
         def attributes
           root_object.attributes
+        end
+
+        # @return [String] the class name for the project
+        #
+        def class_prefix
+          attributes["CLASSPREFIX"]
+        end
+
+        # Sets the class prefix for the project
+        #
+        # @param [String] value to set
+        #
+        # @return [String] the class name for the project
+        #
+        def class_prefix=(class_prefix)
+          attributes["CLASSPREFIX"] = class_prefix
+        end
+
+        # @return [String] the organization for the project
+        #
+        def organization
+          attributes["ORGANIZATIONNAME"]
+        end
+
+        # Sets the organization for the project
+        #
+        # @param [String] value to set
+        #
+        # @return [SchemeList] the organization for the project
+        #
+        def organization=(organization)
+          attributes["ORGANIZATIONNAME"] = organization
         end
 
         # @return [SchemeList] the scheme list
