@@ -56,6 +56,24 @@ end
 ```
 There are two main ways you can customize a Project, Targets and Configurations.
 
+###Properties
+
+#### Clas Prefix
+
+Sets the class prefix for the project
+
+```ruby
+project.class_prefix = "XC"
+```
+
+#### Organization
+
+Sets the organization for the project.
+
+```ruby
+project.organization = "Xcake Productions"
+```
+
 ## Targets
 
 Targets are the way we make products such as Applications, Extensions, Libraries and Tests.
