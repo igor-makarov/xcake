@@ -16,16 +16,16 @@ v0.1.4
 ======
 - Removes references to "build_configurations" to just "configuration"
 to make syntax shorter and to reflect the fact it's an abstraction and not directly
-a xcode build configuration.
+a Xcode build configuration.
 
 v0.1.3
 ======
-- Reverts to an older Gemspec to fix installation issues.
+- Reverts to an older GemSpec to fix installation issues.
 - Adds initial Getting Started documentation
 
 v0.1.2
 ======
-- Adds dependency information for Ruby and Rubygems versions
+- Adds dependency information for Ruby and RubyGems versions
 
 v0.1.1
 ======
