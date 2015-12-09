@@ -26,8 +26,8 @@ module Xcake
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
 
-        @project.attributes['CLASSPREFIX'] = project.class_prefix if project.class_prefix
-        @project.attributes['ORGANIZATIONNAME'] = project.organization if project.organization
+        @project.class_prefix = project.class_prefix if project.class_prefix
+        @project.organization = project.organization if project.organization
       end
 
       def leave_project(project)
