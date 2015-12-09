@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Xcake
   module Generator
@@ -8,20 +8,20 @@ module Xcake
         @generator = Project.new
 
         @project = double("Project").as_null_object
-        allow(@project).to receive(:project_name) { 'Project' }
+        allow(@project).to receive(:project_name) { "Project" }
       end
 
-      it 'generates the correct output filepath' do
+      it "generates the correct output filepath" do
         output_filepath = @generator.output_filepath_for_project(@project)
         expect(output_filepath).to eq("./Project.xcodeproj")
       end
 
-      it 'generates the project' do
+      it "generates the project" do
         @generator.visit_project(@project)
         expect(@generator.project).not_to be_nil
       end
 
-      it 'should set class prefix' do
+      it "should set class prefix" do
         prefix = "XC"
 
         allow(@project).to receive(:class_prefix).and_return(prefix)
@@ -30,7 +30,7 @@ module Xcake
         expect(@generator.project.class_prefix).to eq(prefix)
       end
 
-      it 'should set organization name' do
+      it "should set organization name" do
         organization = "Xcake Productions"
 
         allow(@project).to receive(:organization).and_return(organization)
@@ -39,15 +39,15 @@ module Xcake
         expect(@generator.project.organization).to eq(organization)
       end
 
-      it 'should create root node' do
+      it "should create root node" do
         expect(@generator.root_node).not_to be_nil
       end
 
-      it 'should create root node' do
+      it "should create root node" do
         expect(@generator.root_node).not_to be_nil
       end
 
-      context 'when finished parsing project' do
+      context "when finished parsing project" do
 
         before :each do
           @project = double("Project").as_null_object
@@ -58,25 +58,25 @@ module Xcake
           @generator.root_node = @root_node
         end
 
-        it 'run path generator on root node' do
+        it "run path generator on root node" do
           expect(@root_node).to receive(:accept).with(@path_generator)
           allow(Path).to receive(:new).and_return(@path_generator)
 
           @generator.leave_project(@project)
         end
 
-        it 'should recreate user schemes' do
+        it "should recreate user schemes" do
           expect(@project).to receive(:recreate_user_schemes)
           @generator.leave_project(@project)
         end
 
-        it 'should save project' do
+        it "should save project" do
           expect(@project).to receive(:save)
           @generator.leave_project(@project)
         end
       end
 
-      it 'run target generator when visiting target' do
+      it "run target generator when visiting target" do
         target_generator = double("Target Generator")
         allow(Target).to receive(:new).and_return(target_generator)
 
@@ -86,7 +86,7 @@ module Xcake
         @generator.visit_target(target)
       end
 
-      it 'run configuration generator when visiting configuration' do
+      it "run configuration generator when visiting configuration" do
         configuration_generator = double("Configuration Generator")
         allow(Configuration).to receive(:new).and_return(configuration_generator)
 
