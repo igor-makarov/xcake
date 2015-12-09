@@ -28,10 +28,6 @@ module Xcake
     #
     attr_accessor :organization
 
-    #         - `CLASSPREFIX`
-#         - `LastUpgradeCheck`
-#         - `ORGANIZATIONNAME`
-
     # @return [Array<Target>] the list of targets for the project.
     #
     attr_accessor :targets
