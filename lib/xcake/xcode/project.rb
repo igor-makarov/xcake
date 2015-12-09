@@ -4,6 +4,31 @@ module Xcake
   module Xcode
     class Project < Xcodeproj::Project
 
+        # @return [SchemeList] the attributes of
+        #                      the project
+        #
+        def attributes
+          root_object.attributes
+        end
+
+        # @return [SchemeList] the scheme list
+        #
+        def scheme_list
+          @scheme_list ||= SchemeList.new(self)
+        end
+
+        def object_version
+          Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
+        end
+
+        def recreate_user_schemes(visible = true)
+
+          puts "Creating Schemes..."
+
+          scheme_list.recreate_schemes
+          scheme_list.save(path)
+        end
+
         # Configures the Project for use with Xcake.
         # This makes sure we have sensible defaults and
         # it as clean as possible.
@@ -54,24 +79,6 @@ module Xcake
           targets.find do |t|
             t.name == "#{target.name}Tests"
           end
-        end
-
-        # @return [SchemeList] the scheme list
-        #
-        def scheme_list
-          @scheme_list ||= SchemeList.new(self)
-        end
-
-        def object_version
-          Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
-        end
-
-        def recreate_user_schemes(visible = true)
-
-          puts "Creating Schemes..."
-
-          scheme_list.recreate_schemes
-          scheme_list.save(path)
         end
     end
   end

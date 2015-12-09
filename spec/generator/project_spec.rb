@@ -21,6 +21,28 @@ module Xcake
         expect(@generator.project).not_to be_nil
       end
 
+      it 'should set class prefix' do
+        prefix = "XC"
+
+        allow(@project).to receive(:class_prefix).and_return(prefix)
+        @generator.visit_project(@project)
+
+        expect(@generator.project.attributes['CLASSPREFIX']).to eq(prefix)
+      end
+
+      it 'should set organization name' do
+        organization = "Xcake Productions"
+
+        allow(@project).to receive(:organization).and_return(organization)
+        @generator.visit_project(@project)
+
+        expect(@generator.project.attributes['ORGANIZATIONNAME']).to eq(organization)
+      end
+
+      it 'should create root node' do
+        expect(@generator.root_node).not_to be_nil
+      end
+
       it 'should create root node' do
         expect(@generator.root_node).not_to be_nil
       end
