@@ -53,7 +53,7 @@ module Xcake
           Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
         end
 
-        def recreate_user_schemes(visible = true)
+        def recreate_user_schemes(*)
 
           puts "Creating Schemes..."
 
