@@ -4,7 +4,7 @@ v0.1.7
 
 v0.1.6
 ======
-- Fixed issues with unit tests.
+- Fixed crash with unit tests.
 - Added documentation for Configuration syntax.
 
 v0.1.5
