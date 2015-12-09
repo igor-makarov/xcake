@@ -54,7 +54,6 @@ module Xcake
         end
 
         def recreate_user_schemes(*)
-
           puts "Creating Schemes..."
 
           scheme_list.recreate_schemes
