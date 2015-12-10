@@ -9,7 +9,6 @@ v0.1.6
 
 v0.1.5
 ======
-- Fixed crash with Unit Tests
 - Added documentation for Target syntax.
 
 v0.1.4
