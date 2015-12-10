@@ -1,5 +1,5 @@
 # Xcake
-
+[![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
 [![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
@@ -23,7 +23,8 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a> &bull;
-    <a href="#roadmap">Roadmap</a>
+    <a href="#roadmap">Roadmap</a> &bull;
+    <a href="http://www.rubydoc.info/gems/xcake/file/docs/Getting%20Started.md">Documentation</a>
 </p>
 
 -------
@@ -62,9 +63,9 @@ xcake
 
 ## Installation
 
-Xcake isn't fully launched just yet, so just clone this repo and install the gem by running `rake install`
+Install the gem by running:
 
-<!--    sudo gem install xcake --verbose-->
+    sudo gem install xcake --verbose
 
 Make sure, you have the latest version of the Xcode command line tools installed:
 

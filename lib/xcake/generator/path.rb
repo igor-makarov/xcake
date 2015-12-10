@@ -1,14 +1,24 @@
 module Xcake
   module Generator
+    # This generator processes the include and
+    # exclude paths, and adds them to the
+    # root node to be added to the project.
+    #
     class Path
 
       include Visitor
 
+      # @return [Project] the xcode project
+      #
       attr_accessor :project
 
+      # @param    [Project] project for the file path
+      #
       def initialize(project)
         @project = project
       end
+
+      protected
 
       def visit_node(node)
 

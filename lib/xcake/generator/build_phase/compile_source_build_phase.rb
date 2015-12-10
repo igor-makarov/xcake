@@ -1,5 +1,8 @@
 module Xcake
   module Generator
+    # This build phase generator detects source
+    # files and adds them to the compile build phase.
+    #
     class CompileSourceBuildPhase < BuildPhase
 
       def self.can_install_node(node)

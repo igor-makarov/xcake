@@ -2,12 +2,27 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
+    # This class is used to represent a list of Schemes.
+    #
     class SchemeList
-
+      # @return [Project] the project for the scheme list
+      #
       attr_accessor :project
+
+      # @return [Array<Scheme>] the schemes in the list
+      #
       attr_accessor :schemes
+
+      # @return [Hash<String, Object>] xcschememanagementfile contents
+      #
+      #
       attr_accessor :xcschememanagement
 
+      public
+
+      # @param    [Project] project
+      #           project to create scheme list for.
+      #
       def initialize(project)
         @project = project
         @schemes = []
@@ -18,12 +33,19 @@ module Xcake
         }
       end
 
+      # Creates the schemes based on the targets.
+      #
       def recreate_schemes
         @project.targets.each do |t|
           create_schemes_for_target(t)
         end
       end
 
+      # Creates schemes based on a target.
+      #
+      # @param    [Target] target
+      #           target to create schemes for
+      #
       def create_schemes_for_target(target)
         case target.product_type
           when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
@@ -31,6 +53,11 @@ module Xcake
         end
       end
 
+      # Creates schemes based on a application target
+      #
+      # @param    [Target] target
+      #           target to create application schemes for
+      #
       def create_schemes_for_application(target)
         target.build_configurations.each do |c|
           scheme = Scheme.new
@@ -51,6 +78,11 @@ module Xcake
         end
       end
 
+      # Writes scheme list data.
+      #
+      # @param    [String] writing_path
+      #           path to write to.
+      #
       def save(writing_path)
 
         schemes_dir = Scheme.user_data_dir(writing_path)

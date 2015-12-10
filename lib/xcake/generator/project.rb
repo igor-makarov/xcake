@@ -25,6 +25,9 @@ module Xcake
 
         @project = Xcode::Project.new(output_filepath, true)
         @project.setup_for_xcake
+
+        @project.class_prefix = project.class_prefix if project.class_prefix
+        @project.organization = project.organization if project.organization
       end
 
       def leave_project(project)

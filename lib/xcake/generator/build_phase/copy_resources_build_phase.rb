@@ -1,5 +1,8 @@
 module Xcake
   module Generator
+    # This build phase generator detects
+    # files and adds them to the copy resources phase.
+    #
     class CopyResourcesBuildPhase < BuildPhase
 
       def self.can_install_node(node)
