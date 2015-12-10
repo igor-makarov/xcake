@@ -19,6 +19,15 @@ module Xcake
     #
     attr_accessor :project_name
 
+    # @return [String] the prefix used for Objective-C Classes. This is
+    #                  used by xcode when creating new files.
+    attr_accessor :class_prefix
+
+    # @return [String] the name of your organization. This is used by xcode when
+    #                  creating new files.
+    #
+    attr_accessor :organization
+
     # @return [Array<Target>] the list of targets for the project.
     #
     attr_accessor :targets
