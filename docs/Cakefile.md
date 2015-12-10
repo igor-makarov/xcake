@@ -58,7 +58,7 @@ There are two main ways you can customize a Project, Targets and Configurations.
 
 ###Properties
 
-#### Clas Prefix
+#### Class Prefix
 
 Sets the class prefix for the project
 
