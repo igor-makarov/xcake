@@ -17,6 +17,30 @@ module Xcake
         end
       end
 
+      context "for tvos" do
+
+        before :each do
+          @target = Target.new
+          @target.platform = :tvos
+        end
+
+        it "should set default system frameworks" do
+          expect(@target.system_frameworks).to eq(['Foundation', 'UIKit'])
+        end
+      end
+
+      context "for watchos" do
+
+        before :each do
+          @target = Target.new
+          @target.platform = :watchos
+        end
+
+        it "should set default system frameworks" do
+          expect(@target.system_frameworks).to eq(['Foundation', 'UIKit', 'WatchKit'])
+        end
+      end
+
       context "for osx" do
 
         before :each do

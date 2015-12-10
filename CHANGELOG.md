@@ -1,3 +1,7 @@
+Next
+====
+- Add tvos and watch support
+
 v0.1.7
 ======
 - Adds ability to set Project Class Prefix and Organization

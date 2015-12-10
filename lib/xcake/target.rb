@@ -18,7 +18,7 @@ module Xcake
     attr_accessor :type
 
     # @return [String] the platform for the target.
-    #                  Can be `:ios`, `:osx`.
+    #                  Can be `:ios`, `:osx`, `:tvos`, `:watchos`.
     #
     attr_accessor :platform
 
@@ -165,7 +165,18 @@ module Xcake
     protected
 
     def default_system_frameworks_for(platform)
-      (platform == :ios) ? ['Foundation', 'UIKit'] : ['Cocoa']
+      case platform
+      when :ios
+        ['Foundation', 'UIKit']
+      when :osx
+        ['Cocoa']
+      when :tvos
+        ['Foundation', 'UIKit']
+      when :watchos
+        ['Foundation', 'UIKit', 'WatchKit']
+      else
+        abort "Platform not supported!"
+      end
     end
 
     #Configurable
