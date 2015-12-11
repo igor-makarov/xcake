@@ -90,10 +90,6 @@ Please submit an issue on GitHub and provide information about your setup
 
 ## Roadmap
 
-:white_check_mark: WatchOS targets.
-
-:white_check_mark: tvOS targets.
-
 :white_medium_square: Create WatchOS applications.
 
 :white_medium_square: Create tvOS applications.
