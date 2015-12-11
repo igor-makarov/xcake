@@ -21,8 +21,8 @@ module Xcake
 
       @project = project
 
-      @project.debug_configuration :debug if @project.debug_configurations.count == 0
-      @project.release_configuration :release if @project.release_configurations.count == 0
+      @project.debug_configuration :Debug if @project.debug_configurations.count == 0
+      @project.release_configuration :Release if @project.release_configurations.count == 0
     end
 
     def leave_project(project)
