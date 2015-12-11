@@ -96,10 +96,13 @@ Please submit an issue on GitHub and provide information about your setup
 
 :white_check_mark: Generate testing targets.
 
+:white_check_mark: WatchOS targets.
+
+:white_check_mark: tvOS targets.
+
 :white_medium_square: Generate library targets.
 
-:white_medium_square: Generate extension or Watch OS targets.
-
+:white_medium_square: Generate extensions.
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
