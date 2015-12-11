@@ -1,6 +1,6 @@
-Next
-====
-- Add tvos and watch support
+v0.1.8
+======
+- Add tvOS and Watch OS support (Thanks to @petester42)
 
 v0.1.7
 ======
