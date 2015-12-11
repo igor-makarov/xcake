@@ -146,7 +146,7 @@ target.type = :application
 
 #### Platform
 
-Sets the platform of the target. Can be `:ios` or `:osx`
+Sets the platform of the target. Can be `:ios`, `:osx`, `:tvos` or `:watchos`
 
 ```ruby
 target.platform = :ios
