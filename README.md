@@ -100,8 +100,6 @@ Please submit an issue on GitHub and provide information about your setup
 
 :white_medium_square: Generate library targets.
 
-:white_medium_square: Generate library targets.
-
 :white_medium_square: Generate extensions.
 
 ## License
