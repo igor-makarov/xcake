@@ -39,7 +39,7 @@ module Xcake
       end
 
       def self.is_supported?(platform)
-        [:ios, :mac].include?(platform)
+        [:ios, :mac, :tvos, :watchos].include?(platform)
       end
     end
   end

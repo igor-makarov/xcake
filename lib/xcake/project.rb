@@ -74,7 +74,7 @@ module Xcake
     # Defines a new application target.
     #
     # @param  [Symbol] platform
-    #         platform for the application, can be either `:ios` or `:osx`.
+    #         platform for the application, can be either `:ios`, `:osx`, `:tvos` or `:watchos`.
     #
     # @param  [Float] deployment_target
     #         the minimum deployment version for the platform.
