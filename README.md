@@ -90,15 +90,15 @@ Please submit an issue on GitHub and provide information about your setup
 
 ## Roadmap
 
-:white_check_mark: Generate basic iOS or Mac application.
-
-:white_check_mark: Generate from any computer, including a CI-server.
-
-:white_check_mark: Generate testing targets.
-
 :white_check_mark: WatchOS targets.
 
 :white_check_mark: tvOS targets.
+
+:white_medium_square: Create WatchOS applications.
+
+:white_medium_square: Create tvOS applications.
+
+:white_medium_square: Generate library targets.
 
 :white_medium_square: Generate library targets.
 
