@@ -69,7 +69,7 @@ module Xcake
 
       watch_target = target do |t|
 
-        t.name = "#{host_target.name} Watch"
+        t.name = "#{host_target.name}-Watch"
 
         t.type = :watch2_app
         t.platform = :watchos
@@ -81,7 +81,7 @@ module Xcake
 
       watch_extension_target = target do |t|
 
-        t.name = "#{host_target.name} Watch Extension"
+        t.name = "#{host_target.name}-Watch Extension"
 
         t.type = :watch2_extension
         t.platform = :watchos
