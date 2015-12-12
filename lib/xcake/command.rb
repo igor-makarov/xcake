@@ -6,6 +6,8 @@ module Xcake
     self.command = 'xcake'
     self.description = 'Create and maintain Xcode project files easily.'
 
+    #TODO: Add version logger
+
     def run
 
       puts "Reading Cakefile..."
