@@ -1,10 +1,10 @@
-Project.new do |c|
-    c.application_for :ios, 8.0 do |t|
-      t.name = "test"
+Project.new do |project|
 
-      t.all_configurations.supported_devices = :iphone_only
+project.application_for :ios, 8.0 do |target|
+  target.name = "Sup"
+  project.unit_tests_for(target)
+end
 
-      c.unit_tests_for t
-      c.watch_app_for t, 2.0 
-    end
+#TODO: Add Watch support to xcake
+
 end
