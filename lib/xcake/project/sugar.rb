@@ -63,37 +63,33 @@ module Xcake
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
     #
-    def watch_app_for(host_target, &block)
+    def watch_app_for(host_target, deployment_target, language=:objc, &block)
 
-    #   watch_target = target do |t|
-    #
-    #     t.name = "#{host_target.name}Tests"
-    #
-    #     t.type = :unit_test_bundle
-    #     t.platform = host_target.platform
-    #     t.deployment_target = host_target.deployment_target
-    #     t.language = host_target.language
-    #
-    #     t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
-    #     t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
-    #
-    #     block.call(t) if block_given?
-    #   end
+      #TODO: Add WatchOS 1.0
 
-    #   watch_extension_target = target do |t|
-    #
-    #     t.name = "#{host_target.name}Tests"
-    #
-    #     t.type = :unit_test_bundle
-    #     t.platform = host_target.platform
-    #     t.deployment_target = host_target.deployment_target
-    #     t.language = host_target.language
-    #
-    #     t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
-    #     t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
-    #
-    #     block.call(t) if block_given?
-    #   end
+      watch_target = target do |t|
+
+        t.name = "#{host_target.name} Watch"
+
+        t.type = :watch2_app
+        t.platform = :watchos
+        t.deployment_target = deployment_target
+        t.language = language
+
+        block.call(t) if block_given?
+      end
+
+      watch_extension_target = target do |t|
+
+        t.name = "#{host_target.name} Watch Extension"
+
+        t.type = :watch2_extension
+        t.platform = :watchos
+        t.deployment_target = deployment_target
+        t.language = language
+
+        block.call(t) if block_given?
+      end
     end
   end
 end
