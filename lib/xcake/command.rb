@@ -4,7 +4,7 @@ module Xcake
   class Command < CLAide::Command
 
     self.command = 'xcake'
-    self.version = VERSION
+    self.version = ::Xcake::VERSION
     self.description = 'Create and maintain Xcode project files easily.'
 
     def run
