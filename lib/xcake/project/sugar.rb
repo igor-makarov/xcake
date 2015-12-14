@@ -63,11 +63,9 @@ module Xcake
     #         iOS target for the watch app
     #
     # @param  [Proc] block
-    #         an optional block that configures the target through the DSL.
+    #         an optional block that configures the targets through the DSL.
     #
-    # @return [Hash<Traget>] hash containing newly created targets
-    #         watch app is contained under `:app` key and the extension under
-    #         the `:extension` key.
+    # @return Void
     #
     def watch_app_for(host_target, deployment_target, language = :objc, &block)
       watch_app_target = target do |t|
@@ -77,8 +75,6 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
-
-        block.call(t) if block_given?
       end
 
       watch_extension_target = target do |t|
@@ -88,14 +84,11 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
-
-        block.call(t) if block_given?
       end
 
-      {
-        app: watch_app_target,
-        extension: watch_extension_target
-      }
+      block.call(watch_app_target, watch_extension_target) if block_given?
+
+      return nil
     end
   end
 end
