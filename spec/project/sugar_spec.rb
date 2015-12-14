@@ -45,31 +45,31 @@ module Xcake
         end
       end
     end
-  end
+    context "when creating unit test target" do
+      before :each do
+        @app_target = double("App Target")
+        @target = @project.unit_tests_for @app_target
+      end
 
-  context "when creating unit test target" do
-    before :each do
-      @app_target = double("App Target")
-      @target = @project.unit_tests_for app_target
+      #t.name = "#{host_target.name}Tests"
+
+      it "should set type to unit test bundle" do
+        puts "H: #{@app_target}"
+        #expect(@target.type).to eq(:unit_test_bundle)
+      end
+
+      # t.platform = host_target.platform
+      # t.deployment_target = host_target.deployment_target
+      # t.language = host_target.language
+      #
+      # t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+      # t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
     end
 
-    #t.name = "#{host_target.name}Tests"
-
-    it "should set type to unit test bundle" do
-      expect(@target.type).to eq(:unit_test_bundle)
-    end
-
-    # t.platform = host_target.platform
-    # t.deployment_target = host_target.deployment_target
-    # t.language = host_target.language
-    #
-    # t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
-    # t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
-  end
-
-  context "when creating watch target" do
-    before :each do
-      @target = @project.application_for :ios, 8.0
+    context "when creating watch target" do
+      before :each do
+        @target = @project.application_for :ios, 8.0
+      end
     end
   end
 end
