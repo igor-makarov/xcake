@@ -94,8 +94,8 @@ module Xcake
       end
 
       {
-        :app => watch_app_target,
-        :extension => watch_extension_target
+        app: watch_app_target,
+        extension: watch_extension_target
       }
     end
   end
