@@ -1,3 +1,8 @@
+v0.3.0
+======
+- Simplified Watch OS target syntax.
+- Fixes issue with `--version` not working for all installations.
+
 v0.2.0
 ======
 - Now adds `--version` flag to command line, to allow you to find out Xcake's version.
