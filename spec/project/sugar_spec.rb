@@ -59,14 +59,26 @@ module Xcake
 
       #t.name = "#{host_target.name}Tests"
 
+      it 'should prefix application name with "Tests"'  do
+        expect(@target.name).to eq("applicationTests")
+      end
+
       it "should set type to unit test bundle" do
         expect(@target.type).to eq(:unit_test_bundle)
       end
 
-      # t.platform = host_target.platform
-      # t.deployment_target = host_target.deployment_target
-      # t.language = host_target.language
-      #
+      it "should set platform to same as application target" do
+        expect(@target.platform).to eq(:ios)
+      end
+
+      it "should set deployment target to same as application target" do
+        expect(@target.deployment_target).to eq(8.0)
+      end
+
+      it "should set language to same as application target" do
+        expect(@target.language).to eq(:swift)
+      end
+
       # t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
       # t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
     end
