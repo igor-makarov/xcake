@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.1.9)
+    xcake (0.2.0)
       claide
       xcodeproj (~> 0.28)
 
