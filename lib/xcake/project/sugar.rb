@@ -71,7 +71,6 @@ module Xcake
     #
     def watch_app_for(host_target, deployment_target, language = :objc, &block)
       watch_app_target = target do |t|
-
         t.name = "#{host_target.name}-Watch"
 
         t.type = :watch2_app
