@@ -48,14 +48,19 @@ module Xcake
     context "when creating unit test target" do
       before :each do
         @app_target = double("App Target")
+
+        allow(@app_target).to receive(:name).and_return("application")
+        allow(@app_target).to receive(:platform).and_return(:ios)
+        allow(@app_target).to receive(:deployment_target).and_return(8.0)
+        allow(@app_target).to receive(:language).and_return(:swift)
+
         @target = @project.unit_tests_for @app_target
       end
 
       #t.name = "#{host_target.name}Tests"
 
       it "should set type to unit test bundle" do
-        puts "H: #{@app_target}"
-        #expect(@target.type).to eq(:unit_test_bundle)
+        expect(@target.type).to eq(:unit_test_bundle)
       end
 
       # t.platform = host_target.platform
