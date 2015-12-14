@@ -1,4 +1,4 @@
-require 'xcodeproj'
+require "xcodeproj"
 
 module Xcake
   class Project
