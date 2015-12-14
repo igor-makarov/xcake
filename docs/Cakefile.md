@@ -102,7 +102,7 @@ end
 
 ###Tests
 
-We can also specify a testing targets for other targets as well
+We can also specify a testing targets for other targets as well:
 
 ```ruby
 Project.new "Workspace" do |project|
@@ -114,7 +114,7 @@ end
 
 ###Watch
 
-To create watch applications we can simply use the `watch_app_for` method.
+To create watch applications we can simply use the `watch_app_for` method:
 
 ```ruby
 Project.new "Workspace" do |project|
