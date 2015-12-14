@@ -14,6 +14,9 @@ module Xcake
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
     #
+    # @return [Target] the application target
+    #         the newly created application target
+    #
     def application_for(platform, deployment_target, language=:objc, &block)
 
       application_target = target do |t|
@@ -63,6 +66,10 @@ module Xcake
     # @param  [Proc] block
     #         an optional block that configures the target through the DSL.
     #
+    # @return [Hash<Traget>] hash containing newly created targets
+    #         watch app is contained under `:app` key and the extension under
+    #         the `:extension` key.
+    #
     def watch_app_for(host_target, deployment_target, language=:objc, &block)
 
       #TODO: Add WatchOS 1.0
@@ -90,6 +97,11 @@ module Xcake
 
         block.call(t) if block_given?
       end
+
+      {
+        :app => watch_target,
+        :extension => watch2_extension
+      }
     end
   end
 end
