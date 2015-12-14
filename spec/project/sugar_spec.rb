@@ -2,11 +2,14 @@ require 'spec_helper'
 
 module Xcake
   describe Project do
-    context "when creating application" do
+
+    before :each do
+      @project = Project.new
+    end
+
+    context "when creating application target" do
       before :each do
-        @project = Project.new do |c|
-          @target = c.application_for :ios, 8.0
-        end
+        @target = @project.application_for :ios, 8.0
       end
 
       it "should store targets when created" do
@@ -41,6 +44,18 @@ module Xcake
           expect(@target.language).to eq(:swift)
         end
       end
+    end
+  end
+
+  context "when creating unit test target" do
+    before :each do
+      @target = @project.application_for :ios, 8.0
+    end
+  end
+
+  context "when creating watch target" do
+    before :each do
+      @target = @project.application_for :ios, 8.0
     end
   end
 end
