@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     xcake (0.2.0)
-      claide
+      claide (~> 0.9.1)
       xcodeproj (~> 0.28)
 
 GEM
@@ -78,11 +78,11 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.10)
-  coveralls
+  coveralls (~> 0.8)
   rake (~> 10.0)
-  rspec
+  rspec (~> 3.4.0)
   xcake!
-  yard
+  yard (~> 0.8)
 
 BUNDLED WITH
    1.10.6

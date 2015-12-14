@@ -1,5 +1,6 @@
 require "xcake/visitable"
 require "xcake/visitor"
+require "xcake/version"
 
 require "xcake/command"
 require "xcake/configuration"
@@ -23,7 +24,6 @@ require "xcake/project/sugar"
 require "xcake/project_structure_resolver"
 require "xcake/node"
 require "xcake/target"
-require "xcake/version"
 
 require "xcake/xcode/project"
 require "xcake/xcode/scheme"
