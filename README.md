@@ -59,7 +59,7 @@ xcake
 :page_with_curl: | Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
 :rocket: | Saves you **hours** when working with xcode projects
 :anchor: | Confidence that the project file is exactly the same during Continuous Delivery
-:computer: | Support for both iOS and Mac OS apps
+:computer: | Support for OSX, iOS and watchOS apps
 
 ## Installation
 
@@ -90,7 +90,7 @@ Please submit an issue on GitHub and provide information about your setup
 
 ## Roadmap
 
-:white_medium_square: Create WatchOS applications.
+:white_check_mark: Create WatchOS applications.
 
 :white_medium_square: Create tvOS applications.
 
