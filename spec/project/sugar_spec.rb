@@ -90,9 +90,10 @@ module Xcake
         @app_target = double("App Target")
         allow(@app_target).to receive(:name).and_return("application")
 
-        @targets = @project.watch_app_for @app_target, 2.0, :swift
-        @watch_app_target = @targets[:app]
-        @extension_target = @targets[:extension]
+        @project.watch_app_for @app_target, 2.0, :swift do |app, extension|
+          @watch_app_target = app
+          @extension_target = extension
+        end
       end
 
       context "for watch app" do
