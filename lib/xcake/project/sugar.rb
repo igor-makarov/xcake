@@ -1,3 +1,5 @@
+require 'xcodeproj'
+
 module Xcake
   class Project
     # Defines a new application target.
@@ -71,7 +73,7 @@ module Xcake
     #         the `:extension` key.
     #
     def watch_app_for(host_target, deployment_target, language=:objc, &block)
-      watch_target = target do |t|
+      watch_app_target = target do |t|
 
         t.name = "#{host_target.name}-Watch"
 
@@ -96,8 +98,8 @@ module Xcake
       end
 
       {
-        :app => watch_target,
-        :extension => watch2_extension
+        :app => watch_app_target,
+        :extension => watch_extension_target
       }
     end
   end

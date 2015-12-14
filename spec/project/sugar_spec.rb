@@ -92,8 +92,52 @@ module Xcake
     context "when creating watch target" do
       before :each do
         @app_target = double("App Target")
+        allow(@app_target).to receive(:name).and_return("application")
 
-        @target = @project.watch_app_for @app_target, 2.0
+        @targets = @project.watch_app_for @app_target, 2.0, :swift
+        @watch_app_target = @targets[:app]
+        @extension_target = @targets[:extension]
+      end
+
+      context "for watch app" do
+        it 'should prefix application name with "-Watch"'  do
+          expect(@watch_app_target.name).to eq("application-Watch")
+        end
+
+        it 'should set type'  do
+          expect(@watch_app_target.type).to eq(:watch2_app)
+        end
+
+        it 'should set platform'  do
+          expect(@watch_app_target.platform).to eq(:watchos)
+        end
+
+        it 'should set deployment target'  do
+          expect(@watch_app_target.deployment_target).to eq(2.0)
+        end
+
+        it 'should set language'  do
+          expect(@watch_app_target.language).to eq(:swift)
+        end
+      end
+
+      context "for watch extension" do
+
+        it 'should prefix application name with "-Watch Extension"'  do
+          expect(@extension_target.name).to eq("application-Watch Extension")
+        end
+
+        it 'should set type'  do
+          expect(@extension_target.type).to eq(:watch2_extension)
+        end
+
+        it 'should set platform'  do
+          expect(@extension_target.platform).to eq(:watchos)
+        end
+
+        it 'should set language'  do
+          expect(@extension_target.language).to eq(:swift)
+        end
       end
     end
   end
