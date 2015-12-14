@@ -1,8 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Xcake
   describe Project do
-
     before :each do
       @project = Project.new
     end
@@ -33,7 +32,6 @@ module Xcake
       end
 
       context "when specifying language" do
-
         before :each do
           @project = Project.new do |c|
             @target = c.application_for :ios, 8.0, :swift
@@ -57,9 +55,7 @@ module Xcake
         @target = @project.unit_tests_for @app_target
       end
 
-      #t.name = "#{host_target.name}Tests"
-
-      it 'should prefix application name with "Tests"'  do
+      it 'should prefix application name with "Tests"' do
         expect(@target.name).to eq("applicationTests")
       end
 
@@ -100,42 +96,41 @@ module Xcake
       end
 
       context "for watch app" do
-        it 'should prefix application name with "-Watch"'  do
+        it 'should prefix application name with "-Watch"' do
           expect(@watch_app_target.name).to eq("application-Watch")
         end
 
-        it 'should set type'  do
+        it "should set type" do
           expect(@watch_app_target.type).to eq(:watch2_app)
         end
 
-        it 'should set platform'  do
+        it "should set platform" do
           expect(@watch_app_target.platform).to eq(:watchos)
         end
 
-        it 'should set deployment target'  do
+        it "should set deployment target" do
           expect(@watch_app_target.deployment_target).to eq(2.0)
         end
 
-        it 'should set language'  do
+        it "should set language" do
           expect(@watch_app_target.language).to eq(:swift)
         end
       end
 
       context "for watch extension" do
-
-        it 'should prefix application name with "-Watch Extension"'  do
+        it 'should prefix application name with "-Watch Extension"' do
           expect(@extension_target.name).to eq("application-Watch Extension")
         end
 
-        it 'should set type'  do
+        it "should set type" do
           expect(@extension_target.type).to eq(:watch2_extension)
         end
 
-        it 'should set platform'  do
+        it "should set platform" do
           expect(@extension_target.platform).to eq(:watchos)
         end
 
-        it 'should set language'  do
+        it "should set language" do
           expect(@extension_target.language).to eq(:swift)
         end
       end

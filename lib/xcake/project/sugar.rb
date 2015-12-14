@@ -19,9 +19,8 @@ module Xcake
     # @return [Target] the application target
     #         the newly created application target
     #
-    def application_for(platform, deployment_target, language=:objc, &block)
-
-      application_target = target do |t|
+    def application_for(platform, deployment_target, language = :objc, &block)
+      target do |t|
         t.type = :application
         t.platform = platform
         t.deployment_target = deployment_target
@@ -43,9 +42,7 @@ module Xcake
     #         the newly created unit test target
     #
     def unit_tests_for(host_target, &block)
-
-      unit_test_target = target do |t|
-
+      target do |t|
         t.name = "#{host_target.name}Tests"
 
         t.type = :unit_test_bundle
@@ -72,7 +69,7 @@ module Xcake
     #         watch app is contained under `:app` key and the extension under
     #         the `:extension` key.
     #
-    def watch_app_for(host_target, deployment_target, language=:objc, &block)
+    def watch_app_for(host_target, deployment_target, language = :objc, &block)
       watch_app_target = target do |t|
 
         t.name = "#{host_target.name}-Watch"
@@ -86,7 +83,6 @@ module Xcake
       end
 
       watch_extension_target = target do |t|
-
         t.name = "#{host_target.name}-Watch Extension"
 
         t.type = :watch2_extension
