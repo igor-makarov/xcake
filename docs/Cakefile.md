@@ -112,6 +112,18 @@ Project.new "Workspace" do |project|
 end
 ```
 
+###Watch
+
+To create watch applications we can simply use the `watch_app_for` method.
+
+```ruby
+Project.new "Workspace" do |project|
+  project.application_for :mac, 8.0 do |target|
+    project.watch_app_for target, 2.0
+  end
+end
+```
+
 ###Custom Targets
 
 If these aren't enough for you then you can specify a target
