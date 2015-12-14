@@ -91,7 +91,9 @@ module Xcake
 
     context "when creating watch target" do
       before :each do
-        @target = @project.application_for :ios, 8.0
+        @app_target = double("App Target")
+
+        @target = @project.watch_app_for @app_target, 2.0
       end
     end
   end

@@ -71,9 +71,6 @@ module Xcake
     #         the `:extension` key.
     #
     def watch_app_for(host_target, deployment_target, language=:objc, &block)
-
-      #TODO: Add WatchOS 1.0
-
       watch_target = target do |t|
 
         t.name = "#{host_target.name}-Watch"
