@@ -109,9 +109,9 @@ module Xcake
 
     #-----------------------------------------------------------------------#
 
-    # @return [String] files to include for the target.
-    #                  Supports regular expressions,
-    #                  Defaults to: "./<Target Name>/*\*/\*.*"
+    # @return [Array<String>] files to include for the target.
+    #                         Supports regular expressions,
+    #                         Defaults to: ["./<Target Name>/*\*/\*.*"]
     #
     # @example
     #
@@ -119,12 +119,12 @@ module Xcake
     #
     attr_accessor :include_files
 
-    # @return [String] files to exclude for the target.
-    #                  Supports regular expressions
+    # @return [Array<String>] files to exclude for the target.
+    #                         Supports regular expressions
     #
     # @example
     #
-    #    spec.exclude_files = "Classes/**/unused.{h,m}"
+    #    spec.exclude_files = ["Classes/**/unused.{h,m}"]
     #
     attr_accessor :exclude_files
 
@@ -155,7 +155,11 @@ module Xcake
     end
 
     def include_files
-      @include_files ||= "./#{self.name}/**/*.*"
+      @include_files ||= ["./#{self.name}/**/*.*"]
+    end
+
+    def exclude_files
+      @exclude_files ||= []
     end
 
     def system_frameworks
