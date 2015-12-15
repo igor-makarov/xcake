@@ -21,6 +21,7 @@ require "xcake/generator/target"
 
 require "xcake/project"
 require "xcake/project/sugar"
+require "xcake/project/hooks"
 require "xcake/project_structure_resolver"
 require "xcake/node"
 require "xcake/target"
