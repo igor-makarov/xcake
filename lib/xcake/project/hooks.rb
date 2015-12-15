@@ -1,19 +1,11 @@
+require 'hooks'
+
 module Xcake
   class Project
+    include Hooks
 
-    private
-    attr_accessor :after_hooks
-
-    def after_hook(block)
-      @after_hooks ||= []
-      after_hook << block
-    end
-
-    def call_after_hooks
-      @after_hooks.each do |block|
-        block.call(self) if block_given?
-      end
-    end
-
+    # Defines hook which is ran after project is saved.
+    #
+    define_hooks :after_save
   end
 end
