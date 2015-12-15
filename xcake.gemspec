@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls", "~> 0.8"
   spec.add_development_dependency "yard", "~> 0.8"
   spec.add_dependency "claide", "~> 0.9.1"
+  spec.add_dependency "hooks", "~> 0.4.1"
   spec.add_dependency "xcodeproj", "~> 0.28"
 end

@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    xcake (0.3.0)
+    xcake (0.3.1)
       claide (~> 0.9.1)
+      hooks (~> 0.4.1)
       xcodeproj (~> 0.28)
 
 GEM
@@ -27,6 +28,8 @@ GEM
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    hooks (0.4.1)
+      uber (~> 0.0.14)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -64,6 +67,7 @@ GEM
     tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.15)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)

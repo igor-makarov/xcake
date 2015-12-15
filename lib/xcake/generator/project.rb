@@ -36,8 +36,10 @@ module Xcake
         @root_node.accept(generator)
 
         puts "Writing Project..."
+        
         @project.recreate_user_schemes
         @project.save
+        project.run_hook :after_save
 
         puts "Done!"
       end
