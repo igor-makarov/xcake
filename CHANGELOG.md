@@ -1,3 +1,8 @@
+v0.3.1
+======
+- Adds Hook system, starting with "after_save" hook for when project is saved.
+- Adds ability to specify array of files to include or exclude.
+
 v0.3.0
 ======
 - Simplified Watch OS target syntax.
