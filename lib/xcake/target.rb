@@ -109,9 +109,9 @@ module Xcake
 
     #-----------------------------------------------------------------------#
 
-    # @return [Array<String>] files to include for the target.
-    #                         Supports regular expressions,
-    #                         Defaults to: ["./<Target Name>/*\*/\*.*"]
+    # @return [Array or String] files to include for the target.
+    #                           Supports regular expressions,
+    #                           Defaults to: ["./<Target Name>/*\*/\*.*"]
     #
     # @example
     #
@@ -119,8 +119,8 @@ module Xcake
     #
     attr_accessor :include_files
 
-    # @return [Array<String>] files to exclude for the target.
-    #                         Supports regular expressions
+    # @return [Array or String] files to exclude for the target.
+    #                           Supports regular expressions
     #
     # @example
     #
