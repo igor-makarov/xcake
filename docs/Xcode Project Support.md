@@ -31,7 +31,7 @@ This document describes the level of support Xcake has for the various aspects o
 
 ## Configuration
 
-- Set name for configurations
+- Set name for configuration (Used for name of build configuration created)
 - Specify build settings
 - Used to create build configuration for project and targets.
 - Used to create schemes for applications
