@@ -1,4 +1,4 @@
-# Getting Started
+#Getting Started
 
 Xcake allows you to describe a Xcode project via an easy to use DSL, We do this
 by creating a simple text file, our `Cakefile`. This tutorial will show you how
