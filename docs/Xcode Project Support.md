@@ -5,6 +5,7 @@ This document describes the level of support Xcake has for the various aspects o
 ## Project
 
 - Create a Project File
+- Create build configurations via configurations
 - Set name of project file
 - Setting Class Prefix
 - Setting Organization
@@ -15,6 +16,8 @@ This document describes the level of support Xcake has for the various aspects o
 
 ## Target
 
+- Create target
+- - Create build configurations via configurations
 - Set name of target
 - Set primary language
 - Set platform
@@ -30,6 +33,7 @@ This document describes the level of support Xcake has for the various aspects o
 
 - Set name for configurations
 - Specify build settings
+- Used to create build configuration for project and targets.
 - Used to create schemes for applications
 
 ## Scheme
