@@ -17,7 +17,7 @@ This document describes the level of support Xcake has for the various aspects o
 ## Target
 
 - Create target
-- - Create build configurations via configurations
+- Create build configurations via configurations
 - Set name of target
 - Set primary language
 - Set platform
