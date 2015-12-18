@@ -2,7 +2,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require "xcake"
 
 require "coveralls"
-require 'pry'
 Coveralls.wear!
 
 # Make all of our methods public
