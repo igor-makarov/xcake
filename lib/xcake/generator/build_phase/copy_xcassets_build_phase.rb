@@ -6,8 +6,7 @@ module Xcake
     class CopyXCAssetsBuildPhase < CopyResourcesBuildPhase
 
       def self.can_install_node(node)
-        File.directory?(node.path) == true &&
-        [".xcassets"].include?(File.extname(node.path)) == true
+        File.directory?(node.path) && [".xcassets"].include?(File.extname(node.path))
       end
 
       def visit_node(node)

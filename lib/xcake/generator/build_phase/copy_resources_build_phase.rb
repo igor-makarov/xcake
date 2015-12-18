@@ -6,7 +6,7 @@ module Xcake
     class CopyResourcesBuildPhase < BuildPhase
 
       def self.can_install_node(node)
-        File.directory?(node.path) == false
+        !File.directory?(node.path)
       end
 
       def add_file_reference_to_target(file_reference, target)
