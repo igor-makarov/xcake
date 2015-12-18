@@ -87,20 +87,7 @@ module Xcake
     # @return [Configuration] the new or existing debug configuration
     #
     def debug_configuration(name, &block)
-
-      configuration = debug_configurations.find do |c|
-        c.name == name.to_s
-      end
-
-      if configuration == nil
-        configuration = Configuration.new(name) do |b|
-          block.call(b) if block_given?
-        end
-
-        debug_configurations << configuration
-      end
-
-      configuration
+      build_configuration(:debug, name, &block)
     end
 
     # This either finds a release configuration
@@ -109,17 +96,23 @@ module Xcake
     # @return [Configuration] the new or existing release configuration
     #
     def release_configuration(name, &block)
+      build_configuration(:release, name, &block)
+    end
 
-      configuration = release_configurations.find do |c|
+    private
+
+    def build_configuration(method, name, &block)
+      configuration_name = send("#{method}_configurations")
+      configuration = configuration_name.find do |c|
         c.name == name.to_s
       end
 
-      if configuration == nil
+      if configuration.nil?
         configuration = Configuration.new(name) do |b|
           block.call(b) if block_given?
         end
 
-        release_configurations << configuration
+        configuration_name << configuration
       end
 
       configuration
