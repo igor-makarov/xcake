@@ -103,7 +103,7 @@ module Xcake
 
     def build_configuration(method, name, &block)
       configuration_name = send("#{method}_configurations")
-      configuration = configuration_name.find do |c|
+      configuration = configuration_name.detect do |c|
         c.name == name.to_s
       end
 

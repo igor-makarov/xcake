@@ -80,7 +80,7 @@ module Xcake
         visitor.leave(c)
       end
 
-      self.targets.each do |t|
+      targets.each do |t|
         visitor.visit(t)
         visitor.leave(t)
       end
