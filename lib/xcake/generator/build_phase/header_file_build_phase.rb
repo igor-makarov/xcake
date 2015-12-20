@@ -5,8 +5,8 @@ module Xcake
       # and ignores them.
       #
       def self.can_install_node(node)
-        File.directory?(node.path) == false &&
-        [".h", ".hpp"].include?(File.extname(node.path)) == true
+        !File.directory?(node.path) &&
+          [".h", ".hpp"].include?(File.extname(node.path))
       end
     end
   end

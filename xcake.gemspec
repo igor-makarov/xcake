@@ -10,14 +10,15 @@ Gem::Specification.new do |spec|
   spec.email         = ["james@supmenow.com"]
 
   spec.summary       = %q{DSL for Xcode Projects.}
-  spec.description   = %q{Create your Xcode projects automatically using a stupid simple
-  DSL.}
+  spec.description   = %q{Create your Xcode projects automatically using a stupid simple DSL.}
   spec.homepage      = "https://github.com/jcampbell05/xcake/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.executables   =  %w{ xcake }
   spec.require_paths = ["lib"]
+
 
   spec.required_ruby_version = '>= 2.0.0'
 
