@@ -26,7 +26,7 @@ module Xcake
       settings["TARGETED_DEVICE_FAMILY"] = supported_devices
     end
 
-    # Convienence method to easily set the
+    # Convienience method to easily set the
     # product's bundle identifier
     #
     def product_bundle_identifier=(identifier)
