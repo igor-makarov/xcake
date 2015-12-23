@@ -1,6 +1,6 @@
 module Xcake
   class Configuration
-    class HashSettingsProxy
+    class HashSettingProxy
 
       def initialize(build_settings, key)
         @build_settings = build_settings

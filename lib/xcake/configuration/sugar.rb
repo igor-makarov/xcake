@@ -36,8 +36,8 @@ module Xcake
     # Convienence method to easily set the
     # product's bundle identifier
     #
-    def preprocessor[]=(key, value)
-      settings["GCC_PREPROCESSOR_DEFINITIONS"] = "#{key}=#{value}"
+    def preprocessor_definitions
+      HashSettingProxy(self.settings, "GCC_PREPROCESSOR_DEFINITIONS")
     end
   end
 end
