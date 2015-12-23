@@ -24,5 +24,14 @@ module Xcake
         expect(@configuration.settings["TARGETED_DEVICE_FAMILY"]).to eq("1,2")
       end
     end
+
+    context "when accessing preprocessor definitions" do
+      it "should return array settings proxy for GCC_PREPROCESSOR_DEFINITIONS" do
+        proxy = @configuration.preprocessor_definitions
+
+        expect(proxy.key).to eq("GCC_PREPROCESSOR_DEFINITIONS")
+        expect(proxy.settings).to eq(@configuration.settings)
+      end
+    end
   end
 end

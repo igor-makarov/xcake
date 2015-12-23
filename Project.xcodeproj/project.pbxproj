@@ -33,14 +33,14 @@
 /* Begin PBXFileReference section */
 		3F36322C39CECF90FA6F7622 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		626C2B84AF863EAEC54C470C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "test/Supporting Files/Info.plist"; sourceTree = "<group>"; };
-		7333C06BCC2BD75CA04B55B9 /* test. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = test.; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7333C06BCC2BD75CA04B55B9 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E5AEC7EA9F0C52FCCBC754 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
-		7F4FA4DD53F168A5E81BA3F3 /* testTests. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = testTests.; path = testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F4FA4DD53F168A5E81BA3F3 /* testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8656E33B0D53A9740830B206 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8C19F9C2473FF76277E966C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9328722D4011182B864D6688 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		DF5E3429F046F727E7A845D2 /* test-Watch Extension. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = "test-Watch Extension."; path = "test-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8478799A325FFC30B2D4A92 /* test-Watch. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = "test-Watch."; path = "test-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF5E3429F046F727E7A845D2 /* test-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "test-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8478799A325FFC30B2D4A92 /* test-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,10 +141,10 @@
 		C87F73971E3FD701BFC2F43A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F4FA4DD53F168A5E81BA3F3 /* testTests. */,
-				E8478799A325FFC30B2D4A92 /* test-Watch. */,
-				DF5E3429F046F727E7A845D2 /* test-Watch Extension. */,
-				7333C06BCC2BD75CA04B55B9 /* test. */,
+				7F4FA4DD53F168A5E81BA3F3 /* testTests.xctest */,
+				E8478799A325FFC30B2D4A92 /* test-Watch.app */,
+				DF5E3429F046F727E7A845D2 /* test-Watch Extension.appex */,
+				7333C06BCC2BD75CA04B55B9 /* test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			);
 			name = test;
 			productName = test;
-			productReference = 7333C06BCC2BD75CA04B55B9 /* test. */;
+			productReference = 7333C06BCC2BD75CA04B55B9 /* test.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4D23BBF283E49EAD0A04A63F /* test-Watch */ = {
@@ -180,7 +180,7 @@
 			);
 			name = "test-Watch";
 			productName = "test-Watch";
-			productReference = E8478799A325FFC30B2D4A92 /* test-Watch. */;
+			productReference = E8478799A325FFC30B2D4A92 /* test-Watch.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		E38A9879F9FC2ADE9C312EC6 /* testTests */ = {
@@ -196,7 +196,7 @@
 			);
 			name = testTests;
 			productName = testTests;
-			productReference = 7F4FA4DD53F168A5E81BA3F3 /* testTests. */;
+			productReference = 7F4FA4DD53F168A5E81BA3F3 /* testTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		EDF53ED61DC1EBE24A149ECF /* test-Watch Extension */ = {
@@ -211,7 +211,7 @@
 			);
 			name = "test-Watch Extension";
 			productName = "test-Watch Extension";
-			productReference = DF5E3429F046F727E7A845D2 /* test-Watch Extension. */;
+			productReference = DF5E3429F046F727E7A845D2 /* test-Watch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
