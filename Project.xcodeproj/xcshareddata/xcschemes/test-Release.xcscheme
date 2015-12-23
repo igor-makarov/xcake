@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B2D9E5C2B75421B7C1C9D6B"
+               BlueprintIdentifier = "0C5E93B311839DC0D3425562"
                BuildableName = "test.app"
                BlueprintName = "test"
                ReferencedContainer = "container:Project.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "682E5D950204CD44DED77D9D"
+               BlueprintIdentifier = "E38A9879F9FC2ADE9C312EC6"
                BuildableName = "testTests.xctest"
                BlueprintName = "testTests"
                ReferencedContainer = "container:Project.xcodeproj">
@@ -55,7 +55,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B2D9E5C2B75421B7C1C9D6B"
+            BlueprintIdentifier = "0C5E93B311839DC0D3425562"
             BuildableName = "test.app"
             BlueprintName = "test"
             ReferencedContainer = "container:Project.xcodeproj">
