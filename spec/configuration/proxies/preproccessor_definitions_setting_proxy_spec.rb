@@ -19,6 +19,14 @@ module Xcake
       it "should contain inherited by default" do
         expect(@proxy.settings[@key]).to eq(["$(inherited)"])
       end
+
+      it "should set preprocessoer setting" do
+        name = "name"
+        value = "value"
+
+        @proxy[name] = value
+        expect(@proxy.settings[@key]).to include("#{name}=#{value}")
+      end
     end
   end
 end
