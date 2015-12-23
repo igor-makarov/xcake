@@ -26,11 +26,9 @@ module Xcake
     end
 
     context "when accessing preprocessor definitions" do
-      it "should return array settings proxy for GCC_PREPROCESSOR_DEFINITIONS" do
+      it "should return preprocessor definitions settings proxy for settings" do
         proxy = @configuration.preprocessor_definitions
-
-        expect(proxy.key).to eq("GCC_PREPROCESSOR_DEFINITIONS")
-        expect(proxy.settings).to eq(@configuration.settings)
+        expect(proxy.setting).to eq(@configuration.settings["GCC_PREPROCESSOR_DEFINITIONS"])
       end
     end
   end
