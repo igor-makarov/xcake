@@ -1,4 +1,4 @@
-require "xcake/core_ext"
+require "xcake/core_ext/string"
 
 require "xcake/visitable"
 require "xcake/visitor"
@@ -10,7 +10,10 @@ require "xcake/configuration/sugar"
 require "xcake/configurable"
 
 require "xcake/generator/build_phase"
-require "xcake/generator/build_phase/"
+require "xcake/generator/build_phase/compile_source_build_phase"
+require "xcake/generator/build_phase/copy_resources_build_phase"
+require "xcake/generator/build_phase/copy_xcassets_build_phase"
+require "xcake/generator/build_phase/header_file_build_phase"
 require "xcake/generator/build_phase_registry"
 
 require "xcake/generator/configuration"
