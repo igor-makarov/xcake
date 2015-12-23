@@ -4,19 +4,24 @@ module Xcake
 
       # Document
       #
-      attr_accessor :setting
+      attr_accessor :settings
 
       # Document
       #
-      def initialize(setting)
-        @setting = setting
+      attr_accessor :key
+
+      # Document
+      #
+      def initialize(settings, key)
+        @settings = settings
+        @key = key
+        @settings[@key] ||= ["$(inherited)"]
       end
 
       # Document
       #
       def []=(key, value)
-        @setting ||= ["$(inherited)"]
-        @setting << "#{key}=#{value}"
+        @settings[@key] << "#{key}=#{value}"
       end
     end
   end

@@ -37,7 +37,7 @@ module Xcake
     # product's bundle identifier
     #
     def preprocessor_definitions
-      PreprocessorDefinitionsSettingProxy.new(settings["GCC_PREPROCESSOR_DEFINITIONS"])
+      PreprocessorDefinitionsSettingProxy.new(self.settings, "GCC_PREPROCESSOR_DEFINITIONS")
     end
   end
 end

@@ -26,9 +26,17 @@ module Xcake
     end
 
     context "when accessing preprocessor definitions" do
-      it "should return preprocessor definitions settings proxy for settings" do
-        proxy = @configuration.preprocessor_definitions
-        expect(proxy.setting).to eq(@configuration.settings["GCC_PREPROCESSOR_DEFINITIONS"])
+
+      before :each do
+        @proxy = @configuration.preprocessor_definitions
+      end
+
+      it "should set key for settings" do
+        expect(@proxy.key).to eq("GCC_PREPROCESSOR_DEFINITIONS")
+      end
+
+      it "should set settings for proxy" do
+        expect(@proxy.settings).to eq(@configuration.settings)
       end
     end
   end
