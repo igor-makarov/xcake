@@ -38,8 +38,8 @@ module Xcake
     #
     def preprocessor_definitions
       PreprocessorDefinitionsSettingProxy.new(
-      settings,
-      "GCC_PREPROCESSOR_DEFINITIONS"
+        settings,
+        "GCC_PREPROCESSOR_DEFINITIONS"
       )
     end
   end
