@@ -1,7 +1,6 @@
 module Xcake
   class Configuration
     describe PreprocessorDefinitionsSettingProxy do
-
       before :each do
         @settings = {}
         @key = "Key"

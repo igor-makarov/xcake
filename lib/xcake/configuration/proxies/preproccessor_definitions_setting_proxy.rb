@@ -1,21 +1,21 @@
 module Xcake
   class Configuration
-
     # This class is a proxy to the Preprocessor build
     # setting. It abstracts the setting of the value
     # for this setting and makes it easier to define
     # new preprocessor definitions.
     #
     class PreprocessorDefinitionsSettingProxy
-
       # the settings for the configuration this
       # proxy is for
       #
-      # @return [Hash<String, Object>] the settings for the proxied configuration
+      # @return [Hash<String, Object>] the settings for the
+      #                                proxied configuration
       #
       attr_accessor :settings
 
-      # @return [String] the key for the settings where the preprocessor definitions are kept
+      # @return [String] the key for the settings where the
+      #                  preprocessor definitions are kept
       #
       attr_accessor :key
 

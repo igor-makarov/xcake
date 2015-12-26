@@ -28,11 +28,11 @@ module Xcake
     it "should set product bundle identifier" do
       identifier = "identifier"
       @configuration.product_bundle_identifier = identifier
-      expect(@configuration.settings["PRODUCT_BUNDLE_IDENTIFIER"]).to eq(identifier)
+      setting = @configuration.settings["PRODUCT_BUNDLE_IDENTIFIER"]
+      expect(setting).to eq(identifier)
     end
 
     context "when accessing preprocessor definitions" do
-
       before :each do
         @proxy = @configuration.preprocessor_definitions
       end

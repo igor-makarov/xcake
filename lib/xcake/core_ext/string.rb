@@ -1,5 +1,4 @@
 class String
-
   # Escapes string for use with Objective-C
   #
   def to_obj_c
