@@ -66,7 +66,6 @@ module Xcake
         file_reference = group.new_reference(node.path)
 
         node.targets.each do |t|
-           puts "Added to #{t}"
            add_file_reference_to_target(file_reference, t)
         end
       end

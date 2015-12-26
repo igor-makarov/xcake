@@ -24,5 +24,26 @@ module Xcake
         expect(@configuration.settings["TARGETED_DEVICE_FAMILY"]).to eq("1,2")
       end
     end
+
+    it "should set product bundle identifier" do
+      identifier = "identifier"
+      @configuration.product_bundle_identifier = identifier
+      setting = @configuration.settings["PRODUCT_BUNDLE_IDENTIFIER"]
+      expect(setting).to eq(identifier)
+    end
+
+    context "when accessing preprocessor definitions" do
+      before :each do
+        @proxy = @configuration.preprocessor_definitions
+      end
+
+      it "should set key for settings" do
+        expect(@proxy.key).to eq("GCC_PREPROCESSOR_DEFINITIONS")
+      end
+
+      it "should set settings for proxy" do
+        expect(@proxy.settings).to eq(@configuration.settings)
+      end
+    end
   end
 end
