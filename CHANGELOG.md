@@ -1,3 +1,12 @@
+v0.4.1
+======
+- Error messages for missing Cakefiles is more understandable.
+
+v0.4.0
+======
+- Adds ability to easily specify preprocessor definitions.
+- Adds shortcuts for specifying product bundle identifier.
+
 v0.3.1
 ======
 - Adds Hook system, starting with "after_save" hook for when project is saved.
