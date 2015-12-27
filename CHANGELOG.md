@@ -1,6 +1,6 @@
 v0.4.1
 ======
-- Error messages for missing Cakefiles is more understandable.
+- Error message for missing `Cakefile` is more understandable.
 
 v0.4.0
 ======
