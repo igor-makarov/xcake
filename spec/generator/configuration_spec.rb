@@ -14,6 +14,14 @@ module Xcake
         @generator = Configuration.new(@project, @configuration_target)
       end
 
+      it "should store the project" do
+        expect(@generator.project).to be(@project)
+      end
+
+      it "should store the configuration target" do
+        expect(@generator.configuration_target).to be(@configuration_target)
+      end
+
       it "should create a new XCBuildConfiguration" do
         expect(@project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(@xcode_build_configuration)
         @generator.visit_configuration(@configuration)

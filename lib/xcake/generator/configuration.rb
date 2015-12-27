@@ -9,11 +9,17 @@ module Xcake
 
       include Visitor
 
-#TODO: BDD these are stored
+      # @return [Project] project for the configuration
+      #
+      attr_accessor :project
+
+      # @return [Object] object from xcode project the configuration is for
+      #
+      attr_accessor :configuration_target
 
       # @param    [Project] project for the configuration
       #
-      # @param    [Object] object in the xcode project configuration is for
+      # @param    [Object] object from xcode project the configuration is for
       #
       def initialize(project, configuration_target)
         @project = project
