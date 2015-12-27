@@ -3,16 +3,21 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    include CLAide::InformativeError
+    class PlainInformative
+      include CLAide::InformativeError
+    end
 
     self.command = 'xcake'
     self.version = VERSION
     self.description = 'Create and maintain Xcoe project files easily.'
 
     def run
+      file_path = "#{Dir.pwd}/Cakefile"
+      raise "Couldn't find Cakefile" unless File.exist?(file_path)
 
       puts "Reading Cakefile..."
-      file_contents = File.read("#{Dir.pwd}/Cakefile")
+
+      file_contents = File.read(file_path)
       cakefile = eval(file_contents)
 
       resolver = ProjectStructureResolver.new
