@@ -71,7 +71,9 @@ module Xcake
 
       it "run configuration generator when visiting configuration" do
         configuration_generator = double("Configuration Generator")
-        allow(Configuration).to receive(:new).and_return(configuration_generator)
+        allow(Configuration).to receive(:new).and_return(
+          configuration_generator
+        )
 
         configuration = double("Configuration")
         expect(configuration).to receive(:accept).with(configuration_generator)
