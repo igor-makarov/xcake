@@ -3,7 +3,7 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    include InformativeError
+    include CLAide::Command::InformativeError
 
     self.command = 'xcake'
     self.version = VERSION
