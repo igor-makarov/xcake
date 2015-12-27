@@ -61,7 +61,9 @@ module Xcake
 
       it "should add system frameworks" do
         allow(@target).to receive(:system_frameworks).and_return(["Foundation"])
-        expect(@native_target).to receive(:add_system_frameworks).with(@target.system_frameworks)
+        expect(@native_target).to receive(:add_system_frameworks).with(
+          @target.system_frameworks
+        )
 
         @generator.native_target = @native_target
         @generator.leave_target(@target)
