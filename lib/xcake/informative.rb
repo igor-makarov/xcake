@@ -2,10 +2,12 @@ require 'claide'
 
 # Indicates an user error.
 #
-class Informative
-  include CLAide::InformativeError
+module Xcake
+  class Informative
+    include CLAide::InformativeError
 
-  def message
-    "[!] #{super}"
+    def message
+      "[!] #{super}"
+    end
   end
 end
