@@ -3,7 +3,7 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    class Informative
+    class PlainInformative
       include CLAide::InformativeError
     end
 
