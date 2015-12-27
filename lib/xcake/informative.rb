@@ -1,5 +1,5 @@
-require 'claide'
-require 'tty'
+require "claide"
+require "tty"
 
 # Indicates an user error.
 #

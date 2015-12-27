@@ -1,16 +1,16 @@
-require 'claide'
+require "claide"
 
 module Xcake
   class Command < CLAide::Command
 
-    self.command = 'xcake'
+    self.command = "xcake"
     self.version = VERSION
-    self.description = 'Create and maintain Xcoe project files easily.'
+    self.description = "Create and maintain Xcode project files easily."
 
     def run
       file_path = "#{Dir.pwd}/Cakefile"
 
-      unless File.exists?(file_path)
+      unless File.exist?(file_path)
         raise Xcake::Informative, "Couldn't find Cakefile"
       end
 
