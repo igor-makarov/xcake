@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Xcake
   describe Target do
@@ -15,7 +15,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(['Foundation', 'UIKit'])
+          expect(@target.system_frameworks).to eq(["Foundation", "UIKit"])
         end
       end
 
@@ -26,7 +26,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(['Foundation', 'UIKit'])
+          expect(@target.system_frameworks).to eq(["Foundation", "UIKit"])
         end
       end
 
@@ -37,7 +37,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(['Foundation', 'UIKit', 'WatchKit'])
+          expect(@target.system_frameworks).to eq(["Foundation", "UIKit", "WatchKit"])
         end
       end
 
@@ -48,7 +48,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(['Cocoa'])
+          expect(@target.system_frameworks).to eq(["Cocoa"])
         end
       end
     end
