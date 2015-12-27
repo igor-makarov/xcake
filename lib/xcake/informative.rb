@@ -3,7 +3,7 @@ require 'claide'
 # Indicates an user error.
 #
 module Xcake
-  class Informative
+  class Informative < StandardError
     include CLAide::InformativeError
 
     def message

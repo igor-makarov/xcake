@@ -9,10 +9,12 @@ module Xcake
 
     def run
       file_path = "#{Dir.pwd}/Cakefile"
-      raise Xcake::Informative, "Couldn't find Cakefile" unless File.exist?(file_path)
+
+      unless File.exists?(file_path)
+        raise Xcake::Informative, "Couldn't find Cakefile"
+      end
 
       puts "Reading Cakefile..."
-
       file_contents = File.read(file_path)
       cakefile = eval(file_contents)
 
