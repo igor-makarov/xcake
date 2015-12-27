@@ -3,10 +3,6 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    class PlainInformative
-      include CLAide::InformativeError
-    end
-
     self.command = 'xcake'
     self.version = VERSION
     self.description = 'Create and maintain Xcoe project files easily.'
