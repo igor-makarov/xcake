@@ -8,7 +8,8 @@ module Xcake
     include CLAide::InformativeError
 
     def message
-      "[!] #{super}".red
+      pastel = Pastel.new
+      pastel.red "[!] #{super}"
     end
   end
 end
