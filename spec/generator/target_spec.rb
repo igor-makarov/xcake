@@ -37,7 +37,10 @@ module Xcake
           allow(@target).to receive(:exclude_files).and_return(nil)
           allow(Dir).to receive(:glob).and_return(["File.swift"])
 
-          expect(@root_node).to receive(:create_children_with_path).with("File.swift", @native_target)
+          expect(@root_node).to receive(:create_children_with_path).with(
+            "File.swift",
+            @native_target
+          )
 
           @generator.visit_target(@target)
         end
@@ -47,7 +50,10 @@ module Xcake
           allow(@target).to receive(:exclude_files).and_return(["**/*.swift"])
           allow(Dir).to receive(:glob).and_return(["File.swift"])
 
-          expect(@root_node).to receive(:remove_children_with_path).with("File.swift", @native_target)
+          expect(@root_node).to receive(:remove_children_with_path).with(
+            "File.swift",
+            @native_target
+          )
 
           @generator.visit_target(@target)
         end
