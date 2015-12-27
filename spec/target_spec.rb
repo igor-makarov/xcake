@@ -48,14 +48,14 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq([%W{Cocoa})
+          expect(@target.system_frameworks).to eq(%W{Cocoa})
         end
       end
     end
 
     it "should have the correct default include files" do
       @target.name = "test"
-      expect(@target.include_files).to eq([%W{./test/**/*.*})
+      expect(@target.include_files).to eq(%W{./test/**/*.*})
     end
 
     it "should have the correct default exclude files" do
