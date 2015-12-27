@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Xcake
   module Generator
@@ -19,7 +19,7 @@ module Xcake
         expect(@generator.root_node).to eq(@root_node)
       end
 
-      context 'when visiting a target' do
+      context "when visiting a target" do
         before :each do
           @target = double("Target").as_null_object
 
@@ -33,35 +33,35 @@ module Xcake
         end
 
         it "should include files" do
-          allow(@target).to receive(:include_files).and_return(['**/*.swift'])
+          allow(@target).to receive(:include_files).and_return(["**/*.swift"])
           allow(@target).to receive(:exclude_files).and_return(nil)
-          allow(Dir).to receive(:glob).and_return(['File.swift'])
+          allow(Dir).to receive(:glob).and_return(["File.swift"])
 
-          expect(@root_node).to receive(:create_children_with_path).with('File.swift', @native_target)
+          expect(@root_node).to receive(:create_children_with_path).with("File.swift", @native_target)
 
           @generator.visit_target(@target)
         end
 
         it "should exclude files" do
           allow(@target).to receive(:include_files).and_return(nil)
-          allow(@target).to receive(:exclude_files).and_return(['**/*.swift'])
-          allow(Dir).to receive(:glob).and_return(['File.swift'])
+          allow(@target).to receive(:exclude_files).and_return(["**/*.swift"])
+          allow(Dir).to receive(:glob).and_return(["File.swift"])
 
-          expect(@root_node).to receive(:remove_children_with_path).with('File.swift', @native_target)
+          expect(@root_node).to receive(:remove_children_with_path).with("File.swift", @native_target)
 
           @generator.visit_target(@target)
         end
       end
 
       it "should add system frameworks" do
-        allow(@target).to receive(:system_frameworks).and_return(['Foundation'])
+        allow(@target).to receive(:system_frameworks).and_return(["Foundation"])
         expect(@native_target).to receive(:add_system_frameworks).with(@target.system_frameworks)
 
         @generator.native_target = @native_target
         @generator.leave_target(@target)
       end
 
-      it 'run configuration generator when visiting configuration' do
+      it "run configuration generator when visiting configuration" do
         configuration_generator = double("Configuration Generator")
         allow(Configuration).to receive(:new).and_return(configuration_generator)
 
