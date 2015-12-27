@@ -15,7 +15,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(%W{Foundation UIKit})
+          expect(@target.system_frameworks).to eq(%w{Foundation UIKit})
         end
       end
 
@@ -26,7 +26,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(%W{Foundation UIKit})
+          expect(@target.system_frameworks).to eq(%w{Foundation UIKit})
         end
       end
 
@@ -37,7 +37,7 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(%W{Foundation UIKit WatchKit})
+          expect(@target.system_frameworks).to eq(%w{Foundation UIKit WatchKit})
         end
       end
 
@@ -48,14 +48,14 @@ module Xcake
         end
 
         it "should set default system frameworks" do
-          expect(@target.system_frameworks).to eq(%W{Cocoa})
+          expect(@target.system_frameworks).to eq(%w{Cocoa})
         end
       end
     end
 
     it "should have the correct default include files" do
       @target.name = "test"
-      expect(@target.include_files).to eq(%W{./test/**/*.*})
+      expect(@target.include_files).to eq(%w{./test/**/*.*})
     end
 
     it "should have the correct default exclude files" do
