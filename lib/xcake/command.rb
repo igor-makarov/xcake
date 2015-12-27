@@ -3,9 +3,7 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    class PlainInformative
-      include CLAide::InformativeError
-    end
+    include CLAide::InformativeError
 
     self.command = 'xcake'
     self.version = VERSION
@@ -13,7 +11,7 @@ module Xcake
 
     def run
       file_path = "#{Dir.pwd}/Cakefile"
-      raise "Couldn't find Cakefile" unless File.exist?(file_path)
+      raise Informative, "Couldn't find Cakefile" unless File.exist?(file_path)
 
       puts "Reading Cakefile..."
 
