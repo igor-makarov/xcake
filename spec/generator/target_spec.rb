@@ -20,54 +20,45 @@ module Xcake
       end
 
       context 'when visiting a target' do
-        # TODO: Refactor
-        it "should create a new target" do
-          target = double("Target").as_null_object
-          expect(@project).to receive(:new_target).with(target)
+        before :each do
+          @target = double("Target").as_null_object
 
-          @generator.visit_target(target)
+          @native_target = double("Native Target")
+          allow(@project).to receive(:new_target).and_return(@native_target)
+        end
+
+        it "should create a new target" do
+          expect(@project).to receive(:new_target).with(@target)
+          @generator.visit_target(@target)
         end
 
         it "should include files" do
-          native_target = double("Native Target")
-          allow(@project).to receive(:new_target).and_return(native_target)
-
-          target = double("Target").as_null_object
-
-          allow(target).to receive(:include_files).and_return(['**/*.swift'])
-          allow(target).to receive(:exclude_files).and_return(nil)
+          allow(@target).to receive(:include_files).and_return(['**/*.swift'])
+          allow(@target).to receive(:exclude_files).and_return(nil)
           allow(Dir).to receive(:glob).and_return(['File.swift'])
 
-          expect(@root_node).to receive(:create_children_with_path).with('File.swift', native_target)
+          expect(@root_node).to receive(:create_children_with_path).with('File.swift', @native_target)
 
-          @generator.visit_target(target)
+          @generator.visit_target(@target)
         end
 
         it "should exclude files" do
-          native_target = double("Native Target")
-          allow(@project).to receive(:new_target).and_return(native_target)
-
-          target = double("Target").as_null_object
-
-          allow(target).to receive(:include_files).and_return(nil)
-          allow(target).to receive(:exclude_files).and_return(['**/*.swift'])
+          allow(@target).to receive(:include_files).and_return(nil)
+          allow(@target).to receive(:exclude_files).and_return(['**/*.swift'])
           allow(Dir).to receive(:glob).and_return(['File.swift'])
 
-          expect(@root_node).to receive(:remove_children_with_path).with('File.swift', native_target)
+          expect(@root_node).to receive(:remove_children_with_path).with('File.swift', @native_target)
 
-          @generator.visit_target(target)
+          @generator.visit_target(@target)
         end
       end
 
       it "should add system frameworks" do
-        native_target = double("Native Target").as_null_object
-        target = double("Target").as_null_object
+        allow(@target).to receive(:system_frameworks).and_return(['Foundation'])
+        expect(@native_target).to receive(:add_system_frameworks).with(@target.system_frameworks)
 
-        allow(target).to receive(:system_frameworks).and_return(['Foundation'])
-        expect(native_target).to receive(:add_system_frameworks).with(target.system_frameworks)
-
-        @generator.native_target = native_target
-        @generator.leave_target(target)
+        @generator.native_target = @native_target
+        @generator.leave_target(@target)
       end
 
       it 'run configuration generator when visiting configuration' do
