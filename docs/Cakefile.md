@@ -260,3 +260,19 @@ Allows you specify the devices an iOS App can run on, can be `:iphone_only`,
 ```ruby
 configuration.supported_devices = :iphone_only
 ```
+
+#### Product Bundle Identifier
+
+Allows you specify the product bundle identifier.
+
+```ruby
+configuration.product_bundle_identifier = "com.test.app"
+```
+
+#### Preprocessor Definitions
+
+Allows you to specify preprocessor definitions.
+
+```ruby
+configuration.preprocessor_definitions["NAME"] = "VALUE"
+```
