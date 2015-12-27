@@ -7,7 +7,7 @@ module Xcake
     include CLAide::InformativeError
 
     def message
-      "[!] #{super}"
+      "[!] #{super}".red
     end
   end
 end
