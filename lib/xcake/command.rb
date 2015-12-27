@@ -3,11 +3,11 @@ require 'claide'
 module Xcake
   class Command < CLAide::Command
 
-    include CLAide::Command::InformativeError
+    include CLAide::InformativeError
 
     self.command = 'xcake'
     self.version = VERSION
-    self.description = 'Create and maintain Xcode project files easily.'
+    self.description = 'Create and maintain Xcoe project files easily.'
 
     def run
 
