@@ -187,7 +187,8 @@ module Xcake
 
     def default_settings
       {
-        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist"
+        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist",
+        "SWIFT_OBJC_BRIDGING_HEADER" => "./$(PRODUCT_NAME)/Supporting Files/#{name}-Bridging-Header.h"
       }
     end
 
