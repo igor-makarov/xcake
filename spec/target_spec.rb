@@ -63,6 +63,7 @@ module Xcake
     end
 
     it "should have the correct default debug settings" do
+      @target.name = "Target"
       @target.platform = :ios
       @target.deployment_target = 8.0
       @target.type = :application
@@ -70,13 +71,15 @@ module Xcake
 
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings.merge!({
-        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist"
+        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist",
+        "SWIFT_OBJC_BRIDGING_HEADER" => "./$(PRODUCT_NAME)/Supporting Files/Target-Bridging-Header.h"
         })
 
       expect(@target.default_debug_settings).to eq(settings)
     end
 
     it "should have the correct default release settings" do
+      @target.name = "Target"
       @target.platform = :ios
       @target.deployment_target = 8.0
       @target.type = :application
@@ -84,7 +87,8 @@ module Xcake
 
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings.merge!({
-        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist"
+        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist",
+        "SWIFT_OBJC_BRIDGING_HEADER" => "./$(PRODUCT_NAME)/Supporting Files/Target-Bridging-Header.h"
         })
       expect(@target.default_release_settings).to eq(settings)
     end
