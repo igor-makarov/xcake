@@ -1,3 +1,7 @@
+v0.4.2
+======
+- Bridging header build setting for Swift is now pre-set to sensible default.
+
 v0.4.1
 ======
 - Error message for missing `Cakefile` is more understandable.
