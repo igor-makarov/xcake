@@ -1,3 +1,8 @@
+v0.4.5
+======
+- Correctly configures schemes for Applications; It should now be possible to
+  run, profile, test and analyse out of the box.
+
 v0.4.4
 ======
 - Correctly registers `.xcdatamodeld` build phase generator.
