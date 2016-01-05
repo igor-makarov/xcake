@@ -1,3 +1,7 @@
+v0.4.2
+======
+- Correctly adds `.xcdatamodel` files to a project.
+
 v0.4.1
 ======
 - Error message for missing `Cakefile` is more understandable.
@@ -62,7 +66,7 @@ v0.1.2
 v0.1.1
 ======
 - Updated README instructions.
-- General Tidy up of code.
+- General tidy up of code.
 
 v0.1.0
 ======
