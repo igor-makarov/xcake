@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.4.6)
+    xcake (0.4.7)
       claide (~> 0.9.1)
       hooks (~> 0.4.1)
       tty (~> 0.3.2)

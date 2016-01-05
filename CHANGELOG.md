@@ -1,6 +1,10 @@
 v0.4.6
 ======
-- Sets correct configurations for each action in a scheme.
+- Sets correct configurations for `analyse` and `archive` action for schemes.
+
+v0.4.6
+======
+- Sets correct configurations for each action for schemes.
 
 v0.4.5
 ======
