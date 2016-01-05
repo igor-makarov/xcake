@@ -63,8 +63,11 @@ module Xcake
           scheme = Scheme.new
 
           scheme.name = "#{target.name}-#{c.name}"
-          scheme.add_build_target(target)
           @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
+
+          scheme.test_action.build_configuration = c.name
+          scheme.launch_action.build_configuration = c.name
+          scheme.profile_action.build_configuration = c.name
 
           unit_test_target = project.find_unit_test_target_for_target(target)
           scheme.configure_with_targets(target, unit_test_target)

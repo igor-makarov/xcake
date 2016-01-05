@@ -1,3 +1,7 @@
+v0.4.6
+======
+- Sets correct configurations for each action in a scheme.
+
 v0.4.5
 ======
 - Correctly configures schemes for Applications; It should now be possible to
