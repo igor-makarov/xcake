@@ -1,12 +1,12 @@
 module Xcake
   module Generator
-    # This build phase generator detects XCDataModel bundles
+    # This build phase generator detects XCDataModeld bundles
     # and adds them to the compile source phase.
     #
-    class CompileXCDataModelBuildPhase < CompileSourceBuildPhase
+    class CompileXCDataModeldBuildPhase < CompileSourceBuildPhase
       def self.can_install_node(node)
         File.directory?(node.path) &&
-          [".xcdatamodel"].include?(File.extname(node.path))
+          [".xcdatamodeld"].include?(File.extname(node.path))
       end
 
       def visit_node(node)

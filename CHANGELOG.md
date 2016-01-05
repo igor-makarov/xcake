@@ -1,3 +1,7 @@
+v0.4.3
+======
+- Correctly adds `.xcdatamodeld` files to a project.
+
 v0.4.2
 ======
 - Correctly adds `.xcdatamodel` files to a project.

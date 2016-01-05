@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Xcake
   module Generator
-    describe CompileXCDataModelBuildPhase do
+    describe CompileXCDataModeldBuildPhase do
       before :each do
         @node = double("Node").as_null_object
       end
@@ -13,16 +13,16 @@ module Xcake
         allow(@node).to receive(:path).and_return(folder_path)
         allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-        expect(CompileXCDataModelBuildPhase.can_install_node(@node)).to be(false)
+        expect(CompileXCDataModeldBuildPhase.can_install_node(@node)).to be(false)
       end
 
-      it "should be able to install xcdatamodel foler" do
-        folder_path = "Model.xcdatamodel"
+      it "should be able to install xcdatamodeld foler" do
+        folder_path = "Model.xcdatamodeld"
 
         allow(@node).to receive(:path).and_return(folder_path)
         allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-        expect(CompileXCDataModelBuildPhase.can_install_node(@node)).to be(true)
+        expect(CompileXCDataModeldBuildPhase.can_install_node(@node)).to be(true)
       end
 
       it "should remove children for node" do
@@ -30,7 +30,7 @@ module Xcake
 
         project = double("Project").as_null_object
 
-        build_phase = CompileXCDataModelBuildPhase.new(project)
+        build_phase = CompileXCDataModeldBuildPhase.new(project)
         build_phase.visit_node(@node)
       end
     end
