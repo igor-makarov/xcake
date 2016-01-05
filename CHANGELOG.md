@@ -1,6 +1,11 @@
+v0.4.4
+======
+- Correctly registers `.xcdatamodeld` build phase generator.
+
 v0.4.3
 ======
-- Correctly adds `.xcdatamodeld` files to a project.
+- Correctly containing `.xcdatamodeld` files to a project, rather than the
+  internal `.xcdatamodel`.
 
 v0.4.2
 ======
@@ -27,9 +32,11 @@ v0.3.0
 
 v0.2.0
 ======
-- Now adds `--version` flag to command line, to allow you to find out Xcake's version.
-- Brings naming of default build configurations closer to Xcode's, so that it works with existing build scripts.
-- Adds support for Watch OS 2 Applications
+- Now adds `--version` flag to command line, to allow you to find out Xcake's
+  version.
+- Brings naming of default build configurations closer to Xcode's, so that it
+  works with existing build   scripts.
+- Adds support for Watch OS 2 Applications.
 
 v0.1.9
 ======
@@ -55,8 +62,8 @@ v0.1.5
 v0.1.4
 ======
 - Removes references to "build_configurations" to just "configuration".
-to make syntax shorter and to reflect the fact it's an abstraction and not directly
-a Xcode build configuration.
+  to make syntax shorter and to reflect the fact it's an abstraction
+  and not directly a Xcode build configuration.
 
 v0.1.3
 ======
