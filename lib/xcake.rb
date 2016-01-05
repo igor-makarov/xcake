@@ -14,6 +14,7 @@ require "xcake/configurable"
 
 require "xcake/generator/build_phase"
 require "xcake/generator/build_phase/compile_source_build_phase"
+require "xcake/generator/build_phase/compile_xcdatamodel_build_phase"
 require "xcake/generator/build_phase/copy_resources_build_phase"
 require "xcake/generator/build_phase/copy_xcassets_build_phase"
 require "xcake/generator/build_phase/header_file_build_phase"
