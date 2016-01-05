@@ -67,11 +67,12 @@ module Xcake
           @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
 
           unit_test_target = project.find_unit_test_target_for_target(target)
+          scheme.configure_with_targets(target, unit_test_target)
 
+          #TODO: We should structure this stuff out
           if unit_test_target then
-            scheme.add_test_target(unit_test_target)
-            unit_test_target.add_dependency(target)
-            @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
+             unit_test_target.add_dependency(target)
+             @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
           end
 
           schemes << scheme

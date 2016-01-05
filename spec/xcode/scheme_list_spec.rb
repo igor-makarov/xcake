@@ -13,6 +13,7 @@ module Xcake
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
 
         allow(@project).to receive(:targets).and_return([@target])
+        allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
       end
 
       it "should store project" do
@@ -56,8 +57,8 @@ module Xcake
           @scheme_list.create_schemes_for_application(@target)
         end
 
-        it "should add build target" do
-          expect(@scheme).to receive(:add_build_target).with(@target)
+        it "should configure with build target" do
+          expect(@scheme).to receive(:configure_with_targets).with(@target, nil)
           @scheme_list.create_schemes_for_application(@target)
         end
 
@@ -79,8 +80,8 @@ module Xcake
             allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
           end
 
-          it "should add test target" do
-            expect(@scheme).to receive(:add_test_target).with(@unit_test_target)
+          it "should configure with test target" do
+            expect(@scheme).to receive(:configure_with_targets).with(@target, @unit_test_target)
             @scheme_list.create_schemes_for_application(@target)
           end
 
