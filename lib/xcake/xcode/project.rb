@@ -89,7 +89,14 @@ module Xcake
           native_target = self.new(Xcodeproj::Project::Object::PBXNativeTarget)
           native_target.name = target.name
           native_target.product_name = target.name
-          native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
+
+          case target.type
+          when Symbol
+            native_target.product_type = Xcodeproj::Constants::PRODUCT_TYPE_UTI[target.type]
+          when String
+            native_target.product_type = target.type
+          end
+
           native_target.build_configuration_list = self.new(Xcodeproj::Project::Object::XCConfigurationList)
 
           product = self.products_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
