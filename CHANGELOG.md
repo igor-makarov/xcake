@@ -1,4 +1,8 @@
-v0.4.6
+v0.4.8
+======
+- The type property for a target now accepts a raw UTI.
+
+v0.4.7
 ======
 - Sets correct configurations for `analyse` and `archive` action for schemes.
 
