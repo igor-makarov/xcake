@@ -23,7 +23,7 @@ This document describes the level of support Xcake has for the various aspects o
 - Set platform
 - Set deployment target
 - Specify device (Universal, iPad Only or iPhone Only)
-- Specifying Files and Assets to include for Target
+- Specifying Files and Assets to include or exclude for Target
 - Specifying Frameworks to include for Target
 - Specify build settings via configurations
 - Simple methods for creating iOS, Mac and WatchOS Applications.
