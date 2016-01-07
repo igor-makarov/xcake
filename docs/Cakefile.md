@@ -183,7 +183,7 @@ target.language = :swift
 #### Include Files
 
 Sets the files to be included for a target, files and groups will be added
-to match the file system.
+to the project to match the file system.
 
 [See Here](https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns)
 for file patterns
