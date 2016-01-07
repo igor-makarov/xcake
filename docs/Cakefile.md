@@ -203,7 +203,7 @@ for file patterns
 
 ```ruby
   target.exclude_files = "FolderToIgnore/*.*"
-  target.exclude_files << "FolderToIgnore/*.*"
+  target.exclude_files << "OtherFolderToIgnore/*.*"
 ```
 
 ## Configurations
