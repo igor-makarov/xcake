@@ -180,6 +180,32 @@ Sets the primary language of the target, can be `:objc` or `:swift`.
 target.language = :swift
 ```
 
+#### Include Files
+
+Sets the files to be included for a target, files and groups will be added
+to match the file system.
+
+[See Here](https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns)
+for file patterns
+
+```ruby
+  target.include_files = "DifferentAppFolder/*.*"
+  target.include_files << "OtherFolder/*.*"
+```
+
+#### Exclude Files
+
+Sets the files to be excluded for a target, if no target uses these files they
+will be excluded from the project
+
+[See Here](https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns)
+for file patterns
+
+```ruby
+  target.exclude_files = "FolderToIgnore/*.*"
+  target.exclude_files << "FolderToIgnore/*.*"
+```
+
 ## Configurations
 
 Configurations are an abstraction of build settings and scheme settings. Depending
