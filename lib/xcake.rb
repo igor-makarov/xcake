@@ -6,7 +6,11 @@ require "xcake/visitor"
 require "xcake/version"
 
 require "xcake/informative"
+
 require "xcake/command"
+require "xcake/command/init"
+require "xcake/command/make"
+
 require "xcake/configuration"
 require "xcake/configuration/sugar"
 require "xcake/configuration/proxies/preproccessor_definitions_setting_proxy"
