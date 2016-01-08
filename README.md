@@ -23,7 +23,6 @@ Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.co
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a> &bull;
-    <a href="#roadmap">Roadmap</a> &bull;
     <a href="http://www.rubydoc.info/gems/xcake/file/docs/Getting%20Started.md">Documentation</a>
 </p>
 
@@ -87,16 +86,6 @@ Usually you'll use xcake by running the command
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
-
-## Roadmap
-
-:white_check_mark: Create WatchOS applications.
-
-:white_medium_square: Create tvOS applications.
-
-:white_medium_square: Generate library targets.
-
-:white_medium_square: Generate extensions.
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
