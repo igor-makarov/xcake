@@ -4,7 +4,7 @@ module Xcake
   class Command < CLAide::Command
 
     require "xcake/command/init"
-    require "xcake/command/make"
+    require "xcake/command/bake"
 
     self.abstract_command = true
     self.command = "xcake"
