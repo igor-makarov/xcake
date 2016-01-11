@@ -1,5 +1,3 @@
-require "claide"
-
 module Xcake
   class Command
     class MakeCommnd < Command
