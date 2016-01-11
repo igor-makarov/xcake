@@ -6,8 +6,9 @@ module Xcake
       self.description = "Initilises an example Cakefile for creating a project"
 
       def run
-        #TODO: Move this to file Xcake reads in
-        cakefile_contents = "Project.new do |p| end"
+
+        cakefile_path = "File.dirname(__FILE__)/../resources/Cakefile"
+        cakefile_contents = File.read(cakefile_path)
         File.write("Cakefile", cakefile_contents)
 
         puts "Open Cakefile to edit and run xcake bake to get your xcode project"
