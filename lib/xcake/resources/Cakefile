@@ -1,5 +1,22 @@
 Project.new do |c|
+
+    c.debug_configuration :staging
+    c.debug_configuration :debug
+    c.release_configuration :release
+
     c.application_for :ios, 8.0 do |t|
         t.name = "MyApp"
+
+        #supported platforms
+
+        #include
+
+        #exclude
+
+        #build settings
+
+        #unit tests
+
+        #watch
     end
 end
