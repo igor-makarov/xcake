@@ -7,7 +7,7 @@ module Xcake
 
       def run
 
-        cakefile_path = "File.dirname(__FILE__)/../resources/Cakefile"
+        cakefile_path = "#{File.dirname(__FILE__)}/../resources/Cakefile"
         cakefile_contents = File.read(cakefile_path)
         File.write("Cakefile", cakefile_contents)
 
