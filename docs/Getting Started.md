@@ -26,7 +26,7 @@ end
 ```
 
 This code is quite clearly telling xcake to create a new project; So lets see what happens.
-If we go to our folder and run `xcake` we should now have our xcode project. *phew* that was easy!
+If we go to our folder and run `xcake bake` we should now have our xcode project. *phew* that was easy!
 
 If we open it however it's not quite ready to use, it's still lacking any targets to actually build.
 So let's fix that :)
@@ -41,7 +41,7 @@ Project.new do |c|
 end
 ```
 
-Now if we run `xcake` again, we get the same project file but now with a target. In addition to this
+Now if we run `xcake bake` again, we get the same project file but now with a target. In addition to this
 xcake has created a `debug` and `release` build configuration as well as two schemes for our target
 and these build configurations.
 
@@ -63,7 +63,7 @@ Project.new do |c|
 end
 ```
 
-Again we run `xcake` and voilla! Pretty easy but now if we open up our project
+Again we run `xcake bake` and voilla! Pretty easy but now if we open up our project
 our `debug` and `release` configurations are gone. Xcake operates an opt-out system, Xcode projects won't open
 without any configurations so Xcake provides these configurations as a sensible default. But as soon as we
 provide our own configurations we are opting out of these defaults.
