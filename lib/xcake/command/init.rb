@@ -9,6 +9,8 @@ module Xcake
         #TODO: Move this to file Xcake reads in
         cakefile_contents = "Project.new do |p| end"
         File.write("Cakefile", cakefile_contents)
+
+        puts "Open Cakefile to edit and run xcake bake to get your xcode project"
       end
     end
   end
