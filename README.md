@@ -81,9 +81,15 @@ System Requirements: `xcake` requires Mac OS X or Linux with Ruby 2.0.0 or above
 
 ## Available commands
 
+Xcake can create an example cakefile when you run:
+
+    xcake init
+
 Usually you'll use xcake by running the command
 
-    xcake
+    xcake bake
+
+Xcake will then generate a Xcode project based on your Cakefile
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
