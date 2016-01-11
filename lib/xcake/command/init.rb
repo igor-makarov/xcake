@@ -6,7 +6,9 @@ module Xcake
       self.description = "Initilises an example Cakefile for creating a project"
 
       def run
-        puts "Make me a cakefile dammit"
+        #TODO: Move this to file Xcake reads in
+        cakefile_contents = "Project.new do |p| end"
+        File.write("Cakefile", cakefile_contents)
       end
     end
   end
