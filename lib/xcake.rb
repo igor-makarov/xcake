@@ -8,8 +8,6 @@ require "xcake/version"
 require "xcake/informative"
 
 require "xcake/command"
-require "xcake/command/init"
-require "xcake/command/make"
 
 require "xcake/configuration"
 require "xcake/configuration/sugar"

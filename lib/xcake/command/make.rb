@@ -1,28 +1,27 @@
 require "claide"
 
 module Xcake
-  class MakeCommnd < CLAide::Command
+  class Command
+    class MakeCommnd < Command
+      self.description = "Makes the Xcode project from a Cakefile"
 
-    self.command = "xcake"
-    self.version = VERSION
-    self.description = "Create and maintain Xcode project files easily."
+      def run
+        file_path = "#{Dir.pwd}/Cakefile"
 
-    def run
-      file_path = "#{Dir.pwd}/Cakefile"
+        unless File.exist?(file_path)
+          raise Xcake::Informative, "Couldn't find Cakefile"
+        end
 
-      unless File.exist?(file_path)
-        raise Xcake::Informative, "Couldn't find Cakefile"
+        puts "Reading Cakefile..."
+        file_contents = File.read(file_path)
+        cakefile = eval(file_contents)
+
+        resolver = ProjectStructureResolver.new
+        cakefile.accept(resolver)
+
+        generator = Generator::Project.new
+        cakefile.accept(generator)
       end
-
-      puts "Reading Cakefile..."
-      file_contents = File.read(file_path)
-      cakefile = eval(file_contents)
-
-      resolver = ProjectStructureResolver.new
-      cakefile.accept(resolver)
-
-      generator = Generator::Project.new
-      cakefile.accept(generator)
     end
   end
 end

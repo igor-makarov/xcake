@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.4.8)
+    xcake (0.5.0)
       claide (~> 0.9.1)
       hooks (~> 0.4.1)
       tty (~> 0.3.2)
@@ -42,9 +42,9 @@ GEM
     minitest (5.8.3)
     necromancer (0.3.0)
     netrc (0.11.0)
-    pastel (0.5.2)
-      equatable (~> 0.5)
-      tty-screen (~> 0.4)
+    pastel (0.5.3)
+      equatable (~> 0.5.0)
+      tty-screen (~> 0.4.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
