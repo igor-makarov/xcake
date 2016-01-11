@@ -1,6 +1,6 @@
 module Xcake
   class Command
-    class MakeCommnd < Command
+    class Make < Command
       self.description = "Makes the Xcode project from a Cakefile"
 
       def run

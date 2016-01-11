@@ -1,6 +1,6 @@
 module Xcake
   class Command
-    class InitCommand < Command
+    class Init < Command
       self.description = "Initilises an example Cakefile for creating a project"
 
       def run
