@@ -16,8 +16,8 @@ Project.new do |p|
     p.application_for :ios, 8.0 do |t|
 
         #Update these with the details of your app
-        t.name = "MyApp"
-        t.all_configurations.product_bundle_identifier = "com.myapp.bundle"
+        t.name = "YourApp"
+        t.all_configurations.product_bundle_identifier = "com.yourcompany.yourapp"
 
         # Uncomment to target iPhone devices only
         #
@@ -38,8 +38,8 @@ Project.new do |p|
         # Uncomment to set your own build settings
         #
         #target.all_configurations.settings["ENABLE_BITCODE"] = "NO"
-        #target.all_configurations.settings["GCC_PREFIX_HEADER"] = "App-Prefix-Header.pch"
-        #target.all_configurations.settings["SWIFT_OBJC_BRIDGING_HEADER"] = "App-Bridging-Header.h"
+        #target.all_configurations.settings["GCC_PREFIX_HEADER"] = "APP-Prefix-Header.pch"
+        #target.all_configurations.settings["SWIFT_OBJC_BRIDGING_HEADER"] = "APP-Bridging-Header.h"
 
         # Uncomment to define your own preprocessor macros
         #
