@@ -21,7 +21,7 @@ Project.new do |p|
 
         # Uncomment to target iPhone devices only
         #
-        # File patterns can be seen here <link>
+        # File patterns can be seen here https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns
         #
         #t.all_configurations.supported_devices = :iphone_only
 
@@ -31,7 +31,7 @@ Project.new do |p|
 
         # Uncomment this to exclude additional files
         #
-        # File patterns can be seen here <link>
+        # File patterns can be seen here https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns
         #
         #target.exclude_files << "ExcludeToInclude/*.*"
 
