@@ -1,17 +1,25 @@
 Project.new do |c|
 
-    c.debug_configuration :staging
-    c.debug_configuration :debug
-    c.release_configuration :release
+    # By default Xcake defaults to creating the standard Debug and Release
+    # configurations, uncomment these lines to add your own.
+    #
+    #c.debug_configuration :Staging
+    #c.debug_configuration :Debug
+    #c.release_configuration :Release
 
+    # Change these to the platform you wish to support (ios, osx) and the
+    # version of that platform (8.0, 9.0, 10.10, 10.11)
+    #
     c.application_for :ios, 8.0 do |t|
-        t.name = "MyApp"
 
+        t.name = "MyApp" #Change to the name of your app
         #supported platforms
 
         #include
+        #target.include_files << "SupCore/*.*"
 
         #exclude
+        #target.exclude_files << "SupCore/*.*"
 
         #build settings
 
