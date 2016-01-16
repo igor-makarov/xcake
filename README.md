@@ -37,24 +37,22 @@ Store a simple description of your project in a text file, your `Cakefile`, to e
 You define a project like this:
 
 ```ruby
-Project.new do |c|
-    c.application_for :ios, 8.0 do |t|
-        t.name = "MyApp"
-    end
+application_for :ios, 8.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
 To generate the xcode project, just run:
 
 ```sh
-xcake
+xcake bake
 ```
 
               |  xcake
 --------------------------|------------------------------------------------------------
 :sparkles: | Flexibly configure and create xcode project from one easy to read `Cakefile`
 :ship: | Generate from any computer, including a CI-server
-:thought_balloon: | Never remember any difficult commands, just `xcake`
+:thought_balloon: | Never remember any difficult commands, just `xcake bake`
 :page_with_curl: | Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
 :rocket: | Saves you **hours** when working with xcode projects
 :anchor: | Confidence that the project file is exactly the same during Continuous Delivery
@@ -80,9 +78,15 @@ System Requirements: `xcake` requires Mac OS X or Linux with Ruby 2.0.0 or above
 
 ## Available commands
 
+Xcake can create an example cakefile when you run:
+
+    xcake init
+
 Usually you'll use xcake by running the command
 
-    xcake
+    xcake bake
+
+Xcake will then generate a Xcode project based on your Cakefile
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup

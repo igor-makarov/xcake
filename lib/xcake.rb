@@ -1,4 +1,3 @@
-
 require "xcake/core_ext/string"
 
 require "xcake/visitable"
@@ -6,7 +5,9 @@ require "xcake/visitor"
 require "xcake/version"
 
 require "xcake/informative"
+
 require "xcake/command"
+
 require "xcake/configuration"
 require "xcake/configuration/sugar"
 require "xcake/configuration/proxies/preproccessor_definitions_setting_proxy"

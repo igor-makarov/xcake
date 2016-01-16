@@ -14,34 +14,18 @@ so we're going to need some command line magic:
 So we should have a folder called "MyProject" with a textfile named "Cakefile" inside of it,
 Xcake will look for this textfile, so make sure to keep it's name the same.
 
-This is all great but there are still no signs of a Project; Don't worry we still need to
-write some code to describe what the project should look like. So our first step is declaring
-we want to create a new project.
-
-So now in your textfile, type the following:
-
-```ruby
-Project.new do |c|
-end
-```
-
-This code is quite clearly telling xcake to create a new project; So lets see what happens.
-If we go to our folder and run `xcake` we should now have our xcode project. *phew* that was easy!
-
-If we open it however it's not quite ready to use, it's still lacking any targets to actually build.
+Now, If we run `xcake bake` we should now have our xcode project. *phew* that was easy! If we open it however it's not quite ready to use, it's still lacking any targets to actually build.
 So let's fix that :)
 
 We're going to create an app for iOS 9.0 called `MyApp`, hopefully the syntax should be easy to grasp:
 
 ```ruby
-Project.new do |c|
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
-Now if we run `xcake` again, we get the same project file but now with a target. In addition to this
+Now if we run `xcake bake` again, we get the same project file but now with a target. In addition to this
 xcake has created a `debug` and `release` build configuration as well as two schemes for our target
 and these build configurations.
 
@@ -52,18 +36,14 @@ be a `debug` configuration so that the default build settings are optimised for 
 So lets add it, configurations are defined project-wide so we do it like this:
 
 ```ruby
-Project.new do |c|
+debug_configuration :staging
 
-  c.debug_configuration :staging
-
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
-
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
-Again we run `xcake` and voilla! Pretty easy but now if we open up our project
+Again we run `xcake bake` and voilla! Pretty easy but now if we open up our project
 our `debug` and `release` configurations are gone. Xcake operates an opt-out system, Xcode projects won't open
 without any configurations so Xcake provides these configurations as a sensible default. But as soon as we
 provide our own configurations we are opting out of these defaults.
@@ -72,16 +52,12 @@ Xcake does this to force us to make sure we have everything setup as we need it,
 its just an extra couple of lines:
 
 ```ruby
-Project.new do |c|
+debug_configuration :staging
+debug_configuration :debug
+release_configuration :release
 
-  c.debug_configuration :staging
-  c.debug_configuration :debug
-  c.release_configuration :release
-
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
-
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 

@@ -1,3 +1,7 @@
+--markup markdown
+--private
 -
 "docs/Cakefile.md"
 "docs/Getting Started.md"
+"docs/Hooks.md"
+"docs/Xcode Project Support.md"
