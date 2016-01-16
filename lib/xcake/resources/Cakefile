@@ -1,29 +1,28 @@
-Project.new do |p|
 
     #Change this with your class prefix for Objective-C files.
-    p.class_prefix = "APP"
+    class_prefix = "APP"
 
     # By default Xcake defaults to creating the standard Debug and Release
     # configurations, uncomment these lines to add your own.
     #
-    #p.debug_configuration :Staging
-    #p.debug_configuration :Debug
-    #p.release_configuration :Release
+    #debug_configuration :Staging
+    #debug_configuration :Debug
+    #release_configuration :Release
 
     # Change these to the platform you wish to support (ios, osx) and the
     # version of that platform (8.0, 9.0, 10.10, 10.11)
     #
-    p.application_for :ios, 8.0 do |t|
+    application_for :ios, 8.0 do |target|
 
         #Update these with the details of your app
-        t.name = "YourApp"
-        t.all_configurations.product_bundle_identifier = "com.yourcompany.yourapp"
+        target.name = "YourApp"
+        target.all_configurations.product_bundle_identifier = "com.yourcompany.yourapp"
 
         # Uncomment to target iPhone devices only
         #
         # File patterns can be seen here https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns
         #
-        #t.all_configurations.supported_devices = :iphone_only
+        #target.all_configurations.supported_devices = :iphone_only
 
         # Uncomment this to include additional files
         #
@@ -47,10 +46,10 @@ Project.new do |p|
 
         # Comment to remove Unit Tests for your app
         #
-        p.unit_tests_for t
+        unit_tests_for target
 
         # Uncomment to create a Watch App for your application.
         #
-        #p.watch_app_for t, 2.0
+        #watch_app_for target, 2.0
     end
 end
