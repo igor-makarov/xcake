@@ -29,27 +29,8 @@ readable, efficient and concise.
 
 ## Project
 
-To create a project we must write the following:
-
-```ruby
-Project.new do |project|
-end
-```
-By default Xcake will create a project named "Project" but we can change the name
-by passing a String argument with the name we would like it to be called:
-
-```ruby
-Project.new "Workspace" do |project|
-end
-```
-We can also customize the structure of the project between the first and second lines, like so:
-
-```ruby
-Project.new "Workspace" do |project|
-  project.debug_configuration :debug
-end
-```
-There are two main ways you can customize a Project, Targets and Configurations.
+A project is automatically created from a `Cakefile` below is all of the ways
+you can customize this project.
 
 ###Properties
 
