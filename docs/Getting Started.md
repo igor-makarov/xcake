@@ -20,8 +20,8 @@ So let's fix that :)
 We're going to create an app for iOS 9.0 called `MyApp`, hopefully the syntax should be easy to grasp:
 
 ```ruby
-application_for :ios, 9.0 do |t|
-  t.name = "MyApp"
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
@@ -38,8 +38,8 @@ So lets add it, configurations are defined project-wide so we do it like this:
 ```ruby
 debug_configuration :staging
 
-application_for :ios, 9.0 do |t|
-  t.name = "MyApp"
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
@@ -56,8 +56,8 @@ debug_configuration :staging
 debug_configuration :debug
 release_configuration :release
 
-application_for :ios, 9.0 do |t|
-  t.name = "MyApp"
+application_for :ios, 9.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
