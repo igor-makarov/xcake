@@ -48,6 +48,12 @@ To generate the xcode project, just run:
 xcake bake
 ```
 
+If you would like an example Cakefile for guidence, just run:
+
+```sh
+xcake init
+```
+
               |  xcake
 --------------------------|------------------------------------------------------------
 :sparkles: | Flexibly configure and create xcode project from one easy to read `Cakefile`
