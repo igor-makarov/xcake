@@ -1,4 +1,3 @@
-
 require "xcake/core_ext/string"
 
 require "xcake/visitable"
