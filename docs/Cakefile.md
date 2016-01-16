@@ -189,6 +189,14 @@ this comes with sensible defaults optimized for debugging (i.e Assertions enable
 debug_configuration :staging
 ```
 
+We can modify settings for each configuration easily.
+
+```ruby
+debug_configuration :staging do |configuration|
+  configuration.settings["KEY"] = "VALUE"
+end
+```
+
 ### Release Configurations
 
 For configurations used for release we create a release configuration,
@@ -198,6 +206,14 @@ this comes with sensible defaults optimized for releasing (i.e Compiler optimiza
 release_configuration :release
 ```
 
+We can modify settings for each configuration easily.
+
+```ruby
+release_configuration :release do |configuration|
+  configuration.settings["KEY"] = "VALUE"
+end
+```
+
 ### All Configurations
 
 We can apply a particular shared setting across all of our configurations.
@@ -205,6 +221,24 @@ Xcake provides a simply way of doing this via an "all" configuration.
 
 ```ruby
 all_configurations.supported_devices = :iphone_only
+```
+
+### Targets
+
+To modify settings for certain target, then its as simple as prefixing the
+target we want to modify the configuration for.
+
+```ruby
+
+target.all_configurations.supported_devices = :iphone_only
+
+debug_configuration :staging do |configuration|
+  configuration.settings["KEY"] = "VALUE"
+end
+
+target.release_configuration :release do |configuration|
+  configuration.settings["KEY"] = "VALUE"
+end
 ```
 
 ### Configuration Hiearchy
