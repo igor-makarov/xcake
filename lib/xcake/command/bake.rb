@@ -13,13 +13,15 @@ module Xcake
 
         puts "Reading Cakefile..."
         file_contents = File.read(file_path)
-        cakefile = eval(file_contents)
+
+        project = Project.new
+        project.instance_eval(file_contents)
 
         resolver = ProjectStructureResolver.new
-        cakefile.accept(resolver)
+        project.accept(resolver)
 
         generator = Generator::Project.new
-        cakefile.accept(generator)
+        project.accept(generator)
       end
     end
   end
