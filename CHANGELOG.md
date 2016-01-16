@@ -1,7 +1,7 @@
 v0.5.0
 ======
-- Introduces command to create an example Cakefile for you, just run `xcake init`.
-- To turn a Cakefile into a project you now have to run `xcake bake`.
+- Introduces `xcake init` command to setup an example Cakefile for you.
+- To turn a Cakefile into a project you now run `xcake bake`.
 - Simplified DSL, you no longer have to declare the project. Check the documentation for details.
 - Adds support for Claide and Xcake Plugins.
 
