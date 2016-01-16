@@ -1,4 +1,4 @@
-#Change this with your class prefix for Objective-C files.
+# Replace this with your class prefix for Objective-C files.
 class_prefix = "APP"
 
 # By default Xcake defaults to creating the standard Debug and Release
