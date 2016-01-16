@@ -38,10 +38,8 @@ Store a simple description of your project in a text file, your `Cakefile`, to e
 You define a project like this:
 
 ```ruby
-Project.new do |c|
-    c.application_for :ios, 8.0 do |t|
-        t.name = "MyApp"
-    end
+application_for :ios, 8.0 do |target|
+  target.name = "MyApp"
 end
 ```
 
