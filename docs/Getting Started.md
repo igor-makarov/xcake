@@ -34,10 +34,8 @@ So let's fix that :)
 We're going to create an app for iOS 9.0 called `MyApp`, hopefully the syntax should be easy to grasp:
 
 ```ruby
-Project.new do |c|
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
+application_for :ios, 9.0 do |t|
+  t.name = "MyApp"
 end
 ```
 
@@ -52,14 +50,10 @@ be a `debug` configuration so that the default build settings are optimised for 
 So lets add it, configurations are defined project-wide so we do it like this:
 
 ```ruby
-Project.new do |c|
+debug_configuration :staging
 
-  c.debug_configuration :staging
-
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
-
+application_for :ios, 9.0 do |t|
+  t.name = "MyApp"
 end
 ```
 
@@ -72,16 +66,12 @@ Xcake does this to force us to make sure we have everything setup as we need it,
 its just an extra couple of lines:
 
 ```ruby
-Project.new do |c|
+debug_configuration :staging
+debug_configuration :debug
+release_configuration :release
 
-  c.debug_configuration :staging
-  c.debug_configuration :debug
-  c.release_configuration :release
-
-  c.application_for :ios, 9.0 do |t|
-    t.name = "MyApp"
-  end
-
+application_for :ios, 9.0 do |t|
+  t.name = "MyApp"
 end
 ```
 

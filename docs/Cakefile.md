@@ -4,29 +4,24 @@ The `Cakefile` contains a lightweight DSL which provides the instructions on how
 a project file. We adopt the convention over configuration and thus it can be very simple:
 
 ```ruby
-Project.new do |project|
-    project.application_for :ios, 8.0 do |target|
-        target.name = "MyApp"
-    end
-end
+  application_for :ios, 8.0 do |target|
+      target.name = "MyApp"
+  end
 ```
 
 and here is much more complicated one:
 
 ```ruby
-Project.new do |project|
+  debug_configuration :staging
+  debug_configuration :debug
+  release_configuration :release
 
-    project.debug_configuration :staging
-    project.debug_configuration :debug
-    project.release_configuration :release
+  application_for :ios, 8.0 do |target|
+    target.name = "test"
+    target.all_configurations.supported_devices = :iphone_only
 
-    project.application_for :ios, 8.0 do |target|
-      target.name = "test"
-      target.all_configurations.supported_devices = :iphone_only
-
-      project.unit_tests_for(target)
-    end
-end
+    unit_tests_for target
+  end
 ```
 
 As you can see, it is super easy to read; The goal of Xcake is to keep everything
@@ -63,7 +58,7 @@ There are two main ways you can customize a Project, Targets and Configurations.
 Sets the class prefix for the project
 
 ```ruby
-project.class_prefix = "XC"
+class_prefix = "XC"
 ```
 
 #### Organization
@@ -71,7 +66,7 @@ project.class_prefix = "XC"
 Sets the organization for the project.
 
 ```ruby
-project.organization = "Xcake Productions"
+organization = "Xcake Productions"
 ```
 
 ## Targets
@@ -87,17 +82,13 @@ A project can specify any application targets such as iOS or Mac Apps.
 iOS App:
 
 ```ruby
-Project.new "Workspace" do |project|
-  project.application_for :ios, 8.0
-end
+application_for :ios, 8.0
 ```
 
 Mac App:
 
 ```ruby
-Project.new "Workspace" do |project|
-  project.application_for :mac, 8.0
-end
+application_for :mac, 8.0
 ```
 
 ###Tests
@@ -105,10 +96,8 @@ end
 We can also specify a testing targets for other targets as well:
 
 ```ruby
-Project.new "Workspace" do |project|
-  project.application_for :mac, 8.0 do |target|
-    project.unit_tests_for(target)
-  end
+application_for :mac, 8.0 do |target|
+  unit_tests_for target
 end
 ```
 
@@ -117,10 +106,8 @@ end
 To create watch applications we can simply use the `watch_app_for` method:
 
 ```ruby
-Project.new "Workspace" do |project|
-  project.application_for :mac, 8.0 do |target|
-    project.watch_app_for target, 2.0
-  end
+application_for :mac, 8.0 do |target|
+    watch_app_for target, 2.0
 end
 ```
 
@@ -130,10 +117,8 @@ If these aren't enough for you then you can specify a target
 and manually set up it's properties.
 
 ```ruby
-Project.new "Workspace" do |project|
-  project.target do |target|
+target do |target|
     target.name = "Target"
-  end
 end
 ```
 
@@ -189,8 +174,8 @@ to the project to match the file system.
 for file patterns
 
 ```ruby
-  target.include_files = "DifferentAppFolder/*.*"
-  target.include_files << "OtherFolder/*.*"
+target.include_files = "DifferentAppFolder/*.*"
+target.include_files << "OtherFolder/*.*"
 ```
 
 #### Exclude Files
@@ -202,8 +187,8 @@ will be excluded from the project
 for file patterns
 
 ```ruby
-  target.exclude_files = "FolderToIgnore/*.*"
-  target.exclude_files << "OtherFolderToIgnore/*.*"
+target.exclude_files = "FolderToIgnore/*.*"
+target.exclude_files << "OtherFolderToIgnore/*.*"
 ```
 
 ## Configurations
@@ -220,7 +205,7 @@ For configurations used for internal testing we create a debug configuration,
 this comes with sensible defaults optimized for debugging (i.e Assertions enabled).
 
 ```ruby
-project.debug_configuration :staging
+debug_configuration :staging
 ```
 
 ### Release Configurations
@@ -229,7 +214,7 @@ For configurations used for release we create a release configuration,
 this comes with sensible defaults optimized for releasing (i.e Compiler optimizations enabled).
 
 ```ruby
-project.release_configuration :release
+release_configuration :release
 ```
 
 ### All Configurations
@@ -238,7 +223,7 @@ We can apply a particular shared setting across all of our configurations.
 Xcake provides a simply way of doing this via an "all" configuration.
 
 ```ruby
-project.all_configurations.supported_devices = :iphone_only
+all_configurations.supported_devices = :iphone_only
 ```
 
 ### Configuration Hiearchy
