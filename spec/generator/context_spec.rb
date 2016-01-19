@@ -14,6 +14,10 @@ module Xcake
         expect(configuration).not_to be_nil
       end
 
+      it "should initilize target table" do
+        expect(@context.target_table).to be({})
+      end
+
       describe "when creating native target" do
 
         before :each do

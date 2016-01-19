@@ -16,7 +16,7 @@ module Xcake
 
         native_target = context.target_table[target]
 
-        target.target_dependancies.each do |dep|
+        target.target_dependencies.each do |dep|
 
           puts "Adding #{dep} as dependency for #{target}..."
 
