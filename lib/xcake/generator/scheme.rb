@@ -79,7 +79,10 @@ module Xcake
           scheme = Xcode::Scheme.new
           scheme.name = "#{target.name}-#{c.name}"
 
-          scheme.configure_with_targets(target, target.testing_target)
+          native_target = @context.target_table[target]
+          native_testing_target = @context.target_table[target.testing_target]
+
+          scheme.configure_with_targets(native_target, native_testing_target)
           scheme.test_action.build_configuration = c.name
           scheme.launch_action.build_configuration = c.name
           scheme.profile_action.build_configuration = c.name
@@ -88,9 +91,7 @@ module Xcake
 
           schemes << scheme
 
-          native_target = @context.target_table[target]
-          native_testing_target = @context.target_table[target.testing_target]
-
+#TODO: Refactor ignoring unit test elsewhere
           suppress_autocreation_for_target(native_target)
           suppress_autocreation_for_target(native_testing_target) if native_testing_target
         end
