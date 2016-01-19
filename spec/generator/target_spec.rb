@@ -8,7 +8,7 @@ module Xcake
         @context = double("Context").as_null_object
         @root_node = double("Root Node").as_null_object
 
-        @generator = Target.new(@project, @root_node)
+        @generator = Target.new(@context, @root_node)
       end
 
       it "should store the context" do
