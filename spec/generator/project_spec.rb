@@ -70,10 +70,9 @@ module Xcake
           @generator.leave_project(@project)
         end
 
-        it "should recreate user schemes" do
-          expect(@project).to receive(:recreate_user_schemes)
-          @generator.leave_project(@project)
-        end
+        #TODO: Add Target Dependency Generator Test
+
+        #TODO: Add Scheme Generator Test
 
         it "should save project" do
           expect(@project).to receive(:save)
