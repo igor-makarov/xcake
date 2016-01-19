@@ -6,7 +6,7 @@ module Xcake
 
       before :each do
         @xcode_build_configuration = double("XCBuildConfiguration").as_null_object
-        @context = double("Context")
+        @context = double("Context").as_null_object
 
         @configuration_target = double("Configuration Target").as_null_object
         @configuration = double("Configuration").as_null_object

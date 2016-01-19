@@ -31,8 +31,8 @@ module Xcake
       def visit_configuration(configuration)
         puts "Creating build configuration #{configuration.name} for #{@configuration_target}..."
 
-        build_configuration =  @context.new_configuration
-        
+        build_configuration = @context.new_configuration
+
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
