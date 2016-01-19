@@ -5,20 +5,20 @@ module Xcake
     describe TargetDependency do
 
       before :each do
-        @context = double("Context")
+        @context = double("Context").as_null_object
         @generator = TargetDependency.new(@context)
       end
 
       it "should add native dependency to target" do
-        dependency = double("Dependency")
+        dependency = double("Dependency").as_null_object
 
-        target = double("Target")
+        target = double("Target").as_null_object
         allow(target).to receive(:target_dependencies).and_return([dependency])
 
-        native_dependency = double("Native Dependency")
-        native_target = double("Native Target")
+        native_dependency = double("Native Dependency").as_null_object
+        native_target = double("Native Target").as_null_object
 
-        allow(@context.target_table).to receive(:target_table).and_return({
+        allow(@context).to receive(:target_table).and_return({
           dependency: native_dependency,
           target: native_target,
           })
@@ -26,19 +26,6 @@ module Xcake
 
         @generator.visit_target(target)
       end
-
-      # def visit_target(target)
-      #
-      #   native_target = context.target_table[target]
-      #
-      #   target.target_dependancies.each do |dep|
-      #
-      #     puts "Adding #{dep} as dependency for #{target}..."
-      #
-      #     native_dependancy = context.target_table[dep]
-      #   end
-      # end
-
     end
   end
 end
