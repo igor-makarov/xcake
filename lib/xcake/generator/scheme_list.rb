@@ -7,7 +7,7 @@ module Xcake
     class SchemeList
       # @return [Project] the project for the scheme list
       #
-      attr_accessor :project
+      attr_accessor :path
 
       # @return [Array<Scheme>] the schemes in the list
       #
@@ -23,22 +23,14 @@ module Xcake
       # @param    [Project] project
       #           project to create scheme list for.
       #
-      def initialize(project)
-        @project = project
+      def initialize(path)
+        @path = path
         @schemes = []
 
         @xcschememanagement = {
           'SchemeUserState' => {},
           'SuppressBuildableAutocreation' => {}
         }
-      end
-
-      # Creates the schemes based on the targets.
-      #
-      def recreate_schemes
-        @project.targets.each do |t|
-          create_schemes_for_target(t)
-        end
       end
 
       # Creates schemes based on a target.
@@ -94,7 +86,7 @@ module Xcake
         schemes.each do |s|
 
           puts "Saving Scheme #{s.name}..."
-          s.save_as(@project.path, s.name, true)
+          s.save_as(@path, s.name, true)
 
           @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
             "isShown" => true

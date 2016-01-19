@@ -40,17 +40,17 @@ module Xcake
         generator = Path.new(@context)
         @root_node.accept(generator)
 
-        puts "Writing Project..."
+        puts "Creating Dependencies..."
 
         #TODO: Add Target Dependency Pass here.
         target_dependency = TargetDependency.new(@context)
         @project.accept(target_dependency)
 
+        puts "Creating Schemes..."
         scheme = Scheme.new(@context)
         @project.accept(scheme)
 
-        #TODO: Replace with generator
-        @project.recreate_user_schemes
+        puts "Writing Project..."
 
         @project.save
         project.run_hook :after_save

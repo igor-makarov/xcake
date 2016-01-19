@@ -43,21 +43,8 @@ module Xcake
           attributes["ORGANIZATIONNAME"] = organization
         end
 
-        # @return [SchemeList] the scheme list
-        #
-        def scheme_list
-          @scheme_list ||= SchemeList.new(self)
-        end
-
         def object_version
           Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
-        end
-
-        def recreate_user_schemes(*)
-          puts "Creating Schemes..."
-
-          scheme_list.recreate_schemes
-          scheme_list.save(path)
         end
 
         # Configures the Project for use with Xcake.

@@ -18,6 +18,10 @@ module Xcake
       def new_target(target)
         return project.new_target(target)
       end
+
+      def new_scheme(target)
+        return project.scheme_list.create_schemes_for_target(t)
+      end
     end
   end
 end
