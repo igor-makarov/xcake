@@ -123,11 +123,11 @@ module Xcake
         end
 
         it "should add watch app to app dependancies" do
-          expect(@app_target.target_dependencies).to contain(@watch_app_target)
+          expect(@app_target.target_dependencies).to receive(:<<).with(@watch_app_target)
         end
 
         it "should add extension as dependency" do
-          expect(@watch_app_target.target_dependencies).to contain(@extension_target)
+          expect(@app_target.target_dependencies).to receive(:<<).with(@extension_target)
         end
       end
 
