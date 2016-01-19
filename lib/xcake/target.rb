@@ -141,7 +141,7 @@ module Xcake
     #
     attr_accessor :system_frameworks
 
-    # @return [Array<Target>] targets to use as dependencies                      
+    # @return [Array<Target>] targets to use as dependencies
     #
     attr_accessor :target_dependencies
 
@@ -158,6 +158,8 @@ module Xcake
       block.call(self) if block_given?
     end
 
+    # @!group Default Values
+
     def include_files
       @include_files ||= ["./#{@name}/**/*.*"]
     end
@@ -168,6 +170,10 @@ module Xcake
 
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
+    end
+
+    def target_dependencies
+      @target_dependencies ||= []
     end
 
     protected
