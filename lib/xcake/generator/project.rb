@@ -41,7 +41,11 @@ module Xcake
 
         puts "Writing Project..."
 
+        #TODO: Add Target Dependency Pass here.
+
+        #TODO: Replace with generator
         @project.recreate_user_schemes
+
         @project.save
         project.run_hook :after_save
 
