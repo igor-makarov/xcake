@@ -72,7 +72,7 @@ module Xcake
 
           before :each do
             @unit_test_target = double("Unit Test Target").as_null_object
-            allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
+            allow(@target).to receive(:testing_target).and_return(@unit_test_target)
           end
 
           it "should configure with test target" do
