@@ -5,6 +5,7 @@ module Xcake
     describe Scheme do
 
       before :each do
+        @project = double("Project")
         @context = double("Context").as_null_object
         @generator = Scheme.new(@context)
 
@@ -93,12 +94,12 @@ module Xcake
       context "when saving" do
 
         it "should make schemes directory" do
-          schemes_dir = Scheme.user_data_dir(".")
+          schemes_dir = Xcodeproj::Scheme.user_data_dir(".")
 
           allow(Xcodeproj).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
-          @generator.save(".")
+          @generator.leave_project(@project)
         end
 
         context "schemes" do
@@ -110,11 +111,11 @@ module Xcake
 
           it "should save scheme" do
             expect(@scheme).to receive(:save_as).with(@project.path, @scheme.name, true)
-            @generator.save(".")
+            @generator.leave_project(@project)
           end
 
           it "should add scheme to scheme managment list" do
-            @generator.save(".")
+            @generator.leave_project(@project)
             scheme_entry = @generator.xcschememanagement['SchemeUserState']["#{@scheme.name}.xcscheme_^#shared#^_"]
 
             expect(scheme_entry).to eq({
@@ -129,7 +130,7 @@ module Xcake
             xcschememanagement_path = Scheme.user_data_dir(".") + 'xcschememanagement.plist'
             expect(Xcodeproj).to receive(:write_plist).with(@generator.xcschememanagement, xcschememanagement_path)
 
-            @generator.save(".")
+            @generator.leave_project(@project)
           end
         end
       end
