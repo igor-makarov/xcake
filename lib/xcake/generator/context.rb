@@ -1,8 +1,11 @@
 require 'xcodeproj'
 
-#TODO: Document and Spec
 module Xcake
   module Generator
+    # This class provides the context for the generators
+    # and provides information like the current xcode project
+    # and mappings from the DSL Targets to the Xcode targets. 
+    #
     class Context
 
       # @return [Project] project for the current generator context
