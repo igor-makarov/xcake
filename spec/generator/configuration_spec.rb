@@ -6,7 +6,7 @@ module Xcake
 
       before :each do
         @xcode_build_configuration = double("XCBuildConfiguration").as_null_object
-        @project = double("Project")
+        @context = double("Context")
 
         @configuration_target = double("Configuration Target").as_null_object
         @configuration = double("Configuration").as_null_object
@@ -14,8 +14,8 @@ module Xcake
         @generator = Configuration.new(@project, @configuration_target)
       end
 
-      it "should store the project" do
-        expect(@generator.project).to be(@project)
+      it "should store the context" do
+        expect(@generator.context).to be(@context)
       end
 
       it "should store the configuration target" do
