@@ -70,7 +70,7 @@ module Xcake
         # @param [Target] target
         #                 target DSL to create target from
         #
-        # @return [Target] new xcode target
+        # @return [PBXNativeTarget] new xcode target
         #
         def new_target(target)
           native_target = self.new(Xcodeproj::Project::Object::PBXNativeTarget)
