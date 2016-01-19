@@ -94,7 +94,7 @@ module Xcake
       context "when saving" do
 
         it "should make schemes directory" do
-          schemes_dir = Xcodeproj::Scheme.user_data_dir(".")
+          schemes_dir = Xcode::Scheme.user_data_dir(".")
 
           allow(Xcodeproj).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
