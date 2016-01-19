@@ -51,10 +51,9 @@ module Xcake
           Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
       end
 
-      #TODO: Test this
       def visit_target(target)
-        case target.product_type
-          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
+        case target.type
+          when :application
               create_schemes_for_application(target)
         end
       end

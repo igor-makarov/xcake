@@ -34,6 +34,7 @@ module Xcake
       end
 
       it "should create scheme for application" do
+        allow(@target).to receive(:type).and_return(:application)
         expect(@generator).to receive(:create_schemes_for_application).with(@target)
         @generator.visit_target(@target)
       end
