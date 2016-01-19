@@ -13,6 +13,10 @@ module Xcake
       #
       attr_accessor :target_table
 
+      def initialize
+        self.target_table = {}
+      end
+
       # Creates a new build configuration in the project
       #
       # @return [Configuration] new xcode build configuration
