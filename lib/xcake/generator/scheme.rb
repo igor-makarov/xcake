@@ -91,7 +91,7 @@ module Xcake
           native_target = @context.target_table[target]
           native_testing_target = @context.target_table[target.testing_target]
 
-          suppress_autocreation_for_target(target)
+          suppress_autocreation_for_target(native_target)
           suppress_autocreation_for_target(native_testing_target) if native_testing_target
         end
       end
