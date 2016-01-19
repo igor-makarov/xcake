@@ -19,9 +19,7 @@ module Xcake
 
       def initialize(context)
         @context = context
-
         @schemes = []
-
         @xcschememanagement = {
           'SchemeUserState' => {},
           'SuppressBuildableAutocreation' => {}
