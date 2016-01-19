@@ -8,107 +8,80 @@ module Xcake
 
       attr_accessor :context
 
+      # @return [Hash<String, Object>] xcschememanagementfile contents
+      #
+      #
+      attr_accessor :xcschememanagement
+
+      # @return [Array<Scheme>] the schemes in the list
+      #
+      attr_accessor :schemes
+
       def initialize(context)
         @context = context
+
+        @schemes = []
+
+        @xcschememanagement = {
+          'SchemeUserState' => {},
+          'SuppressBuildableAutocreation' => {}
+        }
       end
 
       def visit_target(target)
-        @context.project.scheme_list.create_schemes_for_target(t)
+        case target.product_type
+          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
+              create_schemes_for_application(target)
+        end
       end
 
-      # # @return [Project] the project for the scheme list
-      # #
-      # attr_accessor :path
+      def leave_project(project)
+          schemes_dir = Scheme.user_data_dir(writing_path)
+
+          FileUtils.rm_rf(schemes_dir)
+          FileUtils.mkdir_p(schemes_dir)
+
+          schemes.each do |s|
+
+            puts "Saving Scheme #{s.name}..."
+            s.save_as(project.path, s.name, true)
+
+            @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
+              "isShown" => true
+            }
+          end
+
+          puts "Saving Scheme List..."
+
+          xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
+          Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
+      end
+
+      # Creates schemes based on a application target
       #
-      # # @return [Array<Scheme>] the schemes in the list
-      # #
-      # attr_accessor :schemes
+      # @param    [Target] target
+      #           target to create application schemes for
       #
-      # # @return [Hash<String, Object>] xcschememanagementfile contents
-      # #
-      # #
-      # attr_accessor :xcschememanagement
-      #
-      # public
-      #
-      # # @param    [Project] project
-      # #           project to create scheme list for.
-      # #
-      # def initialize(path)
-      #   @path = path
-      #   @schemes = []
-      #
-      #   @xcschememanagement = {
-      #     'SchemeUserState' => {},
-      #     'SuppressBuildableAutocreation' => {}
-      #   }
-      # end
-      #
-      # # Creates schemes based on a target.
-      # #
-      # # @param    [Target] target
-      # #           target to create schemes for
-      # #
-      # def create_schemes_for_target(target)
-      #   case target.product_type
-      #     when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
-      #         create_schemes_for_application(target)
-      #   end
-      # end
-      #
-      # # Creates schemes based on a application target
-      # #
-      # # @param    [Target] target
-      # #           target to create application schemes for
-      # #
-      # def create_schemes_for_application(target)
-      #   target.build_configurations.each do |c|
-      #     scheme = Scheme.new
-      #
-      #     scheme.name = "#{target.name}-#{c.name}"
-      #     @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
-      #
-      #     unit_test_target = project.find_unit_test_target_for_target(target)
-      #     @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true} if unit_test_target
-      #
-      #     scheme.configure_with_targets(target, unit_test_target)
-      #     scheme.test_action.build_configuration = c.name
-      #     scheme.launch_action.build_configuration = c.name
-      #     scheme.profile_action.build_configuration = c.name
-      #     scheme.analyze_action.build_configuration = c.name
-      #     scheme.archive_action.build_configuration = c.name
-      #
-      #     schemes << scheme
-      #   end
-      # end
-      #
-      # # Writes scheme list data.
-      # #
-      # # @param    [String] writing_path
-      # #           path to write to.
-      # #
-      # def save(writing_path)
-      #
-      #   schemes_dir = Scheme.user_data_dir(writing_path)
-      #
-      #   FileUtils.rm_rf(schemes_dir)
-      #   FileUtils.mkdir_p(schemes_dir)
-      #
-      #   schemes.each do |s|
-      #
-      #     puts "Saving Scheme #{s.name}..."
-      #     s.save_as(@path, s.name, true)
-      #
-      #     @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
-      #       "isShown" => true
-      #     }
-      #   end
-      #
-      #   puts "Saving Scheme List..."
-      #
-      #   xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-      #   Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
-      # end
+      def create_schemes_for_application(target)
+        target.build_configurations.each do |c|
+          scheme = Scheme.new
+
+          scheme.name = "#{target.name}-#{c.name}"
+          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
+
+          unit_test_target = project.find_unit_test_target_for_target(target)
+          @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true} if unit_test_target
+
+          scheme.configure_with_targets(target, unit_test_target)
+          scheme.test_action.build_configuration = c.name
+          scheme.launch_action.build_configuration = c.name
+          scheme.profile_action.build_configuration = c.name
+          scheme.analyze_action.build_configuration = c.name
+          scheme.archive_action.build_configuration = c.name
+
+          schemes << scheme
+        end
+      end
     end
   end
 end
