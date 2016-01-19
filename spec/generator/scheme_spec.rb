@@ -9,6 +9,7 @@ module Xcake
         @generator = Scheme.new(@context)
 
         @target = double("Target").as_null_object
+        allow(@target).to receive(:uuid).and_return("uuid")
         allow(@target).to receive(:name).and_return("app")
         allow(@target).to receive(:testing_target).and_return(nil)
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
@@ -72,6 +73,8 @@ module Xcake
 
           before :each do
             @unit_test_target = double("Unit Test Target").as_null_object
+            allow(@unit_test_target).to receive(:uuid).and_return("uuid2")
+
             allow(@target).to receive(:testing_target).and_return(@unit_test_target)
           end
 
