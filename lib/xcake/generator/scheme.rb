@@ -38,7 +38,7 @@ module Xcake
           schemes.each do |s|
 
             puts "Saving Scheme #{s.name}..."
-            s.save_as(project.path, s.name, true)
+            s.save_as(@context.project.path, s.name, true)
 
             @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
               "isShown" => true
