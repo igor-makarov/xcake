@@ -41,8 +41,6 @@ module Xcake
         @root_node.accept(generator)
 
         puts "Creating Dependencies..."
-
-        #TODO: Add Target Dependency Pass here.
         target_dependency = TargetDependency.new(@context)
         @project.accept(target_dependency)
 
@@ -51,7 +49,6 @@ module Xcake
         @project.accept(scheme)
 
         puts "Writing Project..."
-
         @project.save
         project.run_hook :after_save
 
