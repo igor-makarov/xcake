@@ -6,13 +6,13 @@ module Xcake
 
       include Visitor
 
-      attr_accessor :project
+      attr_accessor :context
       attr_accessor :root_node
       attr_accessor :target
       attr_accessor :native_target
 
-      def initialize(project, root_node)
-        @project = project
+      def initialize(context, root_node)
+        @context = context
         @root_node = root_node
       end
 
@@ -37,7 +37,7 @@ module Xcake
       end
 
       def visit_configuration(configuration)
-        generator = Configuration.new(@project, @native_target)
+        generator = Configuration.new(@context, @native_target)
         configuration.accept(generator)
       end
 

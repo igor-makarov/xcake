@@ -6,6 +6,7 @@ module Xcake
 
       include Visitor
 
+      attr_accessor :context
       attr_accessor :project
       attr_accessor :root_node
 
@@ -28,11 +29,14 @@ module Xcake
 
         @project.class_prefix = project.class_prefix if project.class_prefix
         @project.organization = project.organization if project.organization
+
+        @context = Context.new
+        @context.project = @project
       end
 
       def leave_project(project)
 
-        generator = Path.new(@project)
+        generator = Path.new(@context)
         @root_node.accept(generator)
 
         puts "Writing Project..."
@@ -45,7 +49,7 @@ module Xcake
       end
 
       def visit_target(target)
-        generator = Target.new(@project, @root_node)
+        generator = Target.new(@context, @root_node)
         target.accept(generator)
       end
 
@@ -53,7 +57,7 @@ module Xcake
       end
 
       def visit_configuration(configuration)
-        generator = Configuration.new(@project, @project)
+        generator = Configuration.new(@context, @project)
         configuration.accept(generator)
       end
 
