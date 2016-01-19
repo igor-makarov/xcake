@@ -9,6 +9,8 @@ module Xcake
       #
       attr_accessor :project
 
+      attr_accessor :target_table
+
       # Document
       #
       def new_configuration
