@@ -21,6 +21,7 @@ require "xcake/generator/build_phase/copy_xcassets_build_phase"
 require "xcake/generator/build_phase/header_file_build_phase"
 require "xcake/generator/build_phase_registry"
 
+require "xcake/generator/context"
 require "xcake/generator/configuration"
 require "xcake/generator/path"
 require "xcake/generator/project"
