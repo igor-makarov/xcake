@@ -17,6 +17,8 @@ module Xcake
         return project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
+      # Document
+      #
       def new_target(target)
         return target_table[target] = project.new_target(target)
       end
