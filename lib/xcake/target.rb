@@ -124,7 +124,7 @@ module Xcake
     #
     # @example
     #
-    #    spec.exclude_files = ["Classes/**/unused.{h,m}"]
+    #    target.exclude_files = ["Classes/**/unused.{h,m}"]
     #
     attr_accessor :exclude_files
 
@@ -137,9 +137,13 @@ module Xcake
     #
     # @example
     #
-    #    spec.system_frameworks = ["Foundation"]
+    #    target.system_frameworks = ["Foundation"]
     #
     attr_accessor :system_frameworks
+
+    # @return [Array<Target>] targets to use as dependencies                      
+    #
+    attr_accessor :target_dependencies
 
     # @param    [Proc] block
     #           an optional block that configures the project through the DSL.
