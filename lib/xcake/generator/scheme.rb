@@ -69,7 +69,7 @@ module Xcake
           scheme = Scheme.new
           scheme.name = "#{target.name}-#{c.name}"
 
-          scheme.configure_with_targets(target, target.test_target)
+          scheme.configure_with_targets(target, target.testing_target)
           scheme.test_action.build_configuration = c.name
           scheme.launch_action.build_configuration = c.name
           scheme.profile_action.build_configuration = c.name
