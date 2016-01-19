@@ -5,12 +5,12 @@ module Xcake
     describe Path do
 
       before :each do
-        @project = double("Project")
+        @context = double("Context")
       end
 
-      it "should store the project" do
-        generator = Path.new(@project)
-        expect(generator.project).to be(@project)
+      it "should store the context" do
+        generator = Path.new(@context)
+        expect(@generator.context).to be(@context)
       end
 
       context "when visiting node" do
