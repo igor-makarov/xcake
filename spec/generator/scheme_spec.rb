@@ -33,7 +33,7 @@ module Xcake
 
       it "should create scheme for application" do
         expect(@generator).to receive(:create_schemes_for_application).with(@target)
-        @generator.create_schemes_for_target(@target)
+        @generator.visit_target(@target)
       end
 
       context "when creating scheme for application" do
