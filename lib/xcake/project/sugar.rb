@@ -49,10 +49,12 @@ module Xcake
         t.platform = host_target.platform
         t.deployment_target = host_target.deployment_target
         t.language = host_target.language
-        t.target_dependencies = [host_target]
 
         t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
         t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
+
+        t.target_dependencies = [host_target]
+        host_target.testing_target = t
 
         block.call(t) if block_given?
       end

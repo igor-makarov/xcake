@@ -32,6 +32,10 @@ module Xcake
     #
     attr_accessor :language
 
+    # TODO: Document
+    #
+    attr_accessor :testing_target
+
     # @!group File patterns
 
     #

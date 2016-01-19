@@ -64,15 +64,12 @@ module Xcake
       #
       def create_schemes_for_application(target)
 
-        #TODO: Figure out how we should do this.
-        unit_test_target = project.find_unit_test_target_for_target(target)
-
         target.build_configurations.each do |c|
 
           scheme = Scheme.new
           scheme.name = "#{target.name}-#{c.name}"
 
-          scheme.configure_with_targets(target, unit_test_target)
+          scheme.configure_with_targets(target, target.test_target)
           scheme.test_action.build_configuration = c.name
           scheme.launch_action.build_configuration = c.name
           scheme.profile_action.build_configuration = c.name
@@ -82,7 +79,7 @@ module Xcake
           schemes << scheme
 
           @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
-          @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true} if unit_test_target
+          @xcschememanagement['SuppressBuildableAutocreation'][target.test_target.uuid] = {"primary" => true} if target.test_target
         end
       end
     end
