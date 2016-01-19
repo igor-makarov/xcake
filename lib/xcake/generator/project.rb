@@ -11,6 +11,7 @@ module Xcake
       attr_accessor :root_node
 
       def initialize
+        #TODO: Move into Context?
         @root_node = Node.new
       end
 
@@ -42,6 +43,11 @@ module Xcake
         puts "Writing Project..."
 
         #TODO: Add Target Dependency Pass here.
+        target_dependency = TargetDependency.new(@context)
+        @project.accept(target_dependency)
+
+        scheme = Scheme.new(@context)
+        @project.accept(scheme)
 
         #TODO: Replace with generator
         @project.recreate_user_schemes
