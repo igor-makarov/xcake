@@ -16,8 +16,8 @@ module Xcake
         allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
       end
 
-      it "should store project" do
-        expect(@generator.project).to be(@project)
+      it "should store context" do
+        expect(@generator.context).to be(@context)
       end
 
       it "should create empty schemes array" do
