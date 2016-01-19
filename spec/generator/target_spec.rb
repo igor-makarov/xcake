@@ -24,11 +24,11 @@ module Xcake
           @target = double("Target").as_null_object
 
           @native_target = double("Native Target")
-          allow(@project).to receive(:new_target).and_return(@native_target)
+          allow(@context).to receive(:new_target).and_return(@native_target)
         end
 
         it "should create a new target" do
-          expect(@project).to receive(:new_target).with(@target)
+          expect(@context).to receive(:new_target).with(@target)
           @generator.visit_target(@target)
         end
 

@@ -21,7 +21,7 @@ module Xcake
         puts "Creating target #{target.name}..."
 
         @target = target
-        @native_target = @project.new_target(target)
+        @native_target = @context.new_target(target)
 
         Dir.glob(target.include_files).each do |file|
           @root_node.create_children_with_path(file, @native_target)

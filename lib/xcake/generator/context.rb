@@ -14,6 +14,10 @@ module Xcake
       def new_configuration
         return project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
+
+      def new_target(target)
+        return project.new_target(target)
+      end
     end
   end
 end
