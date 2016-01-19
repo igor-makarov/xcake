@@ -12,6 +12,12 @@ module Xcake
         @context = context
       end
 
+      def visit_project(project)
+      end
+
+      def leave_project(project)
+      end
+
       def visit_target(target)
 
         native_target = context.target_table[target]
@@ -26,6 +32,12 @@ module Xcake
       end
 
       def leave_target(target)
+      end
+
+      def visit_configuration(configuration)
+      end
+
+      def leave_configuration(configuration)
       end
     end
   end

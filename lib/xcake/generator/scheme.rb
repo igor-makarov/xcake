@@ -26,11 +26,7 @@ module Xcake
         }
       end
 
-      def visit_target(target)
-        case target.product_type
-          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
-              create_schemes_for_application(target)
-        end
+      def visit_project(project)
       end
 
       def leave_project(project)
@@ -53,6 +49,22 @@ module Xcake
 
           xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
           Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
+      end
+
+      def visit_target(target)
+        case target.product_type
+          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
+              create_schemes_for_application(target)
+        end
+      end
+
+      def leave_target(target)
+      end
+
+      def visit_configuration(configuration)
+      end
+
+      def leave_configuration(configuration)
       end
 
       # Creates schemes based on a application target
