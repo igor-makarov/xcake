@@ -77,7 +77,7 @@ module Xcake
           schemes << scheme
 
           @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
-          @xcschememanagement['SuppressBuildableAutocreation'][target.test_target.uuid] = {"primary" => true} if target.testing_target
+          @xcschememanagement['SuppressBuildableAutocreation'][target.testing_target.uuid] = {"primary" => true} if target.testing_target
         end
       end
     end
