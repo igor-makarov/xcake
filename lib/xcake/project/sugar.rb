@@ -86,6 +86,10 @@ module Xcake
         t.language = language
       end
 
+      #Xcake needs to add dependencies in generation phase.
+      #target.add_dependency(watch_app_target)
+      #watch_app_target.add_dependency(watch_extension_target)
+
       block.call(watch_app_target, watch_extension_target) if block_given?
 
       return nil
