@@ -80,11 +80,6 @@ module Xcake
             @generator.create_schemes_for_application(@target)
           end
 
-          it "add target as depedancy for unit test target" do
-            expect(@unit_test_target).to receive(:add_dependency).with(@target)
-            @generator.create_schemes_for_application(@target)
-          end
-
           it "should suppress unit test target scheme autocreation" do
             @generator.create_schemes_for_application(@target)
             autocreation_setting = @generator.xcschememanagement['SuppressBuildableAutocreation'][@unit_test_target.uuid]['primary']
