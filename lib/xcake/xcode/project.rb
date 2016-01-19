@@ -92,19 +92,6 @@ module Xcake
           self.targets << native_target
           native_target
         end
-
-        # Finds a unit test target for a xcode target
-        #
-        # @param [Target] target
-        #                 target to find a xcode target for.
-        #
-        # @return [Target] unit test target
-        #
-        def find_unit_test_target_for_target(target)
-          targets.find do |t|
-            t.name == "#{target.name}Tests"
-          end
-        end
     end
   end
 end
