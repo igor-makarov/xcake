@@ -10,11 +10,9 @@ module Xcake
 
         @target = double("Target").as_null_object
         allow(@target).to receive(:name).and_return("app")
-        allow(@target).to receive(:testing_target).and_return(nil)
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
 
         allow(@project).to receive(:targets).and_return([@target])
-        allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
       end
 
       it "should store context" do
