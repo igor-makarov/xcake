@@ -76,7 +76,6 @@ module Xcake
 
           #TODO: We should structure this stuff out
           if unit_test_target then
-             unit_test_target.add_dependency(target)
              @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
           end
 
