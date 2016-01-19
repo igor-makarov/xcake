@@ -23,14 +23,14 @@ module Xcake
       end
 
       it "should create a new XCBuildConfiguration" do
-        expect(@context).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration)
+        expect(@context).to receive(:new_configuration)
         @generator.visit_configuration(@configuration)
       end
 
       context "when configuring XCBuildConfiguration" do
 
         before :each do
-          allow(@project).to receive(:new).and_return(@xcode_build_configuration)
+          allow(@context).to receive(:new_configuration).and_return(@xcode_build_configuration)
         end
 
         it "should set name" do

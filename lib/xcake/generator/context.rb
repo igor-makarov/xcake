@@ -1,5 +1,6 @@
 require 'xcodeproj'
 
+#TODO: Document and Spec
 module Xcake
   module Generator
     class Context
@@ -8,7 +9,10 @@ module Xcake
       #
       attr_accessor :project
 
-      def self.context_for_filepath()
+      # Document
+      #
+      def new_configuration
+        return project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
     end
   end

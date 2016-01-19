@@ -12,7 +12,7 @@ module Xcake
       #
       attr_accessor :context
 
-      # @param    [Project] project for the file path
+      # @param [Project] project for the file path
       #
       def initialize(context)
         @context = context
