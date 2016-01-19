@@ -88,6 +88,7 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
+        #TODO: This crashes xcode so we need to fix this
       #  t.target_dependencies = [watch_extension_target]
 
         host_target.target_dependencies << t
