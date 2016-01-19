@@ -34,7 +34,7 @@ module Xcake
       end
 
       def leave_project(project)
-          schemes_dir = Xcodeproj::Scheme.user_data_dir(".")
+          schemes_dir = Xcode::Scheme.user_data_dir(".")
 
           FileUtils.rm_rf(schemes_dir)
           FileUtils.mkdir_p(schemes_dir)
@@ -64,7 +64,7 @@ module Xcake
 
         target.build_configurations.each do |c|
 
-          scheme = Scheme.new
+          scheme = Xcode::Scheme.new
           scheme.name = "#{target.name}-#{c.name}"
 
           scheme.configure_with_targets(target, target.testing_target)
