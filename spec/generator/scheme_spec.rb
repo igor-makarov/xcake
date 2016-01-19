@@ -5,7 +5,7 @@ module Xcake
     describe Scheme do
 
       before :each do
-        @project = double("Project")
+        @project = double("Project").as_null_object
         @context = double("Context").as_null_object
         @generator = Scheme.new(@context)
 
