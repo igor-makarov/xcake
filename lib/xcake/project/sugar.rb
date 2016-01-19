@@ -79,7 +79,6 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
-        t.target_dependencies = [host_target]
       end
 
       watch_app_target = target do |t|
