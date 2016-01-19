@@ -9,7 +9,7 @@ module Xcake
       end
 
       it "should store the context" do
-        generator = Path.new(@context)
+        @generator = Path.new(@context)
         expect(@generator.context).to be(@context)
       end
 
