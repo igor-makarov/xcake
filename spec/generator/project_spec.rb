@@ -57,22 +57,34 @@ module Xcake
         before :each do
           @project = double("Project").as_null_object
           @root_node = double("Root Node").as_null_object
-          @path_generator = double("Path Generator").as_null_object
 
           @generator.project = @project
           @generator.root_node = @root_node
         end
 
         it "run path generator on root node" do
-          expect(@root_node).to receive(:accept).with(@path_generator)
-          allow(Path).to receive(:new).and_return(@path_generator)
+          generator = double("Path Generator").as_null_object
+          expect(@root_node).to receive(:accept).with(generator)
+          allow(Path).to receive(:new).and_return(generator)
 
           @generator.leave_project(@project)
         end
 
-        #TODO: Add Target Dependency Generator Test
+        it "run target dependency generator on root node" do
+          generator = double("Target Dependency Generator").as_null_object
+          expect(@project).to receive(:accept).with(generator)
+          allow(TargetDependency).to receive(:new).and_return(generator)
 
-        #TODO: Add Scheme Generator Test
+          @generator.leave_project(@project)
+        end
+
+        it "run scheme generator on root node" do
+          generator = double("Scheme Generator").as_null_object
+          expect(@project).to receive(:accept).with(generator)
+          allow(Scheme).to receive(:new).and_return(generator)
+
+          @generator.leave_project(@project)
+        end
 
         it "should save project" do
           expect(@project).to receive(:save)

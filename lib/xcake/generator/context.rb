@@ -4,7 +4,7 @@ module Xcake
   module Generator
     # This class provides the context for the generators
     # and provides information like the current xcode project
-    # and mappings from the DSL Targets to the Xcode targets. 
+    # and mappings from the DSL Targets to the Xcode targets.
     #
     class Context
 
