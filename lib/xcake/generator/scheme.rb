@@ -34,7 +34,7 @@ module Xcake
       end
 
       def leave_project(project)
-          schemes_dir = Scheme.user_data_dir(writing_path)
+          schemes_dir = Xcodeproj::Scheme.user_data_dir(".")
 
           FileUtils.rm_rf(schemes_dir)
           FileUtils.mkdir_p(schemes_dir)
