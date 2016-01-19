@@ -18,7 +18,7 @@ module Xcake
       end
 
       def new_target(target)
-        return project.new_target(target)
+        return target_table[target] = project.new_target(target)
       end
 
       def new_scheme(target)
