@@ -74,7 +74,7 @@ module Xcake
       #
       def create_schemes_for_application(target)
 
-        target.build_configurations.each do |c|
+        target.flatten_configurations.each do |c|
 
           scheme = Xcode::Scheme.new
           scheme.name = "#{target.name}-#{c.name}"

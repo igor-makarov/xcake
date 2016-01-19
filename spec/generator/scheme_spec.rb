@@ -43,7 +43,7 @@ module Xcake
 
         before :each do
           @build_configuration = double("Build Configuration").as_null_object
-          allow(@target).to receive(:build_configurations).and_return([@build_configuration])
+          allow(@target).to receive(:flatten_configurations).and_return([@build_configuration])
 
           @scheme = double("Scheme").as_null_object
           allow(Xcode::Scheme).to receive(:new).and_return(@scheme)
