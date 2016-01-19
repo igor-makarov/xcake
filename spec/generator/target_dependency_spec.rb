@@ -19,8 +19,8 @@ module Xcake
         native_target = double("Native Target").as_null_object
 
         allow(@context).to receive(:target_table).and_return({
-          dependency: native_dependency,
-          target: native_target,
+          dependency => native_dependency,
+          target => native_target,
           })
         expect(native_target).to receive(:add_dependency).with(native_dependency)
 
