@@ -32,6 +32,8 @@ module Xcake
     #
     attr_accessor :language
 
+    #TODO: Rename to test_target
+
     # @return [Target] the testing target for this target
     #
     attr_accessor :testing_target
