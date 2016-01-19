@@ -23,9 +23,7 @@ module Xcake
 
       it "creates a valid context" do
         @generator.visit_project(@project)
-        
         expect(@generator.context).not_to be_nil
-        expect(@generator.context).to be(@generator.project)
       end
 
       it "should set class prefix" do
