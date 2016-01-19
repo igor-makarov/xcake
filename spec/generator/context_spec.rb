@@ -22,11 +22,11 @@ module Xcake
         end
 
         it "should return a new target" do
-          expect(configuration).not_to be_nil
+          expect(@native_target).not_to be_nil
         end
 
         it "should store target in target table" do
-          expect(context.target_table[@target]).to eq(@native_target)
+          expect(@context.target_table[@target]).to eq(@native_target)
         end
       end
 
