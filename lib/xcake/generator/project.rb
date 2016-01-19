@@ -42,11 +42,11 @@ module Xcake
 
         puts "Creating Dependencies..."
         target_dependency = TargetDependency.new(@context)
-        @project.accept(target_dependency)
+        project.accept(target_dependency)
 
         puts "Creating Schemes..."
         scheme = Scheme.new(@context)
-        @project.accept(scheme)
+        project.accept(scheme)
 
         puts "Writing Project..."
         @project.save
