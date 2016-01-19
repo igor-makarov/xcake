@@ -40,9 +40,9 @@ module Xcake
         generator = Path.new(@context)
         @root_node.accept(generator)
 
-        # puts "Creating Dependencies..."
-        # target_dependency = TargetDependency.new(@context)
-        # project.accept(target_dependency)
+        puts "Creating Dependencies..."
+        target_dependency = TargetDependency.new(@context)
+        project.accept(target_dependency)
 
         puts "Creating Schemes..."
         scheme = Scheme.new(@context)
