@@ -1,3 +1,4 @@
+#TODO: Re-add project prefix
 project_name = "Sup"
 class_prefix = "SUP"
 
