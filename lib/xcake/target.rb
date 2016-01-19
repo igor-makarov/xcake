@@ -32,7 +32,7 @@ module Xcake
     #
     attr_accessor :language
 
-    # TODO: Document
+    # @return [Target] the testing target for this target
     #
     attr_accessor :testing_target
 
