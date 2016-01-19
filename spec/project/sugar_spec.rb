@@ -45,7 +45,7 @@ module Xcake
     end
     context "when creating unit test target" do
       before :each do
-        @app_target = double("App Target")
+        @app_target = double("App Target").as_null_object
 
         allow(@app_target).to receive(:name).and_return("application")
         allow(@app_target).to receive(:platform).and_return(:ios)
@@ -82,6 +82,10 @@ module Xcake
 
       it "should set bundle loader setting to test host" do
         expect(@target.all_configurations.settings["BUNDLE_LOADER"]).to eq("$(TEST_HOST)")
+      end
+
+      it "should set testing target for test host" do
+        expect(@app_target.testing_target).to include(@target)
       end
 
       it "should add test host as dependency" do
