@@ -15,7 +15,7 @@ module Xcake
       end
 
       it "should initilize target table" do
-        expect(@context.target_table).to be({})
+        expect(@context.target_table).to eq({})
       end
 
       describe "when creating native target" do
