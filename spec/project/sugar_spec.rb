@@ -51,7 +51,6 @@ module Xcake
         allow(@app_target).to receive(:platform).and_return(:ios)
         allow(@app_target).to receive(:deployment_target).and_return(8.0)
         allow(@app_target).to receive(:language).and_return(:swift)
-        allow(@app_target).to receive(:target_dependencies).and_return([])
 
         @target = @project.unit_tests_for @app_target
       end
@@ -94,6 +93,7 @@ module Xcake
       before :each do
         @app_target = double("App Target")
         allow(@app_target).to receive(:name).and_return("application")
+        allow(@app_target).to receive(:target_dependencies).and_return([])
 
         @project.watch_app_for @app_target, 2.0, :swift do |app, extension|
           @watch_app_target = app
