@@ -6,6 +6,9 @@ module Xcake
 
       before :each do
         @context = double("Context")
+        @project = double("Project")
+
+        allow(@context).to receive(:project).and_return(@project)
       end
 
       it "should store the context" do
@@ -48,14 +51,14 @@ module Xcake
             it "should initialize generator with project" do
               expect(@build_phase).to receive(:new).with(@project)
 
-              generator = Path.new(@project)
+              generator = Path.new(@context)
               generator.visit_node(@node)
             end
 
             it "should accept generator" do
               expect(@node).to receive(:accept).with(@build_phase)
 
-              generator = Path.new(@project)
+              generator = Path.new(@context)
               generator.visit_node(@node)
             end
           end
