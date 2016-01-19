@@ -88,9 +88,9 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
-        t.target_dependencies = [watch_extension_target]
+      #  t.target_dependencies = [watch_extension_target]
 
-      #  host_target.target_dependencies << t
+        host_target.target_dependencies << t
       end
 
       block.call(watch_app_target, watch_extension_target) if block_given?
