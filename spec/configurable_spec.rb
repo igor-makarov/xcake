@@ -25,7 +25,7 @@ module Xcake
       it "should store build configuration" do
         expect(@configurable.debug_configurations.count).to eq(1)
       end
-      
+
       it "should use that configuration if no name is specified" do
         expect(@configuration.debug_configuration).to eq(@configuration)
       end
