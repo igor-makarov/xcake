@@ -86,7 +86,7 @@ module Xcake
     #
     # @return [Configuration] the new or existing debug configuration
     #
-    def debug_configuration(name=nil, &block)
+    def debug_configuration(name = nil, &block)
       build_configuration(:debug, name, &block)
     end
 
@@ -95,7 +95,7 @@ module Xcake
     #
     # @return [Configuration] the new or existing release configuration
     #
-    def release_configuration(name=nil, &block)
+    def release_configuration(name = nil, &block)
       build_configuration(:release, name, &block)
     end
 
@@ -103,7 +103,7 @@ module Xcake
 
     def build_configuration(method, name, &block)
       configuration_name = send("#{method}_configurations")
-      if name == nil
+      if name.nil?
         configuration = confugration_name.first
       else
         configuration = configuration_name.detect do |c|
