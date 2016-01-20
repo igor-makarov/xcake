@@ -5,14 +5,14 @@ module Xcake
     describe Target do
 
       before :each do
-        @project = double("Project").as_null_object
+        @context = double("Context").as_null_object
         @root_node = double("Root Node").as_null_object
 
-        @generator = Target.new(@project, @root_node)
+        @generator = Target.new(@context, @root_node)
       end
 
-      it "should store the project" do
-        expect(@generator.project).to eq(@project)
+      it "should store the context" do
+        expect(@generator.context).to eq(@context)
       end
 
       it "should store the root node" do
@@ -24,11 +24,11 @@ module Xcake
           @target = double("Target").as_null_object
 
           @native_target = double("Native Target")
-          allow(@project).to receive(:new_target).and_return(@native_target)
+          allow(@context).to receive(:new_target).and_return(@native_target)
         end
 
         it "should create a new target" do
-          expect(@project).to receive(:new_target).with(@target)
+          expect(@context).to receive(:new_target).with(@target)
           @generator.visit_target(@target)
         end
 

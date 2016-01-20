@@ -11,7 +11,7 @@ module Xcake
 
       # @return [Project] project for the configuration
       #
-      attr_accessor :project
+      attr_accessor :context
 
       # @return [Object] object from xcode project the configuration is for
       #
@@ -21,8 +21,8 @@ module Xcake
       #
       # @param    [Object] object from xcode project the configuration is for
       #
-      def initialize(project, configuration_target)
-        @project = project
+      def initialize(context, configuration_target)
+        @context = context
         @configuration_target = configuration_target
       end
 
@@ -31,7 +31,7 @@ module Xcake
       def visit_configuration(configuration)
         puts "Creating build configuration #{configuration.name} for #{@configuration_target}..."
 
-        build_configuration = @project.new(Xcodeproj::Project::Object::XCBuildConfiguration)
+        build_configuration = @context.new_configuration
 
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings

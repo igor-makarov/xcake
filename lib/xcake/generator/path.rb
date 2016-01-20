@@ -10,12 +10,12 @@ module Xcake
 
       # @return [Project] the xcode project
       #
-      attr_accessor :project
+      attr_accessor :context
 
-      # @param    [Project] project for the file path
+      # @param [Project] project for the file path
       #
-      def initialize(project)
-        @project = project
+      def initialize(context)
+        @context = context
       end
 
       protected
@@ -29,7 +29,7 @@ module Xcake
         generator_class = BuildPhase::Registry.generator_for_node(node)
 
         if generator_class
-          generator = generator_class.new(@project)
+          generator = generator_class.new(@context.project)
           node.accept(generator)
         end
       end

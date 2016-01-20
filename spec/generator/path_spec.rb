@@ -5,12 +5,15 @@ module Xcake
     describe Path do
 
       before :each do
+        @context = double("Context")
         @project = double("Project")
+
+        allow(@context).to receive(:project).and_return(@project)
       end
 
-      it "should store the project" do
-        generator = Path.new(@project)
-        expect(generator.project).to be(@project)
+      it "should store the context" do
+        @generator = Path.new(@context)
+        expect(@generator.context).to be(@context)
       end
 
       context "when visiting node" do
@@ -48,14 +51,14 @@ module Xcake
             it "should initialize generator with project" do
               expect(@build_phase).to receive(:new).with(@project)
 
-              generator = Path.new(@project)
+              generator = Path.new(@context)
               generator.visit_node(@node)
             end
 
             it "should accept generator" do
               expect(@node).to receive(:accept).with(@build_phase)
 
-              generator = Path.new(@project)
+              generator = Path.new(@context)
               generator.visit_node(@node)
             end
           end

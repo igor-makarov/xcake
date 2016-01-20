@@ -45,7 +45,7 @@ module Xcake
     end
     context "when creating unit test target" do
       before :each do
-        @app_target = double("App Target")
+        @app_target = double("App Target").as_null_object
 
         allow(@app_target).to receive(:name).and_return("application")
         allow(@app_target).to receive(:platform).and_return(:ios)
@@ -83,12 +83,21 @@ module Xcake
       it "should set bundle loader setting to test host" do
         expect(@target.all_configurations.settings["BUNDLE_LOADER"]).to eq("$(TEST_HOST)")
       end
+
+      it "should set testing target for test host" do
+        expect(@app_target.testing_target).to include(@target)
+      end
+
+      it "should add test host as dependency" do
+        expect(@target.target_dependencies).to include(@app_target)
+      end
     end
 
     context "when creating watch target" do
       before :each do
         @app_target = double("App Target")
         allow(@app_target).to receive(:name).and_return("application")
+        allow(@app_target).to receive(:target_dependencies).and_return([])
 
         @project.watch_app_for @app_target, 2.0, :swift do |app, extension|
           @watch_app_target = app
@@ -115,6 +124,14 @@ module Xcake
 
         it "should set language" do
           expect(@watch_app_target.language).to eq(:swift)
+        end
+
+        it "should add watch app to app dependancies" do
+          expect(@app_target.target_dependencies).to include(@watch_app_target)
+        end
+
+        it "should add extension as dependency" do
+          expect(@watch_app_target.target_dependencies).to include(@extension_target)
         end
       end
 

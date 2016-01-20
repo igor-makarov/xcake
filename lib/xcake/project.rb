@@ -48,8 +48,8 @@ module Xcake
     #
     def initialize(name="Project", &block)
 
-      self.project_name = name
-      self.targets = []
+      @project_name = name
+      @targets = []
 
       block.call(self) if block_given?
     end

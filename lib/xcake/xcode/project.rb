@@ -43,21 +43,8 @@ module Xcake
           attributes["ORGANIZATIONNAME"] = organization
         end
 
-        # @return [SchemeList] the scheme list
-        #
-        def scheme_list
-          @scheme_list ||= SchemeList.new(self)
-        end
-
         def object_version
           Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
-        end
-
-        def recreate_user_schemes(*)
-          puts "Creating Schemes..."
-
-          scheme_list.recreate_schemes
-          scheme_list.save(path)
         end
 
         # Configures the Project for use with Xcake.
@@ -83,7 +70,7 @@ module Xcake
         # @param [Target] target
         #                 target DSL to create target from
         #
-        # @return [Target] new xcode target
+        # @return [PBXNativeTarget] new xcode target
         #
         def new_target(target)
           native_target = self.new(Xcodeproj::Project::Object::PBXNativeTarget)
@@ -104,19 +91,6 @@ module Xcake
 
           self.targets << native_target
           native_target
-        end
-
-        # Finds a unit test target for a xcode target
-        #
-        # @param [Target] target
-        #                 target to find a xcode target for.
-        #
-        # @return [Target] unit test target
-        #
-        def find_unit_test_target_for_target(target)
-          targets.find do |t|
-            t.name == "#{target.name}Tests"
-          end
         end
     end
   end

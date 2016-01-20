@@ -21,10 +21,13 @@ require "xcake/generator/build_phase/copy_xcassets_build_phase"
 require "xcake/generator/build_phase/header_file_build_phase"
 require "xcake/generator/build_phase_registry"
 
+require "xcake/generator/context"
 require "xcake/generator/configuration"
 require "xcake/generator/path"
 require "xcake/generator/project"
+require "xcake/generator/scheme"
 require "xcake/generator/target"
+require "xcake/generator/target_dependency"
 
 require "xcake/project"
 require "xcake/project/sugar"
@@ -35,7 +38,6 @@ require "xcake/target"
 
 require "xcake/xcode/project"
 require "xcake/xcode/scheme"
-require "xcake/xcode/scheme_list"
 
 module Xcake
 

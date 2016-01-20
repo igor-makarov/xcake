@@ -6,16 +6,16 @@ module Xcake
 
       before :each do
         @xcode_build_configuration = double("XCBuildConfiguration").as_null_object
-        @project = double("Project")
+        @context = double("Context").as_null_object
 
         @configuration_target = double("Configuration Target").as_null_object
         @configuration = double("Configuration").as_null_object
 
-        @generator = Configuration.new(@project, @configuration_target)
+        @generator = Configuration.new(@context, @configuration_target)
       end
 
-      it "should store the project" do
-        expect(@generator.project).to be(@project)
+      it "should store the context" do
+        expect(@generator.context).to be(@context)
       end
 
       it "should store the configuration target" do
@@ -23,14 +23,14 @@ module Xcake
       end
 
       it "should create a new XCBuildConfiguration" do
-        expect(@project).to receive(:new).with(Xcodeproj::Project::Object::XCBuildConfiguration).and_return(@xcode_build_configuration)
+        expect(@context).to receive(:new_configuration)
         @generator.visit_configuration(@configuration)
       end
 
       context "when configuring XCBuildConfiguration" do
 
         before :each do
-          allow(@project).to receive(:new).and_return(@xcode_build_configuration)
+          allow(@context).to receive(:new_configuration).and_return(@xcode_build_configuration)
         end
 
         it "should set name" do

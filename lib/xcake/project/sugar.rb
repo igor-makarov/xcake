@@ -53,6 +53,9 @@ module Xcake
         t.all_configurations.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
         t.all_configurations.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
 
+        t.target_dependencies = [host_target]
+        host_target.testing_target = t
+
         block.call(t) if block_given?
       end
     end
@@ -68,14 +71,6 @@ module Xcake
     # @return Void
     #
     def watch_app_for(host_target, deployment_target, language = :objc, &block)
-      watch_app_target = target do |t|
-        t.name = "#{host_target.name}-Watch"
-
-        t.type = :watch2_app
-        t.platform = :watchos
-        t.deployment_target = deployment_target
-        t.language = language
-      end
 
       watch_extension_target = target do |t|
         t.name = "#{host_target.name}-Watch Extension"
@@ -84,6 +79,18 @@ module Xcake
         t.platform = :watchos
         t.deployment_target = deployment_target
         t.language = language
+      end
+
+      watch_app_target = target do |t|
+        t.name = "#{host_target.name}-Watch"
+
+        t.type = :watch2_app
+        t.platform = :watchos
+        t.deployment_target = deployment_target
+        t.language = language
+        t.target_dependencies = [watch_extension_target]
+
+        host_target.target_dependencies << t
       end
 
       block.call(watch_app_target, watch_extension_target) if block_given?
