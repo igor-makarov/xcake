@@ -104,7 +104,7 @@ module Xcake
     def build_configuration(method, name, &block)
       configuration_name = send("#{method}_configurations")
       if name.nil?
-        configuration = confugration_name.first
+        configuration = configuration_name.first
       else
         configuration = configuration_name.detect do |c|
           c.name == name.to_s

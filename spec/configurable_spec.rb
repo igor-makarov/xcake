@@ -27,7 +27,7 @@ module Xcake
       end
 
       it "should use that configuration if no name is specified" do
-        expect(@configuration.debug_configuration).to eq(@configuration)
+        expect(@configurable.debug_configuration).to eq(@configuration)
       end
 
       context "that already exists" do
@@ -53,7 +53,7 @@ module Xcake
       end
 
       it "should use that configuration if no name is specified" do
-        expect(@configuration.release_configuration).to eq(@configuration)
+        expect(@configurable.release_configuration).to eq(@configuration)
       end
 
       context "that already exists" do
