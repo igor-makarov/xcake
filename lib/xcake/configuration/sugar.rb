@@ -33,8 +33,7 @@ module Xcake
       settings["PRODUCT_BUNDLE_IDENTIFIER"] = identifier
     end
 
-    # Convienence method to easily set the
-    # product's bundle identifier
+    # Convienence method to easily set preprocessor directives
     #
     def preprocessor_definitions
       PreprocessorDefinitionsSettingProxy.new(
