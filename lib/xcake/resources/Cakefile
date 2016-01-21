@@ -1,5 +1,8 @@
+# Change this to set a different Project file name
+#project.project_name = "Project"
+
 # Replace this with your class prefix for Objective-C files.
-class_prefix = "APP"
+project.class_prefix = "APP"
 
 # By default Xcake defaults to creating the standard Debug and Release
 # configurations, uncomment these lines to add your own.
