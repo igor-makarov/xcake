@@ -45,7 +45,7 @@ end
 To generate the xcode project, just run:
 
 ```sh
-xcake bake
+xcake make
 ```
 
 If you would like an example Cakefile for guidence, just run:
