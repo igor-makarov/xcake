@@ -1,3 +1,7 @@
+v0.5.1
+======
+- Tweaks DSL so it is easier to access the project properties via the `project` method.
+
 v0.5.0
 ======
 - Introduces `xcake init` command to setup an example Cakefile for you.
