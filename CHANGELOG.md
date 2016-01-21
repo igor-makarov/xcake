@@ -1,3 +1,7 @@
+v0.5.3
+======
+- Updates `xcake bake` to more generic `xcake make` (Thanks to @roger-tan).
+
 v0.5.2
 ======
 - Updates `xcake init` for new project syntax.
