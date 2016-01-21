@@ -1,3 +1,8 @@
+v0.5.2
+======
+- Updates `xcake init` for new project syntax.
+- Adds shorthand build configuration syntax for projects which only contain one debug or release configuration.
+
 v0.5.1
 ======
 - Tweaks DSL so it is easier to access the project properties via the `project` method.
