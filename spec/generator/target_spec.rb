@@ -59,14 +59,23 @@ module Xcake
         end
       end
 
-      it "should add system frameworks" do
-        allow(@target).to receive(:system_frameworks).and_return(["Foundation"])
-        expect(@native_target).to receive(:add_system_frameworks).with(
-          @target.system_frameworks
-        )
+      context "adding system frameworks" do
+        before :each do
+          @target = double("Target")
+          @native_target = double("Native Target")
+        end
 
-        @generator.native_target = @native_target
-        @generator.leave_target(@target)
+        it "should add system frameworks" do
+          allow(@target).to receive(:system_frameworks).and_return(["Foundation"])
+          expect(@native_target).to receive(:add_system_frameworks).with(
+            @target.system_frameworks
+          )
+          allow(@target).to receive(:build_phases).and_return([])
+          allow(@native_target).to receive(:build_phases).and_return([])
+
+          @generator.native_target = @native_target
+          @generator.leave_target(@target)
+        end
       end
 
       it "run configuration generator when visiting configuration" do

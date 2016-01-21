@@ -32,6 +32,10 @@ module Xcake
     #
     attr_accessor :language
 
+    # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list of custom build phases for the project.
+    #
+    attr_accessor :build_phases
+
     # @!group File patterns
 
     #
@@ -151,6 +155,7 @@ module Xcake
     #           end
     #
     def initialize(&block)
+      self.build_phases = []
       block.call(self) if block_given?
     end
 
