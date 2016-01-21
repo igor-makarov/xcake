@@ -6,6 +6,10 @@ module Xcake
       @project = Project.new
     end
 
+    it "should return the project" do
+      expect(@project.project).to eq(@project)
+    end
+
     context "when creating application target" do
       before :each do
         @target = @project.application_for :ios, 8.0
