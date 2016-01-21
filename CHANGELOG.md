@@ -1,7 +1,7 @@
 v0.5.2
 ======
 - Updates `xcake init` for new project syntax.
-- Adds shorthand build configuration syntax for projects which only contain one debug or release configuration.
+- Adds shorthand build configuration syntax for projects which only contain one debug or release configuration (Thanks to @colinta).
 
 v0.5.1
 ======
