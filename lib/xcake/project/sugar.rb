@@ -2,6 +2,19 @@ require "xcodeproj"
 
 module Xcake
   class Project
+
+    # Passes the project instance to a block. This is used to easily modify the
+    # properties of the project in the DSL.
+    #
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the project through the DSL.
+    #
+    def project(&block)
+      block.call(self) if block_given?
+      self
+    end
+
     # Defines a new application target.
     #
     # @param  [Symbol] platform

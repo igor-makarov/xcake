@@ -29,17 +29,37 @@ readable, efficient and concise.
 
 ## Project
 
-A project is automatically created from a `Cakefile` below is all of the ways
-you can customize this project.
+A project is automatically created from a `Cakefile`. To customize a Project
+you can easily access all of it's properties via the `project` method.
+
+```ruby
+project do |p|
+  p.project_name = "Project"
+end
+```
+
+You can also directly set the properties without a block, like so:
+
+```ruby
+project.project_name = "Project"
+```
 
 ###Properties
+
+#### Project Name
+
+Sets the filename for the project
+
+```ruby
+project.project_name = "Project"
+```
 
 #### Class Prefix
 
 Sets the class prefix for the project
 
 ```ruby
-class_prefix = "XC"
+project.class_prefix = "XC"
 ```
 
 #### Organization
@@ -47,7 +67,7 @@ class_prefix = "XC"
 Sets the organization for the project.
 
 ```ruby
-organization = "Xcake Productions"
+project.organization = "Xcake Productions"
 ```
 
 ## Targets
