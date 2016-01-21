@@ -45,7 +45,7 @@ end
 To generate the xcode project, just run:
 
 ```sh
-xcake bake
+xcake make
 ```
 
 If you would like an example Cakefile for guidence, just run:
@@ -58,7 +58,7 @@ xcake init
 --------------------------|------------------------------------------------------------
 :sparkles: | Flexibly configure and create xcode project from one easy to read `Cakefile`
 :ship: | Generate from any computer, including a CI-server
-:thought_balloon: | Never remember any difficult commands, just `xcake bake`
+:thought_balloon: | Never remember any difficult commands, just `xcake make`
 :page_with_curl: | Store **everything** but the project in git. Never again manually fix any corruptions or merge issues with the project.
 :rocket: | Saves you **hours** when working with xcode projects
 :anchor: | Confidence that the project file is exactly the same during Continuous Delivery
@@ -90,7 +90,7 @@ Xcake can create an example cakefile when you run:
 
 Usually you'll use xcake by running the command
 
-    xcake bake
+    xcake make
 
 Xcake will then generate a Xcode project based on your Cakefile
 

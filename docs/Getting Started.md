@@ -14,7 +14,7 @@ so we're going to need some command line magic:
 So we should have a folder called "MyProject" with a textfile named "Cakefile" inside of it,
 Xcake will look for this textfile, so make sure to keep it's name the same.
 
-Now, If we run `xcake bake` we should now have our xcode project. *phew* that was easy! If we open it however it's not quite ready to use, it's still lacking any targets to actually build.
+Now, If we run `xcake make` we should now have our xcode project. *phew* that was easy! If we open it however it's not quite ready to use, it's still lacking any targets to actually build.
 So let's fix that :)
 
 We're going to create an app for iOS 9.0 called `MyApp`, hopefully the syntax should be easy to grasp:
@@ -25,7 +25,7 @@ application_for :ios, 9.0 do |target|
 end
 ```
 
-Now if we run `xcake bake` again, we get the same project file but now with a target. In addition to this
+Now if we run `xcake make` again, we get the same project file but now with a target. In addition to this
 xcake has created a `debug` and `release` build configuration as well as two schemes for our target
 and these build configurations.
 
@@ -43,7 +43,7 @@ application_for :ios, 9.0 do |target|
 end
 ```
 
-Again we run `xcake bake` and voilla! Pretty easy but now if we open up our project
+Again we run `xcake make` and voilla! Pretty easy but now if we open up our project
 our `debug` and `release` configurations are gone. Xcake operates an opt-out system, Xcode projects won't open
 without any configurations so Xcake provides these configurations as a sensible default. But as soon as we
 provide our own configurations we are opting out of these defaults.
