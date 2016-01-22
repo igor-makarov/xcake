@@ -42,6 +42,53 @@ module Xcake
       end
     end
 
+    context "when creating configurations for the first time" do
+      context "creating a debug configuration" do
+        it "should create a configuration if a name is specified" do
+          configuration = @configurable.debug_configuration(:Debug)
+          expect(@configurable.debug_configuration(:Debug)).to eq(configuration)
+        end
+
+        it "should name the configuration if a name is specified" do
+          configuration = @configurable.debug_configuration(:Debug)
+          expect(configuration.name).to eq("Debug")
+        end
+
+        it "should create a configuration even if no name is specified" do
+          configuration = @configurable.debug_configuration
+          expect(@configurable.debug_configuration).to eq(configuration)
+        end
+
+        it "should name the configuration even if no name is specified" do
+          configuration = @configurable.debug_configuration
+          expect(configuration.name).to eq("Debug")
+        end
+      end
+
+      context "creating a release configuration" do
+        it "should create a configuration if a name is specified" do
+          configuration = @configurable.release_configuration(:Release)
+          expect(@configurable.release_configuration(:Release)).to \
+            eq(configuration)
+        end
+
+        it "should name the configuration if a name is specified" do
+          configuration = @configurable.release_configuration(:Release)
+          expect(configuration.name).to eq("Release")
+        end
+
+        it "should create a configuration even if no name is specified" do
+          configuration = @configurable.release_configuration
+          expect(@configurable.release_configuration).to eq(configuration)
+        end
+
+        it "should name the configuration even if no name is specified" do
+          configuration = @configurable.release_configuration
+          expect(configuration.name).to eq("Release")
+        end
+      end
+    end
+
     context "when creating release configuration" do
 
       before :each do
