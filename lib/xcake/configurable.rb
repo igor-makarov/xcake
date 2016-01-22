@@ -112,6 +112,7 @@ module Xcake
       end
 
       if configuration.nil?
+        name ||= method.to_s
         configuration = Configuration.new(name) do |b|
           block.call(b) if block_given?
         end
