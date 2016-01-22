@@ -43,9 +43,7 @@ module Xcake
     end
 
     context "when creating configurations for the first time" do
-
       context "creating a debug configuration" do
-
         it "should create a configuration if a name is specified" do
           configuration = @configurable.debug_configuration(:debug)
           expect(@configurable.debug_configuration(:debug)).to eq(configuration)
@@ -53,7 +51,7 @@ module Xcake
 
         it "should name the configuration if a name is specified" do
           configuration = @configurable.debug_configuration(:debug)
-          expect(configuration.name).to eq('debug')
+          expect(configuration.name).to eq("debug")
         end
 
         it "should create a configuration even if no name is specified" do
@@ -63,21 +61,20 @@ module Xcake
 
         it "should name the configuration even if no name is specified" do
           configuration = @configurable.debug_configuration
-          expect(configuration.name).to eq('debug')
+          expect(configuration.name).to eq("debug")
         end
-
       end
 
       context "creating a release configuration" do
-
         it "should create a configuration if a name is specified" do
           configuration = @configurable.release_configuration(:release)
-          expect(@configurable.release_configuration(:release)).to eq(configuration)
+          expect(@configurable.release_configuration(:release)).to \
+            eq(configuration)
         end
 
         it "should name the configuration if a name is specified" do
           configuration = @configurable.release_configuration(:release)
-          expect(configuration.name).to eq('release')
+          expect(configuration.name).to eq("release")
         end
 
         it "should create a configuration even if no name is specified" do
@@ -87,9 +84,8 @@ module Xcake
 
         it "should name the configuration even if no name is specified" do
           configuration = @configurable.release_configuration
-          expect(configuration.name).to eq('release')
+          expect(configuration.name).to eq("release")
         end
-
       end
     end
 
