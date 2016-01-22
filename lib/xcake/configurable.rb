@@ -112,7 +112,10 @@ module Xcake
       end
 
       if configuration.nil?
-        name ||= method.to_s
+        if name.nil?
+          name = method.to_s[0].upcase + method.to_s[1..-1]
+        end
+
         configuration = Configuration.new(name) do |b|
           block.call(b) if block_given?
         end
