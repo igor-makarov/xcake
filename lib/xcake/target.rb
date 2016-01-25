@@ -31,6 +31,10 @@ module Xcake
     #                  Can be `:objc`, `:swift`.
     #
     attr_accessor :language
+    
+    # @return [Target] the test target for this target
+    #
+    attr_accessor :test_target
 
     # @!group File patterns
 
@@ -140,6 +144,10 @@ module Xcake
     #    spec.system_frameworks = ["Foundation"]
     #
     attr_accessor :system_frameworks
+    
+    # @return [Array<Target>] targets to use as dependencies
+    #
+    attr_accessor :target_dependencies
 
     # @param    [Proc] block
     #           an optional block that configures the project through the DSL.
@@ -164,6 +172,10 @@ module Xcake
 
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
+    end
+    
+    def target_dependencies
+        @target_dependencies ||= []
     end
 
     protected
