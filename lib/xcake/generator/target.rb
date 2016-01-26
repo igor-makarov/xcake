@@ -34,9 +34,10 @@ module Xcake
 
       def leave_target(target)
         @native_target.add_system_frameworks(target.system_frameworks) if target.system_frameworks
-        @native_target.build_phases.concat(target.build_phases.map do |phase|
+        target.build_phases.each do |phase|
+          puts "Adding phase \"#{phase.name}\""
           phase.generate_native_build_phase(@native_target)
-        end)
+        end
       end
 
       def visit_configuration(configuration)

@@ -9,8 +9,7 @@ module Xcake
     def generate_native_build_phase(target)
       phase = target.new_shell_script_build_phase(name)
       phase.shell_script = script
-      return phase
+      phase
     end
-
   end
 end

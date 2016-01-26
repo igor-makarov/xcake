@@ -17,6 +17,5 @@ module Xcake
         expect(@target.build_phases.length).to eq(1)
       end
     end
-
   end
 end

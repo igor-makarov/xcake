@@ -32,7 +32,8 @@ module Xcake
     #
     attr_accessor :language
 
-    # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list of custom build phases for the project.
+    # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list
+    #                  of custom build phases for the project.
     #
     attr_accessor :build_phases
 
