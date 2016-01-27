@@ -6,13 +6,13 @@ module Xcake
     it "should have a default project name" do
       project = Project.new
 
-      expect(project.project_name).to eq("Project")
+      expect(project.name).to eq("Project")
     end
 
     it "should set project name" do
       project = Project.new("Test")
 
-      expect(project.project_name).to eq("Test")
+      expect(project.name).to eq("Test")
     end
 
     it "should initialize targets" do

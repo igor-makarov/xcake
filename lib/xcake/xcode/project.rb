@@ -106,6 +106,29 @@ module Xcake
           native_target
         end
 
+        # Creates a new xcode configuration from the configuration DSL
+        #
+        # @param [Configurarion] configuration
+        #                 configuration DSL to create target from
+        #
+        # @return [Configurarion] new xcode configuration
+        #
+        def new_configuration(configuration)
+          self.new(Xcodeproj::Project::Object::XCBuildConfiguration)
+        end
+
+        # Creates a new xcode group from the node
+        #
+        # @param [Node]   node
+        #                 configuration DSL to create target from
+        #
+        # @return [Group] new xcode group
+        #
+        def new_group(node)
+          return self.main_group unless node.parent
+          self.main_group.find_subpath(node.parent.path, true)
+        end
+
         # Finds a unit test target for a xcode target
         #
         # @param [Target] target
