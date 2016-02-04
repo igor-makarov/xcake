@@ -24,8 +24,6 @@ module Xcake
 
         return unless node.path
 
-        puts "Adding #{node.path}..."
-
         generator_class = BuildPhase::Registry.generator_for_node(node)
 
         if generator_class

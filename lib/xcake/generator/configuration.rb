@@ -37,6 +37,7 @@ module Xcake
         build_configuration.build_settings = configuration.settings
 
         @configuration_target.build_configurations << build_configuration
+        configuration.native_configuration = build_configuration
       end
 
       def leave_configuration(configuration)

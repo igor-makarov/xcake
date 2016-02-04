@@ -14,11 +14,12 @@ module Xcake
         #
         def self.build_phase_generators
           [
-              CompileSourceBuildPhase,
-              CompileXCDataModeldBuildPhase,
-              HeaderFileBuildPhase,
-              CopyXCAssetsBuildPhase,
-              CopyResourcesBuildPhase
+            IgnorePhase,
+            CompileSourceBuildPhase,
+            CompileXCDataModeldBuildPhase,
+            HeaderFileBuildPhase,
+            CopyXCAssetsBuildPhase,
+            CopyResourcesBuildPhase
           ]
         end
 

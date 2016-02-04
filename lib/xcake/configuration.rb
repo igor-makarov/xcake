@@ -14,7 +14,7 @@ module Xcake
 
     include Visitable
 
-    # @return [String>] the name of the configuration
+    # @return [String] the name of the configuration
     #
     attr_accessor :name
 
@@ -25,6 +25,15 @@ module Xcake
     # @return [Hash<String, String>] the settings for the configuration
     #
     attr_accessor :settings
+
+    # @return [String] the name of the xcconfig file to use for
+    #         the build configuration.  This is resolved to a PBXFileReference.
+    #
+    attr_accessor :configuration_file
+
+    # @return [XCBuildConfiguration] the Xcodeproj XCBuildConfiguration object
+    #         that this Configuration generated
+    attr_accessor :native_configuration
 
     # @param    [String] name
     #           the name of the configuration.
