@@ -35,6 +35,20 @@ module Xcake
         generator = Path.new(@project)
         @root_node.accept(generator)
 
+        project.targets.each do |t|
+          all_configurations = t.debug_configurations + t.release_configurations
+
+          all_configurations.each do |c|
+            next unless c.configuration_file
+
+            generator = BaseConfig.new(
+              @project,
+              c.native_configuration,
+              c.configuration_file)
+            @root_node.accept(generator)
+          end
+        end
+
         puts "Writing Project..."
         
         @project.recreate_user_schemes
