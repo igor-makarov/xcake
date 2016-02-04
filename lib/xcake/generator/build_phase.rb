@@ -60,7 +60,12 @@ module Xcake
 
       protected
 
+      def adding_node(node)
+        puts "Adding #{node.path}..."
+      end
+
       def visit_node(node)
+        adding_node(node)
 
         group = group_for_node(node)
         file_reference = group.new_reference(node.path)
