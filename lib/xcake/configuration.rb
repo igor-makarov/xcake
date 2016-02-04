@@ -14,7 +14,7 @@ module Xcake
 
     include Visitable
 
-    # @return [String>] the name of the configuration
+    # @return [String] the name of the configuration
     #
     attr_accessor :name
 
