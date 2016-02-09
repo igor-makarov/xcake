@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 #TODO: Figure out shorter class name
 module Xcake
@@ -8,37 +8,37 @@ module Xcake
     end
 
     it "should not able to install folder" do
-      allow(@node).to receive(:path).and_return('Folder/')
+      allow(@node).to receive(:path).and_return("Folder/")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(false)
     end
 
     it "should not able to install non source code file" do
-      allow(@node).to receive(:path).and_return('File.txt')
+      allow(@node).to receive(:path).and_return("File.txt")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(false)
     end
 
     it "should be able to install c source code file" do
-      allow(@node).to receive(:path).and_return('File.c')
+      allow(@node).to receive(:path).and_return("File.c")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
 
     it "should be able to install objective-c source code file" do
-      allow(@node).to receive(:path).and_return('File.m')
+      allow(@node).to receive(:path).and_return("File.m")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
 
     it "should be able to install objective-c++ source code file" do
-      allow(@node).to receive(:path).and_return('File.mm')
+      allow(@node).to receive(:path).and_return("File.mm")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
 
     it "should be able to install c++ source code file" do
-      allow(@node).to receive(:path).and_return('File.cpp')
+      allow(@node).to receive(:path).and_return("File.cpp")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
 
     it "should be able to install swift source code file" do
-      allow(@node).to receive(:path).and_return('File.swift')
+      allow(@node).to receive(:path).and_return("File.swift")
       expect(CompileSourceFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
 
