@@ -26,7 +26,6 @@ module Xcake
     end
 
     it "should remove children for node" do
-
       expect(@node).to receive(:children=).with([])
 
       project = double("Project").as_null_object
