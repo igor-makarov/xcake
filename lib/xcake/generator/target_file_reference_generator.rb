@@ -55,6 +55,5 @@ module Xcake
         node.accept(installer)
       end
     end
-
   end
 end
