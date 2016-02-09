@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Xcake
   describe SchemeGenerator do
-
     before :each do
       @dsl_project = double("DSL Project")
       @project = double("Project")
