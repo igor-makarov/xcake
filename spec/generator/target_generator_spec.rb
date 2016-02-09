@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Xcake
   describe TargetGenerator do
-
     before :each do
       @context = double("Context")
       @generator = TargetGenerator.new(@context)

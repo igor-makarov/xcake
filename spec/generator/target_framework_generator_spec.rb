@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Xcake
   describe TargetFrameworkGenerator do
-
     before :each do
       @dsl_target = double("DSL Target")
       @target = double("Target")

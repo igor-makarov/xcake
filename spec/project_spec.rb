@@ -2,7 +2,6 @@ require 'spec_helper'
 
 module Xcake
   describe Project do
-
     it "should have a default project name" do
       project = Project.new
 

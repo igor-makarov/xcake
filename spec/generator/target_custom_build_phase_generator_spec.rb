@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Xcake
   describe TargetCustomBuildPhaseGenerator do
-
     before :each do
       @dsl_target = double("DSL Target")
       @target = double("Target")
@@ -17,7 +16,6 @@ module Xcake
     end
 
     it "should generate build phases" do
-
       build_phase = double("Build Phase").as_null_object
 
       allow(@dsl_target).to receive(:build_phases).and_return([build_phase])

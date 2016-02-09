@@ -8,9 +8,7 @@ module Xcake
     end
 
     context "when resolving project with no configurations" do
-
       before :each do
-
         @project = double("Project").as_null_object
 
         allow(@project).to receive(:debug_configurations).and_return([])
@@ -34,9 +32,7 @@ module Xcake
     end
 
     context "when resolving target with no configurations" do
-
       before :each do
-
         @target = double("Target").as_null_object
 
         @debug_name = "Debug"

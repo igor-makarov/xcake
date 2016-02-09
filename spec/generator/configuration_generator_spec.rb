@@ -3,7 +3,6 @@ require "spec_helper"
 module Xcake
   describe ConfigurationGenerator do
     before :each do
-
       @native_configuration = double("Xcode Configuration").as_null_object
       @native_configurable = double("Xcode Configurable").as_null_object
       @context = double("Context")
@@ -32,7 +31,6 @@ module Xcake
     end
 
     context "when creating configuration for configurable" do
-
       before :each do
         @configuration = double("Configuration")
         allow(@configuration).to receive(:name).and_return("Name")
@@ -51,7 +49,6 @@ module Xcake
       end
 
       context "when configuring Configuration" do
-
         it "should set name" do
           expect(@native_configuration).to receive(:name=).with(@configuration.name)
           @generator.create_build_configurations_for(@configurable)
