@@ -21,6 +21,5 @@ module Xcake
       expect(@project).to receive(:recreate_user_schemes)
       @generator.visit_project(@dsl_project)
     end
-
   end
 end
