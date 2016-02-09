@@ -43,7 +43,6 @@ module Xcake
     end
 
     it "should add file reference to source build phase" do
-
       file_reference = double("File Reference")
 
       source_build_phase = double("Source Build Phase")

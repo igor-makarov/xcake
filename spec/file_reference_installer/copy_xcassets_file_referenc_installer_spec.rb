@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 #TODO: Figure out shorter class name
 module Xcake
@@ -8,7 +8,7 @@ module Xcake
     end
 
     it "should not able to install folder" do
-      folder_path = 'Folder/'
+      folder_path = "Folder/"
 
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
@@ -17,7 +17,7 @@ module Xcake
     end
 
     it "should be able to install xcassets foler" do
-      folder_path = 'Assets.xcassets'
+      folder_path = "Assets.xcassets"
 
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)

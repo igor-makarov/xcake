@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 #TODO: Figure out shorter class name
 module Xcake
