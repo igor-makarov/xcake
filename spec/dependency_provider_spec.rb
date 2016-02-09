@@ -2,9 +2,7 @@ require "spec_helper"
 
 module Xcake
   describe DependencyProvider do
-
     context "when created" do
-
       before :each do
         @repository = double("Repository")
         @dependency = double("Dependency")

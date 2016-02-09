@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Xcake
   describe Context do
-
     before :each do
       @context = Object.new
       @context.extend(Context)

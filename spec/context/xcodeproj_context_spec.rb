@@ -2,13 +2,11 @@ require "spec_helper"
 
 module Xcake
   describe XcodeprojContext do
-
     before :each do
       @context = XcodeprojContext.new
     end
 
     context "when creating a project" do
-
       before :each do
         project_dsl = double("Project")
         allow(project_dsl).to receive(:name).and_return("Name")

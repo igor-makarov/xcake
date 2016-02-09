@@ -2,9 +2,7 @@ require "spec_helper"
 
 module Xcake
   describe Generator do
-
     context "when created" do
-
       before :each do
         @context = double("Context")
         @generator = Generator.new(@context)

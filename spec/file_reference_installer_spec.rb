@@ -2,9 +2,7 @@ require "spec_helper"
 
 module Xcake
   describe FileReferenceInstaller do
-
     context "when created" do
-
       before :each do
         @context = double("Context")
         @installer = FileReferenceInstaller.new(@context)

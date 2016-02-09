@@ -1,6 +1,5 @@
 module Xcake
   class TargetFileReferenceGenerator < Generator
-
     attr_accessor :root_node
     attr_accessor :installer_resolution
 
@@ -21,7 +20,6 @@ module Xcake
     end
 
     def process_files_for_target(target)
-
       native_target = @context.native_object_for(target)
 
       Dir.glob(target.include_files).each do |file|
@@ -34,7 +32,6 @@ module Xcake
     end
 
     def visit_project(project)
-
       project.targets.each do |target|
         process_files_for_target(target)
       end

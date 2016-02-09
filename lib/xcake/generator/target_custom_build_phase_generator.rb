@@ -6,7 +6,6 @@ module Xcake
     end
 
     def visit_target(target)
-
       puts "Generating custom build phases for #{target}..."
 
       native_target = @context.native_object_for(target)

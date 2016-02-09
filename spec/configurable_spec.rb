@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-#TODO: Move tests to Project/Target
+# TODO: Move tests to Project/Target
 module Xcake
   describe Configurable do
-
     before :each do
       @configurable = Object.new
       @configurable.extend(Configurable)
@@ -18,7 +17,6 @@ module Xcake
     end
 
     context "when creating debug configuration" do
-
       before :each do
         @configuration = @configurable.debug_configuration :debug
       end
@@ -32,7 +30,6 @@ module Xcake
       end
 
       context "that already exists" do
-
         before :each do
           @duplicate_configuration = @configurable.debug_configuration :debug
         end
@@ -91,7 +88,6 @@ module Xcake
     end
 
     context "when creating release configuration" do
-
       before :each do
         @configuration = @configurable.release_configuration :release
       end
@@ -105,7 +101,6 @@ module Xcake
       end
 
       context "that already exists" do
-
         before :each do
           @duplicate_configuration = @configurable.release_configuration :release
         end
@@ -122,7 +117,6 @@ module Xcake
       end
 
       it "should be same configuration" do
-
         configuration = @configurable.all_configurations
 
         expect(@configurable.all_configurations).to be(configuration)
@@ -130,13 +124,11 @@ module Xcake
     end
 
     context "when flattening configurations" do
-
       before :each do
         @configurable.all_configurations.settings[:ALL_SETTING] = "ALL_VALUE"
       end
 
       context "for debug" do
-
         before :each do
           @configuration = @configurable.debug_configuration(:debug)
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
@@ -157,7 +149,6 @@ module Xcake
       end
 
       context "for release" do
-
         before :each do
           @configuration = @configurable.debug_configuration(:release)
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
