@@ -172,6 +172,12 @@ module Xcake
       @system_frameworks ||= default_system_frameworks_for self.platform
     end
 
+    # @!group Conversion
+
+    def to_s
+      "Target: #{name}"
+    end
+
     protected
 
     def default_system_frameworks_for(platform)
@@ -213,21 +219,6 @@ module Xcake
                               deployment_target.to_s,
                               type,
                               language).merge!(default_settings)
-    end
-
-    #Visitable
-
-    public
-
-    def accept(visitor)
-      visitor.visit(self)
-
-      flatten_configurations.each do |c|
-        visitor.visit(c)
-        visitor.leave(c)
-      end
-
-      visitor.leave(self)
     end
   end
 end

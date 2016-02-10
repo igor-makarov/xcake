@@ -43,7 +43,7 @@ module Xcake
       item_name = item_name(item)
 
       method = "visit_#{item_name}"
-      send(method, item)
+      send(method, item) if respond_to? method
     end
 
     # This is called when a visitor is leaving a
@@ -61,7 +61,7 @@ module Xcake
       item_name = item_name(item)
 
       method = "leave_#{item_name}"
-      send(method, item)
+      send(method, item) if respond_to? method
     end
 
     private

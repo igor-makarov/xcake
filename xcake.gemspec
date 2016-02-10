@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "hooks", "~> 0.4.1"
   spec.add_dependency "xcodeproj", "~> 0.28"
   spec.add_dependency "tty", "~> 0.3.2"
+  spec.add_dependency "molinillo"
 end

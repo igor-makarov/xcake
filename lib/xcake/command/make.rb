@@ -1,3 +1,6 @@
+require 'molinillo'
+
+#TODO: Reduce lines of code here :)
 module Xcake
   class Command
     class Make < Command
@@ -17,11 +20,21 @@ module Xcake
         project = Project.new
         project.instance_eval(file_contents)
 
-        resolver = ProjectStructureResolver.new
-        project.accept(resolver)
+        context = XcodeprojContext.new(project)
 
-        generator = Generator::Project.new
-        project.accept(generator)
+        #TODO: Debug logs for generator
+        repository = Generator.repository
+        #puts "Registered Generators #{repository}"
+
+        #TODO: Don't use class as name
+        dependency_provider = DependencyProvider.new(repository)
+        resolver = Molinillo::Resolver.new(dependency_provider, UI.new)
+        resolution = resolver.resolve(Generator.repository)
+        resolution.tsort.map do |g|
+          #puts "Running #{g.name}..."
+          generator = g.name.new(context)
+          project.accept(generator)
+        end
       end
     end
   end

@@ -14,10 +14,11 @@ module Xcake
 
     # @!group Configuring a project
 
+    # TODO: Rename to name
     # @return [String] the name of the project file. This is used as
     #                  the filename.
     #
-    attr_accessor :project_name
+    attr_accessor :name
 
     # @return [String] the prefix used for Objective-C Classes. This is
     #                  used by xcode when creating new files.
@@ -48,7 +49,7 @@ module Xcake
     #
     def initialize(name="Project", &block)
 
-      self.project_name = name
+      self.name = name
       self.targets = []
 
       block.call(self) if block_given?
@@ -71,14 +72,16 @@ module Xcake
       target
     end
 
-    # Visitable
+    # @!group Conversion
+
+    def to_s
+      "Project: #{name}"
+    end
+
+    # @!group Visitable
+
     def accept(visitor)
       visitor.visit(self)
-
-      flatten_configurations.each do |c|
-        visitor.visit(c)
-        visitor.leave(c)
-      end
 
       targets.each do |t|
         visitor.visit(t)
@@ -90,7 +93,8 @@ module Xcake
 
     protected
 
-    # Configurable
+    # @!group Configurable
+
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
       settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
