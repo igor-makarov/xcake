@@ -31,7 +31,7 @@ module Xcake
     #                  Can be `:objc`, `:swift`.
     #
     attr_accessor :language
-    
+
     # @return [Target] the test target for this target
     #
     attr_accessor :test_target
@@ -149,7 +149,7 @@ module Xcake
     #    spec.system_frameworks = ["Foundation"]
     #
     attr_accessor :system_frameworks
-    
+
     # @return [Array<Target>] targets to use as dependencies
     #
     attr_accessor :target_dependencies
@@ -179,9 +179,9 @@ module Xcake
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
     end
-    
+
     def target_dependencies
-        @target_dependencies ||= []
+      @target_dependencies ||= []
     end
 
     # @!group Conversion
