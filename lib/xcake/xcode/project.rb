@@ -86,7 +86,7 @@ module Xcake
         # @return [Target] new xcode target
         #
         def new_target(target)
-          native_target = self.new(Xcodeproj::Project::Object::PBXNativeTarget)
+          native_target = new(Xcodeproj::Project::Object::PBXNativeTarget)
           native_target.name = target.name
           native_target.product_name = target.name
 
@@ -97,13 +97,36 @@ module Xcake
             native_target.product_type = target.type
           end
 
-          native_target.build_configuration_list = self.new(Xcodeproj::Project::Object::XCConfigurationList)
+          native_target.build_configuration_list = new(Xcodeproj::Project::Object::XCConfigurationList)
 
           product = self.products_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
           native_target.product_reference = product
 
           self.targets << native_target
           native_target
+        end
+
+        # Creates a new xcode configuration from the configuration DSL
+        #
+        # @param [Configurarion] configuration
+        #                 configuration DSL to create target from
+        #
+        # @return [Configurarion] new xcode configuration
+        #
+        def new_configuration(configuration)
+          new(Xcodeproj::Project::Object::XCBuildConfiguration)
+        end
+
+        # Creates a new xcode group from the node
+        #
+        # @param [Node]   node
+        #                 configuration DSL to create target from
+        #
+        # @return [Group] new xcode group
+        #
+        def new_group(node)
+          return main_group unless node.parent
+          main_group.find_subpath(node.parent.path, true)
         end
 
         # Finds a unit test target for a xcode target

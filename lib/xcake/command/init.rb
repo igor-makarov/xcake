@@ -9,7 +9,7 @@ module Xcake
         cakefile_contents = File.read(cakefile_path)
         File.write("Cakefile", cakefile_contents)
 
-        puts "Open Cakefile to edit and run xcake bake to get your xcode project"
+        puts "Open Cakefile to edit and run xcake make to get your xcode project"
       end
     end
   end

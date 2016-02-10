@@ -1,8 +1,8 @@
 require 'spec_helper'
 
+# TODO: Move tests to Project/Target
 module Xcake
   describe Configurable do
-
     before :each do
       @configurable = Object.new
       @configurable.extend(Configurable)
@@ -17,7 +17,6 @@ module Xcake
     end
 
     context "when creating debug configuration" do
-
       before :each do
         @configuration = @configurable.debug_configuration :debug
       end
@@ -31,7 +30,6 @@ module Xcake
       end
 
       context "that already exists" do
-
         before :each do
           @duplicate_configuration = @configurable.debug_configuration :debug
         end
@@ -42,8 +40,54 @@ module Xcake
       end
     end
 
-    context "when creating release configuration" do
+    context "when creating configurations for the first time" do
+      context "creating a debug configuration" do
+        it "should create a configuration if a name is specified" do
+          configuration = @configurable.debug_configuration(:Debug)
+          expect(@configurable.debug_configuration(:Debug)).to eq(configuration)
+        end
 
+        it "should name the configuration if a name is specified" do
+          configuration = @configurable.debug_configuration(:Debug)
+          expect(configuration.name).to eq("Debug")
+        end
+
+        it "should create a configuration even if no name is specified" do
+          configuration = @configurable.debug_configuration
+          expect(@configurable.debug_configuration).to eq(configuration)
+        end
+
+        it "should name the configuration even if no name is specified" do
+          configuration = @configurable.debug_configuration
+          expect(configuration.name).to eq("Debug")
+        end
+      end
+
+      context "creating a release configuration" do
+        it "should create a configuration if a name is specified" do
+          configuration = @configurable.release_configuration(:Release)
+          expect(@configurable.release_configuration(:Release)).to \
+            eq(configuration)
+        end
+
+        it "should name the configuration if a name is specified" do
+          configuration = @configurable.release_configuration(:Release)
+          expect(configuration.name).to eq("Release")
+        end
+
+        it "should create a configuration even if no name is specified" do
+          configuration = @configurable.release_configuration
+          expect(@configurable.release_configuration).to eq(configuration)
+        end
+
+        it "should name the configuration even if no name is specified" do
+          configuration = @configurable.release_configuration
+          expect(configuration.name).to eq("Release")
+        end
+      end
+    end
+
+    context "when creating release configuration" do
       before :each do
         @configuration = @configurable.release_configuration :release
       end
@@ -57,7 +101,6 @@ module Xcake
       end
 
       context "that already exists" do
-
         before :each do
           @duplicate_configuration = @configurable.release_configuration :release
         end
@@ -74,7 +117,6 @@ module Xcake
       end
 
       it "should be same configuration" do
-
         configuration = @configurable.all_configurations
 
         expect(@configurable.all_configurations).to be(configuration)
@@ -82,13 +124,11 @@ module Xcake
     end
 
     context "when flattening configurations" do
-
       before :each do
         @configurable.all_configurations.settings[:ALL_SETTING] = "ALL_VALUE"
       end
 
       context "for debug" do
-
         before :each do
           @configuration = @configurable.debug_configuration(:debug)
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
@@ -109,7 +149,6 @@ module Xcake
       end
 
       context "for release" do
-
         before :each do
           @configuration = @configurable.debug_configuration(:release)
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"

@@ -36,6 +36,11 @@ module Xcake
     #
     attr_accessor :test_target
 
+    # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list
+    #                  of custom build phases for the project.
+    #
+    attr_accessor :build_phases
+
     # @!group File patterns
 
     #
@@ -159,6 +164,7 @@ module Xcake
     #           end
     #
     def initialize(&block)
+      self.build_phases = []
       block.call(self) if block_given?
     end
 
@@ -176,6 +182,12 @@ module Xcake
     
     def target_dependencies
         @target_dependencies ||= []
+    end
+
+    # @!group Conversion
+
+    def to_s
+      "Target: #{name}"
     end
 
     protected
@@ -219,21 +231,6 @@ module Xcake
                               deployment_target.to_s,
                               type,
                               language).merge!(default_settings)
-    end
-
-    #Visitable
-
-    public
-
-    def accept(visitor)
-      visitor.visit(self)
-
-      flatten_configurations.each do |c|
-        visitor.visit(c)
-        visitor.leave(c)
-      end
-
-      visitor.leave(self)
     end
   end
 end
