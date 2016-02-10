@@ -32,6 +32,10 @@ module Xcake
     #
     attr_accessor :language
 
+    # @return [Target] the test target for this target
+    #
+    attr_accessor :test_target
+
     # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list
     #                  of custom build phases for the project.
     #
@@ -146,6 +150,10 @@ module Xcake
     #
     attr_accessor :system_frameworks
 
+    # @return [Array<Target>] targets to use as dependencies
+    #
+    attr_accessor :target_dependencies
+
     # @param    [Proc] block
     #           an optional block that configures the project through the DSL.
     #
@@ -170,6 +178,10 @@ module Xcake
 
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
+    end
+
+    def target_dependencies
+      @target_dependencies ||= []
     end
 
     # @!group Conversion
