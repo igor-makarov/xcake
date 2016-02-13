@@ -75,7 +75,7 @@ module Xcake
     # @!group Conversion
 
     def to_s
-      "Project: #{name}"
+      "Project<#{name}>"
     end
 
     # @!group Visitable
