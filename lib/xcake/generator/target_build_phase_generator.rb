@@ -28,7 +28,7 @@ module Xcake
 
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
       phase = native_target.new_copy_files_build_phase("Embed Watch Content")
-      phase.dstPath = "$(CONTENTS_FOLDER_PATH)/Watch"
+      phase.dstPath= "$(CONTENTS_FOLDER_PATH)/Watch"
       phase.add_file_reference(native_watchapp_target.product_reference)
       phase
     end
