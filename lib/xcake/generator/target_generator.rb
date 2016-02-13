@@ -1,6 +1,5 @@
 module Xcake
   class TargetGenerator < Generator
-
     def self.dependencies
       [ProjectMetadataGenerator]
     end

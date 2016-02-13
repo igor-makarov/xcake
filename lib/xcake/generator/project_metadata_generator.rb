@@ -1,8 +1,6 @@
 module Xcake
   class ProjectMetadataGenerator < Generator
-
     def visit_project(project)
-
       puts "Creating Project..."
 
       native_project = @context.native_object_for(project)
