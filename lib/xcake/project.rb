@@ -69,6 +69,8 @@ module Xcake
       target = Target.new(&block)
       self.targets << target
 
+      puts "target"
+
       target
     end
 
