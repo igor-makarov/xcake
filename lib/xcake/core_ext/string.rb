@@ -10,4 +10,12 @@ class String
   def to_c
     "\\\"#{self}\\\""
   end
+
+  # Strips heredoc indents
+  #
+  def strip_heredoc
+    indent = self.scan(/^[ \t]*(?=\S)/).min
+    indent_len = (indent || "").length
+    self.gsub(/^[ \t]{#{indent_len}}/, "")
+  end
 end

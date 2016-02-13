@@ -38,6 +38,9 @@ require "xcake/generator/project_structure_generator"
 require "xcake/generator/scheme_generator"
 require "xcake/generator/target_generator"
 require "xcake/generator/target_framework_generator"
+require "xcake/generator/target_build_phase_generator"
+
+# TODO: Merge these into one target build phase generator
 require "xcake/generator/target_file_reference_generator"
 require "xcake/generator/target_custom_build_phase_generator"
 require "xcake/generator/configuration_generator"
