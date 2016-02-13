@@ -38,6 +38,7 @@ require "xcake/generator/project_metadata_generator"
 require "xcake/generator/project_structure_generator"
 require "xcake/generator/scheme_generator"
 require "xcake/generator/target_generator"
+require "xcake/generator/target_dependency_generator"
 require "xcake/generator/target_framework_generator"
 require "xcake/generator/target_build_phase_generator"
 
