@@ -29,14 +29,14 @@ module Xcake
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
       phase = native_target.new_copy_files_build_phase("Embed Watch Content")
       phase.dst_path = "$(CONTENTS_FOLDER_PATH)/Watch"
-      phase.dst_subfolder_spec = :products_directory
+      phase.symbol_dst_subfolder_spec = :products_directory
       phase.add_file_reference(native_watchapp_target.product_reference)
       phase
     end
 
     def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
       phase = native_target.new_copy_files_build_phase("Embed App Extensions")
-      phase.dst_subfolder_spec = :plug_ins  
+      phase.symbol_dst_subfolder_spec = :plug_ins
       phase.add_file_reference(native_watchapp_extension_target.product_reference)
       phase
     end
