@@ -21,7 +21,7 @@ module Xcake
         when :watch2_app
           create_embed_watchapp_phase(native_target, native_dep)
         when :watch2_extension
-          create_embed_watchapp_phase(native_target, native_dep)
+          create_embed_watchapp_extension_phase(native_target, native_dep)
         end
       end
     end
