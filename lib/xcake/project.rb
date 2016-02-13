@@ -69,8 +69,7 @@ module Xcake
       target = Target.new(&block)
       self.targets << target
 
-      puts "#{target.name}"
-      raise "No name" if target.name.empty?
+      raise "Target requires a name" if target.name == ""
 
       target
     end
