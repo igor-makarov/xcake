@@ -34,6 +34,7 @@ require "xcake/xcode/scheme_list"
 
 # TODO: Autoload these
 require "xcake/generator/project_generator"
+require "xcake/generator/project_metadata_generator"
 require "xcake/generator/project_structure_generator"
 require "xcake/generator/scheme_generator"
 require "xcake/generator/target_generator"
