@@ -6,8 +6,9 @@ module Xcake
 
     def visit_target(target)
       native_target = @context.native_object_for(target)
-      native_target.dependencies = target.target_dependencies.map do |dep|
-        @context.native_object_for(dep)
+      target.target_dependencies.map do |dep|
+        native_dependency = @context.native_object_for(dep)
+        native_target.add_dependency(native_dependency)
       end
     end
   end
