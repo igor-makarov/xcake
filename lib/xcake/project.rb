@@ -69,7 +69,7 @@ module Xcake
       target = Target.new(&block)
       self.targets << target
 
-puts target.name.count
+puts target.name.length
 if target.name == ""
       raise Xcake::Informative, "Target requires a name"
     end
