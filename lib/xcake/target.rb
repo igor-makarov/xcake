@@ -187,7 +187,7 @@ module Xcake
     # @!group Conversion
 
     def to_s
-      "Target: #{name}"
+      "Target<#{name}>"
     end
 
     protected
