@@ -15,7 +15,6 @@ module Xcake
       native_target = @context.native_object_for(target)
 
       target.target_dependencies.each do |dep|
-
         native_dep = @context.native_object_for(dep)
 
         case dep.type
