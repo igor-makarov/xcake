@@ -70,6 +70,7 @@ module Xcake
       self.targets << target
 
       puts "#{target.name}"
+      raise "No name" if target.name.empty?
 
       target
     end
