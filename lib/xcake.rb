@@ -1,5 +1,4 @@
 require "xcake/core_ext/string"
-require "xcake/xcodeproj_ext/build_phase"
 
 require "xcake/version"
 require "xcake/ui"
