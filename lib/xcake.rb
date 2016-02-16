@@ -52,6 +52,7 @@ require "xcake/file_reference_installer/compile_xcdatamodeld_file_reference_inst
 require "xcake/file_reference_installer/copy_resources_file_reference_installer"
 require "xcake/file_reference_installer/copy_xcassets_file_reference_installer"
 require "xcake/file_reference_installer/header_file_reference_installer"
+require "xcake/file_reference_installer/link_library_file_reference_installer"
 
 module Xcake
 
