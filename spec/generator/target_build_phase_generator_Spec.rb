@@ -46,5 +46,13 @@ module Xcake
     #   phase.add_file_reference(native_watchapp_extension_target.product_reference)
     #   phase
     # end
+
+    it "should create embed watch app build phase" do
+      @generator.visit_target(@dsl_target)
+    end
+
+    it "should create embed watch kit extension build phase" do
+      @generator.visit_target(@dsl_target)
+    end
   end
 end
