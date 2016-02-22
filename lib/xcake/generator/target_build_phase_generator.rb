@@ -29,7 +29,6 @@ module Xcake
     end
 
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
-
       puts "Generating embed watch app phase..."
 
       phase = native_target.new_copy_files_build_phase("Embed Watch Content")
@@ -40,7 +39,6 @@ module Xcake
     end
 
     def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
-
       puts "Generating embed watch app extension phase..."
 
       phase = native_target.new_copy_files_build_phase("Embed App Extensions")
