@@ -104,14 +104,13 @@ module Xcake
       end
 
       context "for host app" do
-        it 'should add watch app as a dependency' do
+        it "should add watch app as a dependency" do
           expect(@dependencies).to include(@watch_app_target)
         end
       end
 
       context "for watch app" do
-
-        it 'should add watch extension as a dependency' do
+        it "should add watch extension as a dependency" do
           expect(@watch_app_target.target_dependencies).to include(@extension_target)
         end
 
