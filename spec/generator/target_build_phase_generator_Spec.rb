@@ -8,6 +8,9 @@ module Xcake
       @context = double("Context")
       @generator = TargetBuildPhaseGenerator.new(@context)
 
+      @dsl_dependency = double("DSL Dependency")
+      allow(@dsl_target).to receive(:target_dependencies).and_return([@dsl_dependency])
+
       allow(@context).to receive(:native_object_for).and_return(@target)
     end
 
@@ -17,17 +20,10 @@ module Xcake
 
     it "should create embed watch app build phase" do
 
-      #   puts "Generating build phases for #{target}..."
-      #
-      #   native_target = @context.native_object_for(target)
-      #
-      #   target.target_dependencies.each do |dep|
-      #     native_dep = @context.native_object_for(dep)
-      #
-      #     case dep.type
-      #     when :watch2_app
-      #       create_embed_watchapp_phase(native_target, native_dep)
-      #   end
+      allow(@dsl_dependency).to receive(:type).and_return(:watch2_app)
+
+      dependency = double("Dependency")
+      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
 
       #
       # def create_embed_watchapp_phase(native_target, native_watchapp_target)
@@ -43,18 +39,10 @@ module Xcake
 
     it "should create embed watch kit extension build phase" do
 
-      #   puts "Generating build phases for #{target}..."
-      #
-      #   native_target = @context.native_object_for(target)
-      #
-      #   target.target_dependencies.each do |dep|
-      #     native_dep = @context.native_object_for(dep)
-      #
-      #     case dep.type
-      #     when :watch2_extension
-      #       create_embed_watchapp_extension_phase(native_target, native_dep)
-      #     end
-      #   end
+      allow(@dsl_dependency).to receive(:type).and_return(:watch2_extension)
+
+      dependency = double("Dependency")
+      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
 
       #
       # def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
