@@ -1,3 +1,7 @@
+v0.6.1
+======
+- Reduces gem filesize
+
 v0.6.0
 ======
 - Correctly infers build phases for the apple watch.
