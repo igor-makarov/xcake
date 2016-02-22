@@ -41,6 +41,7 @@ require "xcake/generator/target_generator"
 require "xcake/generator/target_dependency_generator"
 require "xcake/generator/target_framework_generator"
 require "xcake/generator/target_build_phase_generator"
+require "xcake/generator/target_library_generator"
 
 # TODO: Merge these into one target build phase generator
 require "xcake/generator/target_file_reference_generator"

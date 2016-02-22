@@ -150,6 +150,14 @@ module Xcake
     #
     attr_accessor :system_frameworks
 
+    # @return [Array<String>] system libraries to include for the target
+    #
+    # @example
+    #
+    #    spec.system_libraries = ["z", "sqlite3"]
+    #
+    attr_accessor :system_libraries
+
     # @return [Array<Target>] targets to use as dependencies
     #
     attr_accessor :target_dependencies
@@ -178,6 +186,10 @@ module Xcake
 
     def system_frameworks
       @system_frameworks ||= default_system_frameworks_for self.platform
+    end
+
+    def system_libraries
+      @system_libraries ||= []
     end
 
     def target_dependencies
