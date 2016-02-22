@@ -1,3 +1,9 @@
+v0.6.0
+======
+- Correctly infers build phases for the apple watch.
+- Fixes bug where configurations lacked a name when using shorthand syntax. (Thanks to @colinta).
+- Adds support for custom script build phases (Thanks to @colinta).
+
 v0.5.3
 ======
 - Updates `xcake bake` to more generic `xcake make` (Thanks to @roger-tan).
