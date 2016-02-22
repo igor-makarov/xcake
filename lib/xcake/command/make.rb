@@ -20,7 +20,7 @@ module Xcake
         project = Project.new
         project.instance_eval(file_contents)
 
-        context = XcodeprojContext.new(project)
+        context = XcodeprojContext.new
 
         #TODO: Debug logs for generator
         repository = Generator.repository
