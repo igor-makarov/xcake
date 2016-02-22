@@ -91,7 +91,7 @@ module Xcake
 
     context "when creating watch target" do
       before :each do
-        @app_target = double("App Target")
+        @app_target = double("App Target").as_null_object
         allow(@app_target).to receive(:name).and_return("application")
 
         @project.watch_app_for @app_target, 2.0, :swift do |app, extension|
@@ -100,7 +100,18 @@ module Xcake
         end
       end
 
+      context "for host app" do
+        it 'should add watch app as a dependency' do
+          expect(@watch_app_target.target_dependencies).to receive(:<<).with(@extension_target)
+        end
+      end
+
       context "for watch app" do
+
+        it 'should add watch extension as a dependency' do
+          expect(@app_target.target_dependencies).to receive(:<<).with(@watch_app_target)
+        end
+
         it 'should prefix application name with "-Watch"' do
           expect(@watch_app_target.name).to eq("application-Watch")
         end
