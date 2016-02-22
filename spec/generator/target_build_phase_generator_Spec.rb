@@ -1,12 +1,13 @@
 require "spec_helper"
 
+#TODO: We will refactor this to 2 phase system - This generates phase in the DSL another generator actually makes the phases
 module Xcake
   describe TargetBuildPhaseGenerator do
     before :each do
       @dsl_target = double("DSL Target")
-      @target = double("Target")
       @context = double("Context")
       @generator = TargetBuildPhaseGenerator.new(@context)
+      @target = double("Target")
 
       @dsl_dependency = double("DSL Dependency")
       allow(@dsl_target).to receive(:target_dependencies).and_return([@dsl_dependency])
@@ -23,16 +24,17 @@ module Xcake
       allow(@dsl_dependency).to receive(:type).and_return(:watch2_app)
 
       dependency = double("Dependency")
-      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
+      product_reference = double("Product Reference")
+      allow(dependency).to receive(:product_reference).and_return(product_reference)
 
-      #
-      # def create_embed_watchapp_phase(native_target, native_watchapp_target)
-      #   phase = native_target.new_copy_files_build_phase("Embed Watch Content")
-      #   phase.dst_path = "$(CONTENTS_FOLDER_PATH)/Watch"
-      #   phase.symbol_dst_subfolder_spec = :products_directory
-      #   phase.add_file_reference(native_watchapp_target.product_reference)
-      #   phase
-      # end
+      phase = double("Phase")
+
+      expect(phase).to receive(:dst_path=).with("$(CONTENTS_FOLDER_PATH)/Watch")
+      expect(phase).to receive(:symbol_dst_subfolder_spec=).with(:products_directory)
+      expect(phase).to receive(:add_file_reference).with(product_reference)
+
+      expect(@target).to receive(:new_copy_files_build_phase).with("Embed Watch Content").and_return(phase)
+      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
 
       @generator.visit_target(@dsl_target)
     end
@@ -42,15 +44,16 @@ module Xcake
       allow(@dsl_dependency).to receive(:type).and_return(:watch2_extension)
 
       dependency = double("Dependency")
-      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
+      product_reference = double("Product Reference")
+      allow(dependency).to receive(:product_reference).and_return(product_reference)
 
-      #
-      # def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
-      #   phase = native_target.new_copy_files_build_phase("Embed App Extensions")
-      #   phase.symbol_dst_subfolder_spec = :plug_ins
-      #   phase.add_file_reference(native_watchapp_extension_target.product_reference)
-      #   phase
-      # end
+      phase = double("Phase")
+
+      expect(phase).to receive(:symbol_dst_subfolder_spec=).with(:plug_ins)
+      expect(phase).to receive(:add_file_reference).with(product_reference)
+
+      expect(@target).to receive(:new_copy_files_build_phase).with("Embed App Extensions").and_return(phase)
+      allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
 
       @generator.visit_target(@dsl_target)
     end
