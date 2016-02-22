@@ -4,6 +4,10 @@ module Xcake
   #
   class CopyXCAssetsFileReferenceInstaller < CopyResourcesFileReferenceInstaller
 
+    def self.dependencies
+      []
+    end
+
     def self.can_install_node(node)
       File.directory?(node.path) &&
         [".xcassets"].include?(File.extname(node.path))
@@ -17,3 +21,5 @@ module Xcake
     end
   end
 end
+
+Xcake::FileReferenceInstaller.register_plugin(Xcake::CopyXCAssetsFileReferenceInstaller)

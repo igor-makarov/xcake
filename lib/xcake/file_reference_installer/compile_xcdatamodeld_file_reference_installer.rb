@@ -3,6 +3,11 @@ module Xcake
   # and adds them to the compile source phase.
   #
   class CompileXCDataModeldFileReferenceInstaller< CompileSourceFileReferenceInstaller
+
+    def self.dependencies
+      []
+    end
+
     def self.can_install_node(node)
       File.directory?(node.path) &&
         [".xcdatamodeld"].include?(File.extname(node.path))
@@ -16,3 +21,5 @@ module Xcake
     end
   end
 end
+
+Xcake::FileReferenceInstaller.register_plugin(Xcake::CompileXCDataModeldFileReferenceInstaller)

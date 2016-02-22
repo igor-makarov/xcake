@@ -12,6 +12,10 @@ module Xcake
       def inherited(klass)
         repository << klass
       end
+
+      def register_plugin(klass)
+        repository << klass
+      end
     end
 
     def self.included(klass)

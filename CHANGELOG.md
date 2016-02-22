@@ -1,6 +1,10 @@
+v0.6.2
+======
+- Fixes bug where certain file installers fail to register correctly and could cause issues with adding certain files to the xcode project.
+
 v0.6.1
 ======
-- Reduces gem filesize
+- Reduces gem file-size
 
 v0.6.0
 ======
