@@ -2,7 +2,6 @@ v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).
 
-
 v0.6.2
 ======
 - Fixes bug where certain file installers fail to register correctly and could cause issues with adding certain files to the Xcode project.
