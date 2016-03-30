@@ -28,10 +28,11 @@ module Xcake
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
+ #      Move this to an installer:
  #      group = group_for_node(node)
  #      file_reference = group.new_reference(node.path)
  #      @native_configuration.base_configuration_reference = file_reference
-        build_configuration.base_configuration_reference = configuration.configuration_file
+ #      build_configuration.base_configuration_reference = configuration.configuration_file
 
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration

@@ -2,6 +2,7 @@ v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).
 - Adds support for XCConfig Files (Thanks to @colinta).
+#TODO: Update documentation
 
 v0.6.2
 ======
