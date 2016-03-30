@@ -1,6 +1,5 @@
 require "spec_helper"
 
-#TODO: Figure out shorter class name
 module Xcake
   describe CompileSourceFileReferenceInstaller do
     before :each do

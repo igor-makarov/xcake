@@ -1,6 +1,5 @@
 require "spec_helper"
 
-#TODO: Figure out shorter class name
 module Xcake
   describe CopyXCAssetsFileReferenceInstaller do
     before :each do
