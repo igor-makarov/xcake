@@ -6,6 +6,7 @@ module Xcake
     end
 
     def visit_target(target)
+      #TODO: Refactor this system.
       native_target = @context.native_object_for(target)
       target.build_phases.each do |phase|
         puts "Adding custom phase \"#{phase.name}\" for #{target}"
