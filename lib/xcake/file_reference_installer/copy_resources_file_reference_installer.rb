@@ -12,7 +12,11 @@ module Xcake
     end
 
     def self.can_install_node(node)
-      !File.directory?(node.path)
+      extension = File.extname(node.path)
+      (!File.directory?(node.path) ||
+        (File.directory?(node.path) &&
+            ![".xcassets", ".xcdatamodeld", ".lproj"].include?(extension) &&
+            node.children.count == 0))
     end
 
     def add_file_reference_to_target(file_reference, target)
