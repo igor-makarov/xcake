@@ -36,8 +36,8 @@ module Xcake
       end
 
       def install_xcconfig(configuration)
-        #TODO: BDD This.
-        #TODO: Remove need to construct a Node Object to do this.
+        # TODO: BDD This.
+        # TODO: Remove need to construct a Node Object to do this.
         node = Node.new
         node.path = configuration.configuration_file
         native_group = @context.native_object_for(node)
