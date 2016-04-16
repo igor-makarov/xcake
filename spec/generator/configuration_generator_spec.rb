@@ -48,10 +48,18 @@ module Xcake
         @generator.create_build_configurations_for(@configurable)
       end
 
+      it "should add XCConfig Files to the project" do
+        
+      end
+
       context "when configuring Configuration" do
         it "should set name" do
           expect(@native_configuration).to receive(:name=).with(@configuration.name)
           @generator.create_build_configurations_for(@configurable)
+        end
+
+        it "should set XCConfig" do
+
         end
 
         it "should set settings" do
