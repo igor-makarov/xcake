@@ -98,7 +98,26 @@ We can also specify a testing targets for other targets as well:
 
 ```ruby
 application_for :mac, 8.0 do |target|
-  unit_tests_for target
+  unit_tests_for target 
+end
+```
+
+The above code will create a complementary unit tests target for the `target`. The unit tests target name will be default `<target.name>Tests`, so if your `target.name` is "MyFirstApp" then your unit tests target will be named "MyFirstAppTests", and Xcake will include any files that are placed under folder with the same name/path (if it exists).
+
+If you want to manually control configuration of unit tests targets (and/or have multiple ones), then you should do like this:
+
+```ruby
+application_for :mac, 8.0 do |target|
+
+  unit_tests_for target do |test_target|
+  
+        test_target.name = "MyAwesomeTests"
+        test_target.include_files = ["Tests/**/*.*"]
+        
+        # configure any other target-related properties
+        # as you would do with normal target
+
+    end 
 end
 ```
 
