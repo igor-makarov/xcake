@@ -175,8 +175,8 @@ to the project to match the file system.
 for file patterns
 
 ```ruby
-target.include_files = "DifferentAppFolder/*.*"
-target.include_files << "OtherFolder/*.*"
+target.include_files = ["FolderOne/*.*"] # array
+target.include_files << "FolderTwo/**/*.*" # add an item to array
 ```
 
 #### Exclude Files
@@ -188,8 +188,8 @@ will be excluded from the project
 for file patterns
 
 ```ruby
-target.exclude_files = "FolderToIgnore/*.*"
-target.exclude_files << "OtherFolderToIgnore/*.*"
+target.exclude_files = ["FolderToIgnore/*.*"] # array
+target.exclude_files << "OtherFolderToIgnore/*.*" # add an item to array
 ```
 
 ## Configurations
