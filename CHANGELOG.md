@@ -93,7 +93,7 @@ v0.2.0
 - Now adds `--version` flag to command line, to allow you to find out Xcake's
   version.
 - Brings naming of default build configurations closer to Xcode's, so that it
-  works with existing build   scripts.
+  works with existing build scripts.
 - Adds support for Watch OS 2 Applications.
 
 v0.1.9
