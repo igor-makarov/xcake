@@ -21,7 +21,7 @@ v0.6.0
 
 v0.5.3
 ======
-- Updates `xcake bake` to more generic `xcake make` (Thanks to @roger-tan).
+- Updates `xcake bake` to the more generic `xcake make` (Thanks to @roger-tan).
 
 v0.5.2
 ======
@@ -30,7 +30,7 @@ v0.5.2
 
 v0.5.1
 ======
-- Tweaks DSL so it is easier to access the project properties via the `project` method.
+- Tweaks DSL so it's easier to access the project properties via the `project` method.
 
 v0.5.0
 ======
