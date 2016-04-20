@@ -35,10 +35,18 @@ module Xcake
         @configuration = double("Configuration")
         allow(@configuration).to receive(:name).and_return("Name")
         allow(@configuration).to receive(:settings).and_return({})
+        allow(@configuration).to receive(:configuration_file).and_return("File.xcconfig")
 
         @configurable = double("Configurable")
         allow(@configurable).to receive(:flatten_configurations).and_return([@configuration])
 
+        @node = double("Node").as_null_object
+        allow(@node).to receive(:new).and_return(@configuration.configuration_file)
+        allow(Node).to receive(:new).and_return(@node)
+
+        @native_group = double("Native Group").as_null_object
+
+        allow(@context).to receive(:native_object_for).with(@node).and_return(@native_group)
         allow(@context).to receive(:native_object_for).with(@configuration).and_return(@native_configuration)
         allow(@context).to receive(:native_object_for).with(@configurable).and_return(@native_configurable)
       end
@@ -46,6 +54,28 @@ module Xcake
       it "should create a new Configuration" do
         expect(@context).to receive(:native_object_for).with(@configuration)
         @generator.create_build_configurations_for(@configurable)
+      end
+
+      context "when installing XCConfig" do
+
+        it "should set node path" do
+          expect(@node).to receive(:path=).with(@configuration.configuration_file)
+          @generator.create_build_configurations_for(@configurable)
+        end
+
+        it "should add XCConfig File to the project" do
+          expect(@native_group).to receive(:new_reference).with(@node.path)
+          @generator.create_build_configurations_for(@configurable)
+        end
+
+        it "should set XCConfig for configurable" do
+          xcconfig = double("XCConfig File Reference")
+
+          allow(@native_group).to receive(:new_reference).and_return(xcconfig)
+          expect(@native_configurable).to receive(:base_configuration_reference=).with(xcconfig)
+
+          @generator.create_build_configurations_for(@configurable)
+        end
       end
 
       context "when configuring Configuration" do

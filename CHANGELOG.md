@@ -1,10 +1,13 @@
 v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).
+- Adds support for folder references (Thanks to @nodepad).
+- Adds support for XCConfig Files (Thanks to @colinta).
+- Documentation updated to explain how to set up a unit test target (Thanks to @maximkhatskevich).
 
 v0.6.2
 ======
-- Fixes bug where certain file installers fail to register correctly and could cause issues with adding certain files to the Xcode project.
+- Fixes bug where certain file installers fail to register and could cause issues with adding certain files to the Xcode project.
 
 v0.6.1
 ======
@@ -12,22 +15,22 @@ v0.6.1
 
 v0.6.0
 ======
-- Correctly infers build phases for the apple watch.
+- Infers build phases for the apple watch.
 - Fixes bug where configurations lacked a name when using shorthand syntax. (Thanks to @colinta).
 - Adds support for custom script build phases (Thanks to @colinta).
 
 v0.5.3
 ======
-- Updates `xcake bake` to more generic `xcake make` (Thanks to @roger-tan).
+- Updates `xcake bake` to the more generic `xcake make` (Thanks to @roger-tan).
 
 v0.5.2
 ======
 - Updates `xcake init` for new project syntax.
-- Adds shorthand build configuration syntax for projects which only contain one debug or release configuration (Thanks to @colinta).
+- Adds shorthand build configuration syntax for projects which contain one debug or release configuration (Thanks to @colinta).
 
 v0.5.1
 ======
-- Tweaks DSL so it is easier to access the project properties via the `project` method.
+- Tweaks DSL so it's easier to access the project properties via the `project` method.
 
 v0.5.0
 ======
@@ -59,7 +62,7 @@ v0.4.4
 
 v0.4.3
 ======
-- Correctly containing `.xcdatamodeld` files to a project, rather than the
+- Correctly adds containing `.xcdatamodeld` files to a project, rather than the
   internal `.xcdatamodel`.
 
 v0.4.2
@@ -90,7 +93,7 @@ v0.2.0
 - Now adds `--version` flag to command line, to allow you to find out Xcake's
   version.
 - Brings naming of default build configurations closer to Xcode's, so that it
-  works with existing build   scripts.
+  works with existing build scripts.
 - Adds support for Watch OS 2 Applications.
 
 v0.1.9
