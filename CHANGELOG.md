@@ -1,8 +1,9 @@
 v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).
+- Adds support for folder references (Thanks to @nodepad).
 - Adds support for XCConfig Files (Thanks to @colinta).
-- Documentation updated to explain more clearly how to set up a unit test target (Thanks to @somebody).
+- Documentation updated to explain how to set up a unit test target (Thanks to @somebody).
 
 v0.6.2
 ======
