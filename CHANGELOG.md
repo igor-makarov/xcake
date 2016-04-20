@@ -2,11 +2,11 @@ v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).
 - Adds support for XCConfig Files (Thanks to @colinta).
-#TODO: Update documentation
+- Documentation updated to explain more clearly how to set up a unit test target (Thanks to @somebody).
 
 v0.6.2
 ======
-- Fixes bug where certain file installers fail to register correctly and could cause issues with adding certain files to the Xcode project.
+- Fixes bug where certain file installers fail to register and could cause issues with adding certain files to the Xcode project.
 
 v0.6.1
 ======
@@ -14,7 +14,7 @@ v0.6.1
 
 v0.6.0
 ======
-- Correctly infers build phases for the apple watch.
+- Infers build phases for the apple watch.
 - Fixes bug where configurations lacked a name when using shorthand syntax. (Thanks to @colinta).
 - Adds support for custom script build phases (Thanks to @colinta).
 
@@ -25,7 +25,7 @@ v0.5.3
 v0.5.2
 ======
 - Updates `xcake init` for new project syntax.
-- Adds shorthand build configuration syntax for projects which only contain one debug or release configuration (Thanks to @colinta).
+- Adds shorthand build configuration syntax for projects which contain one debug or release configuration (Thanks to @colinta).
 
 v0.5.1
 ======
