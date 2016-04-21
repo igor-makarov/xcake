@@ -1,7 +1,7 @@
 require 'xcodeproj'
 
 module Xcake
-  # This generator processes the configuraions
+  # This generator processes the configurations
   # and creates xcode build configurations.
   #
   class ConfigurationGenerator < Generator
@@ -28,15 +28,19 @@ module Xcake
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
- #      Move this to an installer:
- #      group = group_for_node(node)
- #      file_reference = group.new_reference(node.path)
- #      @native_configuration.base_configuration_reference = file_reference
- #      build_configuration.base_configuration_reference = configuration.configuration_file
-
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
+
+        xcconfig = install_xcconfig(configuration)
+        native_configuration_object.base_configuration_reference = xcconfig
       end
+    end
+
+      # TODO: Remove need to construct a Node Object to do this.
+      node = Node.new
+      node.path = configuration.configuration_file
+      native_group = @context.native_object_for(node)
+      native_group.new_reference(node.path)
     end
   end
 end
