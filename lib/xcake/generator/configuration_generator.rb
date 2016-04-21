@@ -36,6 +36,7 @@ module Xcake
       end
     end
 
+    def install_xcconfig(configuration)
       # TODO: Remove need to construct a Node Object to do this.
       node = Node.new
       node.path = configuration.configuration_file
