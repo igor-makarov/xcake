@@ -1,3 +1,11 @@
+v0.6.5
+======
+- Fixes error when generating Xcode Project without specifying XCConfig files.
+
+v0.6.4
+======
+- Fixes error when installing XCConfig files.
+
 v0.6.3
 ======
 - Adds support for adding system and static libraries (Thanks to @nodepad).

@@ -31,8 +31,10 @@ module Xcake
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
 
-        xcconfig = install_xcconfig(configuration)
-        native_configuration_object.base_configuration_reference = xcconfig
+        if configuration.configuration_file != nil
+          xcconfig = install_xcconfig(configuration)
+          native_configuration_object.base_configuration_reference = xcconfig
+        end
       end
     end
 
