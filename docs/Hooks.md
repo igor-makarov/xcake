@@ -7,6 +7,8 @@ generated:
 
 ```ruby
 Project.new do |c|
-  `pod install`
+  after_save do
+   `pod install`
+  end
 end
 ```
