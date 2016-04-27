@@ -1,6 +1,10 @@
+v0.6.7
+======
+- Fixes issue where `agvtool` command line tool failed to find plist with the default value used for the `INFOPLIST_FILE` build setting.
+
 v0.6.6
 ======
-- Fixes issue where `agvtool` command line tool failed to bump version with the default value used for the `INFOPLIST_FILE` build setting.
+- Fixes issue where `agvtool` command line tool failed to understand preprocessor directives used with the default value used for the `INFOPLIST_FILE` build setting.
 
 v0.6.5
 ======
