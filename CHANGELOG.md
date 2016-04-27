@@ -1,6 +1,10 @@
+v0.6.6
+======
+- Fixes issue where `agvtool` command line tool failed to bump version with the default value used for the `INFOPLIST_FILE` build setting.
+
 v0.6.5
 ======
-- Fixes error when generating Xcode Project without specifying XCConfig files.
+- Fixes bug with generating Xcode Project without specifying XCConfig files.
 
 v0.6.4
 ======

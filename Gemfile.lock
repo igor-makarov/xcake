@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.5)
+    xcake (0.6.6)
       claide (~> 0.9.1)
       hooks (~> 0.4.1)
       molinillo

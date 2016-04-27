@@ -223,7 +223,7 @@ module Xcake
 
     def default_settings
       {
-        "INFOPLIST_FILE" => "./$(PRODUCT_NAME)/Supporting Files/Info.plist"
+        "INFOPLIST_FILE" => "./#{name}/Supporting Files/Info.plist"
       }
     end
 
