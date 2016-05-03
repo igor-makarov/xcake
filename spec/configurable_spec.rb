@@ -112,27 +112,14 @@ module Xcake
     end
 
     context "when accessing all configurations" do
-      it "should return configuration" do
-        expect(@configurable.all_configurations).not_to be(nil)
-      end
-
-      it "should be same configuration" do
-        configuration = @configurable.all_configurations
-
-        expect(@configurable.all_configurations).to be(configuration)
-      end
-    end
-
-    context "when flattening configurations" do
       before :each do
-        @configurable.all_configurations.settings[:ALL_SETTING] = "ALL_VALUE"
+        @configurable.all_configurations.each {|c| c.settings[:ALL_SETTING] = "ALL_VALUE"}
       end
-
+      
       context "for debug" do
         before :each do
-          @configuration = @configurable.debug_configuration(:debug)
+          @configuration = @configurable.debug_configurations.first
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
-          @configurable.flatten_configurations
         end
 
         it "should merge in default settings" do
@@ -150,9 +137,8 @@ module Xcake
 
       context "for release" do
         before :each do
-          @configuration = @configurable.debug_configuration(:release)
+          @configuration = @configurable.release_configurations.first
           @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
-          @configurable.flatten_configurations
         end
 
         it "should merge in default settings" do
@@ -163,18 +149,15 @@ module Xcake
           expect(@configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
         end
 
-        it "should merge in configuration settings" do
+        it "should merge in custom settings" do
           expect(@configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
       it "should have same combined number of configurations" do
-        @configurable.debug_configuration :debug
-        @configurable.debug_configuration :release
-
-        flattened_configurations = @configurable.flatten_configurations
-        expect(flattened_configurations.count).to be(2)
+        expect(@configurable.all_configurations.count).to be(2)
       end
+
     end
   end
 end

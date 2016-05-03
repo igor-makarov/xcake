@@ -15,43 +15,33 @@ module Xcake
 
     private
 
-    attr_accessor :all_configuration
-
+    attr_accessor :all_configurations
+    
     public
 
     attr_accessor :debug_configurations
     attr_accessor :release_configurations
-
-    # This collects all of the configurations,
-    # flattens them and returns them as an array.
+    
+    # @return [Array<Configuration>] list of configurations
     #
-    # The process of flattening combines each
-    # configuration settings with the defaults
-    # and shared "all" settings, in this priority:
-    #
-    # - default settings
-    # - shared settings
-    # - configuration settings
-    #
-    # @return [Array<Configuration>] list of all configurations flattened
-    #
-    def flatten_configurations
-      all_settings = all_configurations.settings
-      flattened_configurations = []
-
-      debug_configurations.each do |b|
-        b.settings = default_debug_settings.merge!(all_settings).merge!(b.settings)
-        flattened_configurations << b
+    def all_configurations
+      configurations = []
+      
+      if debug_configurations.empty?
+        configurations << debug_configuration("Debug")
+      else
+        configurations.concat(debug_configurations)
       end
-
-      release_configurations.each do |b|
-        b.settings = default_release_settings.merge!(all_settings).merge!(b.settings)
-        flattened_configurations << b
+      
+      if release_configurations.empty?
+        configurations << release_configuration("Release")
+      else
+        configurations.concat(release_configurations)
       end
-
-      flattened_configurations
+      
+      configurations
     end
-
+    
     # @return [Array<Configuration>] list of debug configurations
     #
     def debug_configurations
@@ -62,23 +52,6 @@ module Xcake
     #
     def release_configurations
       @release_configurations ||= []
-    end
-
-    # This returns the shared "all" configuration
-    # use this if you want to set a setting that
-    # applies across all configurations.
-    #
-    # Note: If this setting is set on a configuration
-    # already then this won't override it.
-    #
-    # @example Set a setting across all configurations
-    #
-    #     t.all_configurations.settings["INFO_PLIST"] = "./myapp/info.plist"
-    #
-    # @return [Configuration] configuration for the shared settings
-    #
-    def all_configurations
-      @all_configuration ||= Configuration.new(:all)
     end
 
     # This either finds a release configuration
@@ -102,28 +75,37 @@ module Xcake
     private
 
     def build_configuration(method, name, &block)
-      configuration_name = send("#{method}_configurations")
+      case method
+      when :debug
+        configuration_name = debug_configurations
+        default_settings = default_debug_settings
+      when :release
+        configuration_name = release_configurations
+        default_settings = default_release_settings
+      end
+      
       if name.nil?
-        configuration = configuration_name.first
+        build_configuration = configuration_name.first
       else
-        configuration = configuration_name.detect do |c|
+        build_configuration = configuration_name.detect do |c|
           c.name == name.to_s
         end
       end
 
-      if configuration.nil?
+      if build_configuration.nil?
         if name.nil?
           name = method.to_s[0].upcase + method.to_s[1..-1]
         end
 
-        configuration = Configuration.new(name) do |b|
+        build_configuration = Configuration.new(name) do |b|
+          b.settings.merge!(default_settings)
           block.call(b) if block_given?
         end
-
-        configuration_name << configuration
+          
+        configuration_name << build_configuration
       end
 
-      configuration
+      build_configuration
     end
   end
 end

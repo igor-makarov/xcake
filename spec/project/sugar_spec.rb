@@ -81,11 +81,11 @@ module Xcake
 
       it "should set test host to application target executable" do
         executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
-        expect(@target.all_configurations.settings["TEST_HOST"]).to eq(executable_path)
+        expect(@target.all_configurations).to all( satisfy {|c| c.settings["TEST_HOST"] == executable_path })
       end
 
       it "should set bundle loader setting to test host" do
-        expect(@target.all_configurations.settings["BUNDLE_LOADER"]).to eq("$(TEST_HOST)")
+        expect(@target.all_configurations).to all( satisfy {|c| c.settings["BUNDLE_LOADER"] == "$(TEST_HOST)" })
       end
     end
 

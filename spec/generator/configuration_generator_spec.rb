@@ -38,7 +38,7 @@ module Xcake
         allow(@configuration).to receive(:configuration_file).and_return("File.xcconfig")
 
         @configurable = double("Configurable")
-        allow(@configurable).to receive(:flatten_configurations).and_return([@configuration])
+        allow(@configurable).to receive(:all_configurations).and_return([@configuration])
 
         @node = double("Node").as_null_object
         allow(@node).to receive(:new).and_return(@configuration.configuration_file)
