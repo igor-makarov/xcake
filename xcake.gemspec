@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.4.0"
   spec.add_development_dependency "coveralls", "~> 0.8"
+  spec.add_development_dependency "rubocop", "~> 0.39.0"
   spec.add_development_dependency "yard", "~> 0.8"
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_dependency "claide", "~> 0.9.1"

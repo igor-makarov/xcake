@@ -16,12 +16,12 @@ module Xcake
     private
 
     attr_accessor :all_configurations
-    
+
     public
 
     attr_accessor :debug_configurations
     attr_accessor :release_configurations
-    
+
     # @return [Array<Configuration>] list of configurations
     #
     def all_configurations
@@ -41,7 +41,7 @@ module Xcake
 
       configurations
     end
-    
+
     # @return [Array<Configuration>] list of debug configurations
     #
     def debug_configurations
@@ -101,7 +101,7 @@ module Xcake
           b.settings.merge!(default_settings)
           block.call(b) if block_given?
         end
-          
+
         configuration_name << build_configuration
       end
 
