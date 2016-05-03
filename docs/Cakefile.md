@@ -18,7 +18,7 @@ and here is much more complicated one:
 
   application_for :ios, 8.0 do |target|
     target.name = "test"
-    target.all_configurations.each {|c| c.supported_devices = :iphone_only}
+    target.all_configurations.each { |c| c.supported_devices = :iphone_only}
 
     unit_tests_for target
   end
@@ -259,7 +259,7 @@ We can apply a particular shared setting across all of our configurations.
 Xcake provides a simply way of doing this via an "all" configuration.
 
 ```ruby
-all_configurations {|c| c.supported_devices = :iphone_only}
+all_configurations { |c| c.supported_devices = :iphone_only}
 ```
 
 ### Targets
@@ -269,7 +269,7 @@ target we want to modify the configuration for.
 
 ```ruby
 
-target.all_configurations.each {|c| c.supported_devices = :iphone_only}
+target.all_configurations.each { |c| c.supported_devices = :iphone_only}
 
 debug_configuration :staging do |configuration|
   configuration.settings["KEY"] = "VALUE"

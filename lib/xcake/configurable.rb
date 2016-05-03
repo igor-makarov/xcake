@@ -26,19 +26,19 @@ module Xcake
     #
     def all_configurations
       configurations = []
-      
+
       if debug_configurations.empty?
         configurations << debug_configuration("Debug")
       else
         configurations.concat(debug_configurations)
       end
-      
+
       if release_configurations.empty?
         configurations << release_configuration("Release")
       else
         configurations.concat(release_configurations)
       end
-      
+
       configurations
     end
     
@@ -83,7 +83,7 @@ module Xcake
         configuration_name = release_configurations
         default_settings = default_release_settings
       end
-      
+
       if name.nil?
         build_configuration = configuration_name.first
       else

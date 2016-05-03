@@ -18,7 +18,9 @@ module Xcake
     # @example Using Supported Devices
     #
     #          Target.new do |t|
-    #             t.all_configurations.each {|c| c.supported_devices = :ipad_only}
+    #             t.all_configurations.each do |c|
+    #                c.supported_devices = :ipad_only
+    #             end
     #          end
     #
     def supported_devices=(devices)

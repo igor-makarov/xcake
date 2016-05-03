@@ -113,9 +113,11 @@ module Xcake
 
     context "when accessing all configurations" do
       before :each do
-        @configurable.all_configurations.each {|c| c.settings[:ALL_SETTING] = "ALL_VALUE"}
+        @configurable.all_configurations.each do |c|
+          c.settings[:ALL_SETTING] = "ALL_VALUE"
+        end
       end
-      
+
       context "for debug" do
         before :each do
           @configuration = @configurable.debug_configurations.first
@@ -157,7 +159,6 @@ module Xcake
       it "should have same combined number of configurations" do
         expect(@configurable.all_configurations.count).to be(2)
       end
-
     end
   end
 end
