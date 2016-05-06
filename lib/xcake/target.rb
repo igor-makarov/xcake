@@ -228,6 +228,10 @@ module Xcake
 
     #Configurable
 
+    def parent_configurable
+      @project
+    end
+
     def default_settings
       {
         "INFOPLIST_FILE" => "#{name}/Supporting Files/Info.plist"

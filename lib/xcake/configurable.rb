@@ -22,7 +22,15 @@ module Xcake
     # @return [Array<Configuration>] list of all configurations
     #
     def all_configurations
-      @configurations ||= []
+      if @configurations.nil?
+        @configurations = []
+
+        parent_configurable.all_configurations.each do |c|
+          configuration(c.name, c.type)
+        end if parent_configurable
+      end
+
+      @configurations
     end
 
     # @param [Array<Configuration>] new list of configurations to set
@@ -100,6 +108,10 @@ module Xcake
     end
 
     private
+
+    def parent_configurable
+      nil
+    end
 
     def default_settings_for_type(type)
       case type
