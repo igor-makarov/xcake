@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.7)
+    xcake (0.6.8)
       claide (~> 0.9.1)
       hooks (~> 0.4.1)
       molinillo
@@ -36,7 +36,7 @@ GEM
     json (1.8.3)
     method_source (0.8.2)
     minitest (5.8.4)
-    molinillo (0.4.4)
+    molinillo (0.4.5)
     necromancer (0.3.0)
     parser (2.3.1.0)
       ast (~> 2.2)
