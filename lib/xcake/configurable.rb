@@ -13,12 +13,22 @@ module Xcake
   #
   module Configurable
 
-    attr_accessor :all_configurations
+    private
+
+    attr_accessor :configurations
+
+    public
 
     # @return [Array<Configuration>] list of all configurations
     #
     def all_configurations
-      all_configurations ||= []
+      @configurations ||= []
+    end
+
+    # @param [Array<Configuration>] new list of configurations to set
+    #
+    def all_configurations=(configurations)
+      @configurations = configurations
     end
 
     # @return [Array<Configuration>] list of configurations of a type
@@ -58,7 +68,7 @@ module Xcake
       end
     end
 
-    def build_configuration(type, name = type.to_s.capitalize, &block)
+    def build_configuration(type, name, &block)
 
       default_settings = default_settings_for_type(type)
       configurations = configurations_of_type(type)
@@ -72,6 +82,8 @@ module Xcake
       end
 
       if build_configuration.nil?
+
+        name = type.to_s.capitalize if name.nil?
 
         build_configuration = Configuration.new(name) do |b|
 
