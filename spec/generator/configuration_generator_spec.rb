@@ -58,6 +58,9 @@ module Xcake
       end
 
       context "when installing XCConfig" do
+        before :each do
+          allow(@native_group).to receive(:[]).with(@node.path).and_return(nil)
+        end
 
         it "should set node path" do
           expect(@node).to receive(:path=).with(@configuration.configuration_file)
@@ -68,7 +71,15 @@ module Xcake
           expect(@native_group).to receive(:new_reference).with(@node.path)
           @generator.create_build_configurations_for(@configurable)
         end
-
+        
+        it "should add XCConfig File to the project only once" do
+          allow(@configurable).to receive(:all_configurations).
+            and_return([@configuration, @configuration])
+          
+          expect(@native_group).to receive(:new_reference).with(@node.path)
+          @generator.create_build_configurations_for(@configurable)
+        end
+        
         it "should set XCConfig for configurable" do
           xcconfig = double("XCConfig File Reference")
 
