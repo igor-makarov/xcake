@@ -1,3 +1,7 @@
+v0.6.11
+=======
+- Fixes issues with system frameworks when inherited configurations.
+
 v0.6.10
 =======
 - Fixes race-condition where configurations weren't setup correctly.
