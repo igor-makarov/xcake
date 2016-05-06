@@ -1,3 +1,7 @@
+v0.6.12
+=======
+- Fixes issues when resolving project if sensible default configurations.
+
 v0.6.11
 =======
 - Fixes issues with system frameworks with inherited configurations.
