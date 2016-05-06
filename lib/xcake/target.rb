@@ -177,11 +177,8 @@ module Xcake
     #
     def initialize(project, &block)
 
-      project.all_configurations.each do |c|
-        configuration(c.name, c.type)
-      end
-
-      self.build_phases = []
+      @project = project
+      @build_phases = []
 
       block.call(self) if block_given?
     end
