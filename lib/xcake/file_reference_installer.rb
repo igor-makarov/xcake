@@ -44,7 +44,8 @@ module Xcake
     def visit_node(node)
       native_group = @context.native_object_for(node)
 
-      file_reference = native_group.new_reference(node.path)
+      file_reference = native_group[node.path] ||
+        native_group.new_reference(node.path)
 
       node.targets.each do |t|
          add_file_reference_to_target(file_reference, t)
