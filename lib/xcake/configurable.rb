@@ -42,33 +42,33 @@ module Xcake
     # This either finds a release configuration
     # with the same name or creates one.
     #
+    # @deprecated Please use `configuration <name>, :debug` this
+    #             woll be removed in 0.7.0
+    #
     # @return [Configuration] the new or existing debug configuration
     #
     def debug_configuration(name = nil, &block)
-      build_configuration(:debug, name, &block)
+      configuration(name, :debug, &block)
     end
 
     # This either finds a release configuration
     # with the same name or creates one.
     #
+    # @deprecated Please use `configuration <name>, :release` this
+    #             woll be removed in 0.7.0
+    #
     # @return [Configuration] the new or existing release configuration
     #
     def release_configuration(name = nil, &block)
-      build_configuration(:release, name, &block)
+      configuration(name, :release, &block)
     end
 
-    private
-
-    def default_settings_for_type(type)
-      case type
-      when :debug
-        default_debug_settings
-      when :release
-        default_release_settings
-      end
-    end
-
-    def build_configuration(type, name, &block)
+    # This either finds a configuration
+    # with the same name and type or creates one.
+    #
+    # @return [Configuration] the new or existing configuration
+    #
+    def configuration(name, type, &block)
 
       default_settings = default_settings_for_type(type)
       configurations = configurations_of_type(type)
@@ -97,6 +97,17 @@ module Xcake
       end
 
       build_configuration
+    end
+
+    private
+
+    def default_settings_for_type(type)
+      case type
+      when :debug
+        default_debug_settings
+      when :release
+        default_release_settings
+      end
     end
   end
 end

@@ -66,11 +66,7 @@ module Xcake
     #         the newly created target
     #
     def target(&block)
-      target = Target.new
-
-      # Make sure the target inherits the configurations from the project.
-      target.all_configurations = project.all_configurations
-      block.call(target) if block_given?
+      target = Target.new(project, &block)
 
       self.targets << target
       target

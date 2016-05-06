@@ -7,6 +7,10 @@ module Xcake
     include Configurable
     include Visitable
 
+    # @return [Project] the project for the target.
+    #
+    attr_accessor :project
+
     # @return [String] the name of the target.
     #
     attr_accessor :name
@@ -171,8 +175,14 @@ module Xcake
     #             t.name "test"
     #           end
     #
-    def initialize(&block)
+    def initialize(project, &block)
+
+      project.all_configurations.each do |c|
+        configuration(c.name, c.type)
+      end
+
       self.build_phases = []
+
       block.call(self) if block_given?
     end
 

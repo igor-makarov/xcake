@@ -3,7 +3,8 @@ require "spec_helper"
 module Xcake
   describe Target do
     before :each do
-      @target = Target.new
+      project = double("Project").as_null_object
+      @target = Target.new(project)
     end
 
     context "when adding a shell script build phase with a string" do
