@@ -71,20 +71,21 @@ module Xcake
           expect(@native_group).to receive(:new_reference).with(@node.path)
           @generator.create_build_configurations_for(@configurable)
         end
-        
+
         it "should add XCConfig File to the project only once" do
           allow(@configurable).to receive(:all_configurations).
             and_return([@configuration, @configuration])
-          
+
           expect(@native_group).to receive(:new_reference).with(@node.path)
           @generator.create_build_configurations_for(@configurable)
         end
-        
+
         it "should set XCConfig for configurable" do
           xcconfig = double("XCConfig File Reference")
 
           allow(@native_group).to receive(:new_reference).and_return(xcconfig)
-          expect(@native_configuration).to receive(:base_configuration_reference=).with(xcconfig)
+          expect(@native_configuration).
+            to receive(:base_configuration_reference=).with(xcconfig)
 
           @generator.create_build_configurations_for(@configurable)
         end
