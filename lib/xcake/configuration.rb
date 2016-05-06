@@ -14,9 +14,13 @@ module Xcake
 
     include Visitable
 
-    # @return [String>] the name of the configuration
+    # @return [String] the name of the configuration
     #
     attr_accessor :name
+
+    # @return [Symbol] the type of the configuration, either :debug or :release
+    #
+    attr_accessor :type
 
     # the settings for the configuration
     # this is what is used for the build settings

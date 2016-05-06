@@ -22,7 +22,7 @@ module Xcake
       end
 
       it "should store build configuration" do
-        expect(@configurable.debug_configurations.count).to eq(1)
+        expect(@configurable.all_configurations.count).to eq(1)
       end
 
       it "should use that configuration if no name is specified" do
@@ -93,7 +93,7 @@ module Xcake
       end
 
       it "should store build configuration" do
-        expect(@configurable.release_configurations.count).to eq(1)
+        expect(@configurable.all_configurationsaa.count).to eq(1)
       end
 
       it "should use that configuration if no name is specified" do
@@ -113,6 +113,10 @@ module Xcake
 
     context "when accessing all configurations" do
       before :each do
+
+        @release_configuration = @configurable.release_configuration
+        @debug_configuration = @configurable.debug_configuration
+
         @configurable.all_configurations.each do |c|
           c.settings[:ALL_SETTING] = "ALL_VALUE"
         end
@@ -120,39 +124,37 @@ module Xcake
 
       context "for debug" do
         before :each do
-          @configuration = @configurable.debug_configurations.first
-          @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
+          @debug_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
         end
 
         it "should merge in default settings" do
-          expect(@configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
+          expect(@debug_configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
-          expect(@configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
+          expect(@debug_configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
         end
 
         it "should merge in configuration settings" do
-          expect(@configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
+          expect(@debug_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 
       context "for release" do
         before :each do
-          @configuration = @configurable.release_configurations.first
-          @configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
+          @release_configuration.settings[:CUSTOM_SETTING] = "CUSTOM_VALUE"
         end
 
         it "should merge in default settings" do
-          expect(@configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
+          expect(@release_configuration.settings[:DEFAULT_SETTING]).to eq("DEFAULT_VALUE")
         end
 
         it "should merge in all settings" do
-          expect(@configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
+          expect(@release_configuration.settings[:ALL_SETTING]).to eq("ALL_VALUE")
         end
 
         it "should merge in custom settings" do
-          expect(@configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
+          expect(@release_configuration.settings[:CUSTOM_SETTING]).to eq("CUSTOM_VALUE")
         end
       end
 

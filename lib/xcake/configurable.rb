@@ -13,45 +13,20 @@ module Xcake
   #
   module Configurable
 
-    private
-
     attr_accessor :all_configurations
 
-    public
-
-    attr_accessor :debug_configurations
-    attr_accessor :release_configurations
-
-    # @return [Array<Configuration>] list of configurations
+    # @return [Array<Configuration>] list of all configurations
     #
     def all_configurations
-      configurations = []
-
-      if debug_configurations.empty?
-        configurations << debug_configuration("Debug")
-      else
-        configurations.concat(debug_configurations)
-      end
-
-      if release_configurations.empty?
-        configurations << release_configuration("Release")
-      else
-        configurations.concat(release_configurations)
-      end
-
-      configurations
+      all_configurations ||= []
     end
 
-    # @return [Array<Configuration>] list of debug configurations
+    # @return [Array<Configuration>] list of configurations of a type
     #
-    def debug_configurations
-      @debug_configurations ||= []
-    end
-
-    # @return [Array<Configuration>] list of release configurations
-    #
-    def release_configurations
-      @release_configurations ||= []
+    def configurations_of_type(type)
+      all_configurations.select do |c|
+        c.type == type
+      end
     end
 
     # This either finds a release configuration
@@ -74,35 +49,39 @@ module Xcake
 
     private
 
-    def build_configuration(method, name, &block)
-      case method
+    def default_settings_for_type(type)
+      case type
       when :debug
-        configuration_name = debug_configurations
-        default_settings = default_debug_settings
+        default_debug_settings
       when :release
-        configuration_name = release_configurations
-        default_settings = default_release_settings
+        default_release_settings
       end
+    end
+
+    def build_configuration(type, name = type.to_s.capitalize, &block)
+
+      default_settings = default_settings_for_type(type)
+      configurations = configurations_of_type(type)
 
       if name.nil?
-        build_configuration = configuration_name.first
+        build_configuration = configurations.first
       else
-        build_configuration = configuration_name.detect do |c|
+        build_configuration = configurations.detect do |c|
           c.name == name.to_s
         end
       end
 
       if build_configuration.nil?
-        if name.nil?
-          name = method.to_s[0].upcase + method.to_s[1..-1]
-        end
 
         build_configuration = Configuration.new(name) do |b|
+
+          b.type = type
           b.settings.merge!(default_settings)
+
           block.call(b) if block_given?
         end
 
-        configuration_name << build_configuration
+        all_configurations << build_configuration
       end
 
       build_configuration

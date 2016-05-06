@@ -56,5 +56,20 @@ module Xcake
 
       expect(@project.default_release_settings).to eq(settings)
     end
+
+    context "when creating target" do
+      before :each do
+        project = Project.new("Test")
+
+        project.debug_configuration
+        project.release_configuration
+
+        @target = project.target
+      end
+
+      it "should inherit all configurations" do
+        expect(@target.all_configurations.count).to eq(2)
+      end
+    end
   end
 end
