@@ -66,7 +66,7 @@ module Xcake
     #         the newly created target
     #
     def target(&block)
-      target = Target.new(&block)
+      target = Target.new
 
       # Make sure the target inherits the configurations from the project.
       debug_configurations.each do |c|
@@ -76,6 +76,8 @@ module Xcake
       release_configurations.each do |c|
         target.release_configuration c.name
       end
+
+      block.call(target) if block_given?
 
       self.targets << target
       target

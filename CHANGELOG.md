@@ -1,6 +1,10 @@
+v0.6.10
+======
+- Fixes race-condition where configurations weren't setup correctly.
+
 v0.6.9
 ======
-- Fixes project configurations not being inherited by targets.
+- Fixes project configurations not inherited by targets.
 
 v0.6.8
 ======
