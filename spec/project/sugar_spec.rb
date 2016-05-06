@@ -10,6 +10,20 @@ module Xcake
       expect(@project.project).to eq(@project)
     end
 
+    context "when creating target" do
+      before :each do
+        @project.debug_configuration
+        @project.release_configuration
+        @target = @project.target
+      end
+
+      it "should inherit all configurations" do
+        expect(@target.debug_configurations.count).to eq(1)
+        expect(@target.release_configurations.count).to eq(1)
+        expect(@target.all_configurations.count).to eq(2)
+      end
+    end
+
     context "when creating application target" do
       before :each do
         @target = @project.application_for :ios, 8.0

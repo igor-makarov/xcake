@@ -1,3 +1,7 @@
+v0.6.9
+======
+- Fixes project configurations not being inherited by targets.
+
 v0.6.8
 ======
 - Improvements to setting build settings on all configurations (Thanks to @therealbnut).
