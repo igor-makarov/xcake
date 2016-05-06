@@ -84,7 +84,7 @@ module Xcake
           xcconfig = double("XCConfig File Reference")
 
           allow(@native_group).to receive(:new_reference).and_return(xcconfig)
-          expect(@native_configurable).to receive(:base_configuration_reference=).with(xcconfig)
+          expect(@native_configuration).to receive(:base_configuration_reference=).with(xcconfig)
 
           @generator.create_build_configurations_for(@configurable)
         end
