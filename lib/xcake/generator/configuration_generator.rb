@@ -33,7 +33,7 @@ module Xcake
 
         if configuration.configuration_file != nil
           xcconfig = install_xcconfig(configuration)
-          native_configuration_object.base_configuration_reference = xcconfig
+          build_configuration.base_configuration_reference = xcconfig
         end
       end
     end
@@ -43,7 +43,7 @@ module Xcake
       node = Node.new
       node.path = configuration.configuration_file
       native_group = @context.native_object_for(node)
-      native_group.new_reference(node.path)
+      native_group[node.path] || native_group.new_reference(node.path)
     end
   end
 end
