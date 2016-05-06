@@ -1,6 +1,6 @@
 v0.6.11
 =======
-- Fixes issues with system frameworks when inherited configurations.
+- Fixes issues with system frameworks with inherited configurations.
 
 v0.6.10
 =======
