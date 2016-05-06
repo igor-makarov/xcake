@@ -1,3 +1,7 @@
+v0.6.8
+======
+- Improvements to setting build settings on all configurations (Thanks to @therealbnut).
+
 v0.6.7
 ======
 - Fixes issue where `agvtool` command line tool failed to find plist with the default value used for the `INFOPLIST_FILE` build setting.
