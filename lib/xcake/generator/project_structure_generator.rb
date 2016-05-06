@@ -16,8 +16,8 @@ module Xcake
 
       @project = project
 
-      @project.debug_configuration :Debug if @project.debug_configurations.count == 0
-      @project.release_configuration :Release if @project.release_configurations.count == 0
+      @project.configuration :Debug, :debug if @project.configurations_of_type(:debug).count == 0
+      @project.configuration :Release, :release if @project.configurations_of_type(:release).count == 0
     end
 
     def leave_project(project)
@@ -27,12 +27,8 @@ module Xcake
 
       puts "Resolving target #{target.name}..."
 
-      @project.debug_configurations.each do |b|
-        target.debug_configuration(b.name)
-      end
-
-      @project.release_configurations.each do |b|
-        target.release_configuration(b.name)
+      @project.all_configurations.each do |c|
+        target.configuration(c.name, c.type)
       end
     end
 
