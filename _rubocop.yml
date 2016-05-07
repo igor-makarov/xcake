@@ -4,7 +4,7 @@
 
 inherit_from: .rubocop_general.yml
 
-# e.g. 
+# e.g.
 # def self.is_supported?(platform)
 # we may never use `platform`
 Lint/UnusedMethodArgument:
