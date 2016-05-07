@@ -20,7 +20,7 @@ module Xcake
     end
 
     def add_file_reference_to_target(file_reference, target)
-      target.resources_build_phase.add_file_reference(file_reference)
+      target.resources_build_phase.add_file_reference(file_reference, true)
     end
   end
 end

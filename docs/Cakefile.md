@@ -98,7 +98,7 @@ We can also specify a testing targets for other targets as well:
 
 ```ruby
 application_for :mac, 8.0 do |target|
-  unit_tests_for target 
+  unit_tests_for target
 end
 ```
 
@@ -110,14 +110,14 @@ If you want to manually control configuration of unit tests targets (and/or have
 application_for :mac, 8.0 do |target|
 
   unit_tests_for target do |test_target|
-  
+
         test_target.name = "MyAwesomeTests"
         test_target.include_files = ["Tests/**/*.*"]
-        
+
         # configure any other target-related properties
         # as you would do with normal target
 
-    end 
+    end
 end
 ```
 
