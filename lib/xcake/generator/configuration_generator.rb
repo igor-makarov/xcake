@@ -32,6 +32,8 @@ module Xcake
         native_configuration_object.build_configurations << build_configuration
 
         if configuration.configuration_file != nil
+          puts "Adding xcconfig #{configuration.configuration_file}..."
+
           xcconfig = install_xcconfig(configuration)
           build_configuration.base_configuration_reference = xcconfig
         end
@@ -39,11 +41,15 @@ module Xcake
     end
 
     def install_xcconfig(configuration)
-      # TODO: Remove need to construct a Node Object to do this.
-      node = Node.new
-      node.path = configuration.configuration_file
-      native_group = @context.native_object_for(node)
-      native_group[node.path] || native_group.new_reference(node.path)
+      build_configuration = @context.native_object_for(configuration)
+      native_project = build_configuration.project
+
+      path     = configuration.configuration_file
+      basename = File.basename(path)
+      parent   = File.dirname(path)
+
+      group = native_project.main_group.find_subpath(parent, true)
+      group[basename] || group.new_reference(path)
     end
   end
 end
