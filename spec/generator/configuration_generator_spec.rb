@@ -41,13 +41,14 @@ module Xcake
         allow(@configurable).to receive(:all_configurations).
           and_return([@configuration])
 
-        @node = double("Node").as_null_object
-        allow(@node).to receive(:new).and_return(@configuration.configuration_file)
-        allow(Node).to receive(:new).and_return(@node)
+        # @node = double("Node").as_null_object
+        # allow(@node).to receive(:new).and_return(@configuration.configuration_file)
+        # allow(Node).to receive(:new).and_return(@node)
 
-        @native_group = double("Native Group").as_null_object
+        @main_group = double("Native Main Group")
 
-        allow(@context).to receive(:native_object_for).with(@node).and_return(@native_group)
+        # allow(@context).to receive(:native_object_for).with(@node).and_return(@main_group)
+        
         allow(@context).to receive(:native_object_for).with(@configuration).and_return(@native_configuration)
         allow(@context).to receive(:native_object_for).with(@configurable).and_return(@native_configurable)
       end
@@ -59,16 +60,13 @@ module Xcake
 
       context "when installing XCConfig" do
         before :each do
-          allow(@native_group).to receive(:[]).with(@node.path).and_return(nil)
-        end
-
-        it "should set node path" do
-          expect(@node).to receive(:path=).with(@configuration.configuration_file)
-          @generator.create_build_configurations_for(@configurable)
+          allow(@main_group).to receive(:[]).
+            with(@configuration.configuration_file).and_return(nil)
         end
 
         it "should add XCConfig File to the project" do
-          expect(@native_group).to receive(:new_reference).with(@node.path)
+          expect(@main_group).to receive(:new_reference).
+            with(@configuration.configuration_file)
           @generator.create_build_configurations_for(@configurable)
         end
 
@@ -76,14 +74,15 @@ module Xcake
           allow(@configurable).to receive(:all_configurations).
             and_return([@configuration, @configuration])
 
-          expect(@native_group).to receive(:new_reference).with(@node.path)
+          expect(@main_group).to receive(:new_reference).
+            with(@configuration.configuration_file)
           @generator.create_build_configurations_for(@configurable)
         end
 
         it "should set XCConfig for configurable" do
           xcconfig = double("XCConfig File Reference")
 
-          allow(@native_group).to receive(:new_reference).and_return(xcconfig)
+          allow(@main_group).to receive(:new_reference).and_return(xcconfig)
           expect(@native_configuration).
             to receive(:base_configuration_reference=).with(xcconfig)
 

@@ -24,7 +24,11 @@ module Xcake
     end
 
     def visit_target(target)
-
+      if target.name.to_s.eql? ""
+        puts caller
+        abort
+      end
+      
       puts "Resolving target #{target.name}..."
 
       @project.all_configurations.each do |c|

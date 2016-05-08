@@ -129,6 +129,20 @@ module Xcake
           main_group.find_subpath(node.parent.path, true)
         end
 
+        # Creates a new xcode file reference from the node
+        #
+        # @param [String] path
+        # =>              path of the file reference from the source root
+        #
+        # @return [PBXFileReference] new xcode file refrence
+        #
+        def new_file_reference(path)
+          path_object = Pathname.new(path)
+          group = main_group.find_subpath(path_object.dirname.to_s, true)
+          group[path_object.basename.to_s] ||
+            group.new_reference(path_object.to_s)
+        end
+
         # Finds a unit test target for a xcode target
         #
         # @param [Target] target
