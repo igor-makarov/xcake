@@ -103,7 +103,7 @@ module Xcake
         it "should make schemes directory" do
           schemes_dir = Scheme.user_data_dir(".")
 
-          allow(Xcodeproj::Plist).to receive(:write_to_path)
+          allow(@scheme_list).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
           @scheme_list.save(".")
@@ -134,10 +134,24 @@ module Xcake
         context "scheme management list" do
 
           it "should be saved" do
+
             xcschememanagement_path = Scheme.user_data_dir(".") + 'xcschememanagement.plist'
-            expect(Xcodeproj).to receive(:write_to_path).with(@scheme_list.xcschememanagement, xcschememanagement_path)
+            expect(@scheme_list).to receive(:write_plist).with(xcschememanagement_path)
 
             @scheme_list.save(".")
+          end
+        end
+
+        context "when writing plist" do
+
+          it "it should use legacy method for older Xcodeproj" do
+            # @scheme_list.xcschememanagement,
+            # @scheme_list.write_plist(".")
+          end
+
+          it "it should use modern method for current Xcodeproj" do
+            # @scheme_list.xcschememanagement,
+            # @scheme_list.write_plist(".")
           end
         end
       end
