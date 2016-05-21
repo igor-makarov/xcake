@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.13)
-      claide (~> 0.9.1)
+    xcake (0.6.14)
+      claide (>= 1.0.0, < 2.0)
       hooks (~> 0.4.1)
       molinillo
       tty (~> 0.3.2)
@@ -18,7 +18,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     ast (2.2.0)
-    claide (0.9.1)
+    claide (1.0.0)
     coderay (1.1.1)
     colored (1.2)
     coveralls (0.8.13)
@@ -122,9 +122,9 @@ GEM
     unicode_utils (1.4.0)
     verse (0.4.0)
       unicode_utils (~> 1.4.0)
-    xcodeproj (0.28.2)
+    xcodeproj (1.0.0)
       activesupport (>= 3)
-      claide (~> 0.9.1)
+      claide (>= 1.0.0, < 2.0)
       colored (~> 1.2)
     yard (0.8.7.6)
 
