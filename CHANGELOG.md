@@ -1,3 +1,7 @@
+v0.6.14
+=======
+- Updates `claide` dependency.
+
 v0.6.13
 =======
 - Updates `xcodeproj` dependency.
