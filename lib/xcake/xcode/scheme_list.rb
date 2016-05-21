@@ -109,7 +109,7 @@ module Xcake
         puts "Saving Scheme List..."
 
         xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
-        Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
+        Xcodeproj::Plist.write_to_path(@xcschememanagement, xcschememanagement_path)
       end
     end
   end

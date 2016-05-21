@@ -103,7 +103,7 @@ module Xcake
         it "should make schemes directory" do
           schemes_dir = Scheme.user_data_dir(".")
 
-          allow(Xcodeproj).to receive(:write_plist)
+          allow(Xcodeproj::Plist).to receive(:write_to_path)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
           @scheme_list.save(".")
@@ -135,7 +135,7 @@ module Xcake
 
           it "should be saved" do
             xcschememanagement_path = Scheme.user_data_dir(".") + 'xcschememanagement.plist'
-            expect(Xcodeproj).to receive(:write_plist).with(@scheme_list.xcschememanagement, xcschememanagement_path)
+            expect(Xcodeproj).to receive(:write_to_path).with(@scheme_list.xcschememanagement, xcschememanagement_path)
 
             @scheme_list.save(".")
           end
