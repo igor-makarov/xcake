@@ -1,3 +1,7 @@
+v0.6.13
+=======
+- Updates `xcodeproj` dependency.
+
 v0.6.12
 =======
 - Fixes issues when resolving project if sensible default configurations.
