@@ -10,24 +10,13 @@ module Xcake
       [TargetGenerator, ProjectStructureGenerator]
     end
 
-      # def self.can_install_node(node)
-      #   File.file?(node.path) &&
-      #     [".xcconfig"].include?(File.extname(node.path))
-      # end
-      #
-      # def visit_node(node)
-      #   super
-      #
-      #   puts "node: #{node}"
-      # end
+    def visit_project(project)
+      create_build_configurations_for(project)
+    end
 
-    # def visit_project(project)
-    #   create_build_configurations_for(project)
-    # end
-    #
-    # def visit_target(target)
-    #   create_build_configurations_for(target)
-    # end
+    def visit_target(target)
+      create_build_configurations_for(target)
+    end
 
     def create_build_configurations_for(configuration_object)
       puts "Creating build configurations for #{configuration_object}..."
@@ -41,14 +30,6 @@ module Xcake
 
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
-
-        if configuration.configuration_file != nil
-          puts "Adding xcconfig #{configuration.configuration_file}..."
-
-          configuration_file = configuration.configuration_file
-          xcconfig = @context.project.new_file_reference(configuration_file)
-          build_configuration.base_configuration_reference = xcconfig
-        end
       end
     end
   end
