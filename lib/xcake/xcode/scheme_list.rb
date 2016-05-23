@@ -115,7 +115,7 @@ module Xcake
       private
 
       def write_plist(xcschememanagement_path)
-        if Xcake.is_modern_xcodeproj
+        if Xcake.modern_xcodeproj?
           Xcodeproj::Plist.write_to_path(@xcschememanagement, xcschememanagement_path)
         else
           Xcodeproj.write_plist(@xcschememanagement, xcschememanagement_path)
