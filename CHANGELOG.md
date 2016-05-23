@@ -1,3 +1,15 @@
+v0.6.15
+=======
+- Support Xcodeproj 1.0's new Plist module.
+
+v0.6.14
+=======
+- Updates Claide dependency.
+
+v0.6.13
+=======
+- Updates Xcodeproj dependency.
+
 v0.6.12
 =======
 - Fixes issues when resolving project if sensible default configurations.
