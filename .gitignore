@@ -8,6 +8,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+fastlane-plugin-xcake/Gemfile.lock
 
 ## Specific to RubyMotion:
 .dat*
