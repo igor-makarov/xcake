@@ -24,7 +24,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Resolving target #{target.name}..."
+      puts "Resolving target #{target}..."
 
       @project.all_configurations.each do |c|
         target.configuration(c.name, c.type)
