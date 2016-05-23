@@ -1,4 +1,5 @@
 require "xcake/core_ext/string"
+require "xcake/modern_xcodeproj.rb"
 
 require "xcake/version"
 require "xcake/ui"

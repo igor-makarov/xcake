@@ -7,6 +7,7 @@ module Xcake
       before :each do
         @project = double("Project").as_null_object
         @scheme_list = SchemeList.new(@project)
+        @writing_path = "."
 
         @target = double("Target").as_null_object
         allow(@target).to receive(:name).and_return("app")
@@ -101,12 +102,12 @@ module Xcake
       context "when saving" do
 
         it "should make schemes directory" do
-          schemes_dir = Scheme.user_data_dir(".")
+          schemes_dir = Scheme.user_data_dir(@writing_path)
 
-          allow(Xcodeproj).to receive(:write_plist)
+          allow(@scheme_list).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
-          @scheme_list.save(".")
+          @scheme_list.save(@writing_path)
         end
 
         context "schemes" do
@@ -118,7 +119,7 @@ module Xcake
 
           it "should save scheme" do
             expect(@scheme).to receive(:save_as).with(@project.path, @scheme.name, true)
-            @scheme_list.save(".")
+            @scheme_list.save(@writing_path)
           end
 
           it "should add scheme to scheme managment list" do
@@ -134,10 +135,27 @@ module Xcake
         context "scheme management list" do
 
           it "should be saved" do
-            xcschememanagement_path = Scheme.user_data_dir(".") + 'xcschememanagement.plist'
-            expect(Xcodeproj).to receive(:write_plist).with(@scheme_list.xcschememanagement, xcschememanagement_path)
 
-            @scheme_list.save(".")
+            expected_path = Scheme.user_data_dir(@writing_path) + 'xcschememanagement.plist'
+            expect(@scheme_list).to receive(:write_plist).with(expected_path)
+
+            @scheme_list.save(@writing_path)
+          end
+        end
+
+        context "when writing plist" do
+          it "it should use legacy method for older Xcodeproj" do
+            allow(Xcake).to receive(:modern_xcodeproj?).and_return(false)
+            expect(Xcodeproj).to receive(:write_plist).with(@scheme_list.xcschememanagement, @writing_path)
+
+            @scheme_list.write_plist(@writing_path)
+          end
+
+          it "it should use modern method for current Xcodeproj" do
+            allow(Xcake).to receive(:modern_xcodeproj?).and_return(true)
+            expect(Xcodeproj::Plist).to receive(:write_to_path).with(@scheme_list.xcschememanagement, @writing_path)
+
+            @scheme_list.write_plist(@writing_path)
           end
         end
       end
