@@ -126,7 +126,10 @@ module Xcake
         #
         def new_group(node)
           return main_group unless node.parent
-          main_group.find_subpath(node.parent.path, true)
+
+          group = main_group.find_subpath(node.parent.path, true)
+          group.path = path
+          group
         end
 
         # Creates a new xcode file reference from the node
@@ -140,7 +143,7 @@ module Xcake
           path_object = Pathname.new(path)
           group = main_group.find_subpath(path_object.dirname.to_s, true)
           group[path_object.basename.to_s] ||
-            group.new_reference(path_object.to_s)
+          group.new_reference(path_object.to_s)
         end
 
         # Finds a unit test target for a xcode target
