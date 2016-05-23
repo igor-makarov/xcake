@@ -145,7 +145,6 @@ module Xcake
 
         context "when writing plist" do
           it "it should use legacy method for older Xcodeproj" do
-
             allow(Xcake).to receive(:is_modern_xcodeproj?).and_return(false)
             expect(Xcodeproj).to receive(:write_plist).with(@scheme_list.xcschememanagement, @writing_path)
 
@@ -153,7 +152,6 @@ module Xcake
           end
 
           it "it should use modern method for current Xcodeproj" do
-
             allow(Xcake).to receive(:is_modern_xcodeproj?).and_return(true)
             expect(Xcodeproj::Plist).to receive(:write_to_path).with(@scheme_list.xcschememanagement, @writing_path)
 
