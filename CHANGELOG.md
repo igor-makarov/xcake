@@ -1,3 +1,8 @@
+v0.6.17
+=======
+- Fixes issues installing later versions of Xcake with dependencies that
+required a version of Claide before version 1.0.
+
 v0.6.16
 =======
 - Fixes issue where Xcodeproj created release configurations which used the
