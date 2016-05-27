@@ -259,9 +259,9 @@ module Xcake
                               platform,
                               deployment_target.to_s,
                               type,
-                              language)
-       .merge!(default_settings)
-       .merge!(release_settings)
+                              language).
+                              merge!(default_settings).
+                              merge!(release_settings)
     end
   end
 end
