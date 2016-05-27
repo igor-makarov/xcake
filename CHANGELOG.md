@@ -1,3 +1,8 @@
+v0.6.16
+=======
+- Fixes issue where Xcodeproj created release configurations which used the
+developer code signing certificate rather than the distribution certificate.
+
 v0.6.15
 =======
 - Support Xcodeproj 1.0's new Plist module.
@@ -20,7 +25,7 @@ v0.6.11
 
 v0.6.10
 =======
-- Fixes race-condition where configurations weren't setup correctly.
+- Fixes race-condition where configurations weren't setup.
 
 v0.6.9
 ======
@@ -123,7 +128,7 @@ v0.4.1
 
 v0.4.0
 ======
-- Adds ability to easily specify preprocessor definitions.
+- Adds ability to specify preprocessor definitions.
 - Adds shortcuts for specifying product bundle identifier.
 
 v0.3.1
@@ -167,7 +172,7 @@ v0.1.5
 
 v0.1.4
 ======
-- Removes references to "build_configurations" to just "configuration".
+- Removes references to "build_configurations" to "configuration".
   to make syntax shorter and to reflect the fact it's an abstraction
   and not directly a Xcode build configuration.
 
