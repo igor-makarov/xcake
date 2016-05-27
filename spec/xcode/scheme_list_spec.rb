@@ -135,7 +135,6 @@ module Xcake
         context "scheme management list" do
 
           it "should be saved" do
-
             expected_path = Scheme.user_data_dir(@writing_path) + 'xcschememanagement.plist'
             expect(@scheme_list).to receive(:write_plist).with(expected_path)
 
@@ -156,6 +155,18 @@ module Xcake
             expect(Xcodeproj::Plist).to receive(:write_to_path).with(@scheme_list.xcschememanagement, @writing_path)
 
             @scheme_list.write_plist(@writing_path)
+          end
+        end
+
+        context "when writing plist" do
+          it "it should use legacy method for older Xcodeproj" do
+            # @scheme_list.xcschememanagement,
+            # @scheme_list.write_plist(".")
+          end
+
+          it "it should use modern method for current Xcodeproj" do
+            # @scheme_list.xcschememanagement,
+            # @scheme_list.write_plist(".")
           end
         end
       end
