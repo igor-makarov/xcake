@@ -251,6 +251,7 @@ module Xcake
 
     def default_release_settings
       release_settings = {
+        "CODE_SIGN_IDENTITY" => "iPhone Distribution",
         "CODE_SIGN_IDENTITY[sdk=iphoneos*]" => "iPhone Distribution"
       }
 

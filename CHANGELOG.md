@@ -1,3 +1,8 @@
+v0.6.18
+=======
+- Fixes cases where xcode would complain about embedded products weren't
+signed by the same profile.
+
 v0.6.17
 =======
 - Fixes issues installing later versions of Xcake with dependencies that
