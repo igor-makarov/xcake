@@ -159,7 +159,6 @@ module Xcake
         end
 
         context "when writing plist" do
-
           it "it should use legacy method for older Xcodeproj" do
             # @scheme_list.xcschememanagement,
             # @scheme_list.write_plist(".")
