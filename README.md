@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
 [![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
+[![Gem](https://raw.githubusercontent.com/fastlane/fastlane/master/fastlane/lib/fastlane/plugins/templates/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
 ###Xcode projects made a piece of cake.
 
