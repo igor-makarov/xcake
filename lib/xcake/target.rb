@@ -250,19 +250,13 @@ module Xcake
     end
 
     def default_release_settings
-      release_settings = {
-        "CODE_SIGN_IDENTITY" => "iPhone Distribution",
-        "CODE_SIGN_IDENTITY[sdk=iphoneos*]" => "iPhone Distribution"
-      }
-
       Xcodeproj::Project::ProjectHelper.
         common_build_settings(:release,
                               platform,
                               deployment_target.to_s,
                               type,
                               language).
-                              merge!(default_settings).
-                              merge!(release_settings)
+                              merge!(default_settings)
     end
   end
 end

@@ -1,3 +1,7 @@
+v0.6.19
+=======
+- Uses the reccomended code signing settings from Apple.
+
 v0.6.18
 =======
 - Fixes cases where xcode would complain about embedded products weren't
