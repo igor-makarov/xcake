@@ -126,7 +126,9 @@ module Xcake
         #
         def new_group(node)
           return main_group unless node.parent
-          main_group.find_subpath(node.parent.path, true)
+          group = main_group.find_subpath(node.parent.path, true)
+          group.path = node.path
+          group
         end
 
         # Finds a unit test target for a xcode target
