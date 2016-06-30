@@ -124,9 +124,21 @@ module Xcake
         #
         # @return [Group] new xcode group
         #
+        #
+        # TODO: Simplify this method figure out more reliable rules for group
+        # generation - maybe part of the new file installer in 0.7.
+        #
         def new_group(node)
-          return main_group unless node.parent
-          main_group.find_subpath(node.parent.path, true)
+          group = main_group unless node.parent
+          group = main_group.find_subpath(node.parent.path, true) unless group
+          ensure_parent_path(group, node.parent)
+
+          group
+        end
+
+        def ensure_parent_path(group, node)
+          group.path = node.component
+          ensure_parent_path(group.parent, node.parent) unless node.parent.nil?
         end
 
         # Finds a unit test target for a xcode target
