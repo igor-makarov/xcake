@@ -126,7 +126,7 @@ module Xcake
         #
         #
         # TODO: Simplify this method figure out more reliable rules for group
-        # generation - maybe part of the new file installer.
+        # generation - maybe part of the new file installer in 0.7.
         #
         def new_group(node)
           group = main_group unless node.parent
