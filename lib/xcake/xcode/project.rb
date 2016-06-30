@@ -138,10 +138,7 @@ module Xcake
 
         def ensure_parent_path(group, node)
           group.path = node.component
-
-          if node.parent != nil
-            ensure_parent_path(group.parent, node.parent)
-          end
+          ensure_parent_path(group.parent, node.parent) unless node.parent.nil?
         end
 
         # Finds a unit test target for a xcode target
