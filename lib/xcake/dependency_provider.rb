@@ -11,7 +11,20 @@ module Xcake
 
       # Code for searching for dependencies
       #
-      dependency_class.load_plugins
+      plugins = dependency_class.load_plugins
+
+      @dependency_graph = plugins.map { |p|
+        [p, p.dependencies]
+      }.to_h
+
+    end
+
+    def tsort_each_node(&block)
+      @dependency_graph.each_key(&block)
+    end
+
+    def tsort_each_child(node, &block)
+      @dependency_graph[node].each(&block)
     end
   end
 end
