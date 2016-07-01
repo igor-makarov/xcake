@@ -13,17 +13,6 @@ module Xcake
         expect(@provider.repository).to eq(@repository)
       end
 
-      it "should return name for dependency" do
-        name = @provider.name_for(@dependency)
-        expect(name).to eq(@dependency)
-      end
-
-      it "should return dependency" do
-        allow(@repository).to receive(:select).and_return(@dependency)
-        result = @provider.search_for(@dependency)
-        expect(result).to eq(@dependency)
-      end
-
       it "should provide dependencies for specification" do
         specification = double("Specification")
         dependencies = []
