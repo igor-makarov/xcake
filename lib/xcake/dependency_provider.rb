@@ -11,7 +11,6 @@ module Xcake
       @dependency_graph = plugins.map do |p|
         [p, p.dependencies]
       end.to_h
-
     end
 
     def tsort_each_node(&block)

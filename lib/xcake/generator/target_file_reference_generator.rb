@@ -39,7 +39,7 @@ module Xcake
       puts "Adding #{node.path}..."
 
       installer_class = @dependency_provider.tsort_each_node do |i|
-        i.name.can_install_node(node)
+        i.can_install_node(node)
       end
 
       if installer_class != nil then

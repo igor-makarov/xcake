@@ -21,8 +21,7 @@ module Xcake
 
         dependency_provider = DependencyProvider.new(Generator)
         dependency_provider.tsort_each_node do |g|
-          #puts "Running #{g.name}..."
-          generator = g.name.new(context)
+          generator = g.new(context)
           project.accept(generator)
         end
       end
