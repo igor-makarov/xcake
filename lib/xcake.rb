@@ -1,3 +1,5 @@
+require "xcake/core_ext/array"
+require "xcake/core_ext/object"
 require "xcake/core_ext/string"
 require "xcake/modern_xcodeproj.rb"
 
@@ -32,29 +34,6 @@ require "xcake/target/sugar"
 require "xcake/xcode/project"
 require "xcake/xcode/scheme"
 require "xcake/xcode/scheme_list"
-
-# TODO: Autoload these
-require "xcake/generator/project_generator"
-require "xcake/generator/project_metadata_generator"
-require "xcake/generator/project_structure_generator"
-require "xcake/generator/scheme_generator"
-require "xcake/generator/target_generator"
-require "xcake/generator/target_dependency_generator"
-require "xcake/generator/target_framework_generator"
-require "xcake/generator/target_build_phase_generator"
-require "xcake/generator/target_library_generator"
-
-# TODO: Merge these into one target build phase generator
-require "xcake/generator/target_file_reference_generator"
-require "xcake/generator/target_custom_build_phase_generator"
-require "xcake/generator/configuration_generator"
-
-require "xcake/file_reference_installer/compile_source_file_reference_installer"
-require "xcake/file_reference_installer/compile_xcdatamodeld_file_reference_installer"
-require "xcake/file_reference_installer/copy_resources_file_reference_installer"
-require "xcake/file_reference_installer/copy_xcassets_file_reference_installer"
-require "xcake/file_reference_installer/header_file_reference_installer"
-require "xcake/file_reference_installer/link_library_file_reference_installer"
 
 module Xcake
 

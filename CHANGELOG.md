@@ -1,3 +1,30 @@
+v0.6.20
+=======
+- When adding a file to a group, Xcode will now open the correct folder
+- Fixes `all_configurations` not returning all configurations when using implicit configurations.
+- Fixes out of date documentation.
+- Fixes typos and out of date API used in `xcake init` template.
+- Removes dependency on `Molinillo` for internal dependency resolution.
+
+v0.6.19
+=======
+- Uses the reccomended code signing settings from Apple.
+
+v0.6.18
+=======
+- Fixes cases where xcode would complain about embedded products weren't
+signed by the same profile.
+
+v0.6.17
+=======
+- Fixes issues installing later versions of Xcake with dependencies that
+required a version of Claide before version 1.0.
+
+v0.6.16
+=======
+- Fixes issue where Xcodeproj created release configurations which used the
+developer code signing certificate rather than the distribution certificate.
+
 v0.6.15
 =======
 - Support Xcodeproj 1.0's new Plist module.
@@ -12,7 +39,7 @@ v0.6.13
 
 v0.6.12
 =======
-- Fixes issues when resolving project if sensible default configurations.
+- Fixes issues when resolving project with implicit configurations.
 
 v0.6.11
 =======
@@ -20,7 +47,7 @@ v0.6.11
 
 v0.6.10
 =======
-- Fixes race-condition where configurations weren't setup correctly.
+- Fixes race-condition where configurations weren't setup.
 
 v0.6.9
 ======
@@ -123,7 +150,7 @@ v0.4.1
 
 v0.4.0
 ======
-- Adds ability to easily specify preprocessor definitions.
+- Adds ability to specify preprocessor definitions.
 - Adds shortcuts for specifying product bundle identifier.
 
 v0.3.1
@@ -167,7 +194,7 @@ v0.1.5
 
 v0.1.4
 ======
-- Removes references to "build_configurations" to just "configuration".
+- Removes references to "build_configurations" to "configuration".
   to make syntax shorter and to reflect the fact it's an abstraction
   and not directly a Xcode build configuration.
 

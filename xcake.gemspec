@@ -29,9 +29,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-git", "~> 0.1.1"
   spec.add_development_dependency "yard", "~> 0.8"
   spec.add_development_dependency "pry", "~> 0.10"
-  spec.add_dependency "claide", "< 2.0", ">= 1.0.0"
+  spec.add_dependency "claide", "< 2.0", ">= 0.9.1"
   spec.add_dependency "hooks", "~> 0.4.1"
   spec.add_dependency "xcodeproj", "< 2.0.0", ">= 0.20"
   spec.add_dependency "tty", "~> 0.3.2"
-  spec.add_dependency "molinillo"
 end

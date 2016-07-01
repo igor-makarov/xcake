@@ -1,3 +1,3 @@
 module Xcake
-  VERSION = "0.6.15".freeze
+  VERSION = "0.6.20".freeze
 end

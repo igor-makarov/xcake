@@ -1,5 +1,5 @@
 # Change this to set a different Project file name
-#project.project_name = "Project"
+#project.name = "Project"
 
 # Replace this with your class prefix for Objective-C files.
 project.class_prefix = "APP"
@@ -24,7 +24,7 @@ application_for :ios, 8.0 do |target|
     #
     # File patterns can be seen here https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns
     #
-    #target.all_configurations.each { |c| .supported_devices = :iphone_only}
+    #target.all_configurations.each { |c| c.supported_devices = :iphone_only}
 
     # Uncomment this to include additional files
     #

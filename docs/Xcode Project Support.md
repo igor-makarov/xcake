@@ -35,6 +35,7 @@ This document describes the level of support Xcake has for the various aspects o
 - Specify build settings
 - Used to create build configuration for project and targets.
 - Used to create schemes for applications
+- Set XCConfig to inherit settings from.
 
 ## Scheme
 

@@ -15,9 +15,6 @@ module Xcake
       puts "Resolving Project..."
 
       @project = project
-
-      @project.configuration :Debug, :debug if @project.configurations_of_type(:debug).count == 0
-      @project.configuration :Release, :release if @project.configurations_of_type(:release).count == 0
     end
 
     def leave_project(project)

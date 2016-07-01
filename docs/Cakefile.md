@@ -51,7 +51,7 @@ project.project_name = "Project"
 Sets the filename for the project
 
 ```ruby
-project.project_name = "Project"
+project.name = "Project"
 ```
 
 #### Class Prefix
@@ -310,7 +310,7 @@ configuration.name = "Release"
 A hash of all the build settings for a configuration
 
 ```ruby
-configuration.build_settings["ENABLE_BITCODE"] = false
+configuration.settings["ENABLE_BITCODE"] = false
 ```
 
 ###Build Settings Shortcuts

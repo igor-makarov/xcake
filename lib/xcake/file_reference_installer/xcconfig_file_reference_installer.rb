@@ -5,23 +5,23 @@ module Xcake
   #
   # TODO: In future we will implement a 2 phase file installer system.
   class XCConfigFileReferenceInstaller < FileReferenceInstaller
-    
+
     def self.dependencies
       []
     end
-    
+
     def self.can_install_node(node)
       File.file?(node.path) &&
         [".xcconfig"].include?(File.extname(node.path))
     end
-    
+
     def visit_node(node)
       super
 
       puts "-------------"
       puts " * node: #{node}"
     end
-    
+
     def add_build_configurations_for(configuration_object)
       puts "??? Creating build configurations for #{configuration_object}..."
 
@@ -47,9 +47,7 @@ module Xcake
 
 
     def add_file_reference_to_target(file_reference, target)
-      # target.frameworks_build_phases.add_file_reference(file_reference, true)
+          target.frameworks_build_phases.add_file_reference(file_reference)
     end
   end
 end
-
-Xcake::FileReferenceInstaller.register_plugin(Xcake::XCConfigFileReferenceInstaller)

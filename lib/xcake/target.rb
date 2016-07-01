@@ -180,6 +180,9 @@ module Xcake
       @project = project
       @build_phases = []
 
+      debug_configuration :Debug
+      release_configuration :Release
+
       block.call(self) if block_given?
     end
 
@@ -232,6 +235,8 @@ module Xcake
       @project
     end
 
+    # TODO: Move this to a constant, maybe Xcodeproj ones should be brought
+    # into here?
     def default_settings
       {
         "INFOPLIST_FILE" => "#{name}/Supporting Files/Info.plist"
@@ -253,7 +258,8 @@ module Xcake
                               platform,
                               deployment_target.to_s,
                               type,
-                              language).merge!(default_settings)
+                              language).
+                              merge!(default_settings)
     end
   end
 end

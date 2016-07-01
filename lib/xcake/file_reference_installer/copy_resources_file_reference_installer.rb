@@ -6,7 +6,7 @@ module Xcake
   class CopyResourcesFileReferenceInstaller < FileReferenceInstaller
 
     def self.dependencies
-      FileReferenceInstaller.repository.select do |i|
+      FileReferenceInstaller.descendants.select do |i|
         i != self
       end
     end

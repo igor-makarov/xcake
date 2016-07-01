@@ -72,7 +72,7 @@ module Xcake
 
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings.merge!({
-        "INFOPLIST_FILE" => "Test/Supporting Files/Info.plist"
+          "INFOPLIST_FILE" => "Test/Supporting Files/Info.plist"
         })
 
       expect(@target.default_debug_settings).to eq(settings)
@@ -86,7 +86,7 @@ module Xcake
 
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings.merge!({
-        "INFOPLIST_FILE" => "Test/Supporting Files/Info.plist"
+          "INFOPLIST_FILE" => "Test/Supporting Files/Info.plist"
         })
       expect(@target.default_release_settings).to eq(settings)
     end

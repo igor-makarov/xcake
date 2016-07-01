@@ -15,6 +15,10 @@ module Xcake
       @context = context
     end
 
+    def self.plugins_location
+      "#{File.dirname(__FILE__)}/file_reference_installer/*.rb"
+    end
+
     # This should be overidden
     # by subclasses.
     #

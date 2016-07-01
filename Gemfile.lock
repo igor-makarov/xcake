@@ -1,10 +1,9 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.15)
-      claide (>= 1.0.0, < 2.0)
+    xcake (0.6.20)
+      claide (>= 0.9.1, < 2.0)
       hooks (~> 0.4.1)
-      molinillo
       tty (~> 0.3.2)
       xcodeproj (>= 0.20, < 2.0.0)
 
@@ -36,7 +35,6 @@ GEM
     json (1.8.3)
     method_source (0.8.2)
     minitest (5.9.0)
-    molinillo (0.4.5)
     necromancer (0.3.0)
     parser (2.3.1.0)
       ast (~> 2.2)

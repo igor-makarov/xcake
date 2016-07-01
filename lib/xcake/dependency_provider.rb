@@ -1,28 +1,27 @@
-require 'molinillo'
+require "tsort"
 
 module Xcake
   class DependencyProvider
 
-    include Molinillo::SpecificationProvider
+    include TSort
 
-    attr_accessor :repository
+    alias_method :each, :tsort_each_node
 
-    def initialize(repository)
-      @repository = repository
+    def initialize(dependency_class)
+      plugins = dependency_class.load_plugins
+
+      @dependency_graph = plugins.map do |p|
+        [p, p.dependencies]
+      end.to_h
+
     end
 
-    def name_for(dependency)
-      dependency
+    def tsort_each_node(&block)
+      @dependency_graph.each_key(&block)
     end
 
-    def search_for(dependency)
-      @repository.select do |g|
-        g == dependency
-      end
-    end
-
-    def dependencies_for(specification)
-      specification.dependencies
+    def tsort_each_child(node, &block)
+      @dependency_graph[node].each(&block)
     end
   end
 end
