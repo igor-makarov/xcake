@@ -1,4 +1,4 @@
-require 'tsort'
+require "tsort"
 
 module Xcake
   class DependencyProvider
@@ -8,7 +8,6 @@ module Xcake
     alias_method :each, :tsort_each_node
 
     def initialize(dependency_class)
-
       plugins = dependency_class.load_plugins
 
       @dependency_graph = plugins.map { |p|

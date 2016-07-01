@@ -6,7 +6,7 @@ module Xcake
 
     module ClassMethods
       def load_plugins
-        Dir[plugins_location].each {|file| require file }
+        Dir[plugins_location].each { |file| require file }
         descendants
       end
 
