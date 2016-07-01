@@ -6,16 +6,16 @@ require 'xcodeproj'
 module Xcake
   module Dependency
 
-    def self.included base
+    def self.included(base)
         base.extend ClassMethods
     end
 
     module ClassMethods
-      def self.name
+      def name
         self
       end
 
-      def self.dependencies
+      def dependencies
         []
       end
     end

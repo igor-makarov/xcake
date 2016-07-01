@@ -1,16 +1,16 @@
 module Xcake
   module Plugin
-    def self.included base
+    def self.included(base)
         base.extend ClassMethods
     end
 
     module ClassMethods
-      def self.load_plugins
+      def load_plugins
         Dir[plugins_location].each {|file| require file }
         descendants
       end
 
-      def self.plugins_location
+      def plugins_location
       end
     end
   end
