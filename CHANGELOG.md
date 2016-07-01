@@ -1,3 +1,11 @@
+v0.6.20
+=======
+- When adding a file to a group, Xcode will now open the correct folder
+- Fixes `all_configurations` not returning all configurations when using implicit configurations.
+- Fixes out of date documentation.
+- Fixes typos and out of date API used in `xcake init` template.
+- Removes dependency on `Molinillo` for internal dependency resolution.
+
 v0.6.19
 =======
 - Uses the reccomended code signing settings from Apple.
@@ -31,7 +39,7 @@ v0.6.13
 
 v0.6.12
 =======
-- Fixes issues when resolving project if sensible default configurations.
+- Fixes issues when resolving project with implicit configurations.
 
 v0.6.11
 =======
