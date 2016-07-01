@@ -1,6 +1,6 @@
 module Xcake
   module Plugin
-    def self.fetch_plugins
+    def self.load_plugins
       Dir[plugins_location].each {|file| require file }
       descendants
     end

@@ -11,7 +11,7 @@ module Xcake
 
       # Code for searching for dependencies
       #
-      dependency_class.fetch_plugins
+      dependency_class.load_plugins
     end
   end
 end
