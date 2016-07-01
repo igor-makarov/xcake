@@ -1,15 +1,14 @@
 require "spec_helper"
 
 describe String do
+  it "should escape Objective-C string" do
+    expect("Hey".to_obj_c).to eq("\\\@\\\"Hey\\\"")
+  end
+
+  it "should escape C string" do
+    expect("Hey".to_c).to eq("\\\"Hey\\\"")
+  end
+
 #   it "should provide dependencies for specification" do
-#     @repository = double("Repository")
-#     @dependency = double("Dependency")
-#     @provider = DependencyProvider.new(@repository)
-#     specification = double("Specification")
-#     dependencies = []
-#     allow(specification).to receive(:dependencies).and_return(dependencies)
-#
-#     result = @provider.dependencies_for(specification)
-#     expect(result).to eq(dependencies)
 #   end
 end
