@@ -10,9 +10,9 @@ module Xcake
     def initialize(dependency_class)
       plugins = dependency_class.load_plugins
 
-      @dependency_graph = plugins.map { |p|
+      @dependency_graph = plugins.map do |p|
         [p, p.dependencies]
-      }.to_h
+      end.to_h
 
     end
 
