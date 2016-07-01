@@ -22,7 +22,6 @@ module Xcake
     # @return [Array<Configuration>] list of all configurations
     #
     def all_configurations
-
       if @configurations.nil?
         @configurations = []
 
