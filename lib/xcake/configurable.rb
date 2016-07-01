@@ -57,7 +57,10 @@ module Xcake
     # @return [Array<Configuration>] list of configurations of a type
     #
     def configurations_of_type(type)
-      all_configurations.select do |c|
+
+      return [] if @configurations.nil?
+
+      @configurations.select do |c|
         c.type == type
       end
     end
@@ -116,7 +119,8 @@ module Xcake
           block.call(b) if block_given?
         end
 
-        all_configurations << build_configuration
+        @configurations ||= []
+        @configurations << build_configuration
       end
 
       build_configuration
