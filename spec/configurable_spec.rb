@@ -18,7 +18,7 @@ module Xcake
 
     context "when creating debug configuration" do
       before :each do
-        @configuration = @configurable.debug_configuration :debug
+        @configuration = @configurable.debug_configuration :Debug
       end
 
       it "should store build configuration" do
@@ -31,7 +31,7 @@ module Xcake
 
       context "that already exists" do
         before :each do
-          @duplicate_configuration = @configurable.debug_configuration :debug
+          @duplicate_configuration = @configurable.debug_configuration :Debug
         end
 
         it "should return same build configuration" do
@@ -89,7 +89,7 @@ module Xcake
 
     context "when creating release configuration" do
       before :each do
-        @configuration = @configurable.release_configuration :release
+        @configuration = @configurable.release_configuration :Release
       end
 
       it "should store build configuration" do
@@ -102,7 +102,7 @@ module Xcake
 
       context "that already exists" do
         before :each do
-          @duplicate_configuration = @configurable.release_configuration :release
+          @duplicate_configuration = @configurable.release_configuration :Release
         end
 
         it "should return same build configuration" do
