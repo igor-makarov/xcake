@@ -5,6 +5,8 @@ module Xcake
 
     include TSort
 
+    alias tsort_each_node each
+
     attr_accessor :repository
 
     def initialize(repository)
