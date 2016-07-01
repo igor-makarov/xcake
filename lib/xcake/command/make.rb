@@ -20,7 +20,7 @@ module Xcake
         context = XcodeprojContext.new
 
         dependency_provider = DependencyProvider.new(Generator)
-        dependency_provider.tsort_each_node do |g|
+        dependency_provider.tsort.each do |g|
           generator = g.new(context)
           project.accept(generator)
         end
