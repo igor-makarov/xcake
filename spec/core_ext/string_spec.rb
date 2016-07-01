@@ -9,6 +9,11 @@ describe String do
     expect("Hey".to_c).to eq("\\\"Hey\\\"")
   end
 
-#   it "should provide dependencies for specification" do
-#   end
+  it "should string heredoc indentation" do
+    heredoc = <<-SCRIPT
+    Hey
+    SCRIPT
+
+    expect(heredoc).to eq("    Hey\n")
+  end
 end
