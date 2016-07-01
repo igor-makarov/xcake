@@ -1,5 +1,5 @@
 require "claide"
-require "tty"
+require "colored"
 
 # Indicates an user error.
 #
@@ -10,8 +10,7 @@ module Xcake
     include CLAide::InformativeError
 
     def message
-      pastel = Pastel.new
-      pastel.red "[!] #{super}"
+      "[!] #{super}".red
     end
   end
 end
