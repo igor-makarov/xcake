@@ -25,13 +25,27 @@ module Xcake
       if @configurations.nil?
         @configurations = []
 
-        parent_configurable.all_configurations.each do |c|
-          configuration(c.name, c.type)
-        end if parent_configurable
+        if parent_configurable && parent_configurable.all_configurations
+          copy_parent_configurations
+        else
+          debug_configuration :Debug
+          release_configuration :Release
+        end
+
       end
 
       @configurations
     end
+
+    private
+
+    def copy_parent_configurations
+      parent_configurable.all_configurations.each do |c|
+        configuration(c.name, c.type)
+      end if parent_configurable
+    end
+
+    public
 
     # @param [Array<Configuration>] new list of configurations to set
     #
@@ -42,7 +56,9 @@ module Xcake
     # @return [Array<Configuration>] list of configurations of a type
     #
     def configurations_of_type(type)
-      all_configurations.select do |c|
+      return [] if @configurations.nil?
+
+      @configurations.select do |c|
         c.type == type
       end
     end
@@ -101,7 +117,8 @@ module Xcake
           block.call(b) if block_given?
         end
 
-        all_configurations << build_configuration
+        @configurations ||= []
+        @configurations << build_configuration
       end
 
       build_configuration

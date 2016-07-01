@@ -8,7 +8,9 @@ module Xcake
       puts "Integrating System Frameworks for #{target}..."
 
       native_target = @context.native_object_for(target)
-      native_target.add_system_frameworks(target.system_frameworks) if target.system_frameworks
+
+      system_frameworks = target.system_frameworks
+      native_target.add_system_frameworks(system_frameworks) if system_frameworks
     end
   end
 end

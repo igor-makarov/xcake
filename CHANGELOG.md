@@ -1,7 +1,9 @@
 v0.6.20
 =======
-- When adding a file to a group, Xcode will now open the correct folder
+- When adding a file to a group, Xcode will now open the correct folder.
+- Adds support for adding third-party frameworks.
 - Fixes `all_configurations` not returning all configurations when using implicit configurations.
+- Names of the implicit configurations match the default configurations for Xcode projects.
 - Fixes out of date documentation.
 - Fixes typos and out of date API used in `xcake init` template.
 - Removes dependency on `Molinillo` for internal dependency resolution.

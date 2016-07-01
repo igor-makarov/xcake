@@ -38,12 +38,12 @@ module Xcake
       return unless node.path
       puts "Adding #{node.path}..."
 
-      installer_class = @dependency_provider.each do |i|
-        i.name.can_install_node(node)
+      installer_class = @dependency_provider.tsort.detect do |i|
+        i.can_install_node(node)
       end
 
       if installer_class != nil then
-        installer = installer_class.name.new(context)
+        installer = installer_class.new(context)
         node.accept(installer)
       end
     end
