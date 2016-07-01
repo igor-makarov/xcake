@@ -52,6 +52,9 @@ module Xcake
       self.name = name
       self.targets = []
 
+      debug_configuration :Debug
+      release_configuration :Release
+
       block.call(self) if block_given?
     end
 
