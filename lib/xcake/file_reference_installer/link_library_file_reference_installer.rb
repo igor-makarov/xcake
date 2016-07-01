@@ -14,7 +14,7 @@ module Xcake
     def visit_node(node)
       super
 
-      #Ignore all files inside of the XCAssets
+      # Ignore all files inside of libraries
       node.children = []
     end
   end
