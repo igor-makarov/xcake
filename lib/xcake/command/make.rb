@@ -20,7 +20,7 @@ module Xcake
         context = XcodeprojContext.new
 
         dependency_provider = DependencyProvider.new(Generator)
-        dependency_provider.each_dependency do |g|
+        dependency_provider.each do |g|
           #puts "Running #{g.name}..."
           generator = g.name.new(context)
           project.accept(generator)
