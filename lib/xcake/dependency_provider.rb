@@ -7,24 +7,11 @@ module Xcake
 
     alias tsort_each_node each
 
-    attr_accessor :repository
+    def initialize(dependency_class)
 
-    def initialize(repository)
-      @repository = repository
-    end
-
-    def name_for(dependency)
-      dependency
-    end
-
-    def search_for(dependency)
-      @repository.select do |g|
-        g == dependency
-      end
-    end
-
-    def dependencies_for(specification)
-      specification.dependencies
+      # Code for searching for dependencies
+      #
+      #dependency_class.load_dependencies
     end
   end
 end
