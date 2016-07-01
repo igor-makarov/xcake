@@ -3,34 +3,25 @@ require "spec_helper"
 module Xcake
   describe DependencyProvider do
     context "when created" do
-      before :each do
-        @repository = double("Repository")
-        @dependency = double("Dependency")
-        @provider = DependencyProvider.new(@repository)
-      end
+      it "should provide dependencies" do
 
-      it "should set the repository" do
-        expect(@provider.repository).to eq(@repository)
-      end
+        dependency_a = double("Dependency A")
+        dependency_b = double("Dependency B")
+        allow(dependency_a).to receive(:dependencies).and_return([dependency_b])
+        allow(dependency_b).to receive(:dependencies).and_return([])
 
-      it "should return name for dependency" do
-        name = @provider.name_for(@dependency)
-        expect(name).to eq(@dependency)
-      end
+        plugin = double("Plugin")
+        allow(plugin).to receive(:load_plugins).and_return([
+          dependency_a, dependency_b
+        ])
 
-      it "should return dependency" do
-        allow(@repository).to receive(:select).and_return(@dependency)
-        result = @provider.search_for(@dependency)
-        expect(result).to eq(@dependency)
-      end
+        provider = DependencyProvider.new(plugin)
+        dependencies = provider.tsort
 
-      it "should provide dependencies for specification" do
-        specification = double("Specification")
-        dependencies = []
-        allow(specification).to receive(:dependencies).and_return(dependencies)
-
-        result = @provider.dependencies_for(specification)
-        expect(result).to eq(dependencies)
+        expect(dependencies).to eq([
+          dependency_b,
+          dependency_a
+          ])
       end
     end
   end

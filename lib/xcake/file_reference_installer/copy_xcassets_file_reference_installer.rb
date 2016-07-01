@@ -21,5 +21,3 @@ module Xcake
     end
   end
 end
-
-Xcake::FileReferenceInstaller.register_plugin(Xcake::CopyXCAssetsFileReferenceInstaller)

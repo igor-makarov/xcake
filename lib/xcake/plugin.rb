@@ -1,25 +1,17 @@
-# TODO: Figure out a more robust Plugin system
-# - Needs to handle subclass of subclass.....
-# - Needs to have better mixin hiearchy
-
 module Xcake
   module Plugin
-    module ClassMethods
-      def repository
-        @repository ||= []
-      end
-
-      def inherited(klass)
-        repository << klass
-      end
-
-      def register_plugin(klass)
-        repository << klass
-      end
+    def self.included(base)
+        base.extend ClassMethods
     end
 
-    def self.included(klass)
-      klass.extend ClassMethods # Somewhat controversial
+    module ClassMethods
+      def load_plugins
+        Dir[plugins_location].each { |file| require file }
+        descendants
+      end
+
+      def plugins_location
+      end
     end
   end
 end

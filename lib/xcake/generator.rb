@@ -1,5 +1,3 @@
-require 'molinillo'
-
 module Xcake
   class Generator
 
@@ -11,6 +9,10 @@ module Xcake
 
     def initialize(context)
       self.context = context
+    end
+
+    def self.plugins_location
+      "#{File.dirname(__FILE__)}/generator/*.rb"
     end
   end
 end
