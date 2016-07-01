@@ -5,8 +5,6 @@ module Xcake
 
     include TSort
 
-    alias_method :each, :tsort_each_node
-
     def initialize(dependency_class)
       plugins = dependency_class.load_plugins
 
