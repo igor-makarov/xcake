@@ -1,18 +1,13 @@
 module Xcake
   class TargetFileReferenceGenerator < Generator
     attr_accessor :root_node
-    attr_accessor :installer_resolution
+    attr_accessor :dependency_provider
 
     def initialize(context)
       @context = context
       @root_node = Node.new
 
-      repository = FileReferenceInstaller.repository
-      puts "Registered Generators #{repository}"
-
-      dependency_provider = DependencyProvider.new(repository)
-      resolver = Molinillo::Resolver.new(dependency_provider, UI.new)
-      @installer_resolution = resolver.resolve(repository)
+      @dependency_provider = DependencyProvider.new(FileReferenceInstaller)
     end
 
     def self.dependencies
@@ -43,10 +38,7 @@ module Xcake
       return unless node.path
       puts "Adding #{node.path}..."
 
-      #TODO: Don't use class as name
-      #TODO: Filter and first generator
-      #TODO: Debug logs for generator
-      installer_class = @installer_resolution.tsort.detect do |i|
+      installer_class = @dependency_provider.each do |i|
         i.name.can_install_node(node)
       end
 
