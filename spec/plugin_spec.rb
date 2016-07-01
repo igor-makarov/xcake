@@ -11,9 +11,7 @@ end
 module Xcake
   describe Plugin do
     it "load all plugins" do
-      expect(TestPlugin.load_plugins).to eq([
-          PluginFixture
-        ])
+      expect(TestPlugin.load_plugins).to eq([PluginFixture])
     end
   end
 end
