@@ -1,6 +1,6 @@
 require "spec_helper"
 
-#TODO: BDD plugins_location for Generator and File Reference Installer
+# TODO: BDD plugins_location for Generator and File Reference Installer
 
 class TestPlugin
   include Xcake::Plugin
