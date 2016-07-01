@@ -31,7 +31,6 @@ module Xcake
     end
 
     it "should be able to install framework" do
-
       framework_path = "Library.framework"
 
       allow(@node).to receive(:path).and_return(framework_path)
