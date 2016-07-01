@@ -57,7 +57,6 @@ module Xcake
     # @return [Array<Configuration>] list of configurations of a type
     #
     def configurations_of_type(type)
-
       return [] if @configurations.nil?
 
       @configurations.select do |c|
