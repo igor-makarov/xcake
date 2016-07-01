@@ -29,5 +29,10 @@ module Xcake
       allow(@node).to receive(:path).and_return("Library.so")
       expect(LinkLibraryFileReferenceInstaller.can_install_node(@node)).to be(true)
     end
+
+    it "should be able to install framework" do
+      allow(@node).to receive(:path).and_return("Library.framework")
+      expect(LinkLibraryFileReferenceInstaller.can_install_node(@node)).to be(true)
+    end
   end
 end
