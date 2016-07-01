@@ -1,17 +1,19 @@
 require "spec_helper"
 
+class TestPlugin
+  include Xcake::Plugin
+
+  def self.plugins_location
+    "#{File.dirname(__FILE__)}/fixtures/plugin/*.rb"
+  end
+end
+
 module Xcake
   describe Plugin do
-    # it "should provide dependencies for specification" do
-    #   @repository = double("Repository")
-    #   @dependency = double("Dependency")
-    #   @provider = DependencyProvider.new(@repository)
-    #   specification = double("Specification")
-    #   dependencies = []
-    #   allow(specification).to receive(:dependencies).and_return(dependencies)
-    #
-    #   result = @provider.dependencies_for(specification)
-    #   expect(result).to eq(dependencies)
-    # end
+    it "load all plugins" do
+      expect(TestPlugin.load_plugins).to eq([
+          PluginFixture
+        ])
+    end
   end
 end

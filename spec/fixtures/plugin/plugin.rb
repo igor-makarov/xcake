@@ -1,0 +1,2 @@
+class PluginFixture < TestPlugin
+end
