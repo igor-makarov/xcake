@@ -1,9 +1,9 @@
-require 'molinillo'
+require 'tsort'
 
 module Xcake
   class DependencyProvider
 
-    include Molinillo::SpecificationProvider
+    include TSort
 
     attr_accessor :repository
 

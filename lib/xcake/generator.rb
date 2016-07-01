@@ -1,5 +1,3 @@
-require 'molinillo'
-
 module Xcake
   class Generator
 
