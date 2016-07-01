@@ -9,8 +9,6 @@ module Xcake
 
     def initialize(dependency_class)
 
-      # Code for searching for dependencies
-      #
       plugins = dependency_class.load_plugins
 
       @dependency_graph = plugins.map { |p|
