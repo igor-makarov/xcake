@@ -7,21 +7,9 @@ module Xcake
       @generator = ProjectStructureGenerator.new(@context)
     end
 
-    context "when resolving project with no configurations" do
+    context "when resolving project" do
       before :each do
         @project = double("Project").as_null_object
-
-        allow(@project).to receive(:configurations_of_type).and_return([])
-      end
-
-      it "should create a default debug configuration" do
-        expect(@project).to receive(:configuration).with(:Debug, :debug)
-        @generator.visit_project(@project)
-      end
-
-      it "should create a default release configuration" do
-        expect(@project).to receive(:configuration).with(:Release, :release)
-        @generator.visit_project(@project)
       end
 
       it "should store project" do
