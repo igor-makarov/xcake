@@ -5,8 +5,8 @@ require "coveralls"
 Coveralls.wear!
 
 # Load all of our Generators and File Reference Installers
-Generator.load_plugins
-FileReferenceInstaller.load_plugins
+Xcake::Generator.load_plugins
+Xcake::FileReferenceInstaller.load_plugins
 
 # Make all of our methods public
 RSpec.configure do |config|
