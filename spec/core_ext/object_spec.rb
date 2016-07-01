@@ -1,15 +1,20 @@
 require "spec_helper"
 
+class Parent
+end
+
+class Child < Parent
+end
+
+class Grandchild < Child
+end
+
 describe Object do
-#   it "should provide dependencies for specification" do
-#     @repository = double("Repository")
-#     @dependency = double("Dependency")
-#     @provider = DependencyProvider.new(@repository)
-#     specification = double("Specification")
-#     dependencies = []
-#     allow(specification).to receive(:dependencies).and_return(dependencies)
-#
-#     result = @provider.dependencies_for(specification)
-#     expect(result).to eq(dependencies)
-#   end
+  it "should return all descendants" do
+
+    descendants = Parent.descendants
+
+    expect(descendants).to include(Child)
+    expect(descendants).to include(Grandchild)
+  end
 end
