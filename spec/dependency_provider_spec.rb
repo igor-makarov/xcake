@@ -21,7 +21,7 @@ module Xcake
         expect(dependencies).to eq([
           dependency_b,
           dependency_a
-        ])
+          ])
       end
     end
   end

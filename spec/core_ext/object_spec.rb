@@ -11,7 +11,6 @@ end
 
 describe Object do
   it "should return all descendants" do
-
     descendants = Parent.descendants
 
     expect(descendants).to include(Child)
