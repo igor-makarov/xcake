@@ -175,12 +175,11 @@ module Xcake
     #             t.name "test"
     #           end
     #
-    def initialize(project, &block)
-
+    def initialize(project)
       @project = project
       @build_phases = []
 
-      block.call(self) if block_given?
+      yield(self) if block_given?
     end
 
     def include_files
@@ -192,7 +191,7 @@ module Xcake
     end
 
     def system_frameworks
-      @system_frameworks ||= default_system_frameworks_for self.platform
+      @system_frameworks ||= default_system_frameworks_for platform
     end
 
     def system_libraries
@@ -214,19 +213,19 @@ module Xcake
     def default_system_frameworks_for(platform)
       case platform
       when :ios
-        ['Foundation', 'UIKit']
+        %w(Foundation UIKit)
       when :osx
         ['Cocoa']
       when :tvos
-        ['Foundation', 'UIKit']
+        %w(Foundation UIKit)
       when :watchos
-        ['Foundation', 'UIKit', 'WatchKit']
+        %w(Foundation UIKit WatchKit)
       else
-        abort "Platform not supported!"
+        abort 'Platform not supported!'
       end
     end
 
-    #Configurable
+    # Configurable
 
     def parent_configurable
       @project
@@ -236,27 +235,27 @@ module Xcake
     # into here?
     def default_settings
       {
-        "INFOPLIST_FILE" => "#{name}/Supporting Files/Info.plist"
+        'INFOPLIST_FILE' => "#{name}/Supporting Files/Info.plist"
       }
     end
 
     def default_debug_settings
-      Xcodeproj::Project::ProjectHelper.
-        common_build_settings(:debug,
-                              platform,
-                              deployment_target.to_s,
-                              type,
-                              language).merge!(default_settings)
+      Xcodeproj::Project::ProjectHelper
+        .common_build_settings(:debug,
+                               platform,
+                               deployment_target.to_s,
+                               type,
+                               language).merge!(default_settings)
     end
 
     def default_release_settings
-      Xcodeproj::Project::ProjectHelper.
-        common_build_settings(:release,
-                              platform,
-                              deployment_target.to_s,
-                              type,
-                              language).
-                              merge!(default_settings)
+      Xcodeproj::Project::ProjectHelper
+        .common_build_settings(:release,
+                               platform,
+                               deployment_target.to_s,
+                               type,
+                               language)
+        .merge!(default_settings)
     end
   end
 end

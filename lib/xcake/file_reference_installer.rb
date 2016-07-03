@@ -4,7 +4,6 @@ module Xcake
   # for it.
   #
   class FileReferenceInstaller
-
     include Dependency
     include Plugin
     include Visitor
@@ -26,7 +25,7 @@ module Xcake
     #
     # @return [Boolean] true if build phase can handle the node.
     #
-    def self.can_install_node(node)
+    def self.can_install_node(_node)
       true
     end
 
@@ -51,7 +50,7 @@ module Xcake
       file_reference = native_group.new_reference(node.component)
 
       node.targets.each do |t|
-         add_file_reference_to_target(file_reference, t)
+        add_file_reference_to_target(file_reference, t)
       end
     end
   end

@@ -5,7 +5,6 @@ module Xcake
   # and creates xcode build configurations.
   #
   class ConfigurationGenerator < Generator
-
     def self.dependencies
       [TargetGenerator, ProjectStructureGenerator]
     end
@@ -31,7 +30,7 @@ module Xcake
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
 
-        if configuration.configuration_file != nil
+        unless configuration.configuration_file.nil?
           xcconfig = install_xcconfig(configuration)
           native_configuration_object.base_configuration_reference = xcconfig
         end

@@ -48,8 +48,8 @@ module Xcake
       #
       def create_schemes_for_target(target)
         case target.product_type
-          when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
-              create_schemes_for_application(target)
+        when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
+          create_schemes_for_application(target)
         end
       end
 
@@ -63,7 +63,7 @@ module Xcake
           scheme = Scheme.new
 
           scheme.name = "#{target.name}-#{c.name}"
-          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = {"primary" => true}
+          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = { 'primary' => true }
 
           unit_test_target = project.find_unit_test_target_for_target(target)
           scheme.configure_with_targets(target, unit_test_target)
@@ -74,10 +74,10 @@ module Xcake
           scheme.analyze_action.build_configuration = c.name
           scheme.archive_action.build_configuration = c.name
 
-          #TODO: We should structure this stuff out
-          if unit_test_target then
-             unit_test_target.add_dependency(target)
-             @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = {"primary" => true}
+          # TODO: We should structure this stuff out
+          if unit_test_target
+            unit_test_target.add_dependency(target)
+            @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = { 'primary' => true }
           end
 
           schemes << scheme
@@ -90,23 +90,21 @@ module Xcake
       #           path to write to.
       #
       def save(writing_path)
-
         schemes_dir = Scheme.user_data_dir(writing_path)
 
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
 
         schemes.each do |s|
-
           puts "Saving Scheme #{s.name}..."
           s.save_as(@project.path, s.name, true)
 
           @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
-            "isShown" => true
+            'isShown' => true
           }
         end
 
-        puts "Saving Scheme List..."
+        puts 'Saving Scheme List...'
 
         xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
         write_plist(xcschememanagement_path)

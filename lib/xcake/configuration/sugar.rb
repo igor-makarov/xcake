@@ -4,10 +4,10 @@ module Xcake
     #                                supported_devices setting
     #
     SUPPORTED_DEVICES = {
-      iphone_only: "1",
-      ipad_only: "2",
-      universal: "1,2"
-    }
+      iphone_only: '1',
+      ipad_only: '2',
+      universal: '1,2'
+    }.freeze
 
     # Convienence method to easily set the
     # supported devices for a application.
@@ -25,14 +25,14 @@ module Xcake
     #
     def supported_devices=(devices)
       supported_devices = SUPPORTED_DEVICES[devices]
-      settings["TARGETED_DEVICE_FAMILY"] = supported_devices
+      settings['TARGETED_DEVICE_FAMILY'] = supported_devices
     end
 
     # Convienience method to easily set the
     # product's bundle identifier
     #
     def product_bundle_identifier=(identifier)
-      settings["PRODUCT_BUNDLE_IDENTIFIER"] = identifier
+      settings['PRODUCT_BUNDLE_IDENTIFIER'] = identifier
     end
 
     # Convienence method to easily set preprocessor directives
@@ -40,7 +40,7 @@ module Xcake
     def preprocessor_definitions
       PreprocessorDefinitionsSettingProxy.new(
         settings,
-        "GCC_PREPROCESSOR_DEFINITIONS"
+        'GCC_PREPROCESSOR_DEFINITIONS'
       )
     end
   end

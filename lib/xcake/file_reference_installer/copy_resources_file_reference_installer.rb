@@ -4,7 +4,6 @@ module Xcake
   #
   # Note: This installer is always the last to be executed.
   class CopyResourcesFileReferenceInstaller < FileReferenceInstaller
-
     def self.dependencies
       FileReferenceInstaller.descendants.select do |i|
         i != self
@@ -15,7 +14,7 @@ module Xcake
       extension = File.extname(node.path)
       (!File.directory?(node.path) ||
         (File.directory?(node.path) &&
-            ![".xcassets", ".xcdatamodeld", ".lproj"].include?(extension) &&
+            !['.xcassets', '.xcdatamodeld', '.lproj'].include?(extension) &&
             node.children.count == 0))
     end
 

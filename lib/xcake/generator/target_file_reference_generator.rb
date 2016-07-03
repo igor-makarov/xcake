@@ -42,7 +42,7 @@ module Xcake
         i.can_install_node(node)
       end
 
-      if installer_class != nil then
+      unless installer_class.nil?
         installer = installer_class.new(context)
         node.accept(installer)
       end

@@ -7,7 +7,6 @@ module Xcake
   # This tracks which target the node should be
   # added to.
   class Node
-
     include Visitable
 
     # @return [String] the component of this node in the path.
@@ -45,9 +44,8 @@ module Xcake
     #                          target to add for the child nodes
     #
     def create_children_with_path(path, target)
-
       components = path.split('/').keep_if do |c|
-        c != "."
+        c != '.'
       end
 
       create_children_with_components(components, target)
@@ -63,9 +61,8 @@ module Xcake
     #                          target to remove for child nodes
     #
     def remove_children_with_path(path, target)
-
       components = path.split('/').keep_if do |c|
-        c != "."
+        c != '.'
       end
 
       remove_children_with_components(components, target)
@@ -74,23 +71,22 @@ module Xcake
     protected
 
     def create_children_with_components(components, target)
-
       component = components.shift
       child = children.find do |c|
         c.component == component
       end
 
-      if child == nil
+      if child.nil?
 
         child = Node.new
 
         child.component = component
 
-        if self.path
-          child.path = "#{self.path}/#{component}"
-        else
-          child.path = "#{component}"
-        end
+        child.path = if path
+                       "#{path}/#{component}"
+                     else
+                       component.to_s
+                     end
 
         child.parent = self
 
@@ -105,14 +101,13 @@ module Xcake
     end
 
     def remove_children_with_components(components, target)
-
       component = components.shift
 
       child = children.find do |c|
         c.component == component
       end
 
-      if child != nil
+      unless child.nil?
 
         child.remove_children_with_components(components, target)
 
@@ -122,8 +117,8 @@ module Xcake
 
         children.keep_if do |c|
           c != child ||
-          c.children.count > 0 ||
-          c.targets.count > 0
+            c.children.count > 0 ||
+            c.targets.count > 0
         end
       end
     end
@@ -131,7 +126,6 @@ module Xcake
     public
 
     def accept(visitor)
-
       visitor.visit(self)
 
       children.each do |c|

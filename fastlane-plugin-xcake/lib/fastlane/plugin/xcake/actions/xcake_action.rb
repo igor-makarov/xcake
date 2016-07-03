@@ -1,7 +1,7 @@
 module Fastlane
   module Actions
     class XcakeAction < Action
-      def self.run(params)
+      def self.run(_params)
         require 'xcake'
 
         if defined?(::Xcake::Command::Make)
@@ -14,7 +14,7 @@ module Fastlane
       end
 
       def self.description
-        "Runs `xcake` for the project"
+        'Runs `xcake` for the project'
       end
 
       def self.available_options
@@ -27,7 +27,7 @@ module Fastlane
       end
 
       def self.authors
-        ["jcampbell05"]
+        ['jcampbell05']
       end
     end
   end

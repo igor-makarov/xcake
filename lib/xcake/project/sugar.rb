@@ -1,8 +1,7 @@
-require "xcodeproj"
+require 'xcodeproj'
 
 module Xcake
   class Project
-
     # Passes the project instance to a block. This is used to easily modify the
     # properties of the project in the DSL.
     #
@@ -10,8 +9,8 @@ module Xcake
     # @param  [Proc] block
     #         an optional block that configures the project through the DSL.
     #
-    def project(&block)
-      block.call(self) if block_given?
+    def project
+      yield(self) if block_given?
       self
     end
 
@@ -32,14 +31,14 @@ module Xcake
     # @return [Target] the application target
     #         the newly created application target
     #
-    def application_for(platform, deployment_target, language = :objc, &block)
+    def application_for(platform, deployment_target, language = :objc)
       target do |t|
         t.type = :application
         t.platform = platform
         t.deployment_target = deployment_target
         t.language = language
 
-        block.call(t) if block_given?
+        yield(t) if block_given?
       end
     end
 
@@ -54,7 +53,7 @@ module Xcake
     # @return [Target] the unit test target
     #         the newly created unit test target
     #
-    def unit_tests_for(host_target, &block)
+    def unit_tests_for(host_target)
       target do |t|
         t.name = "#{host_target.name}Tests"
 
@@ -65,13 +64,13 @@ module Xcake
 
         host_path = "#{host_target.name}.app/#{host_target.name}"
         t.all_configurations.each do |c|
-          c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
+          c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
         end
         t.all_configurations.each do |c|
-          c.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
+          c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
         end
 
-        block.call(t) if block_given?
+        yield(t) if block_given?
       end
     end
 
@@ -85,7 +84,7 @@ module Xcake
     #
     # @return Void
     #
-    def watch_app_for(host_target, deployment_target, language = :objc, &block)
+    def watch_app_for(host_target, deployment_target, language = :objc)
       watch_app_target = target do |t|
         t.name = "#{host_target.name}-Watch"
 
@@ -107,9 +106,9 @@ module Xcake
       host_target.target_dependencies << watch_app_target
       watch_app_target.target_dependencies << watch_extension_target
 
-      block.call(watch_app_target, watch_extension_target) if block_given?
+      yield(watch_app_target, watch_extension_target) if block_given?
 
-      return nil
+      nil
     end
   end
 end

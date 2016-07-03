@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require "xcake"
+require 'xcake'
 
-require "coveralls"
+require 'coveralls'
 Coveralls.wear!
 
 # Load all of our Generators and File Reference Installers

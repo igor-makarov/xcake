@@ -1,5 +1,5 @@
-require "claide"
-require "colored"
+require 'claide'
+require 'colored'
 
 # Indicates an user error.
 #

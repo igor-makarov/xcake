@@ -7,12 +7,10 @@ module Xcake
   # if none are provided and will make sure both the project
   # and targets have all of the same configurations.
   class ProjectStructureGenerator < Generator
-
     attr_accessor :project
 
     def visit_project(project)
-
-      puts "Resolving Project..."
+      puts 'Resolving Project...'
 
       @project = project
     end
@@ -21,7 +19,6 @@ module Xcake
     end
 
     def visit_target(target)
-
       puts "Resolving target #{target.name}..."
 
       @project.all_configurations.each do |c|

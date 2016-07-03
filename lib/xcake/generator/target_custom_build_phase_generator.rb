@@ -1,6 +1,5 @@
 module Xcake
   class TargetCustomBuildPhaseGenerator < Generator
-
     def self.dependencies
       [TargetGenerator]
     end
