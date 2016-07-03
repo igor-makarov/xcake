@@ -7,7 +7,7 @@ module Xcake
   class ConfigurationGenerator < Generator
 
     def self.dependencies
-      [TargetGenerator, ProjectStructureGenerator]
+      [TargetGenerator, ProjectStructureGenerator, TargetFileReferenceGenerator]
     end
 
     def visit_project(project)
@@ -28,22 +28,14 @@ module Xcake
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
+        configuration_file = configuration.configuration_file
+        file_reference = @context.file_reference_for_path(configuration_file)
+
+        build_configuration.base_configuration_reference = file_reference
+
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
-
-        if configuration.configuration_file != nil
-          xcconfig = install_xcconfig(configuration)
-          native_configuration_object.base_configuration_reference = xcconfig
-        end
       end
-    end
-
-    def install_xcconfig(configuration)
-      # TODO: Remove need to construct a Node Object to do this.
-      node = Node.new
-      node.path = configuration.configuration_file
-      native_group = @context.native_object_for(node)
-      native_group.new_reference(node.path)
     end
   end
 end

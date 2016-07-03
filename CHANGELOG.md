@@ -7,6 +7,7 @@ v0.6.20
 - Fixes out of date documentation.
 - Fixes typos and out of date API used in `xcake init` template.
 - Removes dependency on `Molinillo` for internal dependency resolution.
+- Fixes issues with adding XCConfig.
 
 v0.6.19
 =======

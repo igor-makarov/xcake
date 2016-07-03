@@ -15,7 +15,7 @@ module Xcake
         file_contents = File.read(file_path)
 
         project = Project.new
-        project.instance_eval(file_contents)
+        project.instance_eval(file_contents, file_path)
 
         context = XcodeprojContext.new
 

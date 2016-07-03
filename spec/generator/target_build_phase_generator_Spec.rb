@@ -31,7 +31,8 @@ module Xcake
 
       expect(phase).to receive(:dst_path=).with("$(CONTENTS_FOLDER_PATH)/Watch")
       expect(phase).to receive(:symbol_dst_subfolder_spec=).with(:products_directory)
-      expect(phase).to receive(:add_file_reference).with(product_reference)
+      expect(phase).to receive(:add_file_reference).
+        with(product_reference, true)
 
       expect(@target).to receive(:new_copy_files_build_phase).with("Embed Watch Content").and_return(phase)
       allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)
@@ -50,7 +51,8 @@ module Xcake
       phase = double("Phase")
 
       expect(phase).to receive(:symbol_dst_subfolder_spec=).with(:plug_ins)
-      expect(phase).to receive(:add_file_reference).with(product_reference)
+      expect(phase).to receive(:add_file_reference).
+        with(product_reference, true)
 
       expect(@target).to receive(:new_copy_files_build_phase).with("Embed App Extensions").and_return(phase)
       allow(@context).to receive(:native_object_for).with(@dsl_dependency).and_return(dependency)

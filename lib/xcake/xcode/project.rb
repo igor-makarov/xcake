@@ -129,11 +129,27 @@ module Xcake
         # generation - maybe part of the new file installer in 0.7.
         #
         def new_group(node)
+          return main_group unless node.parent
+
           group = main_group unless node.parent
           group = main_group.find_subpath(node.parent.path, true) unless group
           ensure_parent_path(group, node.parent)
 
           group
+        end
+
+        # Creates a new xcode file reference from the node
+        #
+        # @param [String] path
+        # =>              path of the file reference from the source root
+        #
+        # @return [PBXFileReference] new xcode file refrence
+        #
+        def new_file_reference(path)
+          path_object = Pathname.new(path)
+          group = main_group.find_subpath(path_object.dirname.to_s, true)
+          group[path_object.basename.to_s] ||
+          group.new_reference(path_object.to_s)
         end
 
         def ensure_parent_path(group, node)

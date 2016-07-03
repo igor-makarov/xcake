@@ -38,7 +38,8 @@ module Xcake
       file_reference = double("File Reference")
 
       resources_build_phase = double("Resources Build Pahse")
-      expect(resources_build_phase).to receive(:add_file_reference).with(file_reference)
+      expect(resources_build_phase).to receive(:add_file_reference).
+        with(file_reference, true)
 
       target = double("Target")
       allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
