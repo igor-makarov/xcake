@@ -30,7 +30,7 @@ module Xcake
     #
     attr_accessor :settings
 
-    # @return [String] the name of the xcconfig file to use for
+    # @return [String] the path of the xcconfig file to use for
     #         the build configuration.
     #
     #         This is resolved to a PBXFileReference.
