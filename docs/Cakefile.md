@@ -306,7 +306,7 @@ configuration.name = "Release"
 
 #### Configuration File
 
-Sets the path to a XCConfig to inherit build settings from.
+Sets the path to a XCConfig file to inherit build settings from.
 
 ```ruby
 configuration.configuration_file = "Files/Settings.xcconfig"
