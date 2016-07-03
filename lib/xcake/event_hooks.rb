@@ -8,8 +8,8 @@ module Xcake
     #
     define_hooks :after_cakefile_init
 
-    # Defines hook which is ran after an exception
+    # Defines hook which is ran before we start reading the cakefile
     #
-    define_hooks :after_exception
+    define_hooks :before_cakefile_read
   end
 end

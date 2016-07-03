@@ -8,10 +8,11 @@ module Xcake
         file_path = "#{Dir.pwd}/Cakefile"
 
         unless File.exist?(file_path)
-          raise Xcake::Informative, "Couldn't find Cakefile"
+          #TODO: Make exception class for this
+          raise Xcake::Informative "Couldn't find Cakefile"
         end
 
-        UI.puts 'Reading Cakefile...'
+        EventHooks.run_hook :before_cakefile_read
         file_contents = File.read(file_path)
 
         project = Project.new
