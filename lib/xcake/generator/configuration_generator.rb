@@ -27,6 +27,7 @@ module Xcake
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
+        #TODO: UI Hooks for XCConfig :)
         configuration_file = configuration.configuration_file
         file_reference = @context.file_reference_for_path(configuration_file)
 
