@@ -11,5 +11,8 @@ module Xcake
     def native_object_for(dsl_object)
       object_hash[dsl_object] ||= create_object_for(dsl_object)
     end
+
+    def file_reference_for_path(path)
+    end
   end
 end

@@ -45,5 +45,9 @@ module Xcake
       puts "Creating Group..."
       @project.new_group(node)
     end
+
+    def file_reference_for_path(path)
+      @project.reference_for_path(path)
+    end
   end
 end

@@ -7,6 +7,9 @@ module Xcake
       @native_configurable = double("Xcode Configurable").as_null_object
       @context = double("Context")
 
+      @xcconfig = double("XCConfig File Reference")
+      allow(@context).to receive(:file_reference_for_path).and_return(@xcconfig)
+
       @generator = ConfigurationGenerator.new(@context)
     end
 
@@ -66,11 +69,8 @@ module Xcake
         end
 
         it "should set XCConfig for configurable" do
-          xcconfig = double("XCConfig File Reference")
-
-          allow(@main_group).to receive(:new_reference).and_return(xcconfig)
           expect(@native_configuration).
-            to receive(:base_configuration_reference=).with(xcconfig)
+            to receive(:base_configuration_reference=).with(@xcconfig)
 
           @generator.create_build_configurations_for(@configurable)
         end

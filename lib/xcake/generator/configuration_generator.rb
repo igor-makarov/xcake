@@ -29,7 +29,9 @@ module Xcake
         build_configuration.build_settings = configuration.settings
 
         configuration_file = configuration.configuration_file
-        build_configuration.base_configuration_reference = configuration_file
+        file_reference = @context.file_reference_for_path(configuration_file)
+
+        build_configuration.base_configuration_reference = file_reference
 
         native_configuration_object = @context.native_object_for(configuration_object)
         native_configuration_object.build_configurations << build_configuration
