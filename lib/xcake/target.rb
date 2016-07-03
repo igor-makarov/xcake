@@ -180,9 +180,6 @@ module Xcake
       @project = project
       @build_phases = []
 
-      debug_configuration :Debug
-      release_configuration :Release
-
       block.call(self) if block_given?
     end
 

@@ -2,7 +2,7 @@ module Xcake
   class ProjectGenerator < Generator
 
     def self.dependencies
-      Generator.repository.select do |g|
+      Generator.descendants.select do |g|
         g != self
       end
     end

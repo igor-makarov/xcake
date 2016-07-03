@@ -4,12 +4,18 @@ module Xcake
   #
   class LinkLibraryFileReferenceInstaller < FileReferenceInstaller
     def self.can_install_node(node)
-      !File.directory?(node.path) &&
-        %w(.a .dylib .so).include?(File.extname(node.path))
+        %w(.a .dylib .so .framework).include?(File.extname(node.path))
     end
 
     def add_file_reference_to_target(file_reference, target)
       target.frameworks_build_phases.add_file_reference(file_reference, true)
+    end
+
+    def visit_node(node)
+      super
+
+      # Ignore all files inside of libraries
+      node.children = []
     end
   end
 end
