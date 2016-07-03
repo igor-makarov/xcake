@@ -10,7 +10,7 @@ module Xcake
     attr_accessor :project
 
     def visit_project(project)
-      puts 'Resolving Project...'
+      UI.puts 'Resolving Project...'
 
       @project = project
     end
@@ -19,7 +19,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Resolving target #{target}..."
+      UI.puts "Resolving target #{target}..."
 
       @project.all_configurations.each do |c|
         target.configuration(c.name, c.type)

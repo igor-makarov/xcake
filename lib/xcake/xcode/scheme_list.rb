@@ -96,7 +96,7 @@ module Xcake
         FileUtils.mkdir_p(schemes_dir)
 
         schemes.each do |s|
-          puts "Saving Scheme #{s.name}..."
+          UI.puts "Saving Scheme #{s.name}..."
           s.save_as(@project.path, s.name, true)
 
           @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
@@ -104,7 +104,7 @@ module Xcake
           }
         end
 
-        puts 'Saving Scheme List...'
+        UI.puts 'Saving Scheme List...'
 
         xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
         write_plist(xcschememanagement_path)

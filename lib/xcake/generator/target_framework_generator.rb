@@ -5,7 +5,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Integrating System Frameworks for #{target}..."
+      UI.puts "Integrating System Frameworks for #{target}..."
 
       native_target = @context.native_object_for(target)
 

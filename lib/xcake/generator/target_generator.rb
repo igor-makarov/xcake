@@ -5,7 +5,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Creating target #{target.name}..."
+      UI.puts "Creating target #{target.name}..."
       @context.native_object_for(target)
     end
   end

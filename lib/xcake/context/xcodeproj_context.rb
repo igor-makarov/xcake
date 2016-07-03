@@ -22,7 +22,7 @@ module Xcake
     end
 
     def create_object_for_project(project)
-      puts 'Creating Project...'
+      UI.puts 'Creating Project...'
 
       # TODO: Make setup of project testable
       @project = Xcode::Project.new("./#{project.name}.xcodeproj", true)
@@ -31,17 +31,17 @@ module Xcake
     end
 
     def create_object_for_target(target)
-      puts 'Creating Target...'
+      UI.puts 'Creating Target...'
       @project.new_target(target)
     end
 
     def create_object_for_configuration(configuration)
-      puts 'Creating Configuration...'
+      UI.puts 'Creating Configuration...'
       @project.new_configuration(configuration)
     end
 
     def create_object_for_node(node)
-      puts 'Creating Group...'
+      UI.puts 'Creating Group...'
       @project.new_group(node)
     end
 

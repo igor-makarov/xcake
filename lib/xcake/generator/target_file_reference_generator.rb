@@ -36,7 +36,7 @@ module Xcake
 
     def visit_node(node)
       return unless node.path
-      puts "Adding #{node.path}..."
+      UI.puts "Adding #{node.path}..."
 
       installer_class = @dependency_provider.tsort.detect do |i|
         i.can_install_node(node)

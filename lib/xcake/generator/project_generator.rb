@@ -10,7 +10,7 @@ module Xcake
       native_project = @context.native_object_for(project)
       native_project.save
       project.run_hook :after_save
-      puts 'Done!'
+      UI.puts 'Done!'
     end
   end
 end
