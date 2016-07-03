@@ -58,25 +58,11 @@ module Xcake
         @generator.create_build_configurations_for(@configurable)
       end
 
+      # - Make Seperate Generator
       context "when installing XCConfig" do
         before :each do
           allow(@main_group).to receive(:[]).
             with(@configuration.configuration_file).and_return(nil)
-        end
-
-        it "should add XCConfig File to the project" do
-          expect(@main_group).to receive(:new_reference).
-            with(@configuration.configuration_file)
-          @generator.create_build_configurations_for(@configurable)
-        end
-
-        it "should add XCConfig File to the project only once" do
-          allow(@configurable).to receive(:all_configurations).
-            and_return([@configuration, @configuration])
-
-          expect(@main_group).to receive(:new_reference).
-            with(@configuration.configuration_file)
-          @generator.create_build_configurations_for(@configurable)
         end
 
         it "should set XCConfig for configurable" do
