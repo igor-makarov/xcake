@@ -1,8 +1,7 @@
-require "tsort"
+require 'tsort'
 
 module Xcake
   class DependencyProvider
-
     include TSort
 
     def initialize(dependency_class)

@@ -2,7 +2,6 @@ require 'spec_helper'
 
 module Xcake
   describe Node do
-
     it 'initilizes the children' do
       node = Node.new
       expect(node.children).not_to be_nil
@@ -13,14 +12,12 @@ module Xcake
       expect(node.targets).not_to be_nil
     end
 
-    context "when creating children" do
-
-      context "with file path" do
-
+    context 'when creating children' do
+      context 'with file path' do
         before :each do
-          @target = double("Target")
+          @target = double('Target')
           @node = Node.new
-          @file = @node.create_children_with_path("./file", @target)
+          @file = @node.create_children_with_path('./file', @target)
         end
 
         it 'should create child' do
@@ -32,11 +29,11 @@ module Xcake
         end
 
         it 'should set the component' do
-          expect(@file.component).to eq("file")
+          expect(@file.component).to eq('file')
         end
 
         it 'should set the path' do
-          expect(@file.path).to eq("file")
+          expect(@file.path).to eq('file')
         end
 
         it 'should set the parent' do
@@ -46,25 +43,23 @@ module Xcake
         it 'should add the target' do
           expect(@file.targets).to include(@target)
         end
-
       end
 
-      context "with same file" do
+      context 'with same file' do
         before :each do
-          @target = double("Target")
+          @target = double('Target')
           @node = Node.new
-          @file = @node.create_children_with_path("./file", @target)
+          @file = @node.create_children_with_path('./file', @target)
         end
 
         it 'should store one child' do
           expect(@node.children.count).to eq(1)
         end
 
-        context "for different targets" do
-
+        context 'for different targets' do
           before :each do
-            @target2 = double("Target 2")
-            @node.create_children_with_path("./file", @target2)
+            @target2 = double('Target 2')
+            @node.create_children_with_path('./file', @target2)
           end
 
           it 'should store both targets on child' do
@@ -73,12 +68,11 @@ module Xcake
         end
       end
 
-      context "with folder path" do
-
+      context 'with folder path' do
         before :each do
-          @target = double("Target")
+          @target = double('Target')
           @node = Node.new
-          @folder = @node.create_children_with_path("./folder/file", @target)
+          @folder = @node.create_children_with_path('./folder/file', @target)
           @file = @folder.children.first
         end
 
@@ -95,13 +89,13 @@ module Xcake
         end
 
         it 'should set the component' do
-          expect(@folder.component).to eq("folder")
-          expect(@file.component).to eq("file")
+          expect(@folder.component).to eq('folder')
+          expect(@file.component).to eq('file')
         end
 
         it 'should set the path' do
-          expect(@folder.path).to eq("folder")
-          expect(@file.path).to eq("folder/file")
+          expect(@folder.path).to eq('folder')
+          expect(@file.path).to eq('folder/file')
         end
 
         it 'should set the parent' do
@@ -111,16 +105,14 @@ module Xcake
         it 'should add the target' do
           expect(@folder.targets).to include(@target)
         end
-
       end
 
-      context "with two files under same folder" do
-
+      context 'with two files under same folder' do
         before :each do
-          @target = double("Target")
+          @target = double('Target')
           @node = Node.new
-          @folder = @node.create_children_with_path("./folder/file", @target)
-          @folder2 = @node.create_children_with_path("./folder/file2", @target)
+          @folder = @node.create_children_with_path('./folder/file', @target)
+          @folder2 = @node.create_children_with_path('./folder/file2', @target)
         end
 
         it 'should create child' do
@@ -141,30 +133,27 @@ module Xcake
       end
     end
 
-    context "when removing children" do
-
-      context "with file path" do
-
+    context 'when removing children' do
+      context 'with file path' do
         before :each do
-          @target = double("Target")
+          @target = double('Target')
           @node = Node.new
-          @node.create_children_with_path("./file", @target)
-          @node.remove_children_with_path("./file", @target)
+          @node.create_children_with_path('./file', @target)
+          @node.remove_children_with_path('./file', @target)
         end
 
         it 'should remove child' do
           expect(@node.children.count).to eq(0)
         end
 
-        context "with multiple targets and one target is removed" do
-
+        context 'with multiple targets and one target is removed' do
           before :each do
-            @target = double("Target")
-            @target2 = double("Target 2")
+            @target = double('Target')
+            @target2 = double('Target 2')
             @node = Node.new
-            @file = @node.create_children_with_path("./file", @target)
-            @node.create_children_with_path("./file", @target2)
-            @node.remove_children_with_path("./file", @target)
+            @file = @node.create_children_with_path('./file', @target)
+            @node.create_children_with_path('./file', @target2)
+            @node.remove_children_with_path('./file', @target)
           end
 
           it 'should keep child' do
@@ -177,21 +166,19 @@ module Xcake
         end
       end
 
-      context "with folder path" do
-
+      context 'with folder path' do
         before :each do
-          @target = double("Target")
-          @target2 = double("Target 2")
+          @target = double('Target')
+          @target2 = double('Target 2')
           @node = Node.new
-          @folder = @node.create_children_with_path("./folder/file", @target)
-          @folder2 = @node.create_children_with_path("./folder/file2", @target2)
-          @node.create_children_with_path("./folder/file2", @target)
+          @folder = @node.create_children_with_path('./folder/file', @target)
+          @folder2 = @node.create_children_with_path('./folder/file2', @target2)
+          @node.create_children_with_path('./folder/file2', @target)
         end
 
-        context "with multiple targets and one target is removed" do
-
+        context 'with multiple targets and one target is removed' do
           before :each do
-            @node.remove_children_with_path("./folder/file", @target)
+            @node.remove_children_with_path('./folder/file', @target)
           end
 
           it 'should keep folder' do

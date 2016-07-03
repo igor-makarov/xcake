@@ -14,8 +14,8 @@ class String
   # Strips heredoc indents
   #
   def strip_heredoc
-    indent = self.scan(/^[ \t]*(?=\S)/).min
-    indent_len = (indent || "").length
-    self.gsub(/^[ \t]{#{indent_len}}/, "")
+    indent = scan(/^[ \t]*(?=\S)/).min
+    indent_len = (indent || '').length
+    gsub(/^[ \t]{#{indent_len}}/, '')
   end
 end

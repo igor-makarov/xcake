@@ -1,6 +1,5 @@
 module Xcake
   class Generator
-
     include Dependency
     include Plugin
     include Visitor

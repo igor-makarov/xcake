@@ -1,4 +1,4 @@
-require "hooks"
+require 'hooks'
 
 module Xcake
   class Project

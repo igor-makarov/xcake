@@ -5,7 +5,6 @@ module Xcake
   # and creates xcode build configurations.
   #
   class ConfigurationGenerator < Generator
-
     def self.dependencies
       [TargetGenerator, ProjectStructureGenerator, TargetFileReferenceGenerator]
     end

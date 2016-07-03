@@ -1,16 +1,13 @@
 module Xcake
-
   # TODO: In future this should just infer extra targets and add it to the DSL
   # we should then implement a 2nd pass generator which turns that DSL into
   # build phases
   class TargetBuildPhaseGenerator < Generator
-
     def self.dependencies
       [TargetGenerator, TargetDependencyGenerator]
     end
 
     def visit_target(target)
-
       puts "Generating build phases for #{target}..."
 
       native_target = @context.native_object_for(target)
@@ -28,20 +25,20 @@ module Xcake
     end
 
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
-      puts "Generating embed watch app phase..."
+      puts 'Generating embed watch app phase...'
 
-      phase = native_target.new_copy_files_build_phase("Embed Watch Content")
-      phase.dst_path = "$(CONTENTS_FOLDER_PATH)/Watch"
+      phase = native_target.new_copy_files_build_phase('Embed Watch Content')
+      phase.dst_path = '$(CONTENTS_FOLDER_PATH)/Watch'
       phase.symbol_dst_subfolder_spec = :products_directory
       phase.add_file_reference(native_watchapp_target.product_reference, true)
       phase
     end
 
     def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
-      puts "Generating embed watch app extension phase..."
+      puts 'Generating embed watch app extension phase...'
       product_reference = native_watchapp_extension_target.product_reference
 
-      phase = native_target.new_copy_files_build_phase("Embed App Extensions")
+      phase = native_target.new_copy_files_build_phase('Embed App Extensions')
       phase.symbol_dst_subfolder_spec = :plug_ins
       phase.add_file_reference(product_reference, true)
       phase

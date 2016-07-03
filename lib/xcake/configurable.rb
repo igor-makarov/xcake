@@ -12,7 +12,6 @@ module Xcake
   #   end
   #
   module Configurable
-
     private
 
     attr_accessor :configurations
@@ -92,8 +91,7 @@ module Xcake
     #
     # @return [Configuration] the new or existing configuration
     #
-    def configuration(name, type, &block)
-
+    def configuration(name, type)
       default_settings = default_settings_for_type(type)
       configurations = configurations_of_type(type)
 
@@ -110,11 +108,10 @@ module Xcake
         name = type.to_s.capitalize if name.nil?
 
         build_configuration = Configuration.new(name) do |b|
-
           b.type = type
           b.settings.merge!(default_settings)
 
-          block.call(b) if block_given?
+          yield(b) if block_given?
         end
 
         @configurations ||= []
