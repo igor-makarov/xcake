@@ -258,6 +258,8 @@ end
 We can apply a particular shared setting across all of our configurations.
 Xcake provides a simply way of doing this via an "all" configuration.
 
+This will return an array of all of the currently declared configurations.
+
 ```ruby
 all_configurations.each { |c| c.supported_devices = :iphone_only }
 ```
@@ -289,9 +291,6 @@ it also has its own hiearchy of settings, which are in the following order
 - Default Settings
   These are the sensible defaults xcake provides for the configuration.
 
-- All Settings
-  These are any settings set via the "All" configuration
-
 - Custom Settings
   These are the settings set directly on the configuration.
 
@@ -305,6 +304,14 @@ Sets the name of the configuration
 configuration.name = "Release"
 ```
 
+#### Configuration File
+
+Sets the path to a XCConfig to inherit build settings from.
+
+```ruby
+configuration.configuration_file = "Files/Settings.xcconfig"
+```
+
 #### Build Settings
 
 A hash of all the build settings for a configuration
@@ -313,7 +320,7 @@ A hash of all the build settings for a configuration
 configuration.settings["ENABLE_BITCODE"] = false
 ```
 
-###Build Settings Shortcuts
+### Build Settings Shortcuts
 
 Xcake also provides some shortcuts for some more common build settings.
 
