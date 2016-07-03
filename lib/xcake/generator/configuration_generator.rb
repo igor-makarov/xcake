@@ -18,10 +18,10 @@ module Xcake
     end
 
     def create_build_configurations_for(configuration_object)
-      UI.puts "Creating build configurations for #{configuration_object}..."
+      EventHooks.run_hook :before_creating_build_configurations, configuration_object
 
       configuration_object.all_configurations.each do |configuration|
-        UI.puts "Creating build configuration #{configuration.name} for #{configuration_object}..."
+        EventHooks.run_hook :before_creating_build_configuration, configuration, configuration_object
 
         build_configuration = @context.native_object_for(configuration)
         build_configuration.name = configuration.name

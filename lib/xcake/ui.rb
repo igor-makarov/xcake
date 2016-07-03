@@ -9,19 +9,35 @@ module Xcake
       board = Cork::Board.new()
 
       EventHooks.after_cakefile_init do
-        board.notice('Open Cakefile to edit and run xcake make to get your xcode project')
+        board.notice 'Open Cakefile to edit and run xcake make to get your xcode project'
       end
 
       EventHooks.before_cakefile_read do
-        board.puts('Reading Cakefile...')
+        board.puts 'Reading Cakefile...'
       end
 
       EventHooks.before_creating_xcode_project do
-        board.title('Creating Project')
+        board.title 'Creating Project'
       end
 
-      EventHooks::before_creating_target do |target|
-        board.title("Creating target #{target.name}...")
+      EventHooks.before_creating_target do |target|
+        board.title "Creating #{target}..."
+      end
+
+      EventHooks.before_resolving_project_structure do
+        board.puts "Resolving Project..."
+      end
+
+      EventHooks.before_resolving_target_structure do |target|
+        board.puts "Resolving #{target}..."
+      end
+
+      EventHooks.before_creating_build_configurations do |configurable|
+        board.puts "Creating build configurations for #{configurable}..."
+      end
+
+      EventHooks.before_creating_build_configuration do |configuration, configurable|
+        board.puts "Creating build configuration #{configuration.name} for #{configurable}..."
       end
     end
   end

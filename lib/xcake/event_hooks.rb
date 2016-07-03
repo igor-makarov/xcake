@@ -19,5 +19,25 @@ module Xcake
     # Defines hook which is ran before we start creating a Target
     #
     define_hooks :before_creating_target
+
+    # Defines hook which is ran before we start resolving
+    # issues with the Project structure
+    #
+    define_hooks :before_resolving_project_structure
+
+    # Defines hook which is ran before we start resolving
+    # issues with the Target structure
+    #
+    define_hooks :before_resolving_target_structure
+
+    # Defines hook which is ran before we start creating build configurations
+    # for a particular Xcode Project Object
+    #
+    define_hooks :before_creating_build_configurations
+
+    # Defines hook which is ran before we start creating a
+    # build configurations for a particular Xcode Project Object
+    #
+    define_hooks :before_creating_build_configuration
   end
 end
