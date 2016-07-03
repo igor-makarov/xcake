@@ -17,13 +17,11 @@ module Xcake
       when Node
         create_object_for_node(dsl_object)
       else
-        abort 'DSL Object not recognized!'
+        nil
       end
     end
 
     def create_object_for_project(project)
-      UI.puts 'Creating Project...'
-
       # TODO: Make setup of project testable
       @project = Xcode::Project.new("./#{project.name}.xcodeproj", true)
       @project.setup_for_xcake
@@ -31,17 +29,14 @@ module Xcake
     end
 
     def create_object_for_target(target)
-      UI.puts 'Creating Target...'
       @project.new_target(target)
     end
 
     def create_object_for_configuration(configuration)
-      UI.puts 'Creating Configuration...'
       @project.new_configuration(configuration)
     end
 
     def create_object_for_node(node)
-      UI.puts 'Creating Group...'
       @project.new_group(node)
     end
 

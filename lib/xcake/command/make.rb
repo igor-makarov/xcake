@@ -8,8 +8,7 @@ module Xcake
         file_path = "#{Dir.pwd}/Cakefile"
 
         unless File.exist?(file_path)
-          #TODO: Make exception class for this
-          raise Xcake::Informative "Couldn't find Cakefile"
+          raise Xcake::Informative, "Couldn't find Cakefile"
         end
 
         EventHooks.run_hook :before_cakefile_read
