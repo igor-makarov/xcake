@@ -2,4 +2,10 @@
 
 require 'xcake'
 
-Xcake::Command.run(ARGV)
+ui = Xcake::UI.new
+
+begin
+  Xcake::Command.run(ARGV)
+rescue exception
+  EventHooks.run_hook(:after_exception, exception)
+end
