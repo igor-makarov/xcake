@@ -11,7 +11,7 @@ module Xcake
     end
 
     it "should have correct dependencies" do
-      expect(ConfigurationGenerator.dependencies).to eq([TargetGenerator, ProjectStructureGenerator])
+      expect(ConfigurationGenerator.dependencies).to eq([TargetGenerator, ProjectStructureGenerator, TargetFileReferenceGenerator])
     end
 
     context "when visiting project" do
