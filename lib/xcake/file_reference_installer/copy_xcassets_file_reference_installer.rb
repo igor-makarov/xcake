@@ -3,20 +3,19 @@ module Xcake
   # and adds them to the copy resources phase.
   #
   class CopyXCAssetsFileReferenceInstaller < CopyResourcesFileReferenceInstaller
-
     def self.dependencies
       []
     end
 
     def self.can_install_node(node)
       File.directory?(node.path) &&
-        [".xcassets"].include?(File.extname(node.path))
+        ['.xcassets'].include?(File.extname(node.path))
     end
 
     def visit_node(node)
       super
 
-      #Ignore all files inside of the XCAssets
+      # Ignore all files inside of the XCAssets
       node.children = []
     end
   end

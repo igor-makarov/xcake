@@ -2,9 +2,8 @@ require 'xcodeproj'
 
 module Xcake
   module Dependency
-
     def self.included(base)
-        base.extend ClassMethods
+      base.extend ClassMethods
     end
 
     module ClassMethods

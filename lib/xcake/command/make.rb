@@ -1,8 +1,8 @@
 module Xcake
   class Command
     class Make < Command
-      self.summary = "Makes the Xcode project from a Cakefile"
-      self.description = "Makes the Xcode project from a Cakefile"
+      self.summary = 'Makes the Xcode project from a Cakefile'
+      self.description = 'Makes the Xcode project from a Cakefile'
 
       def run
         file_path = "#{Dir.pwd}/Cakefile"
@@ -11,7 +11,7 @@ module Xcake
           raise Xcake::Informative, "Couldn't find Cakefile"
         end
 
-        puts "Reading Cakefile..."
+        puts 'Reading Cakefile...'
         file_contents = File.read(file_path)
 
         project = Project.new

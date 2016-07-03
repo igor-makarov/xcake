@@ -29,7 +29,7 @@ module Xcake
       def initialize(settings, key)
         @settings = settings
         @key = key
-        @settings[@key] ||= ["$(inherited)"]
+        @settings[@key] ||= ['$(inherited)']
       end
 
       # The subscript operator is used to define the preprocessor defination

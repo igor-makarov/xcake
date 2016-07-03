@@ -11,7 +11,6 @@ module Xcake
   # target.
   #
   class Configuration
-
     include Visitable
 
     # @return [String] the name of the configuration
@@ -51,11 +50,11 @@ module Xcake
     #             c.settings["INFO_PLIST"] = "./myapp/info.plist"
     #           end
     #
-    def initialize(name, &block)
+    def initialize(name)
       self.name = name.to_s
       self.settings = {}
 
-      block.call(self) if block_given?
+      yield(self) if block_given?
     end
   end
 end

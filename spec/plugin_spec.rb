@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 class TestPlugin
   include Xcake::Plugin
@@ -10,7 +10,7 @@ end
 
 module Xcake
   describe Plugin do
-    it "load all plugins" do
+    it 'load all plugins' do
       expect(TestPlugin.load_plugins).to eq([PluginFixture])
     end
   end

@@ -8,7 +8,6 @@ module Xcake
   # The Project creates a hiearchy of targets and configurations
   # necessary to generate a xcode project.
   class Project
-
     include Configurable
     include Visitable
 
@@ -47,12 +46,11 @@ module Xcake
     #             c.application_for :ios, 8.0
     #           end
     #
-    def initialize(name="Project", &block)
-
+    def initialize(name = 'Project')
       self.name = name
       self.targets = []
 
-      block.call(self) if block_given?
+      yield(self) if block_given?
     end
 
     # @!group Working with a project
@@ -68,7 +66,7 @@ module Xcake
     def target(&block)
       target = Target.new(project, &block)
 
-      self.targets << target
+      targets << target
       target
     end
 

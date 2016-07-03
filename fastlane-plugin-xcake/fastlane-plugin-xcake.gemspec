@@ -6,12 +6,12 @@ require 'fastlane/plugin/xcake/version'
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-xcake'
   spec.version       = Fastlane::Xcake::VERSION
-  spec.authors       = ["James Campbell"]
-  spec.email         = ["james@supmenow.com"]
+  spec.authors       = ['James Campbell']
+  spec.email         = ['james@supmenow.com']
 
-  spec.summary       = %q{DSL for Xcode Projects.}
-  spec.description   = %q{Create your Xcode projects automatically using a stupid simple DSL.}
-  spec.homepage      = "https://github.com/jcampbell05/xcake/"
+  spec.summary       = 'DSL for Xcode Projects.'
+  spec.description   = 'Create your Xcode projects automatically using a stupid simple DSL.'
+  spec.homepage      = 'https://github.com/jcampbell05/xcake/'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

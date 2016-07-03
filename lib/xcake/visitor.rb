@@ -27,7 +27,6 @@ module Xcake
   #          end
   #
   module Visitor
-
     # This is called when a visitor is visiting a
     # visitable item.
     #

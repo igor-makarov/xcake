@@ -3,7 +3,6 @@ module Xcake
   # files and adds them to the compile build phase.
   #
   class CompileSourceFileReferenceInstaller < FileReferenceInstaller
-
     def self.can_install_node(node)
       !File.directory?(node.path) &&
         %w(.c .m .mm .cpp .swift).include?(File.extname(node.path))
