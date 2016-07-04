@@ -25,7 +25,7 @@ module Xcake
     end
 
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
-      UI.puts 'Generating embed watch app phase...'
+      EventHooks.run_hook :before_adding_embed_watch_app_phase
 
       phase = native_target.new_copy_files_build_phase('Embed Watch Content')
       phase.dst_path = '$(CONTENTS_FOLDER_PATH)/Watch'
@@ -35,7 +35,7 @@ module Xcake
     end
 
     def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
-      UI.puts 'Generating embed watch app extension phase...'
+      EventHooks.run_hook :before_adding_embed_watch_extension_phase
 
       product_reference = native_watchapp_extension_target.product_reference
       phase = native_target.new_copy_files_build_phase('Embed App Extensions')

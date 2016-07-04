@@ -2,6 +2,7 @@ require 'cork'
 
 # TODO: i18n this.
 # TODO: Different modes depending on --verbose, and CI
+# TODO: Split output and UI code into seperate concerns.
 module Xcake
   class UI
     def self.register_ui_hooks
@@ -62,6 +63,22 @@ module Xcake
 
       EventHooks.before_adding_user_schemes do
         board.puts_indented '- Creating User Schemes'
+      end
+
+      EventHooks.before_adding_file do |node|
+        board.puts "- Adding #{node.path}"
+      end
+
+      EventHooks.before_adding_custom_build_phase do |phase, target|
+        board.puts "- Adding custom phase \"#{phase.name}\" for #{target}"
+      end
+
+      EventHooks.before_adding_embed_watch_app_phase do
+        board.puts 'Generating embed watch app phase...'
+      end
+
+      EventHooks.before_adding_embed_watch_extension_phase do
+        board.puts 'Generating embed watch extension phase...'
       end
 
       EventHooks.after_project_save do

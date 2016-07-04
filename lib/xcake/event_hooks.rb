@@ -64,6 +64,25 @@ module Xcake
     #
     define_hooks :before_adding_user_schemes
 
+    # Defines hook which is ran before we add a file to the project
+    #
+    define_hooks :before_adding_file
+
+    # Defines hook which is ran before we add a custom build phase to
+    # a target
+    #
+    define_hooks :before_adding_custom_build_phase
+
+    # Defines hook which is ran before we add a embed watch app build phase to
+    # a target
+    #
+    define_hooks :before_adding_embed_watch_app_phase
+
+    # Defines hook which is ran before we add a embed watch extension build
+    # phase to a target
+    #
+    define_hooks :before_adding_embed_watch_extension_phase
+
     # Defines hook which is ran after we save the generated project file
     #
     define_hooks :after_project_save
