@@ -74,11 +74,11 @@ module Xcake
       end
 
       EventHooks.before_adding_embed_watch_app_phase do
-        board.puts 'Generating embed watch app phase...'
+        board.puts '- Generating embed watch app phase...'
       end
 
       EventHooks.before_adding_embed_watch_extension_phase do
-        board.puts 'Generating embed watch extension phase...'
+        board.puts '- Generating embed watch extension phase...'
       end
 
       EventHooks.after_project_save do
