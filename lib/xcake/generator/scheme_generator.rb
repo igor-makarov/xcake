@@ -5,7 +5,7 @@ module Xcake
     end
 
     def visit_project(project)
-      UI.puts 'Creating User Schemes...'
+      EventHooks.run_hook :before_adding_user_schemes
 
       native_project = @context.native_object_for(project)
       native_project.recreate_user_schemes

@@ -59,5 +59,13 @@ module Xcake
     # to a target
     #
     define_hooks :before_adding_build_phases
+
+    # Defines hook which is ran before we create the user schemes
+    #
+    define_hooks :before_adding_user_schemes
+
+    # Defines hook which is ran after we save the generated project file
+    #
+    define_hooks :after_project_save
   end
 end
