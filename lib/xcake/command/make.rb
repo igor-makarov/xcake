@@ -11,7 +11,7 @@ module Xcake
           raise Xcake::Informative, "Couldn't find Cakefile"
         end
 
-        puts 'Reading Cakefile...'
+        EventHooks.run_hook :before_cakefile_read
         file_contents = File.read(file_path)
 
         project = Project.new

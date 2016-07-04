@@ -10,8 +10,7 @@ module Xcake
     attr_accessor :project
 
     def visit_project(project)
-      puts 'Resolving Project...'
-
+      EventHooks.run_hook :before_resolving_project_structure, project
       @project = project
     end
 
@@ -19,7 +18,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Resolving target #{target}..."
+      EventHooks.run_hook :before_resolving_target_structure, target
 
       @project.all_configurations.each do |c|
         target.configuration(c.name, c.type)

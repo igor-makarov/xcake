@@ -18,17 +18,20 @@ module Xcake
     end
 
     def create_build_configurations_for(configuration_object)
-      puts "Creating build configurations for #{configuration_object}..."
+      EventHooks.run_hook :before_creating_build_configurations, configuration_object
 
       configuration_object.all_configurations.each do |configuration|
-        puts "Creating build configuration #{configuration.name} for #{configuration_object}..."
+        EventHooks.run_hook :before_creating_build_configuration, configuration, configuration_object
 
         build_configuration = @context.native_object_for(configuration)
         build_configuration.name = configuration.name
         build_configuration.build_settings = configuration.settings
 
-        configuration_file = configuration.configuration_file
-        file_reference = @context.file_reference_for_path(configuration_file)
+        unless configuration.configuration_file.nil?
+          EventHooks.run_hook :before_attaching_xcconfig, configuration
+          configuration_file = configuration.configuration_file
+          file_reference = @context.file_reference_for_path(configuration_file)
+        end
 
         build_configuration.base_configuration_reference = file_reference
 

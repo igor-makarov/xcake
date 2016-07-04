@@ -36,7 +36,8 @@ module Xcake
 
     def visit_node(node)
       return unless node.path
-      puts "Adding #{node.path}..."
+
+      EventHooks.run_hook :before_adding_file, node
 
       installer_class = @dependency_provider.tsort.detect do |i|
         i.can_install_node(node)

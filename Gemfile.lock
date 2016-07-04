@@ -3,7 +3,7 @@ PATH
   specs:
     xcake (0.6.20)
       claide (>= 0.9.1, < 2.0)
-      colored
+      cork
       hooks (~> 0.4.1)
       xcodeproj (>= 0.20, < 2.0.0)
 
@@ -20,6 +20,8 @@ GEM
     claide (1.0.0)
     coderay (1.1.1)
     colored (1.2)
+    cork (0.1.0)
+      colored (~> 1.2)
     coveralls (0.8.13)
       json (~> 1.8)
       simplecov (~> 0.11.0)
