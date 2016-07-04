@@ -5,7 +5,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Creating target #{target.name}..."
+      EventHooks.run_hook :before_creating_target, target
       @context.native_object_for(target)
     end
   end

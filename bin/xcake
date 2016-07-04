@@ -2,4 +2,6 @@
 
 require 'xcake'
 
+#TODO: Make UI and EventHooks DI-able
+Xcake::UI.register_ui_hooks
 Xcake::Command.run(ARGV)

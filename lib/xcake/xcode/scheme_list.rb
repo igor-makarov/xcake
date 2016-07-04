@@ -89,6 +89,8 @@ module Xcake
       # @param    [String] writing_path
       #           path to write to.
       #
+      # TODO: Move to a Generator
+      #
       def save(writing_path)
         schemes_dir = Scheme.user_data_dir(writing_path)
 
@@ -96,15 +98,12 @@ module Xcake
         FileUtils.mkdir_p(schemes_dir)
 
         schemes.each do |s|
-          puts "Saving Scheme #{s.name}..."
           s.save_as(@project.path, s.name, true)
 
           @xcschememanagement['SchemeUserState']["#{s.name}.xcscheme_^#shared#^_"] = {
             'isShown' => true
           }
         end
-
-        puts 'Saving Scheme List...'
 
         xcschememanagement_path = schemes_dir + 'xcschememanagement.plist'
         write_plist(xcschememanagement_path)

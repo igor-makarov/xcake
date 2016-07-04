@@ -1,10 +1,6 @@
 require 'claide'
-require 'colored'
 
-# Indicates an user error.
-#
-# TODO: Move into UI Class
-#
+#TODO: Hook into UI Class somehow.
 module Xcake
   class Informative < StandardError
     include CLAide::InformativeError

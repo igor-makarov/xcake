@@ -4,6 +4,7 @@ require 'xcake/core_ext/string'
 require 'xcake/modern_xcodeproj.rb'
 
 require 'xcake/version'
+require 'xcake/event_hooks'
 require 'xcake/ui'
 require 'xcake/informative'
 require 'xcake/command'

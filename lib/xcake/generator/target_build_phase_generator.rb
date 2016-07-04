@@ -8,7 +8,7 @@ module Xcake
     end
 
     def visit_target(target)
-      puts "Generating build phases for #{target}..."
+      EventHooks.run_hook :before_adding_build_phases, target
 
       native_target = @context.native_object_for(target)
 
@@ -25,7 +25,7 @@ module Xcake
     end
 
     def create_embed_watchapp_phase(native_target, native_watchapp_target)
-      puts 'Generating embed watch app phase...'
+      EventHooks.run_hook :before_adding_embed_watch_app_phase
 
       phase = native_target.new_copy_files_build_phase('Embed Watch Content')
       phase.dst_path = '$(CONTENTS_FOLDER_PATH)/Watch'
@@ -35,9 +35,9 @@ module Xcake
     end
 
     def create_embed_watchapp_extension_phase(native_target, native_watchapp_extension_target)
-      puts 'Generating embed watch app extension phase...'
-      product_reference = native_watchapp_extension_target.product_reference
+      EventHooks.run_hook :before_adding_embed_watch_extension_phase
 
+      product_reference = native_watchapp_extension_target.product_reference
       phase = native_target.new_copy_files_build_phase('Embed App Extensions')
       phase.symbol_dst_subfolder_spec = :plug_ins
       phase.add_file_reference(product_reference, true)

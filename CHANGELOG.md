@@ -1,3 +1,8 @@
+v0.6.21
+=======
+- Improved UI Output.
+- Fixes crash when no XCConfig is set.
+
 v0.6.20
 =======
 - When adding a file to a group, Xcode will now open the correct folder.
