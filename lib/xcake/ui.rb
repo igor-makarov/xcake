@@ -21,23 +21,31 @@ module Xcake
       end
 
       EventHooks.before_creating_target do |target|
-        board.title "Creating #{target}..."
+        board.title "Creating #{target}"
       end
 
       EventHooks.before_resolving_project_structure do
-        board.puts "Resolving Project..."
+        board.puts "Resolving Project"
       end
 
       EventHooks.before_resolving_target_structure do |target|
-        board.puts "Resolving #{target}..."
+        board.puts "Resolving #{target}"
       end
 
       EventHooks.before_creating_build_configurations do |configurable|
-        board.puts "Creating build configurations for #{configurable}..."
+        board.puts "Creating build configurations for #{configurable}"
       end
 
       EventHooks.before_creating_build_configuration do |configuration, configurable|
-        board.puts "Creating build configuration #{configuration.name} for #{configurable}..."
+        board.puts "Creating build configuration #{configuration.name} for #{configurable}"
+      end
+
+      EventHooks.before_attaching_xcconfig do |configuration|
+        board.puts "Attaching XCConfig #{configuration.configuration_file} to build configuration #{configuration.name}"
+      end
+
+      EventHooks.before_adding_system_library do |target|
+        board.puts "Integrating System Libraries #{target.system_libraries} for #{target}"
       end
     end
   end

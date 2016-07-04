@@ -39,5 +39,15 @@ module Xcake
     # build configurations for a particular Xcode Project Object
     #
     define_hooks :before_creating_build_configuration
+
+    # Defines hook which is ran before we attach a XCConfig to a
+    # build configuration for a particular Xcode Project Object
+    #
+    define_hooks :before_attaching_xcconfig
+
+    # Defines hook which is ran before we add a system library
+    # to a target
+    #
+    define_hooks :before_adding_system_library
   end
 end
