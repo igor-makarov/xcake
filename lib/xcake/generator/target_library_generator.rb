@@ -6,7 +6,6 @@ module Xcake
 
     def visit_target(target)
       unless target.system_libraries.nil?
-
         EventHooks.run_hook :before_adding_system_library, target
 
         native_target = @context.native_object_for(target)

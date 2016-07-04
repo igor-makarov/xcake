@@ -47,6 +47,18 @@ module Xcake
       EventHooks.before_adding_system_library do |target|
         board.puts "Integrating System Libraries #{target.system_libraries} for #{target}"
       end
+
+      EventHooks.before_adding_system_library do |target|
+        board.puts "Integrating System Libraries #{target.system_libraries} for #{target}"
+      end
+
+      EventHooks.before_adding_system_framework do |target|
+        board.puts "Integrating System Frameworks #{target.system_frameworks} for #{target}"
+      end
+
+      EventHooks.before_adding_build_phases do |target|
+        board.puts "Creating build phases for #{target}"
+      end
     end
   end
 end

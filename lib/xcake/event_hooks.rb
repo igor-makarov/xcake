@@ -49,5 +49,15 @@ module Xcake
     # to a target
     #
     define_hooks :before_adding_system_library
+
+    # Defines hook which is ran before we add a system framework
+    # to a target
+    #
+    define_hooks :before_adding_system_framework
+
+    # Defines hook which is ran before we add build phases
+    # to a target
+    #
+    define_hooks :before_adding_build_phases
   end
 end
