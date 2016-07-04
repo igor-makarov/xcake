@@ -65,6 +65,7 @@ module Xcake
           scheme.name = "#{target.name}-#{c.name}"
           @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = { 'primary' => true }
 
+          #TODO: Add UI Support Here.
           unit_test_target = project.find_unit_test_target_for_target(target)
           scheme.configure_with_targets(target, unit_test_target)
 
