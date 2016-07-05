@@ -1,3 +1,7 @@
+v0.6.22
+=======
+- Fixes crash with `after_save` hook.
+
 v0.6.21
 =======
 - Improved UI Output.
