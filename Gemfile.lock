@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.20)
+    xcake (0.6.23)
       claide (>= 0.9.1, < 2.0)
       cork
       hooks (~> 0.4.1)
@@ -10,16 +10,16 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.6)
+    activesupport (5.0.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     ast (2.2.0)
     claide (1.0.0)
     coderay (1.1.1)
     colored (1.2)
+    concurrent-ruby (1.0.2)
     cork (0.1.0)
       colored (~> 1.2)
     coveralls (0.8.13)
@@ -82,7 +82,7 @@ GEM
       thread_safe (~> 0.1)
     uber (0.0.15)
     unicode-display_width (1.0.5)
-    xcodeproj (1.0.0)
+    xcodeproj (1.1.0)
       activesupport (>= 3)
       claide (>= 1.0.0, < 2.0)
       colored (~> 1.2)
@@ -102,4 +102,4 @@ DEPENDENCIES
   yard (~> 0.8)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

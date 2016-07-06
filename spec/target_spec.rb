@@ -67,6 +67,7 @@ module Xcake
 
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
+      settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
 
       expect(@target.default_debug_settings).to eq(settings)
     end
