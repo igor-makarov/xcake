@@ -48,17 +48,31 @@ module Xcake
 
       # Tweak this to respect localizable files
       #
-      native_group = @context.native_object_for(node)
+      # If ".lproj" is in file path
+      # - Create variant group from File Component
+      # - Files added to this group should have their path to be relative from
+      # the first non-variatn group
+      #
+      # Otherwise normal behaviour
 
+      if node.path.include?(".lproj")
+        puts "Variant please"
+      else
+        native_group = @context.native_object_for(node)
+        node_location = node.component
+      end
 
-      file_reference = native_group[node.component] ||
-                       native_group.new_reference(node.component)
+      file_reference = native_group[node_location] ||
+                       native_group.new_reference(node_location)
 
+return
       ######
 
       node.targets.each do |t|
         add_file_reference_to_target(file_reference, t)
       end
     end
+
+    private
   end
 end
