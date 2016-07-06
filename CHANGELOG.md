@@ -1,3 +1,9 @@
+v0.6.23
+=======
+- Adds support for Localized Files.
+- Swift is no-longer optimized for debug configurations when Xcake is ran with
+older versions of Xcodeproj.
+
 v0.6.22
 =======
 - Fixes crash with `after_save` hook.

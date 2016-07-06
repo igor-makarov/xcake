@@ -56,12 +56,14 @@ module Xcake
       # the first non-variatn group
       #
       # Otherwise normal behaviour
-
-      native_group = @context.native_object_for(node)
+      native_group = @context.native_object_for(node.parent)
 
       # Make sure this is the correct parent in variant groups
+      #
       # TODO: Remove this duplication of the .lproj and node path code.
+      # Also remove need for the name hack.
       if node.parent.component.include?(".lproj")
+        native_group.name = node.component
         group_path = Pathname.new node.parent.parent.path
       else
         group_path = Pathname.new node.parent.path
@@ -70,9 +72,7 @@ module Xcake
       file_path = Pathname.new node.path
 
       node_location = file_path.relative_path_from group_path
-
       file_reference = native_group.new_reference(node_location)
-
 
       ######
 

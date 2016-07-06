@@ -233,6 +233,8 @@ module Xcake
 
     # TODO: Move this to a constant, maybe Xcodeproj ones should be brought
     # into here?
+    #
+    # Perhaps these could be made into a Gem itself?
     def default_settings
       {
         'INFOPLIST_FILE' => "#{name}/Supporting Files/Info.plist"
@@ -245,7 +247,11 @@ module Xcake
                                platform,
                                deployment_target.to_s,
                                type,
-                               language).merge!(default_settings)
+                               language)
+        .merge!(default_settings)
+        .merge({
+          'SWIFT_OPTIMIZATION_LEVEL' => '-Onone'
+          })
     end
 
     def default_release_settings
