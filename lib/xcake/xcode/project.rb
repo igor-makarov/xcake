@@ -125,12 +125,31 @@ module Xcake
       # TODO: Simplify this method figure out more reliable rules for group
       # generation - maybe part of the new file installer in 0.7.
       #
+      # As well as variant groups and other types of groups.
+      #
       def new_group(node)
-        return main_group unless node.parent
 
-        group = main_group unless node.parent
-        group = main_group.find_subpath(node.parent.path, true) unless group
-        ensure_parent_path(group, node.parent)
+        parent = node.parent
+
+        return main_group unless parent
+        group = main_group unless parent
+
+        if parent.component.include?(".lproj")
+
+          group = main_group.find_subpath(parent.parent.path, true) unless group
+
+          variant_group = group.project.new(PBXVariantGroup)
+          variant_group.name = node.component
+          variant_group.set_source_tree(:group)
+          group.children << variant_group
+
+          group = variant_group
+        else
+          group = main_group.find_subpath(parent.path, true) unless group
+        end
+
+        #TODO: Does this work with this new system
+        ensure_parent_path(group, parent)
 
         group
       end
