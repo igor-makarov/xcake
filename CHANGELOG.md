@@ -1,3 +1,7 @@
+Master
+======
+- Simplified Target File Reference Generator
+
 v0.6.25
 =======
 - Fixed bug where Xcake would set incorrect path for a group of a Localized file.
