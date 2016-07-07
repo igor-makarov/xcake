@@ -24,6 +24,12 @@ module Xcodeproj
            child.child_for_path(path)
          end
        end
+
+       def dirname
+         return "." if parent.kind_of? PBXProject
+         return "#{parent.dirname}" if kind_of? PBXVariantGroup
+         return "#{parent.dirname}/#{display_name}"
+       end
      end
    end
   end
