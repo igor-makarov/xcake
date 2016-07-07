@@ -23,6 +23,9 @@ module Xcake
       paths.each do |path|
         @context.file_reference_for_path(path)
       end
+
+      # - Classify Files
+      # - Build Implicit Build Phases
     end
   end
 end
