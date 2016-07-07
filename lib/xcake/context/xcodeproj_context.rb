@@ -41,6 +41,7 @@ module Xcake
     end
 
     def file_reference_for_path(path)
+      # - Process Path to work with project
       @project.reference_for_path(path) || @project.new_file_reference(path)
     end
   end

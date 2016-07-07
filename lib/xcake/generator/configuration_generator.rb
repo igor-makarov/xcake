@@ -6,7 +6,7 @@ module Xcake
   #
   class ConfigurationGenerator < Generator
     def self.dependencies
-      [TargetGenerator, ProjectStructureGenerator, TargetFileReferenceGenerator]
+      [TargetGenerator, ProjectStructureGenerator]
     end
 
     def visit_project(project)
