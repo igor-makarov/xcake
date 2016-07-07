@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xcake (0.6.24)
+    xcake (0.6.25)
       activesupport (< 5)
       claide (>= 0.9.1, < 2.0)
       cork

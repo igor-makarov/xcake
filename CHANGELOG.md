@@ -1,3 +1,7 @@
+v0.6.25
+=======
+- Fixed bug where Xcake would set incorrect path for a group of a Localized file.
+
 v0.6.24
 =======
 - Fixed bug where Localized Files would show up multiple times in Xcode for each language.
