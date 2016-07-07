@@ -146,10 +146,14 @@ module Xcake
         return nil unless base_name.to_s.include?('.lproj')
         parent_group = group_for_path(group_path)
 
-        group = new(PBXVariantGroup)
-        group.name = path.basename.to_s
-        group.set_source_tree(:group)
-        parent_group.children << group
+        group = parent_group[path.basename.to_s]
+
+        unless group
+          group = new(PBXVariantGroup)
+          group.name = path.basename.to_s
+          group.set_source_tree(:group)
+          parent_group.children << group
+        end
 
         group
       end
