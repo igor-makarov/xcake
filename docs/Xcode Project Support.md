@@ -41,3 +41,8 @@ This document describes the level of support Xcake has for the various aspects o
 
 - No manual control. For Application targets, xcake creates them based on the configurations for those targets (i.e "myApp-Debug". "myApp-Release")
 - Xcode auto-creates them currently for other target types.
+
+## Files
+
+- Can Include Normal Files
+- Can Include Localized Files

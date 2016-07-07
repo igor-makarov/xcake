@@ -32,4 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hooks', '~> 0.4.1'
   spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 0.20'
   spec.add_dependency 'cork'
+
+  # Lock `activesupport` (transitive depedency via `xcodeproj`) to keep supporting system ruby
+  spec.add_dependency 'activesupport', '< 5'
 end

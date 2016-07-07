@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Xcake
   # This generator handles adding nodes
   # to the project and creating a build phase
@@ -45,10 +47,34 @@ module Xcake
     # @!group Visitable
 
     def visit_node(node)
-      native_group = @context.native_object_for(node)
 
-      file_reference = native_group[node.component] ||
-                       native_group.new_reference(node.component)
+      # Tweak this to respect localizable files
+      #
+      # If ".lproj" is in file path
+      # - Create variant group from File Component
+      # - Files added to this group should have their path to be relative from
+      # the first non-variatn group
+      #
+      # Otherwise normal behaviour
+      native_group = @context.native_object_for(node.parent)
+
+      # Make sure this is the correct parent in variant groups
+      #
+      # TODO: Remove this duplication of the .lproj and node path code.
+      # Also remove need for the name hack.
+      if node.parent.component.include?(".lproj")
+        native_group.name = node.component
+        group_path = Pathname.new node.parent.parent.path
+      else
+        group_path = Pathname.new node.parent.path
+      end
+
+      file_path = Pathname.new node.path
+
+      node_location = file_path.relative_path_from group_path
+      file_reference = native_group.new_reference(node_location)
+
+      ######
 
       node.targets.each do |t|
         add_file_reference_to_target(file_reference, t)

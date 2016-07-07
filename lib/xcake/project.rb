@@ -95,7 +95,7 @@ module Xcake
 
     def default_settings
       common_settings = Xcodeproj::Constants::PROJECT_DEFAULT_BUILD_SETTINGS
-      settings = Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
+      Xcodeproj::Project::ProjectHelper.deep_dup(common_settings[:all])
     end
 
     def default_debug_settings
