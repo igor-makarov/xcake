@@ -145,13 +145,12 @@ module Xcake
             group.children << variant_group
           end
 
+          ensure_parent_path(group, parent.parent)
           group = variant_group
         else
           group = main_group.find_subpath(parent.path, true) unless group
+          ensure_parent_path(group, parent)
         end
-
-        #TODO: Does this work with this new system
-        ensure_parent_path(group, parent)
 
         group
       end
