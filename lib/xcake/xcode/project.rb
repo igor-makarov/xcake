@@ -114,64 +114,61 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
-      # Creates a new xcode group from the node
+      # Creates a new xcode file reference from the node
       #
-      # @param [Node]   node
-      #                 configuration DSL to create target from
+      # @param [Pathname] path
+      # =>                path of the file reference from the source root
       #
-      # @return [Group] new xcode group
+      # @return [PBXFileReference] new xcode file refrence
       #
-      #
-      # TODO: Simplify this method figure out more reliable rules for group
-      # generation - maybe part of the new file installer in 0.7.
-      #
-      # As well as variant groups and other types of groups.
-      #
-      def new_group(node)
+      def file_reference_for_path(path)
+        return if File.directory?(path)
 
-        parent = node.parent
-        return main_group unless parent
+        group = group_for_file_reference_path(path)
 
-        if parent.component.include?(".lproj")
+        #TODO: Make this releative to group path.
+        group_path = Pathname.new ".#{group.hierarchy_path}"
 
-          group = main_group.find_subpath(parent.parent.path, true) unless group
+        puts group_path.cleanpath
+        puts path.cleanpath
+        exit
 
-          variant_group = group[node.component]
+        file_path = path.cleanpath.relative_path_from group_path.cleanpath
 
-          unless variant_group
-            variant_group = group.project.new(PBXVariantGroup)
-            variant_group.name = node.component
-            variant_group.set_source_tree(:group)
-            group.children << variant_group
-          end
+        puts file_path
+        group.new_reference(file_path.to_s)
 
-          ensure_parent_path(group, parent.parent)
-          group = variant_group
-        else
-          group = main_group.find_subpath(parent.path, true) unless group
-          ensure_parent_path(group, parent)
-        end
+        exit
+      end
+
+      def group_for_file_reference_path(path)
+        clean_path = path.cleanpath
+        group = variant_group_for_path(path)
+        group = group_for_path(path) unless group
+        group
+      end
+
+      def variant_group_for_path(path)
+
+        group_path = path.dirname.cleanpath
+        base_name = group_path.basename
+
+        return nil unless base_name.to_s.include?('.lproj')
+
+        parent_group_path = group_path.dirname.cleanpath
+        parent_group = group_for_path(parent_group_path)
+
+        group = new(PBXVariantGroup)
+        group.name = path.basename.to_s
+        group.set_source_tree(:group)
+        parent_group.children << group
 
         group
       end
 
-      # Creates a new xcode file reference from the node
-      #
-      # @param [String] path
-      # =>              path of the file reference from the source root
-      #
-      # @return [PBXFileReference] new xcode file refrence
-      #
-      def new_file_reference(path)
-        path_object = Pathname.new(path)
-        group = main_group.find_subpath(path_object.dirname.to_s, true)
-        group[path_object.basename.to_s] ||
-          group.new_reference(path_object.to_s)
-      end
-
-      def ensure_parent_path(group, node)
-        group.path = node.component
-        ensure_parent_path(group.parent, node.parent) unless node.parent.nil?
+      def group_for_path(path)
+        return main_group unless path != '.'
+        return main_group.child_for_path(path.to_s)
       end
 
       # Finds a unit test target for a xcode target
