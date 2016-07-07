@@ -1,3 +1,7 @@
+v0.6.24
+=======
+- Fixed bug where Localized Files would show up multiple times in Xcode for each language.
+
 v0.6.23
 =======
 - Adds support for Localized Files.
