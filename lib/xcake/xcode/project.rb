@@ -140,14 +140,11 @@ module Xcake
       end
 
       def variant_group_for_path(path)
-
         group_path = path.dirname.cleanpath
         base_name = group_path.basename
 
         return nil unless base_name.to_s.include?('.lproj')
-
-        parent_group_path = group_path.dirname.cleanpath
-        parent_group = group_for_path(parent_group_path)
+        parent_group = group_for_path(group_path)
 
         group = new(PBXVariantGroup)
         group.name = path.basename.to_s
@@ -159,7 +156,7 @@ module Xcake
 
       def group_for_path(path)
         return main_group unless path != '.'
-        return main_group.child_for_path(path.to_s)
+        return main_group.child_for_path(path.dirname.to_s)
       end
 
       # Finds a unit test target for a xcode target
