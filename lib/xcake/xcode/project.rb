@@ -126,19 +126,10 @@ module Xcake
 
         group = group_for_file_reference_path(path)
 
-        #TODO: Make this releative to group path.
         group_path = Pathname.new ".#{group.hierarchy_path}"
-
-        puts group_path.cleanpath
-        puts path.cleanpath
-        exit
-
-        file_path = path.cleanpath.relative_path_from group_path.cleanpath
-
-        puts file_path
+        real_group_path = group_path.dirname.cleanpath
+        file_path = path.cleanpath.relative_path_from real_group_path
         group.new_reference(file_path.to_s)
-
-        exit
       end
 
       def group_for_file_reference_path(path)
