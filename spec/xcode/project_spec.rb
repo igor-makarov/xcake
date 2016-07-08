@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'pathname'
+require 'xcodeproj'
 
 module Xcake
   module Xcode
@@ -38,6 +39,22 @@ module Xcake
           group = @project.group_for_file_reference_path(path)
 
           expect(group).to be(@project.main_group)
+        end
+
+        it 'should use variant group for localized file' do
+          path = Pathname.new "./en.lproj/Hello.txt"
+          group = @project.group_for_file_reference_path(path)
+
+          #TODO: Add RSpec Matcher
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXVariantGroup)
+        end
+
+        it 'should use group for file' do
+          path = Pathname.new "./Hello.txt"
+          group = @project.group_for_file_reference_path(path)
+
+          #TODO: Add RSpec Matcher
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
         end
 
         # Variant Group for localized file
