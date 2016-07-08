@@ -160,8 +160,10 @@ module Xcake
       end
 
       def group_for_path(path)
-        return main_group unless path.to_s != '.'
-        return main_group.child_for_path(path.dirname.to_s)
+        group_path = path.dirname.cleanpath
+
+        return main_group unless group_path.to_s != '.'
+        return main_group.child_for_path(group_path.to_s)
       end
 
       public

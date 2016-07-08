@@ -34,13 +34,12 @@ module Xcake
       context 'when creating group for file reference' do
 
         it 'should use main group for file at root of project' do
-          path = Pathname.new "."
+          path = Pathname.new "./Hello.txt"
           group = @project.group_for_file_reference_path(path)
 
           expect(group).to be(@project.main_group)
         end
 
-        # Main Group for root file
         # Variant Group for localized file
         # Same Variant Group for same localized file different language
         # Normal Group Otherwise
