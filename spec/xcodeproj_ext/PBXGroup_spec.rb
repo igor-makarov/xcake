@@ -7,40 +7,43 @@ module Xcodeproj
 
           before :each do
             @project = Xcake::Xcode::Project.new('.', false)
-            @group = PBXGroup.new(@project, '')
+            @root_group = PBXGroup.new(@project, '')
+            @root_group.add_referrer(@project)
           end
 
           it 'should return correct dirname when parent is project' do
-            @group.add_referrer(@project)
-            expect(@group.dirname).to eq('./')
+            group = PBXGroup.new(@project, '')
+            group.add_referrer(@root_group)
+
+            expect(group.dirname).to eq('.')
           end
 
           it 'should return correct dirname when parent is group' do
             parent = PBXGroup.new(@project, '')
             parent.path = 'Hello'
-            parent.add_referrer(@project)
+            parent.add_referrer(@root_group)
 
-            @group.path = 'World'
-            @group.add_referrer(parent)
+            group = PBXVariantGroup.new(@project, '')
+            group.add_referrer(parent)
 
-            expect(@group.dirname).to eq('./Hello/World')
+            expect(group.dirname).to eq('./Hello')
           end
 
-          it 'should return correct dirname when parent is variant group' do
-            parent = PBXGroup.new(@project, '')
-            parent.path = 'Hello'
-            parent.add_referrer(@project)
+          it 'should return correct dirname when variant group' do
+            parent = PBXVariantGroup.new(@project, '')
+            parent.add_referrer(@root_group)
 
-            @group.add_referrer(parent)
+            group = PBXGroup.new(@project, '')
+            group.add_referrer(parent)
 
-            expect(@group.dirname).to eq('./Hello')
+            expect(group.dirname).to eq('.')
           end
 
           context 'when fetching child for a path' do
 
             before :each do
-              @group.add_referrer(@project)
-              @child_group = @group.child_for_path('./Child/Path/')
+              @root_group.add_referrer(@project)
+              @child_group = @root_group.child_for_path('./Child/Path/')
             end
 
             it 'path should be set to component name' do

@@ -93,8 +93,6 @@ module Xcake
           expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
         end
 
-        # TODO: Verify Group Paths
-
         it 'should not set path of group for localized folder with file' do
           path = Pathname.new './en.lproj/Hello.txt'
           group = @project.group_for_file_reference_path(path)
