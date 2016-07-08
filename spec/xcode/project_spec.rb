@@ -66,10 +66,7 @@ module Xcake
           expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
         end
 
-        # Variant Group for localized file
-        # Same Variant Group for same localized file different language
-        # Normal Group Otherwise
-        # Verify Group Paths
+        # TODO: Verify Group Paths
       end
 
       it 'should set the root object when setup' do
