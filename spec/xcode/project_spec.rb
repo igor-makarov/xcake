@@ -22,12 +22,34 @@ module Xcake
           expect(file).to be(nil)
         end
 
+        # Verify Name And PAth
         it 'should return file reference if path is a file' do
           allow(File).to receive(:directory?).and_return(false)
 
           file = @project.file_reference_for_path(@path)
           expect(file).to_not be(nil)
         end
+      end
+
+      context 'when creating group for file reference' do
+
+        before :each do
+          @path = Pathname.new "."
+        end
+
+        it 'should use main group for file at root of project' do
+          group = @project.group_for_file_reference_path(@path)
+
+          # Workaround for pretty_print crash
+          is_main_group = (group == @project.main_group)
+          expect(is_main_group).to be(true)
+        end
+
+        # Main Group for root file
+        # Variant Group for localized file
+        # Same Variant Group for same localized file different language
+        # Normal Group Otherwise
+        # Verify Group Paths
       end
 
       it 'should set the root object when setup' do

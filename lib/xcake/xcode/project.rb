@@ -138,6 +138,8 @@ module Xcake
         group
       end
 
+      private
+
       def variant_group_for_path(path)
         group_path = path.dirname.cleanpath
         base_name = group_path.basename
@@ -158,9 +160,11 @@ module Xcake
       end
 
       def group_for_path(path)
-        return main_group unless path != '.'
+        return main_group unless path.to_s != '.'
         return main_group.child_for_path(path.dirname.to_s)
       end
+
+      public
 
       # Finds a unit test target for a xcode target
       #
