@@ -6,20 +6,22 @@ module Xcodeproj
         describe PBXGroup do
 
           before :each do
-            @project = PBXProject.new('.', true)
+            @project = Xcake::Xcode::Project.new('.', true)
             @group = PBXGroup.new(@project, '')
           end
 
           it 'should return correct dirname when parent is project' do
+            @group.add_referrer(@project)
             expect(@group.dirname).to eq('.')
           end
 
           it 'should return correct dirname when parent is group' do
             parent = PBXGroup.new(@project, '')
             parent.path = 'Hello'
+            parent.add_referrer(@project)
 
             @group.path = 'World'
-            @group.parent = parent
+            @group.add_referrer(parent)
 
             expect(@group.dirname).to eq('Hello/World')
           end
@@ -27,8 +29,9 @@ module Xcodeproj
           it 'should return correct dirname when parent is variant group' do
             parent = PBXGroup.new(@project, '')
             parent.path = 'Hello'
+            parent.add_referrer(@project)
 
-            @group.parent = parent
+            @group.add_referrer(parent)
 
             expect(@group.dirname).to eq('Hello')
           end
