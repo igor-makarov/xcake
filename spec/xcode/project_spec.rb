@@ -23,7 +23,6 @@ module Xcake
           expect(file).to be(nil)
         end
 
-        # Verify Name And Path
         it 'should return file reference for file' do
           allow(File).to receive(:directory?).and_return(false)
 
@@ -32,6 +31,32 @@ module Xcake
         end
 
         it 'should return file reference for localized file' do
+          allow(File).to receive(:directory?).and_return(false)
+          @path = Pathname.new "./en.lproj/Hi.txt"
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
+
+        # Verify Name And Path
+
+        it 'should return file reference for g localized file' do
+          allow(File).to receive(:directory?).and_return(false)
+          @path = Pathname.new "./en.lproj/Hi.txt"
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
+
+        it 'should return file reference for g file' do
+          allow(File).to receive(:directory?).and_return(false)
+          @path = Pathname.new "./en.lproj/Hi.txt"
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
+
+        it 'should return file reference for m file' do
           allow(File).to receive(:directory?).and_return(false)
           @path = Pathname.new "./en.lproj/Hi.txt"
 
@@ -53,7 +78,6 @@ module Xcake
           path = Pathname.new "./en.lproj/Hello.txt"
           group = @project.group_for_file_reference_path(path)
 
-          #TODO: Add RSpec Matcher
           expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXVariantGroup)
         end
 
@@ -70,11 +94,31 @@ module Xcake
           path = Pathname.new "./Hello.txt"
           group = @project.group_for_file_reference_path(path)
 
-          #TODO: Add RSpec Matcher
           expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
         end
 
         # TODO: Verify Group Paths
+
+        it 'should use mgroup for file' do
+          path = Pathname.new "./Hello.txt"
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
+        end
+
+        it 'should use vgroup for file' do
+          path = Pathname.new "./Hello.txt"
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
+        end
+
+        it 'should use vgroup for file' do
+          path = Pathname.new "./Hello.txt"
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
+        end
       end
 
       it 'should set the root object when setup' do
