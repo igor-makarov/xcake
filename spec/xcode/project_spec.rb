@@ -38,7 +38,7 @@ module Xcake
           path = Pathname.new "./Hello.txt"
           group = @project.group_for_file_reference_path(path)
 
-          expect(group).to be(@project.main_group)
+          expect(group).to eq(@project.main_group)
         end
 
         it 'should use variant group for localized file' do
@@ -47,6 +47,15 @@ module Xcake
 
           #TODO: Add RSpec Matcher
           expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXVariantGroup)
+        end
+
+        it 'should use same group for localized file for multiple languages' do
+          en_path = Pathname.new "./en.lproj/Hello.txt"
+          fr_path = Pathname.new "./fr.lproj/Hello.txt"
+          en_group = @project.group_for_file_reference_path(en_path)
+          fr_group = @project.group_for_file_reference_path(fr_path)
+
+          expect(en_group).to eq(fr_group)
         end
 
         it 'should use group for file' do
