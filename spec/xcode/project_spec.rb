@@ -38,30 +38,28 @@ module Xcake
           expect(file).to_not be(nil)
         end
 
-        # Verify Name And Path
-
-        it 'should return file reference for g localized file' do
+        it 'should set path with folder and filename for localized file' do
           allow(File).to receive(:directory?).and_return(false)
-          @path = Pathname.new "./en.lproj/Hi.txt"
+          path = Pathname.new "./en.lproj/Hi.txt"
 
-          file = @project.file_reference_for_path(@path)
-          expect(file).to_not be(nil)
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq("en.lproj/Hi.txt")
         end
 
-        it 'should return file reference for g file' do
+        it 'should set path with filename reference for file' do
           allow(File).to receive(:directory?).and_return(false)
-          @path = Pathname.new "./en.lproj/Hi.txt"
+          path = Pathname.new "./Hi.txt"
 
-          file = @project.file_reference_for_path(@path)
-          expect(file).to_not be(nil)
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq("Hi.txt")
         end
 
-        it 'should return file reference for m file' do
+        it 'should set path with filename reference for file inside a folder' do
           allow(File).to receive(:directory?).and_return(false)
-          @path = Pathname.new "./en.lproj/Hi.txt"
+          path = Pathname.new "./Folder/Hi.txt"
 
-          file = @project.file_reference_for_path(@path)
-          expect(file).to_not be(nil)
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq("Hi.txt")
         end
       end
 
