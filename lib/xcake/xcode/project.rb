@@ -163,7 +163,7 @@ module Xcake
         group_path = path.dirname.cleanpath
 
         return main_group unless group_path.to_s != '.'
-        return main_group.child_for_path(group_path.to_s)
+        main_group.child_for_path(group_path.to_s)
       end
 
       public

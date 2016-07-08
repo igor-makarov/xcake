@@ -22,9 +22,7 @@ module Xcake
                                type,
                                language)
         .merge!(default_settings)
-        .merge({
-          'SWIFT_OPTIMIZATION_LEVEL' => '-Onone'
-          })
+        .merge('SWIFT_OPTIMIZATION_LEVEL' => '-Onone')
     end
 
     def default_release_settings

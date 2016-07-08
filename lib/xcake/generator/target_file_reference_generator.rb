@@ -3,7 +3,6 @@ module Xcake
   # `include_files` and `exclude_files`
   #
   class TargetFileReferenceGenerator < Generator
-
     def initialize(context)
       @context = context
     end
@@ -13,7 +12,6 @@ module Xcake
     end
 
     def visit_target(target)
-
       # - References from Configurations
       # - References from Build Phases
       paths_to_include = Dir.glob(target.include_files)

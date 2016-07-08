@@ -6,8 +6,7 @@ require 'cork'
 module Xcake
   class UI
     def self.register_ui_hooks
-
-      board = Cork::Board.new()
+      board = Cork::Board.new
 
       EventHooks.after_cakefile_init do
         board.notice 'Open Cakefile to edit and run xcake make to get your xcode project'
@@ -26,7 +25,7 @@ module Xcake
       end
 
       EventHooks.before_resolving_project_structure do
-        board.puts_indented "- Resolving Project"
+        board.puts_indented '- Resolving Project'
       end
 
       EventHooks.before_resolving_target_structure do |target|

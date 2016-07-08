@@ -17,8 +17,6 @@ module Xcake
         create_object_for_configuration(dsl_object)
       when Node
         create_object_for_node(dsl_object)
-      else
-        nil
       end
     end
 

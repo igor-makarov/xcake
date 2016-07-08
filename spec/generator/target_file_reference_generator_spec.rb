@@ -9,7 +9,7 @@ module Xcake
       @generator = TargetFileReferenceGenerator.new(@context)
 
       @paths = [
-        "file"
+        'file'
       ]
 
       allow(Dir).to receive(:glob).with([]).and_return([])

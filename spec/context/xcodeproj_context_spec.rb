@@ -52,10 +52,9 @@ module Xcake
         file = double('File Refrence')
 
         allow(@context.project).to receive(:file_reference_for_path).and_return(file)
-        returned_file = @context.file_reference_for_path("path")
+        returned_file = @context.file_reference_for_path('path')
         expect(returned_file).to eq(file)
       end
     end
-
   end
 end
