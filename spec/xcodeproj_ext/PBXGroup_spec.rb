@@ -8,6 +8,7 @@ module Xcodeproj
           before :each do
             @project = Xcake::Xcode::Project.new('.', false)
             @root_group = PBXGroup.new(@project, '')
+            @root_group.name = 'Main Group'
             @root_group.add_referrer(@project)
           end
 
@@ -30,13 +31,14 @@ module Xcodeproj
           end
 
           it 'should return correct dirname when variant group' do
-            parent = PBXVariantGroup.new(@project, '')
+            parent = PBXGroup.new(@project, '')
+            parent.path = 'Folder'
             parent.add_referrer(@root_group)
 
-            group = PBXGroup.new(@project, '')
+            group = PBXVariantGroup.new(@project, '')
             group.add_referrer(parent)
 
-            expect(group.dirname).to eq('.')
+            expect(group.dirname).to eq('./Folder')
           end
 
           context 'when fetching child for a path' do
