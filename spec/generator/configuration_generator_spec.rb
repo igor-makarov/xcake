@@ -17,8 +17,7 @@ module Xcake
     it 'should have correct dependencies' do
       expect(ConfigurationGenerator.dependencies).to eq([
                                                           TargetGenerator,
-                                                          ProjectStructureGenerator,
-                                                          TargetFileReferenceGenerator
+                                                          ProjectStructureGenerator
                                                         ])
     end
 
@@ -48,10 +47,6 @@ module Xcake
         @configurable = double('Configurable')
         allow(@configurable).to receive(:all_configurations)
           .and_return([@configuration])
-
-        @node = double('Node').as_null_object
-        allow(@node).to receive(:new).and_return(@configuration.configuration_file)
-        allow(Node).to receive(:new).and_return(@node)
 
         @main_group = double('Native Main Group')
 
