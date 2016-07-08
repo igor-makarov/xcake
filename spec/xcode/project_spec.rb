@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pathname'
 
 module Xcake
   module Xcode
@@ -6,6 +7,27 @@ module Xcake
       before :each do
         @project = Project.new('.', true)
         @project.setup_for_xcake
+      end
+
+      context 'when creating file reference' do
+
+        before :each do
+          @path = Pathname.new "."
+        end
+
+        it 'should return nil if path is a directory' do
+          allow(File).to receive(:directory?).and_return(true)
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to be(nil)
+        end
+
+        it 'should return file reference if path is a file' do
+          allow(File).to receive(:directory?).and_return(false)
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
       end
 
       it 'should set the root object when setup' do
