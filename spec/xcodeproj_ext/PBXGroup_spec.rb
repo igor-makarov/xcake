@@ -12,7 +12,7 @@ module Xcodeproj
 
           it 'should return correct dirname when parent is project' do
             @group.add_referrer(@project)
-            expect(@group.dirname).to eq('.')
+            expect(@group.dirname).to eq('./')
           end
 
           it 'should return correct dirname when parent is group' do
@@ -23,7 +23,7 @@ module Xcodeproj
             @group.path = 'World'
             @group.add_referrer(parent)
 
-            expect(@group.dirname).to eq('Hello/World')
+            expect(@group.dirname).to eq('./Hello/World')
           end
 
           it 'should return correct dirname when parent is variant group' do
@@ -33,7 +33,7 @@ module Xcodeproj
 
             @group.add_referrer(parent)
 
-            expect(@group.dirname).to eq('Hello')
+            expect(@group.dirname).to eq('./Hello')
           end
 
           context 'when fetching child for a path' do

@@ -25,10 +25,14 @@ module Xcodeproj
        end
 
         def dirname
-          return '.' if parent.is_a? Xcake::Xcode::Project
-          return '.' if parent.is_a? PBXProject
-          return parent.dirname.to_s if is_a? PBXVariantGroup
-          "#{parent.dirname}/#{display_name}"
+          return "./#{display_name}" if parent.is_a? Xcake::Xcode::Project
+          return "./#{display_name}" if parent.is_a? PBXProject
+
+          if display_name
+            "#{parent.dirname.to_s}/#{display_name}"
+          else
+            parent.dirname.to_s
+          end
         end
      end
    end
