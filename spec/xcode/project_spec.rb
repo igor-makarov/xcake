@@ -33,16 +33,11 @@ module Xcake
 
       context 'when creating group for file reference' do
 
-        before :each do
-          @path = Pathname.new "."
-        end
-
         it 'should use main group for file at root of project' do
-          group = @project.group_for_file_reference_path(@path)
+          path = Pathname.new "."
+          group = @project.group_for_file_reference_path(path)
 
-          # Workaround for pretty_print crash
-          is_main_group = (group == @project.main_group)
-          expect(is_main_group).to be(true)
+          expect(group).to be(@project.main_group)
         end
 
         # Main Group for root file
