@@ -6,7 +6,7 @@ module Xcodeproj
         describe PBXGroup do
 
           before :each do
-            @project = Xcake::Xcode::Project.new('.', true)
+            @project = Xcake::Xcode::Project.new('.', false)
             @group = PBXGroup.new(@project, '')
           end
 
@@ -39,6 +39,7 @@ module Xcodeproj
           context 'when fetching child for a path' do
 
             before :each do
+              @group.add_referrer(@project)
               @child_group = @group.child_for_path('./Child/Path/')
             end
 
