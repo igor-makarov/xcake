@@ -43,16 +43,19 @@ module Xcake
       end
     end
 
-    context 'when creating a node' do
+    context 'when creating a file reference' do
       before :each do
         @context.project = double('Project')
       end
 
       it 'should create new group' do
-        node_dsl = double('Node')
-        expect(@context.project).to receive(:new_group).with(node_dsl)
-        @context.create_object_for_node(node_dsl)
+        file = double('File Refrence')
+
+        allow(@context.project).to receive(:file_reference_for_path).and_return(file)
+        returned_file = @context.file_reference_for_path("path")
+        expect(returned_file).to eq(file)
       end
     end
+
   end
 end
