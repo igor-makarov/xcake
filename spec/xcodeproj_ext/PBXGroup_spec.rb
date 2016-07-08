@@ -6,8 +6,8 @@ module Xcodeproj
         describe PBXGroup do
 
           before :each do
-            @project = PBXProject.new('.')
-            @group = PBXGroup.new(project)
+            @project = PBXProject.new('.', true)
+            @group = PBXGroup.new(@project, '')
           end
 
           it 'should return correct dirname when parent is project' do
@@ -15,7 +15,7 @@ module Xcodeproj
           end
 
           it 'should return correct dirname when parent is group' do
-            parent = PBXGroup.new(project)
+            parent = PBXGroup.new(@project, '')
             parent.path = 'Hello'
 
             @group.path = 'World'
@@ -25,7 +25,7 @@ module Xcodeproj
           end
 
           it 'should return correct dirname when parent is variant group' do
-            parent = PBXGroup.new(project)
+            parent = PBXGroup.new(@project, '')
             parent.path = 'Hello'
 
             @group.parent = parent
