@@ -5,17 +5,12 @@ module Xcake
     context 'when created' do
       before :each do
         @context = double('Context')
-        @installer = PathClassifier.new(@context)
+        @installer = PathClassifier.new
       end
 
-      it 'should set the context' do
-        expect(@installer.context).to eq(@context)
-      end
-
-      it 'should be able to install node' do
-        node = double('Node')
-        can_install = PathClassifier.can_install_node(node)
-        expect(can_install).to be true
+      it 'should be able to classify a path' do
+        can_classify = PathClassifier.can_classify_path("")
+        expect(can_classify).to be true
       end
     end
   end
