@@ -24,7 +24,7 @@ module Xcake
 
       paths = paths_to_include - paths_to_exclude
       paths.each do |p|
-        @context.file_reference_for_path(p) if PathClassifier.should_include_path(p)
+        @context.file_reference_for_path(p) if PathClassifier.should_include_path?(p)
       end
     end
   end

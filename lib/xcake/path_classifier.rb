@@ -6,10 +6,10 @@ module Xcake
   class PathClassifier
 
     EXTENSION_MAPPINGS = {
-      :LinkLibrary => %w{.a .dylib .so .framework}.freeze,
-      :CopyHeaders => %w{.h .hpp}.freeze,
-      :CompileSource => %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      :CopyResources => %w{.xcassets}.freeze,
+      :LinkLibrary: %w{.a .dylib .so .framework}.freeze,
+      :CopyHeaders: %w{.h .hpp}.freeze,
+      :CompileSource: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
+      :CopyResources: %w{.xcassets}.freeze,
     }.freeze
 
     # @note This should be overidden
@@ -20,22 +20,20 @@ module Xcake
     # @return [Boolean] true if classifier thinks the path should be included
     # into the project
     #
-    # @todo BDD this
-    #
-    def self.should_include_path(path)
-      return false if is_locale_container(path)
-      return false if is_inside_classified_container(path)
+    def self.should_include_path?(path)
+      return false if is_locale_container?(path)
+      return false if is_inside_classified_container?(path)
       true
     end
 
-    private
+    private_class_method
 
-    def self.is_locale_container(path)
+    def self.is_locale_container?(path)
       components = path.split('/')
       File.extname(components.last) == '.lproj'
     end
 
-    def self.is_inside_classified_container(path)
+    def self.is_inside_classified_container?(path)
       components = path.split('/')
 
       classified_component_index = components.index do |c|
@@ -49,7 +47,7 @@ module Xcake
       end
     end
 
-    def self.is_classified(path)
+    def self.is_classified?(path)
       EXTENSION_MAPPINGS.values.flatten.any? { |ext| File.extname(path) == ext }
     end
   end
