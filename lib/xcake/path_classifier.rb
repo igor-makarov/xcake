@@ -19,11 +19,19 @@ module Xcake
     # @return [Boolean] true if classifier can classify the path.
     #
     def self.can_classify_path(_path)
-      true
+      false
     end
 
+    # @note This should be overidden
+    # by subclasses.
+    #
+    # @param [String] the path
+    #
+    # @return [Boolean] true if classifier thinks the path should be included
+    # into the project
+    #
     def self.should_include_path(_path)
-      true
+      false
     end
 
     # @note This should be overidden

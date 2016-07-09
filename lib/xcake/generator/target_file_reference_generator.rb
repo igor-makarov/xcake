@@ -34,7 +34,7 @@ module Xcake
           c.can_classify_path(p)
         end
 
-        if classifier.should_include_path(p)
+        if classifier && classifier.should_include_path(p)
           classifiable_paths << p
         end
       end
