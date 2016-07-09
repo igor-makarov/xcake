@@ -28,7 +28,7 @@ module Xcake
         expect(should_install).to be(true)
       end
 
-      it 'should include files inside of a classified container' do
+      it 'should not include files inside of a classified container' do
         should_install = PathClassifier.should_include_path('./Folder.framework/File.txt')
         expect(should_install).to be(false)
       end
