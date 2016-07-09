@@ -23,9 +23,5 @@ module Xcake
 
       expect(XCDataModeldPathClassifier.can_install_node(@node)).to be(true)
     end
-
-    it 'should ignore child paths' do
-      expect(XCDataModeldPathClassifier.ignore_child_paths).to eq(true)
-    end
   end
 end

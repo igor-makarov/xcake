@@ -11,10 +11,6 @@ module Xcake
       "#{File.dirname(__FILE__)}/path_classifier/*.rb"
     end
 
-    def self.reduce_to_classifiable_paths(paths)
-      paths
-    end
-
     # @note This should be overidden
     # by subclasses.
     #
@@ -35,15 +31,6 @@ module Xcake
     #
     def self.classify_path(_path)
       true
-    end
-
-    # @note This should be overidden
-    # by subclasses.
-    #
-    # @return [Boolean] true if sub-paths should be ignored by Xcake
-    #
-    def self.ignore_child_paths
-      false
     end
   end
 end

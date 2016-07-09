@@ -17,11 +17,29 @@ module Xcake
       paths_to_exclude = Dir.glob(target.exclude_files)
 
       paths = paths_to_include - paths_to_exclude
-      paths = PathClassifier.reduce_to_classifiable_paths(paths)
+      paths = reduce_to_classifiable_paths(paths)
 
       paths.each do |path|
         @context.file_reference_for_path(path)
       end
+    end
+
+    def reduce_to_classifiable_paths(paths)
+
+      classifiable_paths = []
+
+      # TODO: Simplify classfication system
+      #
+      classfiers = DependencyProvider.new(PathClassifier).tsort
+      paths.each do |p|
+        classifier = classfiers.select do |c|
+          c.can_classify_path(p)
+        end
+
+        classifiable_paths << p
+      end
+
+      classifiable_paths
     end
   end
 end

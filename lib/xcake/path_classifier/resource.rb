@@ -5,7 +5,7 @@ module Xcake
   #
   class ResourcePathClassifier < PathClassifier
     def self.dependencies
-      FileReferenceInstaller.descendants.select do |i|
+      PathClassifier.descendants.select do |i|
         i != self
       end
     end

@@ -10,9 +10,5 @@ module Xcake
       File.directory?(node.path) &&
         ['.xcdatamodeld'].include?(File.extname(node.path))
     end
-
-    def self.ignore_child_paths
-      true
-    end
   end
 end
