@@ -27,7 +27,7 @@ module Xcake
 
     # TODO: BDD
     def self.classification_for_path(path)
-      classification = EXTENSION_MAPPINGS.detect do |key, ext_group|
+      classification = EXTENSION_MAPPINGS.detect do |_key, ext_group|
         ext_group.any? {|ext| File.extname(path) == ext}
       end
 
