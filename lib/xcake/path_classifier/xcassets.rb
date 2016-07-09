@@ -2,7 +2,7 @@ module Xcake
   # This build phase generator detects XCAsset bundles
   # and adds them to the copy resources phase.
   #
-  class CopyXCAssetsFileReferenceInstaller < CopyResourcesFileReferenceInstaller
+  class CopyXCAssetsPathClassifier < CopyResourcesPathClassifier
     def self.dependencies
       []
     end
