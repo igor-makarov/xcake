@@ -48,7 +48,7 @@ module Xcake
         is_classified?(c)
       end
 
-      unless classified_component_index.nil?
+      if !classified_component_index.nil?
         classified_component_index < (components.length - 1)
       else
         false
