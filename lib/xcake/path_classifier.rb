@@ -25,9 +25,9 @@ module Xcake
       true
     end
 
-    def self.classification_for_class(path)
+    def self.classification_for_path(path)
       classification = EXTENSION_MAPPINGS.detect do |key, hash|
-        File.extname(path) == hash[key]
+        File.extname(path) == hash
       end
 
       return :PBXCopyFilesBuildPhase if classification.nil?
