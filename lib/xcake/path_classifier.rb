@@ -30,8 +30,8 @@ module Xcake
     # @return [Boolean] true if classifier thinks the path should be included
     # into the project
     #
-    def self.should_include_path(_path)
-      false
+    def self.should_include_path(path)
+      can_classify_path(path)
     end
 
     # @note This should be overidden
