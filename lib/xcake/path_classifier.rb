@@ -3,7 +3,6 @@ require 'pathname'
 module Xcake
   # This class handles classifing the files and how Xcake should handle them.
   #
-  #
   class PathClassifier
 
     EXTENSION_MAPPINGS = {
