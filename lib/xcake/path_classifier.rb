@@ -21,25 +21,37 @@ module Xcake
     # @return [Boolean] true if classifier thinks the path should be included
     # into the project
     #
-    # @todo BDD This
+    # @todo BDD this and handle localization path
     #
     def self.should_include_path(path)
-      EXTENSION_MAPPINGS.any? do |ext_group|
-        ext_group.any? do |ext|
-          path.include?(path) ? (ext == File.extname(path)) : true
-        end
+      return false if is_locale_container(path)
+      return false if is_inside_classified_container(path)
+      true
+    end
+
+    private
+
+    def self.is_locale_container(path)
+      components = path.split('/')
+      File.extname(components.last) == ".lproj"
+    end
+
+    def self.is_inside_classified_container(path)
+      components = path.split('/')
+
+      classified_component_index = components.index do |c|
+        is_classified(c)
+      end
+
+      unless classified_component_index.nil?
+        classified_component_index < (components.length - 1)
+      else
+        false
       end
     end
 
-    # @note This should be overidden
-    # by subclasses.
-    #
-    # @param [Path] the path
-    #
-    # @return [String] The classification of the file
-    #
-    def self.classify_path(_path)
-      true
+    def self.is_classified(path)
+      EXTENSION_MAPPINGS.values.flatten.any? { |ext| File.extname(path) == ext }
     end
   end
 end
