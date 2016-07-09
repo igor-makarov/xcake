@@ -28,7 +28,7 @@ require 'xcake/configurable'
 require 'xcake/project'
 require 'xcake/project/sugar'
 require 'xcake/project/hooks'
-require 'xcake/file_reference_installer'
+require 'xcake/classifier'
 require 'xcake/shell_script_build_phase'
 
 require 'xcake/target'
