@@ -11,8 +11,8 @@ module Xcake
     include Plugin
 
     EXTENSIONS_MAPPINGS = {
-      %w{a} => :library
-    }
+      %w{a}.freeze => :library
+    }.freeze
 
     def self.plugins_location
       "#{File.dirname(__FILE__)}/path_classifier/*.rb"
