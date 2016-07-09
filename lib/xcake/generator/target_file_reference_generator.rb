@@ -15,6 +15,7 @@ module Xcake
 
       paths_to_include = Dir.glob(target.include_files)
       paths_to_exclude = Dir.glob(target.exclude_files)
+
       paths = paths_to_include - paths_to_exclude
       paths = PathClassifier.reduce_to_classifiable_paths(paths)
 
