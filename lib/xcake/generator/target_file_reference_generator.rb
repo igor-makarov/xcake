@@ -25,7 +25,7 @@ module Xcake
       paths = paths_to_include - paths_to_exclude
       paths.each do |p|
 
-        # TODO: BDD
+        # TODO: BDD - Use Build Phase Refactor in Future
         if PathClassifier.should_include_path?(p)
           file_reference = @context.file_reference_for_path(p)
           native_target = @context.native_object_for(target)
