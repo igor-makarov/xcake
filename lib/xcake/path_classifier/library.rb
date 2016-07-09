@@ -3,10 +3,8 @@ module Xcake
   #
   class LibraryPathClassifier < PathClassifier
 
-    EXTENSIONS = %w(.a .dylib .so .framework).freeze
-
-    def self.can_classify_path(path)
-      EXTENSIONS.any? { |ext| path.include?(ext) }
+    def self.extensions
+      %w(.a .dylib .so .framework)
     end
   end
 end

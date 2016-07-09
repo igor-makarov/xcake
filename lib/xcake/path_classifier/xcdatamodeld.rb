@@ -1,14 +1,13 @@
 module Xcake
   # This build phase generator detects XCDataModeld bundles
   #
-  class XCDataModeldPathClassifier < SourceCodePathClassifier
+  class XCDataModeldPathClassifier < PathClassifier
     def self.dependencies
       []
     end
 
-    def self.can_install_node(node)
-      File.directory?(node.path) &&
-        ['.xcdatamodeld'].include?(File.extname(node.path))
+    def self.extensions
+      %w(.xcdatamodeld)
     end
   end
 end

@@ -3,12 +3,19 @@ require 'pathname'
 module Xcake
   # This class handles classifing the files and how Xcake should handle them.
   #
+  # TODO: Review if we need these as a plugin in the future - maybe this could
+  # be a table.
+  #
   class PathClassifier
     include Dependency
     include Plugin
 
     def self.plugins_location
       "#{File.dirname(__FILE__)}/path_classifier/*.rb"
+    end
+
+    def self.extensions
+      []
     end
 
     # @note This should be overidden
@@ -18,8 +25,15 @@ module Xcake
     #
     # @return [Boolean] true if classifier can classify the path.
     #
-    def self.can_classify_path(_path)
-      false
+    # @todo BDD This
+    #
+    def self.can_classify_path(path)
+      components = path.split('/')
+      extensions.any? do |ext|
+        components.any? do |c|
+          ext == File.extname(c)
+        end
+      end
     end
 
     # @note This should be overidden
@@ -33,7 +47,8 @@ module Xcake
     # @todo BDD This
     #
     def self.should_include_path(path)
-      can_classify_path(Dir.dirname(path))
+      file_extension = File.extname(path)
+      extensions.any? { |ext| ext == file_extension }
     end
 
     # @note This should be overidden

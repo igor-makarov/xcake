@@ -15,7 +15,7 @@ module Xcake
     end
 
     def self.should_include_path(path)
-      true
+      File.extname(path).include?('.lproj') == false
     end
   end
 end

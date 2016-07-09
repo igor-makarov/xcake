@@ -1,14 +1,13 @@
 module Xcake
   # This build phase generator detects XCAsset bundles
   #
-  class XCAssetsPathClassifier < ResourcePathClassifier
+  class XCAssetsPathClassifier < PathClassifier
     def self.dependencies
       []
     end
 
-    def self.can_install_node(node)
-      File.directory?(node.path) &&
-        ['.xcassets'].include?(File.extname(node.path))
+    def self.extensions
+      %w(.xcassets)
     end
   end
 end
