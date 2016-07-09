@@ -30,7 +30,7 @@ module Xcake
           native_target = @context.native_object_for(target)
 
           build_phase_symbol = PathClassifier.classification_for_path(p)
-          build_phase_class =  Xcodeproj::Project::Object.const_get(build_phase_symbol)
+          build_phase_class = Xcodeproj::Project::Object.const_get(build_phase_symbol)
           build_phase = native_target.build_phase_by_class(build_phase_class)
           build_phase.add_file_reference(file_reference)
         end
