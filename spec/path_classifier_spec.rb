@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 module Xcake
-  describe FileReferenceInstaller do
+  describe PathClassifier do
     context 'when created' do
       before :each do
         @context = double('Context')
-        @installer = FileReferenceInstaller.new(@context)
+        @installer = PathClassifier.new(@context)
       end
 
       it 'should set the context' do
@@ -14,7 +14,7 @@ module Xcake
 
       it 'should be able to install node' do
         node = double('Node')
-        can_install = FileReferenceInstaller.can_install_node(node)
+        can_install = PathClassifier.can_install_node(node)
         expect(can_install).to be true
       end
     end

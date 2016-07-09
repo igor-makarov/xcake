@@ -1,5 +1,5 @@
 module Xcake
-  class HeaderFileReferenceInstaller < FileReferenceInstaller
+  class HeaderFileReferenceInstaller < PathClassifier
     # This build phase generator detects header files
     # and ignores them.
     #
