@@ -6,35 +6,12 @@ module Xcake
   #
   class PathClassifier
 
-    EXTENSIONS_MAPPINGS = {
-      %w{.a .dylib .so .framework}.freeze => :Library,
-      %w{.h .hpp}.freeze => :Header,
-      %w{.c .m .mm .cpp .swift}.freeze => :SourceCode,
-      %w{.xcassets}.freeze => :Assets,
-      %w{.xcdatamodeld}.freeze => :CoreData,
+    EXTENSION_MAPPINGS = {
+      :LinkLibrary => %w{.a .dylib .so .framework}.freeze,
+      :CopyHeaders => %w{.h .hpp}.freeze,
+      :CompileSource => %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
+      :CopyResources => %w{.xcassets}.freeze,
     }.freeze
-
-    def self.extensions
-      []
-    end
-
-    # @note This should be overidden
-    # by subclasses.
-    #
-    # @param [String] the path
-    #
-    # @return [Boolean] true if classifier can classify the path.
-    #
-    # @todo BDD This
-    #
-    def self.can_classify_path(path)
-      components = path.split('/')
-      extensions.any? do |ext|
-        components.any? do |c|
-          ext == File.extname(c)
-        end
-      end
-    end
 
     # @note This should be overidden
     # by subclasses.
@@ -47,8 +24,11 @@ module Xcake
     # @todo BDD This
     #
     def self.should_include_path(path)
-      file_extension = File.extname(path)
-      extensions.any? { |ext| ext == file_extension }
+      EXTENSION_MAPPINGS.any? do |ext_group|
+        ext_group.any? do |ext|
+          path.include?(path) ? (ext == File.extname(path)) : true
+        end
+      end
     end
 
     # @note This should be overidden
