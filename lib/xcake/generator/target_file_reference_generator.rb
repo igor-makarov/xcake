@@ -12,13 +12,11 @@ module Xcake
     end
 
     def visit_target(target)
-      # - References from Configurations
-      # - References from Build Phases
+
       paths_to_include = Dir.glob(target.include_files)
       paths_to_exclude = Dir.glob(target.exclude_files)
       paths = paths_to_include - paths_to_exclude
-
-      # - Use File classifiers to ignore files
+      paths = PathClassifier.reduce_to_classifiable_paths(paths)
 
       paths.each do |path|
         @context.file_reference_for_path(path)
