@@ -22,6 +22,10 @@ module Xcake
       true
     end
 
+    def self.should_include_path(_path)
+      true
+    end
+
     # @note This should be overidden
     # by subclasses.
     #

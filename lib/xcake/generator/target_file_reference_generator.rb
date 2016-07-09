@@ -27,16 +27,16 @@ module Xcake
     def reduce_to_classifiable_paths(paths)
 
       classifiable_paths = []
-
-      # TODO: Simplify classfication system
-      #
       classfiers = DependencyProvider.new(PathClassifier).tsort
+
       paths.each do |p|
-        classifier = classfiers.select do |c|
+        classifier = classfiers.detect do |c|
           c.can_classify_path(p)
         end
 
-        classifiable_paths << p
+        if classifier.should_include_path(p)
+          classifiable_paths << p
+        end
       end
 
       classifiable_paths
