@@ -2,8 +2,9 @@ module Xcake
   # This build phase generator detects
   # files and adds them to the copy resources phase.
   #
-  # Note: This installer is always the last to be executed.
-  class CopyResourcesPathClassifier < PathClassifier
+  # @note This installer is always the last to be executed.
+  #
+  class ResourcePathClassifier < PathClassifier
     def self.dependencies
       FileReferenceInstaller.descendants.select do |i|
         i != self

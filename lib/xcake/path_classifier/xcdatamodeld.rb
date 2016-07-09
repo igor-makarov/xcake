@@ -2,7 +2,7 @@ module Xcake
   # This build phase generator detects XCDataModeld bundles
   # and adds them to the compile source phase.
   #
-  class CompileXCDataModeldPathClassifier < CompileSourcePathClassifier
+  class XCDataModeldPathClassifier < CompileSourcePathClassifier
     def self.dependencies
       []
     end

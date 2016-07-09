@@ -2,7 +2,7 @@ module Xcake
   # This build phase generator detects library
   # files and adds them to the frameworks build phase.
   #
-  class LinkLibraryPathClassifier < PathClassifier
+  class LibraryPathClassifier < PathClassifier
     def self.can_install_node(node)
       %w(.a .dylib .so .framework).include?(File.extname(node.path))
     end
