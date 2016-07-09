@@ -18,12 +18,11 @@ module Xcake
       paths_to_exclude = Dir.glob(target.exclude_files)
       paths = paths_to_include - paths_to_exclude
 
+      # - Use File classifiers to ignore files
+
       paths.each do |path|
         @context.file_reference_for_path(path)
       end
-
-      # - Classify Files
-      # - Build Implicit Build Phases
     end
   end
 end
