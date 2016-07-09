@@ -1,3 +1,7 @@
+Master
+======
+- Simplified Target File Reference Generator
+
 v0.6.25
 =======
 - Fixed bug where Xcake would set incorrect path for a group of a Localized file.
@@ -117,6 +121,7 @@ v0.6.1
 v0.6.0
 ======
 - Infers build phases for the apple watch.
+- Re-engineered generator infastructure.
 - Fixes bug where configurations lacked a name when using shorthand syntax. (Thanks to @colinta).
 - Adds support for custom script build phases (Thanks to @colinta).
 

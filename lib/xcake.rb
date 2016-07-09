@@ -1,6 +1,7 @@
 require 'xcake/core_ext/array'
 require 'xcake/core_ext/object'
 require 'xcake/core_ext/string'
+require 'xcake/xcodeproj_ext/PBXGroup'
 require 'xcake/modern_xcodeproj.rb'
 
 require 'xcake/version'
@@ -15,6 +16,7 @@ require 'xcake/plugin'
 require 'xcake/visitable'
 require 'xcake/visitor'
 require 'xcake/generator'
+
 require 'xcake/context'
 require 'xcake/context/xcodeproj_context'
 
@@ -27,10 +29,11 @@ require 'xcake/project'
 require 'xcake/project/sugar'
 require 'xcake/project/hooks'
 require 'xcake/file_reference_installer'
-require 'xcake/node'
 require 'xcake/shell_script_build_phase'
+
 require 'xcake/target'
 require 'xcake/target/sugar'
+require 'xcake/target/configurable'
 
 require 'xcake/xcode/project'
 require 'xcake/xcode/scheme'

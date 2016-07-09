@@ -1,3 +1,4 @@
+require 'pathname'
 require 'xcodeproj'
 
 module Xcake
@@ -16,13 +17,10 @@ module Xcake
         create_object_for_configuration(dsl_object)
       when Node
         create_object_for_node(dsl_object)
-      else
-        nil
       end
     end
 
     def create_object_for_project(project)
-      # TODO: Make setup of project testable
       @project = Xcode::Project.new("./#{project.name}.xcodeproj", true)
       @project.setup_for_xcake
       @project
@@ -41,7 +39,8 @@ module Xcake
     end
 
     def file_reference_for_path(path)
-      @project.reference_for_path(path) || @project.new_file_reference(path)
+      pathname = Pathname.new path
+      @project.file_reference_for_path(pathname)
     end
   end
 end

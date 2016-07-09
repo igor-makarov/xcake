@@ -1,61 +1,37 @@
 require 'spec_helper'
 
-# TODO: Refactor/abstract out node graph
-# TODO: Test dependency resolution
-# TODO: Project Visiting
-# TODO: Node Visiting
+# TODO: How do we stub file system
 module Xcake
   describe TargetFileReferenceGenerator do
     before :each do
-      @dsl_target = double('DSL Target')
-      @target = double('Target')
       @context = double('Context')
+      @target = double('Target')
       @generator = TargetFileReferenceGenerator.new(@context)
 
-      allow(@context).to receive(:native_object_for).and_return(@target)
+      @paths = [
+        'file'
+      ]
+
+      allow(Dir).to receive(:glob).with([]).and_return([])
+      allow(Dir).to receive(:glob).with(@paths).and_return(@paths)
     end
 
-    it 'should have correct dependencies' do
-      expect(TargetFileReferenceGenerator.dependencies).to eq([TargetGenerator])
+    it 'should add included paths' do
+      allow(@target).to receive(:include_files).and_return(@paths)
+      allow(@target).to receive(:exclude_files).and_return([])
+
+      path = @paths.first
+      expect(@context).to receive(:file_reference_for_path).with(path)
+      @generator.visit_target(@target)
     end
 
-    it 'should create root node' do
-      expect(@generator.root_node).not_to be_nil
-    end
+    it 'should ignore excluded paths' do
+      allow(@target).to receive(:include_files).and_return(@paths)
+      allow(@target).to receive(:exclude_files).and_return(@paths)
 
-    context 'when processing files for a target' do
-      before :each do
-        @target = double('Target').as_null_object
-
-        @native_target = double('Native Target')
-        allow(@context).to receive(:native_object_for).and_return(@native_target)
-      end
-
-      it 'should include files' do
-        allow(@target).to receive(:include_files).and_return(['**/*.swift'])
-        allow(@target).to receive(:exclude_files).and_return(nil)
-        allow(Dir).to receive(:glob).and_return(['File.swift'])
-
-        expect(@generator.root_node).to receive(:create_children_with_path).with(
-          'File.swift',
-          @native_target
-        )
-
-        @generator.process_files_for_target(@target)
-      end
-
-      it 'should exclude files' do
-        allow(@target).to receive(:include_files).and_return(nil)
-        allow(@target).to receive(:exclude_files).and_return(['**/*.swift'])
-        allow(Dir).to receive(:glob).and_return(['File.swift'])
-
-        expect(@generator.root_node).to receive(:remove_children_with_path).with(
-          'File.swift',
-          @native_target
-        )
-
-        @generator.process_files_for_target(@target)
-      end
+      path = @paths.first
+      expect(@context).to_not receive(:file_reference_for_path).with(path)
+      @generator.visit_target(@target)
     end
   end
 end

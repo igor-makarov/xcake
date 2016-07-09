@@ -47,7 +47,6 @@ module Xcake
     # @!group Visitable
 
     def visit_node(node)
-
       # Tweak this to respect localizable files
       #
       # If ".lproj" is in file path
@@ -62,11 +61,11 @@ module Xcake
       #
       # TODO: Remove this duplication of the .lproj and node path code.
       # Also remove need for the name hack.
-      if node.parent.component.include?(".lproj")
-        group_path = Pathname.new node.parent.parent.path
-      else
-        group_path = Pathname.new node.parent.path
-      end
+      group_path = if node.parent.component.include?('.lproj')
+                     Pathname.new node.parent.parent.path
+                   else
+                     Pathname.new node.parent.path
+                   end
 
       file_path = Pathname.new node.path
 

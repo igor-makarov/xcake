@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'pathname'
+require 'xcodeproj'
 
 module Xcake
   module Xcode
@@ -6,6 +8,111 @@ module Xcake
       before :each do
         @project = Project.new('.', true)
         @project.setup_for_xcake
+      end
+
+      context 'when creating file reference' do
+        before :each do
+          @path = Pathname.new '.'
+        end
+
+        it 'should return nil for directory' do
+          allow(File).to receive(:directory?).and_return(true)
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to be(nil)
+        end
+
+        it 'should return file reference for file' do
+          allow(File).to receive(:directory?).and_return(false)
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
+
+        it 'should return file reference for localized file' do
+          allow(File).to receive(:directory?).and_return(false)
+          @path = Pathname.new './en.lproj/Hi.txt'
+
+          file = @project.file_reference_for_path(@path)
+          expect(file).to_not be(nil)
+        end
+
+        it 'should set path with folder and filename for localized file' do
+          allow(File).to receive(:directory?).and_return(false)
+          path = Pathname.new './en.lproj/Hi.txt'
+
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq('en.lproj/Hi.txt')
+        end
+
+        it 'should set path with filename reference for file' do
+          allow(File).to receive(:directory?).and_return(false)
+          path = Pathname.new './Hi.txt'
+
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq('Hi.txt')
+        end
+
+        it 'should set path with filename reference for file inside a folder' do
+          allow(File).to receive(:directory?).and_return(false)
+          path = Pathname.new './Folder/Hi.txt'
+
+          file = @project.file_reference_for_path(path)
+          expect(file.path).to eq('Hi.txt')
+        end
+      end
+
+      context 'when creating group for file reference' do
+        it 'should use main group for file at root of project' do
+          path = Pathname.new './Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to eq(@project.main_group)
+        end
+
+        it 'should use variant group for localized file' do
+          path = Pathname.new './en.lproj/Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXVariantGroup)
+        end
+
+        it 'should use same group for localized file for multiple languages' do
+          en_path = Pathname.new './en.lproj/Hello.txt'
+          fr_path = Pathname.new './fr.lproj/Hello.txt'
+          en_group = @project.group_for_file_reference_path(en_path)
+          fr_group = @project.group_for_file_reference_path(fr_path)
+
+          expect(en_group).to eq(fr_group)
+        end
+
+        it 'should use group for file' do
+          path = Pathname.new './Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group).to be_kind_of(::Xcodeproj::Project::Object::PBXGroup)
+        end
+
+        it 'should not set path of group for localized folder with file' do
+          path = Pathname.new './en.lproj/Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group.path).to be(nil)
+        end
+
+        it 'should set name to filename for group localized folder with file' do
+          path = Pathname.new './en.lproj/Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group.name).to eq('Hello.txt')
+        end
+
+        it 'should set path to folder for group for folder with file' do
+          path = Pathname.new './Folder/Hello.txt'
+          group = @project.group_for_file_reference_path(path)
+
+          expect(group.path).to eq('Folder')
+        end
       end
 
       it 'should set the root object when setup' do
