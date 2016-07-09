@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe XCAssetsPathClassfier do
+  describe XCAssetsPathClassifier do
     before :each do
       @node = double('Node').as_null_object
     end
@@ -12,7 +12,7 @@ module Xcake
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CopyXCAssetsFileReferenceInstaller.can_install_node(@node)).to be(false)
+      expect(XCAssetsPathClassifier.can_install_node(@node)).to be(false)
     end
 
     it 'should be able to install xcassets foler' do
@@ -21,7 +21,7 @@ module Xcake
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CopyXCAssetsFileReferenceInstaller.can_install_node(@node)).to be(true)
+      expect(XCAssetsPathClassifier.can_install_node(@node)).to be(true)
     end
 
     it 'should remove children for node' do
@@ -29,7 +29,7 @@ module Xcake
 
       project = double('Project').as_null_object
 
-      build_phase = CopyXCAssetsFileReferenceInstaller.new(project)
+      build_phase = XCAssetsPathClassifier.new(project)
       build_phase.visit_node(@node)
     end
   end

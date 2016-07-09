@@ -13,7 +13,7 @@ module Xcake
       allow(@node).to receive(:children).and_return([])
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CopyResourcesFileReferenceInstaller.can_install_node(@node)).to \
+      expect(ResourcePathClassifier.can_install_node(@node)).to \
         be(true)
     end
 
@@ -24,13 +24,13 @@ module Xcake
       allow(@node).to receive(:children).and_return([])
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CopyResourcesFileReferenceInstaller.can_install_node(@node)).to \
+      expect(ResourcePathClassifier.can_install_node(@node)).to \
         be(false)
     end
 
     it 'should be able to install non source code file' do
       allow(@node).to receive(:path).and_return('File.txt')
-      expect(CopyResourcesFileReferenceInstaller.can_install_node(@node)).to be(true)
+      expect(ResourcePathClassifier.can_install_node(@node)).to be(true)
     end
 
     it 'should add file reference to copy resources build phase' do
@@ -43,7 +43,7 @@ module Xcake
       target = double('Target')
       allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
 
-      generator = CopyResourcesFileReferenceInstaller.new(nil)
+      generator = ResourcePathClassifier.new(nil)
       generator.add_file_reference_to_target(file_reference, target)
     end
 

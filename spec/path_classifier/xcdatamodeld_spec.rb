@@ -12,7 +12,7 @@ module Xcake
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CompileXCDataModeldFileReferenceInstaller.can_install_node(@node)).to be(false)
+      expect(XCDataModeldPathClassifier.can_install_node(@node)).to be(false)
     end
 
     it 'should be able to install xcdatamodeld foler' do
@@ -21,7 +21,7 @@ module Xcake
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(CompileXCDataModeldFileReferenceInstaller.can_install_node(@node)).to be(true)
+      expect(XCDataModeldPathClassifier.can_install_node(@node)).to be(true)
     end
 
     it 'should remove children for node' do
@@ -29,7 +29,7 @@ module Xcake
 
       project = double('Project').as_null_object
 
-      build_phase = CompileXCDataModeldFileReferenceInstaller.new(project)
+      build_phase = XCDataModeldPathClassifier.new(project)
       build_phase.visit_node(@node)
     end
   end

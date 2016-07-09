@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe HeaderPathClassfier do
+  describe HeaderPathClassifier do
     before :each do
       @node = double('Node')
     end
@@ -12,22 +12,22 @@ module Xcake
       allow(@node).to receive(:path).and_return(folder_path)
       allow(File).to receive(:directory?).with(folder_path).and_return(true)
 
-      expect(HeaderFileReferenceInstaller.can_install_node(@node)).to be(false)
+      expect(HeaderPathClassifier.can_install_node(@node)).to be(false)
     end
 
     it 'should not be able to install non header file' do
       allow(@node).to receive(:path).and_return('File.txt')
-      expect(HeaderFileReferenceInstaller.can_install_node(@node)).to be(false)
+      expect(HeaderPathClassifier.can_install_node(@node)).to be(false)
     end
 
     it 'should be able to install c header file' do
       allow(@node).to receive(:path).and_return('File.h')
-      expect(HeaderFileReferenceInstaller.can_install_node(@node)).to be(true)
+      expect(HeaderPathClassifier.can_install_node(@node)).to be(true)
     end
 
     it 'should be able to install c++ header file' do
       allow(@node).to receive(:path).and_return('File.hpp')
-      expect(HeaderFileReferenceInstaller.can_install_node(@node)).to be(true)
+      expect(HeaderPathClassifier.can_install_node(@node)).to be(true)
     end
   end
 end
