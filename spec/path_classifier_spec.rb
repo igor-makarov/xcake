@@ -3,11 +3,6 @@ require 'spec_helper'
 module Xcake
   describe PathClassifier do
     context 'when created' do
-      before :each do
-        @context = double('Context')
-        @installer = PathClassifier.new
-      end
-
       it 'should include files' do
         should_install = PathClassifier.should_include_path('./File.txt')
         expect(should_install).to be(true)
