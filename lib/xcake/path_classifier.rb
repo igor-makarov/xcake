@@ -6,10 +6,10 @@ module Xcake
   class PathClassifier
 
     EXTENSION_MAPPINGS = {
-      :LinkLibrary: %w{.a .dylib .so .framework}.freeze,
-      :CopyHeaders: %w{.h .hpp}.freeze,
-      :CompileSource: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      :CopyResources: %w{.xcassets}.freeze,
+      LinkLibrary: %w{.a .dylib .so .framework}.freeze,
+      CopyHeaders: %w{.h .hpp}.freeze,
+      CompileSource: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
+      CopyResources: %w{.xcassets}.freeze
     }.freeze
 
     # @note This should be overidden
@@ -37,7 +37,7 @@ module Xcake
       components = path.split('/')
 
       classified_component_index = components.index do |c|
-        is_classified(c)
+        is_classified?(c)
       end
 
       unless classified_component_index.nil?
