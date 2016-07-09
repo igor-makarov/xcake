@@ -15,22 +15,12 @@ module Xcake
           @path = Pathname.new '.'
         end
 
-        it 'should return nil for directory' do
-          allow(File).to receive(:directory?).and_return(true)
-
-          file = @project.file_reference_for_path(@path)
-          expect(file).to be(nil)
-        end
-
         it 'should return file reference for file' do
-          allow(File).to receive(:directory?).and_return(false)
-
           file = @project.file_reference_for_path(@path)
           expect(file).to_not be(nil)
         end
 
         it 'should return file reference for localized file' do
-          allow(File).to receive(:directory?).and_return(false)
           @path = Pathname.new './en.lproj/Hi.txt'
 
           file = @project.file_reference_for_path(@path)
@@ -38,7 +28,6 @@ module Xcake
         end
 
         it 'should set path with folder and filename for localized file' do
-          allow(File).to receive(:directory?).and_return(false)
           path = Pathname.new './en.lproj/Hi.txt'
 
           file = @project.file_reference_for_path(path)
@@ -46,7 +35,6 @@ module Xcake
         end
 
         it 'should set path with filename reference for file' do
-          allow(File).to receive(:directory?).and_return(false)
           path = Pathname.new './Hi.txt'
 
           file = @project.file_reference_for_path(path)
@@ -54,7 +42,6 @@ module Xcake
         end
 
         it 'should set path with filename reference for file inside a folder' do
-          allow(File).to receive(:directory?).and_return(false)
           path = Pathname.new './Folder/Hi.txt'
 
           file = @project.file_reference_for_path(path)

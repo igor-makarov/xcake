@@ -122,11 +122,8 @@ module Xcake
       # @return [PBXFileReference] new xcode file refrence
       #
       def file_reference_for_path(path)
-        return if File.directory?(path)
-
         group = group_for_file_reference_path(path)
         group_path = Pathname.new group.dirname
-        puts group_path
 
         file_path = path.cleanpath.relative_path_from group_path
         group.new_reference(file_path.to_s)
