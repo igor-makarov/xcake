@@ -8,7 +8,7 @@ module Xcake
       @generator = TargetFileReferenceGenerator.new(@context)
 
       @paths = [
-        'file'
+        'File'
       ]
 
       allow(Dir).to receive(:glob).with([]).and_return([])
@@ -36,7 +36,7 @@ module Xcake
     it 'should ignore paths with different root specifier' do
 
       exclude_paths = [
-          './'
+          './File'
       ]
 
       allow(@target).to receive(:include_files).and_return(@paths)
