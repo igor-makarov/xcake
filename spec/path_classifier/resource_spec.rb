@@ -6,31 +6,26 @@ module Xcake
       @node = double('Node')
     end
 
-    it 'should be able to install folder as folder reference' do
+    it 'should classify folder' do
       folder_path = 'Folder/'
-
-      allow(@node).to receive(:path).and_return(folder_path)
-      allow(@node).to receive(:children).and_return([])
-      allow(File).to receive(:directory?).with(folder_path).and_return(true)
-
-      expect(ResourcePathClassifier.can_install_node(@node)).to \
+      expect(ResourcePathClassifier.can_classify_path(folder_path)).to \
         be(true)
     end
 
-    it 'should not able to install xcassets folder' do
-      folder_path = 'resources.xcassets/'
-
-      allow(@node).to receive(:path).and_return(folder_path)
-      allow(@node).to receive(:children).and_return([])
-      allow(File).to receive(:directory?).with(folder_path).and_return(true)
-
-      expect(ResourcePathClassifier.can_install_node(@node)).to \
-        be(false)
+    it 'should classify file' do
+      expect(ResourcePathClassifier.can_classify_path('File.txt')).to \
+        be(true)
     end
 
-    it 'should be able to install non source code file' do
-      allow(@node).to receive(:path).and_return('File.txt')
-      expect(ResourcePathClassifier.can_install_node(@node)).to be(true)
+    it 'should include folder' do
+      folder_path = 'Folder/'
+      expect(ResourcePathClassifier.should_include_path(folder_path)).to \
+        be(true)
+    end
+
+    it 'should include file' do
+      expect(ResourcePathClassifier.should_include_path('File.txt')).to \
+        be(true)
     end
   end
 end
