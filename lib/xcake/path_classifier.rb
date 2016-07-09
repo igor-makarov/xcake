@@ -32,7 +32,7 @@ module Xcake
 
     def self.is_locale_container(path)
       components = path.split('/')
-      File.extname(components.last) == ".lproj"
+      File.extname(components.last) == '.lproj'
     end
 
     def self.is_inside_classified_container(path)
