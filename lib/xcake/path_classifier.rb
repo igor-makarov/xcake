@@ -5,10 +5,10 @@ module Xcake
   #
   class PathClassifier
     EXTENSION_MAPPINGS = {
-      LinkLibrary: %w{.a .dylib .so .framework}.freeze,
-      CopyHeaders: %w{.h .hpp}.freeze,
-      CompileSource: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      CopyResources: %w{.xcassets}.freeze
+      PBXFrameworksBuildPhase: %w{.a .dylib .so .framework}.freeze,
+      PBXHeadersBuildPhase: %w{.h .hpp}.freeze,
+      PBXSourcesBuildPhase: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
+      PBXCopyFilesBuildPhase: %w{.xcassets}.freeze
     }.freeze
 
     # @note This should be overidden
