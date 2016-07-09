@@ -13,6 +13,7 @@ module Xcake
 
     def visit_target(target)
 
+      # TODO: Add Method to normalize these so they always have "."
       paths_to_include = Dir.glob(target.include_files)
       paths_to_exclude = Dir.glob(target.exclude_files)
 
