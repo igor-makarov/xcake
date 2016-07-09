@@ -2,12 +2,11 @@ module Xcake
   # This build phase generator detects libraries and frameworks
   #
   class LibraryPathClassifier < PathClassifier
-    def self.can_install_node(node)
-      %w(.a .dylib .so .framework).include?(File.extname(node.path))
-    end
 
-    def add_file_reference_to_target(file_reference, target)
-      target.frameworks_build_phases.add_file_reference(file_reference, true)
+    EXTENSIONS = %w(.a .dylib .so .framework).freeze
+
+    def self.can_classify_path(path)
+      EXTENSIONS.any? { |ext| path.include?(ext) }
     end
   end
 end
