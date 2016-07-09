@@ -20,7 +20,7 @@ module Xcake
     # @return [Boolean] true if classifier thinks the path should be included
     # into the project
     #
-    # @todo BDD this and handle localization path
+    # @todo BDD this
     #
     def self.should_include_path(path)
       return false if is_locale_container(path)
