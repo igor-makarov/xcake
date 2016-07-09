@@ -47,5 +47,20 @@ module Xcake
       expect(@context).to_not receive(:file_reference_for_path).with(path)
       @generator.visit_target(@target)
     end
+
+    it 'should ignore paths which shouldn\'t be installed' do
+
+      exclude_paths = [
+          './File'
+      ]
+
+      allow(@target).to receive(:include_files).and_return(@paths)
+      allow(@target).to receive(:exclude_files).and_return([])
+      allow(PathClassifier).to receive(:should_include_path).and_return(false)
+
+      path = @paths.first
+      expect(@context).to_not receive(:file_reference_for_path).with(path)
+      @generator.visit_target(@target)
+    end
   end
 end
