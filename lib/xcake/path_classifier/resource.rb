@@ -1,6 +1,5 @@
 module Xcake
-  # This build phase generator detects
-  # files and adds them to the copy resources phase.
+  # This build phase generator detects resource files
   #
   # @note This installer is always the last to be executed.
   #

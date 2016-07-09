@@ -32,21 +32,5 @@ module Xcake
       allow(@node).to receive(:path).and_return('File.txt')
       expect(ResourcePathClassifier.can_install_node(@node)).to be(true)
     end
-
-    it 'should add file reference to copy resources build phase' do
-      file_reference = double('File Reference')
-
-      resources_build_phase = double('Resources Build Pahse')
-      expect(resources_build_phase).to receive(:add_file_reference)
-        .with(file_reference, true)
-
-      target = double('Target')
-      allow(target).to receive(:resources_build_phase).and_return(resources_build_phase)
-
-      generator = ResourcePathClassifier.new(nil)
-      generator.add_file_reference_to_target(file_reference, target)
-    end
-
-    # TODO: Test dependencies
   end
 end

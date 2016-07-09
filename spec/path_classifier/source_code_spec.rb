@@ -40,19 +40,5 @@ module Xcake
       allow(@node).to receive(:path).and_return('File.swift')
       expect(SourceCodePathClassifier.can_install_node(@node)).to be(true)
     end
-
-    it 'should add file reference to source build phase' do
-      file_reference = double('File Reference')
-
-      source_build_phase = double('Source Build Phase')
-      expect(source_build_phase).to receive(:add_file_reference)
-        .with(file_reference, true)
-
-      target = double('Target')
-      allow(target).to receive(:source_build_phase).and_return(source_build_phase)
-
-      generator = SourceCodePathClassifier.new(nil)
-      generator.add_file_reference_to_target(file_reference, target)
-    end
   end
 end

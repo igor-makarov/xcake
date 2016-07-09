@@ -1,6 +1,5 @@
 module Xcake
-  # This build phase generator detects source
-  # files and adds them to the compile build phase.
+  # This build phase generator detects source code
   #
   class SourceCodePathClassifier < PathClassifier
     def self.can_install_node(node)

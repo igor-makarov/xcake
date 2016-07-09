@@ -24,13 +24,8 @@ module Xcake
       expect(XCAssetsPathClassifier.can_install_node(@node)).to be(true)
     end
 
-    it 'should remove children for node' do
-      expect(@node).to receive(:children=).with([])
-
-      project = double('Project').as_null_object
-
-      build_phase = XCAssetsPathClassifier.new(project)
-      build_phase.visit_node(@node)
+    it 'should ignore child paths' do
+      expect(XCAssetsPathClassifier.ignore_child_paths).to eq(true)
     end
   end
 end
