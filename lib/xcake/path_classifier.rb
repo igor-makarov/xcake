@@ -8,7 +8,7 @@ module Xcake
       PBXFrameworksBuildPhase: %w{.a .dylib .so .framework}.freeze,
       PBXHeadersBuildPhase: %w{.h .hpp}.freeze,
       PBXSourcesBuildPhase: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      PBXCopyFilesBuildPhase: %w{.xcassets}.freeze
+      PBXResourcesBuildPhase: %w{.xcassets}.freeze
     }.freeze
 
     # @note This should be overidden
@@ -26,11 +26,11 @@ module Xcake
     end
 
     def self.classification_for_path(path)
-      classification = EXTENSION_MAPPINGS.detect do |key, hash|
-        File.extname(path) == hash
+      classification = EXTENSION_MAPPINGS.detect do |key, ext_group|
+        ext_group.any? {|ext| File.extname(path) == ext}
       end
 
-      return :PBXCopyFilesBuildPhase if classification.nil?
+      return :PBXResourcesBuildPhase if classification.nil?
       classification.first
     end
 
