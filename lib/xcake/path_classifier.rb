@@ -25,6 +25,15 @@ module Xcake
       true
     end
 
+    def self.classification_for_class(path)
+      classification = EXTENSION_MAPPINGS.detect do |key, hash|
+        File.extname(path) == hash[key]
+      end
+
+      return :PBXCopyFilesBuildPhase if classification.nil?
+      classification.first
+    end
+
     private_class_method
 
     def self.is_locale_container?(path)
