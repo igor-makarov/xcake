@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe CopyXCAssetsFileReferenceInstaller do
+  describe XCAssetsPathClassfier do
     before :each do
       @node = double('Node').as_null_object
     end

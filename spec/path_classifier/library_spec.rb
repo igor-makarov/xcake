@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe LinkLibraryFileReferenceInstaller do
+  describe LibraryPathClassfier do
     before :each do
       @node = double('Node')
     end

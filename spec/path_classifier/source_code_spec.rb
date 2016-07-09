@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe CompileSourceFileReferenceInstaller do
+  describe SourceCodePathClassfier do
     before :each do
       @node = double('Node')
     end

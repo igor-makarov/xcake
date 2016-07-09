@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe CompileXCDataModeldFileReferenceInstaller do
+  describe XCDataModeldPathClassifier do
     before :each do
       @node = double('Node').as_null_object
     end

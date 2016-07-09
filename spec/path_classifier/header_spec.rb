@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe HeaderFileReferenceInstaller do
+  describe HeaderPathClassfier do
     before :each do
       @node = double('Node')
     end

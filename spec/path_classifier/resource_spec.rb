@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Xcake
-  describe CopyResourcesFileReferenceInstaller do
+  describe ResourcePathClassifier do
     before :each do
       @node = double('Node')
     end
