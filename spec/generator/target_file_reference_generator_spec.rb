@@ -18,14 +18,41 @@ module Xcake
       allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
     end
 
-    it 'should add included paths' do
-      allow(@target).to receive(:include_files).and_return(@paths)
-      allow(@target).to receive(:exclude_files).and_return([])
+    context 'when adding files' do
 
-      path = @paths.first
+      before :each do
+        allow(@target).to receive(:include_files).and_return(@paths)
+        allow(@target).to receive(:exclude_files).and_return([])
+      end
 
-      expect(@context).to receive(:file_reference_for_path).with(path)
-      @generator.visit_target(@target)
+      it 'should add them to the project' do
+        path = @paths.first
+
+        expect(@context).to receive(:file_reference_for_path).with(path)
+        @generator.visit_target(@target)
+      end
+
+      it 'should add them to the build phase' do
+        build_phase = double('Build Phase')
+        allow(@native_target).to receive(:build_phase_by_class).and_return(build_phase)
+
+        path = @paths.first
+        file_reference = double('File Reference')
+        allow(@context).to receive(:file_reference_for_path).with(path).and_return(file_reference)
+
+        expect(build_phase).to receive(:add_file_reference).with(file_reference)
+        @generator.visit_target(@target)
+      end
+    end
+
+    context 'when creating inferred build phases' do
+
+      # build_phase_symbol = PathClassifier.classification_for_path(p)
+      # build_phase_class = Xcodeproj::Project::Object.const_get(build_phase_symbol)
+      # build_phase = native_target.build_phase_by_class(build_phase_class)
+      # build_phase.add_file_reference(file_reference)
+
+      # - Test that we add file to the inferred build phase
     end
 
     it 'should ignore excluded paths' do
