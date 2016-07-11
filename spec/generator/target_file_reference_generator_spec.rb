@@ -45,16 +45,6 @@ module Xcake
       end
     end
 
-    context 'when creating inferred build phases' do
-
-      # build_phase_symbol = PathClassifier.classification_for_path(p)
-      # build_phase_class = Xcodeproj::Project::Object.const_get(build_phase_symbol)
-      # build_phase = native_target.build_phase_by_class(build_phase_class)
-      # build_phase.add_file_reference(file_reference)
-
-      # - Test that we add file to the inferred build phase
-    end
-
     it 'should ignore excluded paths' do
       allow(@target).to receive(:include_files).and_return(@paths)
       allow(@target).to receive(:exclude_files).and_return(@paths)
