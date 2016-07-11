@@ -35,7 +35,7 @@ module Xcake
         expect(should_install).to be(true)
       end
 
-      it 'should not include files inside of a classified container' do
+      it 'should not include files inside' do
         should_install = PathClassifier.should_include_path?('./Library.framework/Headers/Library.h')
         expect(should_install).to be(false)
       end
@@ -154,8 +154,40 @@ module Xcake
       end
     end
 
-    # PBXFrameworksBuildPhase: %w{.so}.freeze,
-    # PBXSourcesBuildPhase: %w{.xcdatamodeld}.freeze,
-    # PBXResourcesBuildPhase: %w{.xcassets}.freeze
+    context 'for a core data model' do
+      it 'should include core data model folder' do
+        should_install = PathClassifier.should_include_path?('./Model.xcdatamodeld')
+        expect(should_install).to be(true)
+      end
+
+      it 'should not include files inside' do
+        should_install = PathClassifier.should_include_path?('./Model.xcdatamodeld/Model.xcdatamodel')
+        expect(should_install).to be(false)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Model.xcdatamodeld')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    context 'for a xcassets folder' do
+      it 'should include xcassets folder' do
+        should_install = PathClassifier.should_include_path?('./Assets.xcassets')
+        expect(should_install).to be(true)
+      end
+
+      it 'should not include files inside' do
+        should_install = PathClassifier.should_include_path?('./Assets.xcassets/Image/Image.png')
+        expect(should_install).to be(false)
+      end
+
+      it 'should classify as PBXResourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Assets.xcassets')
+        expect(classification).to be(:PBXResourcesBuildPhase)
+      end
+    end
+
+    # PBXFrameworksBuildPhase: %w{.so}.freeze
   end
 end
