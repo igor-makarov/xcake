@@ -29,10 +29,6 @@ module Xcake
       end
     end
 
-    # PBXFrameworksBuildPhase: %w{.so}.freeze,
-    # PBXSourcesBuildPhase: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-    # PBXResourcesBuildPhase: %w{.xcassets}.freeze
-
     context 'for a framework' do
       it 'should include framework folder' do
         should_install = PathClassifier.should_include_path?('./Folder.framework')
@@ -97,5 +93,69 @@ module Xcake
         expect(classification).to be(:PBXHeadersBuildPhase)
       end
     end
+
+    context 'for a C file' do
+      it 'should include file' do
+        should_install = PathClassifier.should_include_path?('./Source.c')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Source.c')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    context 'for a C++ file' do
+      it 'should include file' do
+        should_install = PathClassifier.should_include_path?('./Source.cpp')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Source.cpp')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    context 'for a Objective-C file' do
+      it 'should include file' do
+        should_install = PathClassifier.should_include_path?('./Source.m')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Source.m')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    context 'for a Objective-C++ file' do
+      it 'should include file' do
+        should_install = PathClassifier.should_include_path?('./Source.mm')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Source.mm')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    context 'for a Swift file' do
+      it 'should include file' do
+        should_install = PathClassifier.should_include_path?('./Source.swift')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Source.swift')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
+    # PBXFrameworksBuildPhase: %w{.so}.freeze,
+    # PBXSourcesBuildPhase: %w{.xcdatamodeld}.freeze,
+    # PBXResourcesBuildPhase: %w{.xcassets}.freeze
   end
 end
