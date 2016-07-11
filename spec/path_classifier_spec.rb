@@ -70,6 +70,18 @@ module Xcake
       end
     end
 
+    context 'for a shared object file' do
+      it 'should include library file' do
+        should_install = PathClassifier.should_include_path?('./Library.so')
+        expect(should_install).to be(true)
+      end
+
+      it 'should classify as PBXFrameworksBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Library.so')
+        expect(classification).to be(:PBXFrameworksBuildPhase)
+      end
+    end
+
     context 'for a C header' do
       it 'should include file' do
         should_install = PathClassifier.should_include_path?('./Header.h')
@@ -187,7 +199,5 @@ module Xcake
         expect(classification).to be(:PBXResourcesBuildPhase)
       end
     end
-
-    # PBXFrameworksBuildPhase: %w{.so}.freeze
   end
 end
