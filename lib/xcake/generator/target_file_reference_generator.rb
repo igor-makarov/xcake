@@ -24,7 +24,15 @@ module Xcake
 
       paths = paths_to_include - paths_to_exclude
       paths.each do |p|
-        @context.file_reference_for_path(p) if PathClassifier.should_include_path?(p)
+        if PathClassifier.should_include_path?(p)
+          file_reference = @context.file_reference_for_path(p)
+          native_target = @context.native_object_for(target)
+
+          build_phase_symbol = PathClassifier.classification_for_path(p)
+          build_phase_class = Xcodeproj::Project::Object.const_get(build_phase_symbol)
+          build_phase = native_target.build_phase_by_class(build_phase_class)
+          build_phase.add_file_reference(file_reference)
+        end
       end
     end
   end

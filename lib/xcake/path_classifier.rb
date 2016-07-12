@@ -5,10 +5,10 @@ module Xcake
   #
   class PathClassifier
     EXTENSION_MAPPINGS = {
-      LinkLibrary: %w{.a .dylib .so .framework}.freeze,
-      CopyHeaders: %w{.h .hpp}.freeze,
-      CompileSource: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      CopyResources: %w{.xcassets}.freeze
+      PBXFrameworksBuildPhase: %w{.a .dylib .so .framework}.freeze,
+      PBXHeadersBuildPhase: %w{.h .hpp}.freeze,
+      PBXSourcesBuildPhase: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
+      PBXResourcesBuildPhase: %w{.xcassets}.freeze
     }.freeze
 
     # @note This should be overidden
@@ -25,6 +25,15 @@ module Xcake
       true
     end
 
+    def self.classification_for_path(path)
+      classification = EXTENSION_MAPPINGS.detect do |_key, ext_group|
+        ext_group.any? {|ext| File.extname(path) == ext}
+      end
+
+      return :PBXResourcesBuildPhase if classification.nil?
+      classification.first
+    end
+
     private_class_method
 
     def self.is_locale_container?(path)
@@ -39,7 +48,7 @@ module Xcake
         is_classified?(c)
       end
 
-      unless classified_component_index.nil?
+      if !classified_component_index.nil?
         classified_component_index < (components.length - 1)
       else
         false
