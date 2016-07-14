@@ -86,7 +86,6 @@ module Xcake
     #         the newly created extension target
     #
     def extension_for(host_target)
-
       target = target do |t|
         t.type = :app_extension
         t.platform = host_target.platform
