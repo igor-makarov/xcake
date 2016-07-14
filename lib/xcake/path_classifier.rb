@@ -34,6 +34,10 @@ module Xcake
       classification.first
     end
 
+    def self.should_create_build_phases_for_classification?(classification)
+      classification != :PBXHeadersBuildPhase
+    end
+
     private_class_method
 
     def self.is_locale_container?(path)
