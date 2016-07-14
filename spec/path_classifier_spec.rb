@@ -4,22 +4,22 @@ module Xcake
   describe PathClassifier do
 
     it 'should allow PBXResourcesBuildPhase to be implicity created' do
-      should_create = PathClassifier.should_create_build_phases_for_classification?(:PBXResourcesBuildPhase)
+      should_create = PathClassifier.should_create_build_phase_for_classification?(:PBXResourcesBuildPhase)
       expect(should_create).to be(true)
     end
 
     it 'should allow PBXFrameworksBuildPhase to be implicity created' do
-      should_create = PathClassifier.should_create_build_phases_for_classification?(:PBXFrameworksBuildPhase)
+      should_create = PathClassifier.should_create_build_phase_for_classification?(:PBXFrameworksBuildPhase)
       expect(should_create).to be(true)
     end
 
     it 'should allow PBXSourcesBuildPhase to be implicity created' do
-      should_create = PathClassifier.should_create_build_phases_for_classification?(:PBXSourcesBuildPhase)
+      should_create = PathClassifier.should_create_build_phase_for_classification?(:PBXSourcesBuildPhase)
       expect(should_create).to be(true)
     end
 
     it 'shouldn\'t allow PBXHeadersBuildPhase to be implicity created' do
-      should_create = PathClassifier.should_create_build_phases_for_classification?(:PBXHeadersBuildPhase)
+      should_create = PathClassifier.should_create_build_phase_for_classification?(:PBXHeadersBuildPhase)
       expect(should_create).to be(false)
     end
 
