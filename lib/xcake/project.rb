@@ -65,7 +65,6 @@ module Xcake
     #
     def target(&block)
       target = Target.new(project, &block)
-
       targets << target
       target
     end
