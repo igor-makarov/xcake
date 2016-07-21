@@ -1,6 +1,7 @@
 Master
 ======
 - Simplified Target File Reference Generator
+- Implemented syntax for declaring UI Test targets
 
 v0.6.25
 =======
