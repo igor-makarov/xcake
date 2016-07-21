@@ -60,12 +60,12 @@ module Xcake
         @target = @project.ui_tests_for @app_target
       end
 
-      it 'should prefix application name with "Tests"' do
-        expect(@target.name).to eq('applicationTests')
+      it 'should prefix application name with "UITests"' do
+        expect(@target.name).to eq('applicationUITests')
       end
 
-      it 'should set type to unit test bundle' do
-        expect(@target.type).to eq(:unit_test_bundle)
+      it 'should set type to ui test bundle' do
+        expect(@target.type).to eq(:ui_test_bundle)
       end
 
       it 'should set platform to same as application target' do
