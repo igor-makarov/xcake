@@ -58,18 +58,7 @@ module Xcake
         t.name = "#{host_target.name}UITests"
 
         t.type = :ui_test_bundle
-        t.platform = host_target.platform
-        t.deployment_target = host_target.deployment_target
-        t.language = host_target.language
-
-        host_path = "#{host_target.name}.app/#{host_target.name}"
-        t.all_configurations.each do |c|
-          c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
-        end
-
-        t.all_configurations.each do |c|
-          c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
-        end
+        configure_test_target_for_host_target(t, host_target)
 
         yield(t) if block_given?
       end
@@ -91,21 +80,29 @@ module Xcake
         t.name = "#{host_target.name}Tests"
 
         t.type = :unit_test_bundle
-        t.platform = host_target.platform
-        t.deployment_target = host_target.deployment_target
-        t.language = host_target.language
-
-        host_path = "#{host_target.name}.app/#{host_target.name}"
-        t.all_configurations.each do |c|
-          c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
-        end
-        t.all_configurations.each do |c|
-          c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
-        end
+        configure_test_target_for_host_target(t, host_target)
 
         yield(t) if block_given?
       end
     end
+
+    private
+
+    def configure_test_target_for_host_target(test_target, host_target)
+      test_target.platform = host_target.platform
+      test_target.deployment_target = host_target.deployment_target
+      test_target.language = host_target.language
+
+      host_path = "#{host_target.name}.app/#{host_target.name}"
+      test_target.all_configurations.each do |c|
+        c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
+      end
+      test_target.all_configurations.each do |c|
+        c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+      end
+    end
+
+    public
 
     # Defines targets for watch app.
     #
