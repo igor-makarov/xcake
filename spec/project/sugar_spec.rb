@@ -48,6 +48,7 @@ module Xcake
       end
     end
 
+<<<<<<< HEAD
     context 'when creating ui test target' do
       before :each do
         @app_target = double('App Target')
@@ -96,6 +97,8 @@ module Xcake
       end
     end
 
+=======
+>>>>>>> master
     context 'when creating unit test target' do
       before :each do
         @app_target = double('App Target')
@@ -141,6 +144,36 @@ module Xcake
           c.settings['BUNDLE_LOADER'] == '$(TEST_HOST)'
         end
         expect(@target.all_configurations).to all(bundle_loader_set)
+      end
+    end
+
+    context 'when creating extension target' do
+      before :each do
+        @app_target = double('App Target')
+        @dependencies = []
+
+        allow(@app_target).to receive(:target_dependencies).and_return(@dependencies)
+        allow(@app_target).to receive(:platform).and_return(:ios)
+        allow(@app_target).to receive(:deployment_target).and_return(8.0)
+        allow(@app_target).to receive(:language).and_return(:swift)
+
+        @target = @project.extension_for @app_target
+      end
+
+      it 'should set type to app extension' do
+        expect(@target.type).to eq(:app_extension)
+      end
+
+      it 'should set platform to same as application target' do
+        expect(@target.platform).to eq(:ios)
+      end
+
+      it 'should set deployment target to same as application target' do
+        expect(@target.deployment_target).to eq(8.0)
+      end
+
+      it 'should set language to same as application target' do
+        expect(@target.language).to eq(:swift)
       end
     end
 
