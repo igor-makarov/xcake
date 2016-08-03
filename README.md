@@ -95,6 +95,10 @@ Usually you'll use xcake by running the command
 
 Xcake will then generate a Xcode project based on your Cakefile
 
+## Sample Cakefile
+
+To get better understanding of how to start using Xcake in a real project, see sample [Cakefile](https://github.com/jcampbell05/xcake/blob/master/docs/Sample/Cakefile).
+
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
 
