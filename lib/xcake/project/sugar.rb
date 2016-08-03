@@ -74,6 +74,32 @@ module Xcake
       end
     end
 
+    # Defines a extension target.
+    #
+    # @param  [Target] host target
+    #         host target for which the extension is for.
+    #
+    # @param  [Proc] block
+    #         an optional block that configures the target through the DSL.
+    #
+    # @return [Target] the extension target
+    #         the newly created extension target
+    #
+    def extension_for(host_target)
+      target = target do |t|
+        t.type = :app_extension
+        t.platform = host_target.platform
+        t.deployment_target = host_target.deployment_target
+        t.language = host_target.language
+      end
+
+      host_target.target_dependencies << target
+
+      yield(target) if block_given?
+
+      target
+    end
+
     # Defines targets for watch app.
     #
     # @param  [Target] watch app's compantion app
