@@ -1,4 +1,4 @@
-#Cakefile Syntax Reference
+# Cakefile Syntax Reference
 
 The `Cakefile` contains a lightweight DSL which provides the instructions on how to generate
 a project file. We adopt the convention over configuration and thus it can be very simple:
@@ -92,7 +92,7 @@ Mac App:
 application_for :mac, 8.0
 ```
 
-###Tests
+### Tests
 
 We can also specify a testing targets for other targets as well:
 
@@ -115,13 +115,32 @@ application_for :mac, 8.0 do |target|
         test_target.include_files = ["Tests/**/*.*"]
 
         # configure any other target-related properties
-        # as you would do with normal target
+        # as you would do with application target
 
     end
 end
 ```
 
-###Watch
+### UI Tests
+
+To create UI tests target, you do everything the same as for unit tests, but instead of "unit_tests_for" use "ui_tests_for", like this:
+
+```ruby
+application_for :mac, 8.0 do |target|
+
+  ui_tests_for target do |test_target|
+
+        test_target.name = "MyAwesomeUITests"
+        test_target.include_files = ["UITests/**/*.*"]
+
+        # configure any other target-related properties
+        # as you would do with application target
+
+    end
+end
+```
+
+### Watch
 
 To create watch applications we can simply use the `watch_app_for` method:
 
