@@ -1,6 +1,9 @@
-Master
+v0.7.0
 ======
-- Simplified Target File Reference Generator
+- Simplified Target File Reference Generator.
+- Adds support for UI Tests.
+- Adds sample Cakefile to documentation.
+- Adds support for extension targets.
 
 v0.6.25
 =======
