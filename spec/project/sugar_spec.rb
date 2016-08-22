@@ -48,7 +48,6 @@ module Xcake
       end
     end
 
-<<<<<<< HEAD
     context 'when creating ui test target' do
       before :each do
         @app_target = double('App Target')
@@ -97,8 +96,6 @@ module Xcake
       end
     end
 
-=======
->>>>>>> master
     context 'when creating unit test target' do
       before :each do
         @app_target = double('App Target')
