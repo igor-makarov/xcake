@@ -1,7 +1,12 @@
 Master
 ======
-- Simplified Target File Reference Generator.
 - Implemented syntax for declaring UI Test targets.
+
+v0.7.0
+======
+- Simplified Target File Reference Generator.
+- Adds sample Cakefile to documentation.
+- Adds support for extension targets.
 
 v0.6.25
 =======
