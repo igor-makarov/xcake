@@ -48,6 +48,54 @@ module Xcake
       end
     end
 
+    context 'when creating ui test target' do
+      before :each do
+        @app_target = double('App Target')
+
+        allow(@app_target).to receive(:name).and_return('application')
+        allow(@app_target).to receive(:platform).and_return(:ios)
+        allow(@app_target).to receive(:deployment_target).and_return(8.0)
+        allow(@app_target).to receive(:language).and_return(:swift)
+
+        @target = @project.ui_tests_for @app_target
+      end
+
+      it 'should prefix application name with "UITests"' do
+        expect(@target.name).to eq('applicationUITests')
+      end
+
+      it 'should set type to ui test bundle' do
+        expect(@target.type).to eq(:ui_test_bundle)
+      end
+
+      it 'should set platform to same as application target' do
+        expect(@target.platform).to eq(:ios)
+      end
+
+      it 'should set deployment target to same as application target' do
+        expect(@target.deployment_target).to eq(8.0)
+      end
+
+      it 'should set language to same as application target' do
+        expect(@target.language).to eq(:swift)
+      end
+
+      it 'should set test host to application target executable' do
+        executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
+        test_host_set = satisfy do |c|
+          c.settings['TEST_HOST'] == executable_path
+        end
+        expect(@target.all_configurations).to all(test_host_set)
+      end
+
+      it 'should set bundle loader setting to test host' do
+        bundle_loader_set = satisfy do |c|
+          c.settings['BUNDLE_LOADER'] == '$(TEST_HOST)'
+        end
+        expect(@target.all_configurations).to all(bundle_loader_set)
+      end
+    end
+
     context 'when creating unit test target' do
       before :each do
         @app_target = double('App Target')

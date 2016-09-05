@@ -1,3 +1,7 @@
+Master
+======
+- Implemented syntax for declaring UI Test targets.
+
 v0.7.0
 ======
 - Simplified Target File Reference Generator.

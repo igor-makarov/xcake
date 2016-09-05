@@ -36,10 +36,6 @@ module Xcake
     #
     attr_accessor :language
 
-    # @return [Target] the test target for this target
-    #
-    attr_accessor :test_target
-
     # @return [Array<Xcodeproj::Project::Object::AbstractBuildPhase>] the list
     #                  of custom build phases for the project.
     #
