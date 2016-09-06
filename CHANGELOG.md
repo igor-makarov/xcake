@@ -1,4 +1,4 @@
-Master
+v0.7.1
 ======
 - Implemented syntax for declaring UI Test targets.
 
