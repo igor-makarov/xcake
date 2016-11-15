@@ -5,6 +5,16 @@
 
 #===
 
+# just helper variables to use these values in a consistent way across whole file
+
+iOSdeploymentTarget = 9.0
+currentSwiftVersion = 3.0
+
+provProfAdHoc = "XXX"
+provProfAppStore = "YYY"
+
+#===
+
 # lets define high level project settings
 
 project.name = "CakeMania"
@@ -91,10 +101,29 @@ project.all_configurations.each do |configuration|
     configuration.settings["CLANG_WARN__DUPLICATE_METHOD_MATCH"] = "YES"
     configuration.settings["GCC_WARN_UNDECLARED_SELECTOR"] = "YES"
     configuration.settings["CLANG_WARN_OBJC_ROOT_CLASS"] = "YES_ERROR"
-    configuration.settings["DEFINES_MODULE"] = "YES" # http://stackoverflow.com/a/27251979
 
     configuration.settings["CURRENT_PROJECT_VERSION"] = "1" # just default non-empty value
 
+    configuration.settings["DEFINES_MODULE"] = "YES" # http://stackoverflow.com/a/27251979
+
+    configuration.settings["SWIFT_OPTIMIZATION_LEVEL"] = "-Onone"
+
+    configuration.settings["CLANG_WARN_INFINITE_RECURSION"] = "YES"
+    configuration.settings["CLANG_WARN_SUSPICIOUS_MOVE"] = "YES"
+    configuration.settings["ENABLE_STRICT_OBJC_MSGSEND"] = "YES"
+    configuration.settings["GCC_NO_COMMON_BLOCKS"] = "YES"
+    configuration.settings["ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES"] = "$(inherited)" # "YES"
+
+    configuration.settings["SWIFT_VERSION"] = currentSwiftVersion.to_s # .to_s !!!
+
+    #===
+
+    if configuration.name == "RC" || configuration.name == "AppStore"
+
+        configuration.settings["DEBUG_INFORMATION_FORMAT"] = "dwarf-with-dsym"
+        configuration.settings["SWIFT_OPTIMIZATION_LEVEL"] = "-Owholemodule"
+
+    end
 end
 
 #=== 3d-party integration keys (global variables)
@@ -124,12 +153,13 @@ facebookTestKey = "999999999999999"
 # put all it's settings (including definition or related unit test targets)
 # inside "application_for ... do ... end" structure.
 
-application_for :ios, 8.0 do |target|
+target do |target|
 
-    # first of all, we set target settings
-
-    target.name = "CakeMania"
+    target.name = project.name
     target.language = :swift
+    target.type = :application
+    target.platform = :ios
+    target.deployment_target = iOSdeploymentTarget
 
     #===
 
@@ -149,8 +179,8 @@ application_for :ios, 8.0 do |target|
     # - Cakefile
     # - Info/
     # | - CakeMania.plist
-    # | - CakeManiaTests.plist
-    # | - CakeManiaUITests.plist
+    # | - CakeManiaTst.plist
+    # | - CakeManiaUITst.plist
     # - Src/
     # | - ...
     # | - ObjC/
@@ -180,11 +210,11 @@ application_for :ios, 8.0 do |target|
 
         #=== Build Settings - Core
 
-        configuration.product_bundle_identifier = "com.CakeMania.theApp"
-
-        configuration.settings["INFOPLIST_FILE"] = "Info/CakeMania.plist"
-
+        configuration.product_bundle_identifier = "com.CakeMania." + target.name
+        configuration.supported_devices = :universal
+        configuration.settings["INFOPLIST_FILE"] = "Info/" + target.name + ".plist"
         configuration.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
+
         configuration.settings["CODE_SIGN_ENTITLEMENTS"] = "Res/CakeMania.entitlements"
         configuration.settings["GCC_PREFIX_HEADER"] = "Src/ObjC/Prefix.pch"
         # configuration.settings["FRAMEWORK_SEARCH_PATHS"] = "$(inherited)"
@@ -201,7 +231,11 @@ application_for :ios, 8.0 do |target|
         
         # This will show "Automatic" in Xcode,
         # relies on proper/valid "PROVISIONING_PROFILE" value:
-        configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = nil
+        # configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = nil # DEPRECATED
+
+        # Xcode 8 automati c signing support
+        configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = "iPhone Developer"
+        configuration.settings["DEVELOPMENT_TEAM"] = "XYZXYZ" # team ID
 
         #=== Build Settings - Per-configuration
 
@@ -213,13 +247,10 @@ application_for :ios, 8.0 do |target|
 
             #=== Config
 
-            configuration.settings["PROVISIONING_PROFILE"] = "f39ljkcf-2be6-49ee-8088-5741718g0969" # dev
-
             configuration.settings["CODE_SIGN_ENTITLEMENTS"] = "Res/CakeMania-test.entitlements"
 
             #=== Config - User Defined Build Settings
             
-            configuration.settings["BRANCH_KEY"] = branchTestKey
             configuration.settings["FACEBOOK_KEY"] = facebookTestKey
 
         end
@@ -230,7 +261,7 @@ application_for :ios, 8.0 do |target|
 
             #=== Config
     
-            configuration.settings["PROVISIONING_PROFILE"] = "19701b9a-p784-4476-ac01-af327a8deea8" # AdHoc
+            configuration.settings["PROVISIONING_PROFILE"] = provProfAdHoc
 
             configuration.settings["CODE_SIGN_ENTITLEMENTS"] = "Res/CakeMania-test.entitlements"
             
@@ -246,7 +277,7 @@ application_for :ios, 8.0 do |target|
 
             #=== Config
         
-            configuration.settings["PROVISIONING_PROFILE"] = "19701b9a-p784-4476-ac01-af327a8deea8" # AdHoc
+            configuration.settings["PROVISIONING_PROFILE"] = provProfAdHoc
 
             configuration.settings["CODE_SIGN_ENTITLEMENTS"] = "Res/CakeMania-test.entitlements"
             
@@ -262,7 +293,7 @@ application_for :ios, 8.0 do |target|
 
             #=== Config
         
-            configuration.settings["PROVISIONING_PROFILE"] = "19701b9a-p784-4476-ac01-af327a8deea8" # AdHoc
+            configuration.settings["PROVISIONING_PROFILE"] = provProfAdHoc # AdHoc
 
             #=== Config - User Defined Build Settings
             
@@ -276,7 +307,7 @@ application_for :ios, 8.0 do |target|
 
             #=== Config
         
-            configuration.settings["PROVISIONING_PROFILE"] = "ba8502ed-6d0b-4aab-07do-61a7ad4dd5cb" # App Store
+            configuration.settings["PROVISIONING_PROFILE"] = provProfAppStore
 
             #=== Config - User Defined Build Settings
 
@@ -325,19 +356,21 @@ application_for :ios, 8.0 do |target|
     # and its source files, or course. The rules of how we work with test target (set its settings)
     # are the same, as we work with application target.
 
+    testSuffix = "Tst"
+
     unit_tests_for target do |test_target|
         
-        test_target.name = "CakeManiaTests"
+        test_target.name = target.name + testSuffix
 
         test_target.all_configurations.each do |configuration|
 
-            configuration.settings["INFOPLIST_FILE"] = "Info/CakeManiaTests.plist"
+            configuration.settings["INFOPLIST_FILE"] = "Info/" + test_target.name + ".plist"
 
         end
 
         #=== Source Files
 
-        test_target.include_files = ["Tst/**/*.*"] # we set array with 1 element here!
+        test_target.include_files = [testSuffix + "/**/*.*"] # we set array with 1 element here!
 
     end
 
@@ -346,19 +379,21 @@ application_for :ios, 8.0 do |target|
     # Below we define UI tests target for the application target.
     # See https://github.com/jcampbell05/xcake/issues/44
 
+    testSuffixUI = "UI" + testSuffix
+    
     ui_tests_for target do |test_target|
 
-        test_target.name = "CakeManiaUITests"
+        test_target.name = target.name + testSuffixUI
 
         test_target.all_configurations.each do |configuration|
 
-            configuration.settings["INFOPLIST_FILE"] = "Info/CakeManiaUITests.plist"
+            configuration.settings["INFOPLIST_FILE"] = "Info/" + test_target.name + ".plist"
 
         end
 
         #=== Source Files
 
-        test_target.include_files = ["UITst/**/*.*"] # we set array with 1 element here!
+        test_target.include_files = [testSuffixUI + "/**/*.*"] # we set array with 1 element here!
 
     end
 
