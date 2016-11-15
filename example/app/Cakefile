@@ -210,7 +210,7 @@ target do |target|
 
         #=== Build Settings - Core
 
-        configuration.product_bundle_identifier = "com.CakeMania.theApp"
+        configuration.product_bundle_identifier = "com.CakeMania." + target.name
         configuration.supported_devices = :universal
         configuration.settings["INFOPLIST_FILE"] = "Info/" + target.name + ".plist"
         configuration.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
