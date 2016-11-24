@@ -181,11 +181,7 @@ target do |target|
     # | - CakeMania.plist
     # | - CakeManiaTst.plist
     # | - CakeManiaUITst.plist
-    # - Src/
-    # | - ...
-    # | - ObjC/
-    #   | - Prefix.pch
-    #   | - CakeMania-Bridging-Header.h
+    # - Lib/
     # | - ...
     # - Res/
     # | - CakeMania.entitlements
@@ -195,10 +191,12 @@ target do |target|
     #   | - ...
     #   | - AppIcon.appiconset/
     #     | - ...
-    #   | - Brand Assets.launchimage/
-    #     | - ...
     #   | - ...
-    # - Lib/
+    # - Src/
+    # | - ...
+    # | - ObjC/
+    #   | - Prefix.pch
+    #   | - CakeMania-Bridging-Header.h
     # | - ...
     # - Tst/
     # | - ...
@@ -220,7 +218,7 @@ target do |target|
         # configuration.settings["FRAMEWORK_SEARCH_PATHS"] = "$(inherited)"
         configuration.settings["LIBRARY_SEARCH_PATHS"] = "$(inherited) $(SRCROOT)/Lib/**"
         configuration.settings["ASSETCATALOG_COMPILER_APPICON_NAME"] = "AppIcon"
-        configuration.settings["ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME"] = "Brand Assets"
+        # configuration.settings["ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME"] = "Brand Assets"
         configuration.settings["SWIFT_OBJC_BRIDGING_HEADER"] = "Src/ObjC/CakeMania-Bridging-Header.h"
         configuration.settings["OTHER_LDFLAGS"] = "$(inherited) -ObjC"
 
