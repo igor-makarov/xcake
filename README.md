@@ -97,7 +97,9 @@ Xcake will then generate a Xcode project based on your Cakefile
 
 ## Sample Cakefile
 
-To get better understanding of how to start using Xcake in a real project, see sample [Cakefile](https://github.com/jcampbell05/xcake/blob/master/docs/Sample/Cakefile).
+To get better understanding of how to start using Xcake in a real project, see examples under [example](https://github.com/jcampbell05/xcake/tree/master/example) folder.
+
+There is a sample [app project](https://github.com/jcampbell05/xcake/blob/master/example/app/CakeMania) (the project file has been generated using Xcake v.0.7.1 based on the [Cakefile](https://github.com/jcampbell05/xcake/blob/master/example/app/CakeMania/Cakefile)) as well as sample [Cakefile](https://github.com/jcampbell05/xcake/blob/master/example/framework/Cakefile) for an iOS framework project.
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
