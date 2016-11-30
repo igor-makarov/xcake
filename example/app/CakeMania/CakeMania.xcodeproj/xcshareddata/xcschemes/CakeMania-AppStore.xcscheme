@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD1164DCD2F4A74419EF9B31"
+               BlueprintIdentifier = "8593064DF4C97D21ED61EF58"
                BuildableName = "CakeMania.app"
                BlueprintName = "CakeMania"
                ReferencedContainer = "container:CakeMania.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD1164DCD2F4A74419EF9B31"
+            BlueprintIdentifier = "8593064DF4C97D21ED61EF58"
             BuildableName = "CakeMania.app"
             BlueprintName = "CakeMania"
             ReferencedContainer = "container:CakeMania.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD1164DCD2F4A74419EF9B31"
+            BlueprintIdentifier = "8593064DF4C97D21ED61EF58"
             BuildableName = "CakeMania.app"
             BlueprintName = "CakeMania"
             ReferencedContainer = "container:CakeMania.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD1164DCD2F4A74419EF9B31"
+            BlueprintIdentifier = "8593064DF4C97D21ED61EF58"
             BuildableName = "CakeMania.app"
             BlueprintName = "CakeMania"
             ReferencedContainer = "container:CakeMania.xcodeproj">
