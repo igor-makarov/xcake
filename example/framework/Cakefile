@@ -1,8 +1,11 @@
 # https://github.com/jcampbell05/xcake
 # http://www.rubydoc.info/github/jcampbell05/xcake/master/file/docs/Cakefile.md
 
-iOSdeploymentTarget = 8.0
-currentSwiftVersion = 3.0
+iOSdeploymentTarget = (8.0).to_s
+currentSwiftVersion = (3.0).to_s
+companyIdentifier = "com.CakeMania"
+developmentTeamId = "XYZXYZ" # for automatic debug signing in Xcode 8
+testSuffix = "Tst"
 
 #===
 
@@ -10,9 +13,11 @@ project.name = "CakeFamework"
 project.class_prefix = "CFW"
 project.organization = "CakeMania Inc."
 
-#===
+#=== DEFAULT target settings
 
 project.all_configurations.each do |configuration|
+
+    # for all configurations
 
     configuration.settings["SDKROOT"] = "iphoneos"
     configuration.settings["DEBUG_INFORMATION_FORMAT"] = "dwarf"
@@ -31,11 +36,9 @@ project.all_configurations.each do |configuration|
 
     configuration.settings["CURRENT_PROJECT_VERSION"] = "1" # just default non-empty value
 
-    #=== Xcode 8:
-
-    configuration.settings["CLANG_WARN_INFINITE_RECURSION"] = "YES"
-    configuration.settings["CLANG_WARN_SUSPICIOUS_MOVE"] = "YES"
-    configuration.settings["ENABLE_STRICT_OBJC_MSGSEND"] = "YES"
+    configuration.settings["CLANG_WARN_INFINITE_RECURSION"] = "YES" # Xcode 8
+    configuration.settings["CLANG_WARN_SUSPICIOUS_MOVE"] = "YES" # Xcode 8
+    configuration.settings["ENABLE_STRICT_OBJC_MSGSEND"] = "YES" # Xcode 8
 
     #===
 
@@ -62,7 +65,7 @@ end
     # | - ...
     #
 
-#=== Targets
+#=== TARGETS
 
 target do |target|
 
@@ -72,11 +75,13 @@ target do |target|
     target.platform = :ios
     target.deployment_target = iOSdeploymentTarget
 
+    #=== CUSTOM settings for the target
+
     target.all_configurations.each do |configuration|
 
         #=== Build Settings - Core
 
-        configuration.product_bundle_identifier = "com.CakeMania." + target.name
+        configuration.product_bundle_identifier = companyIdentifier + "." + target.name
 
         configuration.settings["INFOPLIST_FILE"] = "Info/" + target.name + ".plist"
 
@@ -84,9 +89,9 @@ target do |target|
 
         # Xcode 8 automati c signing support
         configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = "iPhone Developer"
-        configuration.settings["DEVELOPMENT_TEAM"] = "XYZXYZ" # team ID
+        configuration.settings["DEVELOPMENT_TEAM"] = developmentTeamId
 
-        configuration.settings["SWIFT_VERSION"] = currentSwiftVersion.to_s # Xcode 8
+        configuration.settings["SWIFT_VERSION"] = currentSwiftVersion # Xcode 8
 
     end
 
@@ -96,10 +101,8 @@ target do |target|
 
     target.include_files = ["Src/**/*.*"]
 
-    #=== Tests
+    #=== TEST TARGETS
     
-    testSuffix = "Tst"
-
     unit_tests_for target do |test_target|
         
         test_target.name = target.name + testSuffix
@@ -107,7 +110,7 @@ target do |target|
 
         test_target.all_configurations.each do |configuration|
 
-            configuration.product_bundle_identifier = "com.CakeMania." + test_target.name
+            configuration.product_bundle_identifier = companyIdentifier + "." + test_target.name
 
             configuration.settings["INFOPLIST_FILE"] = "Info/" + test_target.name + ".plist"
 
@@ -115,9 +118,9 @@ target do |target|
 
             # Xcode 8 automati c signing support
             configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = "iPhone Developer"
-            configuration.settings["DEVELOPMENT_TEAM"] = "XYZXYZ" # team ID
+            configuration.settings["DEVELOPMENT_TEAM"] = developmentTeamId
 
-            configuration.settings["SWIFT_VERSION"] = currentSwiftVersion.to_s # Xcode 8
+            configuration.settings["SWIFT_VERSION"] = currentSwiftVersion # Xcode 8
 
         end
 

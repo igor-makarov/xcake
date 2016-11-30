@@ -7,11 +7,30 @@
 
 # just helper variables to use these values in a consistent way across whole file
 
-iOSdeploymentTarget = 9.0
-currentSwiftVersion = 3.0
+iOSdeploymentTarget = (8.0).to_s
+currentSwiftVersion = (3.0).to_s
+companyIdentifier = "com.CakeMania"
+developmentTeamId = "XYZXYZ" # for automatic debug signing in Xcode 8
+testSuffix = "Tst"
+testSuffixUI = "UI" + testSuffix
 
 provProfAdHoc = "XXX"
 provProfAppStore = "YYY"
+
+#=== 3d-party integration keys (global variables)
+
+# The values below will be used to set "user-defined" build settings
+# for build configurations on target level,
+# so we can reuse the same, lets say, "test" FB key
+# within several "test" configurations (for example, the same test key
+# would be used for "Debug" and "Staging" configurations), and can easily
+# see what is the value/key we use for testing and production,
+# and even update it in future if needed.
+
+# "FACEBOOK_KEY"
+
+facebookProdKey = "888888888888888"
+facebookTestKey = "999999999999999"
 
 #===
 
@@ -57,7 +76,7 @@ project.release_configuration :AppStore # for App Store builds, pointing to "www
 # "CakeMania-Production"
 # "CakeMania-AppStore"
 
-#===
+#=== DEFAULT target settings
 
 # Below we define "project level" build configurations.
 # REMEMBER this entiire file is just an interpretable script,
@@ -108,38 +127,23 @@ project.all_configurations.each do |configuration|
 
     configuration.settings["SWIFT_OPTIMIZATION_LEVEL"] = "-Onone"
 
-    configuration.settings["CLANG_WARN_INFINITE_RECURSION"] = "YES"
-    configuration.settings["CLANG_WARN_SUSPICIOUS_MOVE"] = "YES"
-    configuration.settings["ENABLE_STRICT_OBJC_MSGSEND"] = "YES"
+    configuration.settings["CLANG_WARN_INFINITE_RECURSION"] = "YES" # Xcode 8
+    configuration.settings["CLANG_WARN_SUSPICIOUS_MOVE"] = "YES" # Xcode 8
+    configuration.settings["ENABLE_STRICT_OBJC_MSGSEND"] = "YES" # Xcode 8
     configuration.settings["GCC_NO_COMMON_BLOCKS"] = "YES"
     configuration.settings["ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES"] = "$(inherited)" # "YES"
 
-    configuration.settings["SWIFT_VERSION"] = currentSwiftVersion.to_s # .to_s !!!
+    configuration.settings["SWIFT_VERSION"] = currentSwiftVersion
 
     #===
 
     if configuration.name == "RC" || configuration.name == "AppStore"
 
         configuration.settings["DEBUG_INFORMATION_FORMAT"] = "dwarf-with-dsym"
-        configuration.settings["SWIFT_OPTIMIZATION_LEVEL"] = "-Owholemodule"
+        configuration.settings["SWIFT_OPTIMIZATION_LEVEL"] = "-Owholemodule" # Xcode 8
 
     end
 end
-
-#=== 3d-party integration keys (global variables)
-
-# The values below will be used to set "user-defined" build settings
-# for build configurations on target level,
-# so we can reuse the same, lets say, "test" FB key
-# within several "test" configurations (for example, the same test key
-# would be used for "Debug" and "Staging" configurations), and can easily
-# see what is the value/key we use for testing and production,
-# and even update it in future if needed.
-
-# "FACEBOOK_KEY"
-
-facebookProdKey = "888888888888888"
-facebookTestKey = "999999999999999"
 
 #=== Targets
 
@@ -208,7 +212,7 @@ target do |target|
 
         #=== Build Settings - Core
 
-        configuration.product_bundle_identifier = "com.CakeMania." + target.name
+        configuration.product_bundle_identifier = companyIdentifier + "." + target.name
         configuration.supported_devices = :universal
         configuration.settings["INFOPLIST_FILE"] = "Info/" + target.name + ".plist"
         configuration.settings["PRODUCT_NAME"] = "$(TARGET_NAME)"
@@ -233,7 +237,7 @@ target do |target|
 
         # Xcode 8 automati c signing support
         configuration.settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = "iPhone Developer"
-        configuration.settings["DEVELOPMENT_TEAM"] = "XYZXYZ" # team ID
+        configuration.settings["DEVELOPMENT_TEAM"] = developmentTeamId
 
         #=== Build Settings - Per-configuration
 
@@ -354,8 +358,6 @@ target do |target|
     # and its source files, or course. The rules of how we work with test target (set its settings)
     # are the same, as we work with application target.
 
-    testSuffix = "Tst"
-
     unit_tests_for target do |test_target|
         
         test_target.name = target.name + testSuffix
@@ -377,8 +379,6 @@ target do |target|
     # Below we define UI tests target for the application target.
     # See https://github.com/jcampbell05/xcake/issues/44
 
-    testSuffixUI = "UI" + testSuffix
-    
     ui_tests_for target do |test_target|
 
         test_target.name = target.name + testSuffixUI
