@@ -7,193 +7,177 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09F31C6BE7B0BF65F7CF17A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35F3B9EEF4835BF51E6167 /* ViewController.swift */; };
-		19DBE1A16030F991BEC65175 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85435275C7A930691AF19B2F /* AdSupport.framework */; };
-		2AECBEBC16075B2DE5E70BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A50A00EB8EDC543F482523 /* AppDelegate.swift */; };
-		4192BDA50DB58D5C435838B5 /* CakeMania.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BDBF676B34594A4226C8A4 /* CakeMania.xcassets */; };
-		4C95A391943B52904B9B95C8 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852AC41EBBCEA29518C664A /* Main.swift */; };
-		4DE8457A3B21CE7A85CB172F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE71C73A5B819BC8B027FAC5 /* UIKit.framework */; };
-		5F2D95E7089C19AAEE97AEA2 /* CakeMania-test.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 5774CE60D07740EC58E8EDFB /* CakeMania-test.entitlements */; };
-		8A84D5F842376CE76DDE9B1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094DE59FB73C9440029BD46A /* Main.storyboard */; };
-		8D3125CD7566B3481EA80CE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399CBE7783F5A490F4DA0FDD /* Foundation.framework */; };
-		9DD88E7413425A231EE0E61C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE71C73A5B819BC8B027FAC5 /* UIKit.framework */; };
-		A488266FC42188DCEF5E0491 /* Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 8C0551BAE7E68CCEFC4BBEC6 /* Prefix.pch */; };
-		B14873F032BFA9A31FE0CBCF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A51642F351E49680F6A21 /* Main.swift */; };
-		BC6BDD7117489A6618F8DDC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399CBE7783F5A490F4DA0FDD /* Foundation.framework */; };
-		C1A92E26FF2C71411BF5FB33 /* CakeMania.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 624164E9FD60C35C041862C0 /* CakeMania.entitlements */; };
-		C61E3C82D6418B542DFD82A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399CBE7783F5A490F4DA0FDD /* Foundation.framework */; };
-		C66EC4D1D926182F7FF9FD0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE71C73A5B819BC8B027FAC5 /* UIKit.framework */; };
-		DE97554AE7379E373B23CDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E33DD5099F33995F15047F1 /* LaunchScreen.storyboard */; };
-		EF0A6E4075474330B3622194 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD6BEC3BA223784E556FD34 /* QuartzCore.framework */; };
+		1A9F172B267738493DEA1571 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40E93EF8C4329C4C92DC1E65 /* AdSupport.framework */; };
+		1D3CABBB73CF4AFF9A4FCBB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F3824371A1E4408E2FB2B0 /* Foundation.framework */; };
+		1E0CCBA054195BE5E8ABA7D1 /* CakeMania.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 233946501B63EE884C17A9FF /* CakeMania.entitlements */; };
+		1EC23763D8902D70E13A4F64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D97159C83751AB90A792F4AA /* LaunchScreen.storyboard */; };
+		2A76411DCDCF20C903670F25 /* CakeMania.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A030EF7456BEF44CD0ABD49E /* CakeMania.xcassets */; };
+		3358D06E2A2E7155563DF253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D454AC2732E9F1ABDBD2F47 /* UIKit.framework */; };
+		36DCAD0942F2444553620FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B48296069116EC3AD1774038 /* Main.storyboard */; };
+		56461110276353046FACB556 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698974501779D6E46772C57 /* Main.swift */; };
+		782318EA510088E47AEA10E3 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E4DB4C776788482EFF552F /* Main.swift */; };
+		82179FDBCC50EFCDF028BF4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F3824371A1E4408E2FB2B0 /* Foundation.framework */; };
+		965D308FDDE56E8F77005A02 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D612857D1DD700F5559DF7C1 /* QuartzCore.framework */; };
+		9775CF6B046CCAC66F6A94A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED264238795EBA1EB00175AA /* ViewController.swift */; };
+		97F1C77BCA207DD47F0B921F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F3824371A1E4408E2FB2B0 /* Foundation.framework */; };
+		A9969F0EC4547EBE1AC3CE75 /* CakeMania-test.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 7BEAD9728F28E4E2150838F2 /* CakeMania-test.entitlements */; };
+		AE858AD1E5964B2ACFA92939 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D454AC2732E9F1ABDBD2F47 /* UIKit.framework */; };
+		C53F77FB9002301C7B8EA4FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D454AC2732E9F1ABDBD2F47 /* UIKit.framework */; };
+		CA3B3C86953FC08924F58DD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CAB48CB5A0DDDB91E98D79 /* AppDelegate.swift */; };
+		E9843DC5AA3FE2C9682725C2 /* Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = A8DF1F5192ABEA033D5B2D68 /* Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		094DE59FB73C9440029BD46A /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C541F6347A8E9EA20E9CC46 /* CakeManiaTst. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = CakeManiaTst.; path = CakeManiaTst.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		38A50A00EB8EDC543F482523 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		399CBE7783F5A490F4DA0FDD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		52BDBF676B34594A4226C8A4 /* CakeMania.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = CakeMania.xcassets; sourceTree = "<group>"; };
-		5774CE60D07740EC58E8EDFB /* CakeMania-test.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = "CakeMania-test.entitlements"; sourceTree = "<group>"; };
-		60CA269BD4F3D070756482BE /* CakeMania-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CakeMania-Bridging-Header.h"; sourceTree = "<group>"; };
-		624164E9FD60C35C041862C0 /* CakeMania.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = CakeMania.entitlements; sourceTree = "<group>"; };
-		851A51642F351E49680F6A21 /* Main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		85435275C7A930691AF19B2F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
-		8C0551BAE7E68CCEFC4BBEC6 /* Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		8E33DD5099F33995F15047F1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9E35F3B9EEF4835BF51E6167 /* ViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C852AC41EBBCEA29518C664A /* Main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		CE71C73A5B819BC8B027FAC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F8EB2CC618577565C66F2F32 /* CakeManiaUITst. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = CakeManiaUITst.; path = CakeManiaUITst.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCD6BEC3BA223784E556FD34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		FED9786D18F2827F6C61B504 /* CakeMania. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; name = CakeMania.; path = CakeMania.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F3824371A1E4408E2FB2B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1D454AC2732E9F1ABDBD2F47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		233946501B63EE884C17A9FF /* CakeMania.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = CakeMania.entitlements; sourceTree = "<group>"; };
+		27E8A4BEFAA7B3302EDE8E99 /* CakeMania. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; name = CakeMania.; path = CakeMania.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40E93EF8C4329C4C92DC1E65 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		5698974501779D6E46772C57 /* Main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		60E140428F554B4D1D6DB890 /* CakeManiaTst. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = CakeManiaTst.; path = CakeManiaTst.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		750EB1B4E2920087D7539B2D /* CakeManiaUITst. */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; name = CakeManiaUITst.; path = CakeManiaUITst.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BEAD9728F28E4E2150838F2 /* CakeMania-test.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = "CakeMania-test.entitlements"; sourceTree = "<group>"; };
+		A030EF7456BEF44CD0ABD49E /* CakeMania.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = CakeMania.xcassets; sourceTree = "<group>"; };
+		A8DF1F5192ABEA033D5B2D68 /* Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		B48296069116EC3AD1774038 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8CAB48CB5A0DDDB91E98D79 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4EDB95E044E95DDE0B45123 /* CakeMania-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CakeMania-Bridging-Header.h"; sourceTree = "<group>"; };
+		D612857D1DD700F5559DF7C1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		D97159C83751AB90A792F4AA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9E4DB4C776788482EFF552F /* Main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		ED264238795EBA1EB00175AA /* ViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7BE59BFE731123CEE37EBF66 /* Frameworks */ = {
+		AD69EB8D300C73E5871AAE55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C61E3C82D6418B542DFD82A7 /* Foundation.framework in Frameworks */,
-				4DE8457A3B21CE7A85CB172F /* UIKit.framework in Frameworks */,
-				19DBE1A16030F991BEC65175 /* AdSupport.framework in Frameworks */,
-				EF0A6E4075474330B3622194 /* QuartzCore.framework in Frameworks */,
+				1D3CABBB73CF4AFF9A4FCBB2 /* Foundation.framework in Frameworks */,
+				AE858AD1E5964B2ACFA92939 /* UIKit.framework in Frameworks */,
+				1A9F172B267738493DEA1571 /* AdSupport.framework in Frameworks */,
+				965D308FDDE56E8F77005A02 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87E08A682ABC2C0AAD081B25 /* Frameworks */ = {
+		C27C5E5B46A4F766575DE138 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3125CD7566B3481EA80CE9 /* Foundation.framework in Frameworks */,
-				9DD88E7413425A231EE0E61C /* UIKit.framework in Frameworks */,
+				82179FDBCC50EFCDF028BF4B /* Foundation.framework in Frameworks */,
+				3358D06E2A2E7155563DF253 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A13199E4EF597F430A8C10A3 /* Frameworks */ = {
+		E5A76B65EFD10A2C65CE12BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC6BDD7117489A6618F8DDC7 /* Foundation.framework in Frameworks */,
-				C66EC4D1D926182F7FF9FD0A /* UIKit.framework in Frameworks */,
+				97F1C77BCA207DD47F0B921F /* Foundation.framework in Frameworks */,
+				C53F77FB9002301C7B8EA4FF /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		359F0936DE1CAE2DD1A42BA9 /* Frameworks */ = {
+		290486E76E6E6199ED427118 /* Tst */ = {
 			isa = PBXGroup;
 			children = (
-				487DEA9EE2F5A172366A7293 /* iOS */,
+				E9E4DB4C776788482EFF552F /* Main.swift */,
 			);
-			name = Frameworks;
+			path = Tst;
 			sourceTree = "<group>";
 		};
-		3D312E06D152A4DC6C7FA43B /* ObjC */ = {
+		3C88CD2E01D71F1AA4BDEBBC /* UITst */ = {
 			isa = PBXGroup;
 			children = (
-				60CA269BD4F3D070756482BE /* CakeMania-Bridging-Header.h */,
-				8C0551BAE7E68CCEFC4BBEC6 /* Prefix.pch */,
-			);
-			path = ObjC;
-			sourceTree = "<group>";
-		};
-		487DEA9EE2F5A172366A7293 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				399CBE7783F5A490F4DA0FDD /* Foundation.framework */,
-				CE71C73A5B819BC8B027FAC5 /* UIKit.framework */,
-				85435275C7A930691AF19B2F /* AdSupport.framework */,
-				FCD6BEC3BA223784E556FD34 /* QuartzCore.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		5970C99476A5C9AC00FE4F1E /* UITst */ = {
-			isa = PBXGroup;
-			children = (
-				C852AC41EBBCEA29518C664A /* Main.swift */,
+				5698974501779D6E46772C57 /* Main.swift */,
 			);
 			path = UITst;
 			sourceTree = "<group>";
 		};
-		A5AA66FF73313F44ABDF0070 /* Src */ = {
+		441B4997741B6B889B6D8497 /* Res */ = {
 			isa = PBXGroup;
 			children = (
-				38A50A00EB8EDC543F482523 /* AppDelegate.swift */,
-				AAC98C1BBB75A7D797A60CB7 /* LaunchScreen.storyboard */,
-				845A650E163403316C39C56C /* Main.storyboard */,
-				3D312E06D152A4DC6C7FA43B /* ObjC */,
-				9E35F3B9EEF4835BF51E6167 /* ViewController.swift */,
-			);
-			path = Src;
-			sourceTree = "<group>";
-		};
-		B21F62E1A3007D4764436930 /* Res */ = {
-			isa = PBXGroup;
-			children = (
-				5774CE60D07740EC58E8EDFB /* CakeMania-test.entitlements */,
-				624164E9FD60C35C041862C0 /* CakeMania.entitlements */,
-				52BDBF676B34594A4226C8A4 /* CakeMania.xcassets */,
+				7BEAD9728F28E4E2150838F2 /* CakeMania-test.entitlements */,
+				233946501B63EE884C17A9FF /* CakeMania.entitlements */,
+				A030EF7456BEF44CD0ABD49E /* CakeMania.xcassets */,
 			);
 			path = Res;
 			sourceTree = "<group>";
 		};
-		BB6FCB235E1E3361133EEEA4 = {
+		4B3C9119160F9BE56A2DEA0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C8F2DDEC2BE49CF53146C400 /* Products */,
-				359F0936DE1CAE2DD1A42BA9 /* Frameworks */,
-				DC3122DAB332D75DD406C1CE /* Tst */,
-				5970C99476A5C9AC00FE4F1E /* UITst */,
-				A5AA66FF73313F44ABDF0070 /* Src */,
-				B21F62E1A3007D4764436930 /* Res */,
+				AE23653262A9136C79282587 /* iOS */,
 			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C8F2DDEC2BE49CF53146C400 /* Products */ = {
+		4DC34546851300A4D0CF36C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C541F6347A8E9EA20E9CC46 /* CakeManiaTst. */,
-				F8EB2CC618577565C66F2F32 /* CakeManiaUITst. */,
-				FED9786D18F2827F6C61B504 /* CakeMania. */,
+				60E140428F554B4D1D6DB890 /* CakeManiaTst. */,
+				750EB1B4E2920087D7539B2D /* CakeManiaUITst. */,
+				27E8A4BEFAA7B3302EDE8E99 /* CakeMania. */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC3122DAB332D75DD406C1CE /* Tst */ = {
+		70989B444201A7F04E1354CF /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				851A51642F351E49680F6A21 /* Main.swift */,
+				D4EDB95E044E95DDE0B45123 /* CakeMania-Bridging-Header.h */,
+				A8DF1F5192ABEA033D5B2D68 /* Prefix.pch */,
 			);
-			path = Tst;
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		88C43E76F5803CD4FA4548A4 = {
+			isa = PBXGroup;
+			children = (
+				4DC34546851300A4D0CF36C6 /* Products */,
+				4B3C9119160F9BE56A2DEA0E /* Frameworks */,
+				290486E76E6E6199ED427118 /* Tst */,
+				3C88CD2E01D71F1AA4BDEBBC /* UITst */,
+				9F853CC88BD437AC7C5B892C /* Src */,
+				441B4997741B6B889B6D8497 /* Res */,
+			);
+			sourceTree = "<group>";
+		};
+		9F853CC88BD437AC7C5B892C /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				B8CAB48CB5A0DDDB91E98D79 /* AppDelegate.swift */,
+				88C5E1B3781EE3103CD72257 /* LaunchScreen.storyboard */,
+				C62D31777BAE12DA428188AC /* Main.storyboard */,
+				70989B444201A7F04E1354CF /* ObjC */,
+				ED264238795EBA1EB00175AA /* ViewController.swift */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		AE23653262A9136C79282587 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				03F3824371A1E4408E2FB2B0 /* Foundation.framework */,
+				1D454AC2732E9F1ABDBD2F47 /* UIKit.framework */,
+				40E93EF8C4329C4C92DC1E65 /* AdSupport.framework */,
+				D612857D1DD700F5559DF7C1 /* QuartzCore.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F4064F84842FFD81C6C2D0D /* CakeManiaUITst */ = {
+		4D92BE07FADBC9796349860D /* CakeManiaTst */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 47BF8EED157466457E3A68A9 /* Build configuration list for PBXNativeTarget "CakeManiaUITst" */;
+			buildConfigurationList = 0E5E578447F51AFC3E94A486 /* Build configuration list for PBXNativeTarget "CakeManiaTst" */;
 			buildPhases = (
-				87E08A682ABC2C0AAD081B25 /* Frameworks */,
-				9EB9CDEFBC8DE53EE683428F /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CakeManiaUITst;
-			productName = CakeManiaUITst;
-			productReference = F8EB2CC618577565C66F2F32 /* CakeManiaUITst. */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		D285460E114DB5266F48EAA4 /* CakeManiaTst */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 644026A572A5B1EEC766CB7C /* Build configuration list for PBXNativeTarget "CakeManiaTst" */;
-			buildPhases = (
-				A13199E4EF597F430A8C10A3 /* Frameworks */,
-				6EF3EC525BEB33CF6828D40F /* Sources */,
+				E5A76B65EFD10A2C65CE12BF /* Frameworks */,
+				BF98CBBBA19B56EF7C1D1CA2 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -201,16 +185,16 @@
 			);
 			name = CakeManiaTst;
 			productName = CakeManiaTst;
-			productReference = 2C541F6347A8E9EA20E9CC46 /* CakeManiaTst. */;
+			productReference = 60E140428F554B4D1D6DB890 /* CakeManiaTst. */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FD1164DCD2F4A74419EF9B31 /* CakeMania */ = {
+		D2CF49CEAF900441E70E24B1 /* CakeMania */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7F7C37B8DAEBED846C27769 /* Build configuration list for PBXNativeTarget "CakeMania" */;
+			buildConfigurationList = 9DF56565C99F55BC9A08B5C5 /* Build configuration list for PBXNativeTarget "CakeMania" */;
 			buildPhases = (
-				7BE59BFE731123CEE37EBF66 /* Frameworks */,
-				0ECB68FDC9DF6A36AF1FAB47 /* Sources */,
-				32F0D31F905C7EDDBAAF2F11 /* Resources */,
+				AD69EB8D300C73E5871AAE55 /* Frameworks */,
+				C2A2B0A2CC313D8193AEABD3 /* Sources */,
+				C861B203415C25C25F56ACA3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -218,13 +202,29 @@
 			);
 			name = CakeMania;
 			productName = CakeMania;
-			productReference = FED9786D18F2827F6C61B504 /* CakeMania. */;
+			productReference = 27E8A4BEFAA7B3302EDE8E99 /* CakeMania. */;
 			productType = "com.apple.product-type.application";
+		};
+		E1D6D3AA914753263EC9C524 /* CakeManiaUITst */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82CB4AE1149629539FC74E93 /* Build configuration list for PBXNativeTarget "CakeManiaUITst" */;
+			buildPhases = (
+				C27C5E5B46A4F766575DE138 /* Frameworks */,
+				932294DE1072BFAA08F49FCD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CakeManiaUITst;
+			productName = CakeManiaUITst;
+			productReference = 750EB1B4E2920087D7539B2D /* CakeManiaUITst. */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9DE05D920DCE51A33890D85D /* Project object */ = {
+		3E636A4CD6038FC4E0203680 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CMN;
@@ -232,158 +232,95 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "CakeMania Inc.";
 				TargetAttributes = {
-					FD1164DCD2F4A74419EF9B31 = {
+					D2CF49CEAF900441E70E24B1 = {
 						DevelopmentTeam = XYZXYZ;
 					};
 				};
 			};
-			buildConfigurationList = 069E8CB823C2ED61DFB65F49 /* Build configuration list for PBXProject "CakeMania" */;
+			buildConfigurationList = 1B59C494C54B0AC970BC00AA /* Build configuration list for PBXProject "CakeMania" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = BB6FCB235E1E3361133EEEA4;
-			productRefGroup = C8F2DDEC2BE49CF53146C400 /* Products */;
+			mainGroup = 88C43E76F5803CD4FA4548A4;
+			productRefGroup = 4DC34546851300A4D0CF36C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D285460E114DB5266F48EAA4 /* CakeManiaTst */,
-				8F4064F84842FFD81C6C2D0D /* CakeManiaUITst */,
-				FD1164DCD2F4A74419EF9B31 /* CakeMania */,
+				4D92BE07FADBC9796349860D /* CakeManiaTst */,
+				E1D6D3AA914753263EC9C524 /* CakeManiaUITst */,
+				D2CF49CEAF900441E70E24B1 /* CakeMania */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		32F0D31F905C7EDDBAAF2F11 /* Resources */ = {
+		C861B203415C25C25F56ACA3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE97554AE7379E373B23CDF2 /* LaunchScreen.storyboard in Resources */,
-				8A84D5F842376CE76DDE9B1F /* Main.storyboard in Resources */,
-				A488266FC42188DCEF5E0491 /* Prefix.pch in Resources */,
-				5F2D95E7089C19AAEE97AEA2 /* CakeMania-test.entitlements in Resources */,
-				C1A92E26FF2C71411BF5FB33 /* CakeMania.entitlements in Resources */,
-				4192BDA50DB58D5C435838B5 /* CakeMania.xcassets in Resources */,
+				1EC23763D8902D70E13A4F64 /* LaunchScreen.storyboard in Resources */,
+				36DCAD0942F2444553620FA8 /* Main.storyboard in Resources */,
+				E9843DC5AA3FE2C9682725C2 /* Prefix.pch in Resources */,
+				A9969F0EC4547EBE1AC3CE75 /* CakeMania-test.entitlements in Resources */,
+				1E0CCBA054195BE5E8ABA7D1 /* CakeMania.entitlements in Resources */,
+				2A76411DCDCF20C903670F25 /* CakeMania.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0ECB68FDC9DF6A36AF1FAB47 /* Sources */ = {
+		932294DE1072BFAA08F49FCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AECBEBC16075B2DE5E70BAE /* AppDelegate.swift in Sources */,
-				09F31C6BE7B0BF65F7CF17A0 /* ViewController.swift in Sources */,
+				56461110276353046FACB556 /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6EF3EC525BEB33CF6828D40F /* Sources */ = {
+		BF98CBBBA19B56EF7C1D1CA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B14873F032BFA9A31FE0CBCF /* Main.swift in Sources */,
+				782318EA510088E47AEA10E3 /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EB9CDEFBC8DE53EE683428F /* Sources */ = {
+		C2A2B0A2CC313D8193AEABD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C95A391943B52904B9B95C8 /* Main.swift in Sources */,
+				CA3B3C86953FC08924F58DD4 /* AppDelegate.swift in Sources */,
+				9775CF6B046CCAC66F6A94A0 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		845A650E163403316C39C56C /* Main.storyboard */ = {
+		88C5E1B3781EE3103CD72257 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				094DE59FB73C9440029BD46A /* Main.storyboard */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AAC98C1BBB75A7D797A60CB7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E33DD5099F33995F15047F1 /* LaunchScreen.storyboard */,
+				D97159C83751AB90A792F4AA /* LaunchScreen.storyboard */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C62D31777BAE12DA428188AC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B48296069116EC3AD1774038 /* Main.storyboard */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		10A9C7D2FAFDA5493C66E32A /* RC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaTst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
-			};
-			name = RC;
-		};
-		1810481D2B5C80F54B00007F /* Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-DNS_BLOCK_ASSERTIONS=1",
-				);
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Staging;
-		};
-		27E57D73A258D23A7AC5B512 /* Production */ = {
+		12A1AADE57B731C8C92AF437 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -400,7 +337,7 @@
 					"CONFIG_PRODUCTION=1",
 				);
 				INFOPLIST_FILE = Info/CakeMania.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -421,23 +358,24 @@
 			};
 			name = Production;
 		};
-		2867CA2BF8D5F75F6740E203 /* Staging */ = {
+		27624358C510544A1B82F8BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Info/CakeManiaTst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
 			};
-			name = Staging;
+			name = Debug;
 		};
-		2FDDF2CA37F7C3727DF10A35 /* Production */ = {
+		3BA40C8C3F57B0110C115243 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
@@ -479,28 +417,50 @@
 				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Production;
 		};
-		4A2DEC3DE071C4CA7FE03EE9 /* AppStore */ = {
+		4DCA4889DEA1477C157409C8 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Res/CakeMania.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XYZXYZ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FACEBOOK_KEY = 888888888888888;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaTst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				GCC_PREFIX_HEADER = Src/ObjC/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"CONFIG_APPSTORE=1",
+				);
+				INFOPLIST_FILE = Info/CakeMania.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Lib/**",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_APPSTORE";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CakeMania.CakeMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = YYY;
 				SDKROOT = iphoneos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
+				SWIFT_OBJC_BRIDGING_HEADER = "Src/ObjC/CakeMania-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = AppStore;
 		};
-		6CAB35CFE3596CE25DFEAED7 /* Production */ = {
+		50A0F334DC3C05B6CD85D4B1 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,7 +468,23 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
+			};
+			name = AppStore;
+		};
+		65AC54FB0874B4C67692800F /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -516,7 +492,23 @@
 			};
 			name = Production;
 		};
-		8BA425B55C438F44E8765E86 /* RC */ = {
+		6DE530B87F9A83E96F6ECDD2 /* RC */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
+			};
+			name = RC;
+		};
+		74B0CC3CA54690B4733F4FD5 /* RC */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -533,7 +525,7 @@
 					"CONFIG_RC=1",
 				);
 				INFOPLIST_FILE = Info/CakeMania.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,7 +546,45 @@
 			};
 			name = RC;
 		};
-		8D6B8AE7027C710453C62F04 /* Production */ = {
+		772B774B15EEDE2C30BAEAC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Res/CakeMania-test.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XYZXYZ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FACEBOOK_KEY = 999999999999999;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = Src/ObjC/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"CONFIG_DEBUG=1",
+				);
+				INFOPLIST_FILE = Info/CakeMania.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Lib/**",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CakeMania.CakeMania;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Src/ObjC/CakeMania-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C9295114034B3B52795015D /* RC */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -562,23 +592,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Info/CakeManiaTst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
-			};
-			name = Production;
-		};
-		9699384C0368DBA1D8E662A1 /* RC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -586,7 +600,7 @@
 			};
 			name = RC;
 		};
-		9B02FC5A5F9030835DBEFB1F /* RC */ = {
+		9DB3E217FF073C4F180CC2C3 /* RC */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
@@ -629,37 +643,100 @@
 				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = RC;
 		};
-		9E630E5EE92BDEC65528F69A /* Debug */ = {
+		9E5D2CD7FEBFF04D5F345C53 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
+			};
+			name = Staging;
+		};
+		D47BB6DCD90A8F96A138BC5E /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DNS_BLOCK_ASSERTIONS=1",
+				);
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		F1223A198BEAB5536B6D65E5 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Info/CakeManiaTst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
 			};
-			name = Debug;
+			name = Production;
 		};
-		9E980A8461348DA0BD014296 /* Staging */ = {
+		F34BAA0692900D6BD9F29204 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = Info/CakeManiaTst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -667,91 +744,32 @@
 			};
 			name = Staging;
 		};
-		9EBFEE6BB61EB7CDCFA1096D /* Debug */ = {
+		F5BE92B4F351DB64951DF10E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Res/CakeMania-test.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = XYZXYZ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FACEBOOK_KEY = 999999999999999;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = Src/ObjC/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"CONFIG_DEBUG=1",
-				);
-				INFOPLIST_FILE = Info/CakeMania.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Lib/**",
-				);
+				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CakeMania.CakeMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Src/ObjC/CakeMania-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
 			};
 			name = Debug;
 		};
-		A5F05BA13467B9B10FB768D6 /* Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Res/CakeMania-test.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = XYZXYZ;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FACEBOOK_KEY = 999999999999999;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = Src/ObjC/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"CONFIG_STAGING=1",
-				);
-				INFOPLIST_FILE = Info/CakeMania.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/Lib/**",
-				);
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_STAGING";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CakeMania.CakeMania;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = XXX;
-				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Src/ObjC/CakeMania-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Staging;
-		};
-		B888E43B0685092541BA3C18 /* AppStore */ = {
+		F5BF5D49E48B472E8FCC0A47 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				INFOPLIST_FILE = Info/CakeManiaTst.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -759,7 +777,7 @@
 			};
 			name = AppStore;
 		};
-		C3894E5203DC75A41BDFE97F /* Debug */ = {
+		F6D66F696F8125BB62AF56A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
@@ -809,28 +827,11 @@
 				);
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
-		C4DF5428411792CA7A9A46FF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Info/CakeManiaUITst.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CakeMania.app/CakeMania";
-			};
-			name = Debug;
-		};
-		D1902A02CD53C922FB165BE4 /* AppStore */ = {
+		FCF06FA1EDE145A9C1AD7EF2 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
@@ -853,7 +854,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -872,30 +872,30 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 				);
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = AppStore;
+			name = Staging;
 		};
-		DEEB332FBBBA9EFA008491BD /* AppStore */ = {
+		FD82AFE75752D4DA17ECD80B /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Res/CakeMania.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Res/CakeMania-test.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XYZXYZ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FACEBOOK_KEY = 888888888888888;
+				FACEBOOK_KEY = 999999999999999;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = Src/ObjC/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"CONFIG_APPSTORE=1",
+					"CONFIG_STAGING=1",
 				);
 				INFOPLIST_FILE = Info/CakeMania.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -906,68 +906,68 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_APPSTORE";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DCONFIG_STAGING";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CakeMania.CakeMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = YYY;
+				PROVISIONING_PROFILE = XXX;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Src/ObjC/CakeMania-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = AppStore;
+			name = Staging;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		069E8CB823C2ED61DFB65F49 /* Build configuration list for PBXProject "CakeMania" */ = {
+		0E5E578447F51AFC3E94A486 /* Build configuration list for PBXNativeTarget "CakeManiaTst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C3894E5203DC75A41BDFE97F /* Debug */,
-				1810481D2B5C80F54B00007F /* Staging */,
-				9B02FC5A5F9030835DBEFB1F /* RC */,
-				2FDDF2CA37F7C3727DF10A35 /* Production */,
-				D1902A02CD53C922FB165BE4 /* AppStore */,
+				27624358C510544A1B82F8BE /* Debug */,
+				F34BAA0692900D6BD9F29204 /* Staging */,
+				8C9295114034B3B52795015D /* RC */,
+				F1223A198BEAB5536B6D65E5 /* Production */,
+				F5BF5D49E48B472E8FCC0A47 /* AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B59C494C54B0AC970BC00AA /* Build configuration list for PBXProject "CakeMania" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6D66F696F8125BB62AF56A3 /* Debug */,
+				FCF06FA1EDE145A9C1AD7EF2 /* Staging */,
+				9DB3E217FF073C4F180CC2C3 /* RC */,
+				3BA40C8C3F57B0110C115243 /* Production */,
+				D47BB6DCD90A8F96A138BC5E /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		47BF8EED157466457E3A68A9 /* Build configuration list for PBXNativeTarget "CakeManiaUITst" */ = {
+		82CB4AE1149629539FC74E93 /* Build configuration list for PBXNativeTarget "CakeManiaUITst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4DF5428411792CA7A9A46FF /* Debug */,
-				9E980A8461348DA0BD014296 /* Staging */,
-				9699384C0368DBA1D8E662A1 /* RC */,
-				6CAB35CFE3596CE25DFEAED7 /* Production */,
-				B888E43B0685092541BA3C18 /* AppStore */,
+				F5BE92B4F351DB64951DF10E /* Debug */,
+				9E5D2CD7FEBFF04D5F345C53 /* Staging */,
+				6DE530B87F9A83E96F6ECDD2 /* RC */,
+				65AC54FB0874B4C67692800F /* Production */,
+				50A0F334DC3C05B6CD85D4B1 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		644026A572A5B1EEC766CB7C /* Build configuration list for PBXNativeTarget "CakeManiaTst" */ = {
+		9DF56565C99F55BC9A08B5C5 /* Build configuration list for PBXNativeTarget "CakeMania" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E630E5EE92BDEC65528F69A /* Debug */,
-				2867CA2BF8D5F75F6740E203 /* Staging */,
-				10A9C7D2FAFDA5493C66E32A /* RC */,
-				8D6B8AE7027C710453C62F04 /* Production */,
-				4A2DEC3DE071C4CA7FE03EE9 /* AppStore */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C7F7C37B8DAEBED846C27769 /* Build configuration list for PBXNativeTarget "CakeMania" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9EBFEE6BB61EB7CDCFA1096D /* Debug */,
-				A5F05BA13467B9B10FB768D6 /* Staging */,
-				8BA425B55C438F44E8765E86 /* RC */,
-				27E57D73A258D23A7AC5B512 /* Production */,
-				DEEB332FBBBA9EFA008491BD /* AppStore */,
+				772B774B15EEDE2C30BAEAC7 /* Debug */,
+				FD82AFE75752D4DA17ECD80B /* Staging */,
+				74B0CC3CA54690B4733F4FD5 /* RC */,
+				12A1AADE57B731C8C92AF437 /* Production */,
+				4DCA4889DEA1477C157409C8 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9DE05D920DCE51A33890D85D /* Project object */;
+	rootObject = 3E636A4CD6038FC4E0203680 /* Project object */;
 }

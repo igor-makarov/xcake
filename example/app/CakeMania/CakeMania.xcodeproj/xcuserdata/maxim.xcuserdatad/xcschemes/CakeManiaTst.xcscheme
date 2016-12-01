@@ -16,7 +16,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D285460E114DB5266F48EAA4"
+               BlueprintIdentifier = "4D92BE07FADBC9796349860D"
                BuildableName = "CakeManiaTst.xctest"
                BlueprintName = "CakeManiaTst"
                ReferencedContainer = "container:CakeMania.xcodeproj">
