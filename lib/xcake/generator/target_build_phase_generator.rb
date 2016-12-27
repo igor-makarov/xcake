@@ -12,6 +12,11 @@ module Xcake
 
       native_target = @context.native_object_for(target)
 
+      target.build_phases.each do |phase|
+        phase.visit(target)
+      end
+
+      # TODO: Refactor
       target.target_dependencies.each do |dep|
         native_dep = @context.native_object_for(dep)
 
