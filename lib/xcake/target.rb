@@ -1,7 +1,7 @@
 module Xcake
   # This class is used to describe a target for a
   # Xcode project; This forms part of the DSL
-  # and is usally stored in files named `Cakefile`.
+  # and is usually stored in files named `Cakefile`.
   #
   class Target
     include Configurable
@@ -122,6 +122,10 @@ module Xcake
     #                           Supports regular expressions,
     #                           Defaults to: ["./<Target Name>/*\*/\*.*"]
     #
+    #
+    # @note Xcake defaults to including files in the folder with the same name as
+    #       the targt     
+    #
     # @example
     #
     #     spec.include_files = "Classes/**/*.{h,m}"
@@ -162,6 +166,12 @@ module Xcake
     #
     attr_accessor :target_dependencies
 
+    # @return [Array<Target>] targets to link to, use this
+    #         when you want to use a library or framework target
+    #         in another target
+    #
+    attr_accessor :linked_targets
+
     # @param    [Proc] block
     #           an optional block that configures the project through the DSL.
     #
@@ -173,29 +183,26 @@ module Xcake
     #
     def initialize(project)
       @project = project
+
       @build_phases = []
+      @exclude_files = []
+      @linked_targets ||= []
+      @system_libraries ||= []
+      @target_dependencies ||= []
 
       yield(self) if block_given?
     end
 
+    ## Getters
+
     def include_files
+      # Import files in folder with same name as target by default
       @include_files ||= ["./#{@name}/**/*.*"]
     end
 
-    def exclude_files
-      @exclude_files ||= []
-    end
-
     def system_frameworks
-      @system_frameworks ||= default_system_frameworks_for platform
-    end
-
-    def system_libraries
-      @system_libraries ||= []
-    end
-
-    def target_dependencies
-      @target_dependencies ||= []
+      # Use default frameworks by default
+      @system_frameworks ||= default_system_frameworks_for(platform)
     end
 
     # @!group Conversion
@@ -206,12 +213,21 @@ module Xcake
 
     protected
 
+    # Returns an array of default system frameworks
+    # to use for a given platform.
+    #
+    # @param    [Symbol] platform
+    #           platform the frameworks are for.
+    #
+    #
+    # @return [Array<String>] system frameworks to use
+    #
     def default_system_frameworks_for(platform)
       case platform
       when :ios
         %w(Foundation UIKit)
       when :osx
-        ['Cocoa']
+        %w(Cocoa)
       when :tvos
         %w(Foundation UIKit)
       when :watchos
