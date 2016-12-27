@@ -3,7 +3,7 @@ require 'xcake/core_ext/object'
 require 'xcake/core_ext/string'
 require 'xcake/xcodeproj_ext/PBXGroup'
 require 'xcake/xcodeproj_ext/PBXNativeTarget'
-require 'xcake/modern_xcodeproj.rb'
+require 'xcake/modern_xcodeproj'
 
 require 'xcake/version'
 require 'xcake/event_hooks'
