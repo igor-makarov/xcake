@@ -12,11 +12,8 @@ gemfile:
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
   # The latest ruby version
-  - 2.4.0
-  # Common Ruby versions users run
-  - 2.3.4
-  - 2.2.2
-  - 2.1.6
+  # - 2.4.0 # Doesn't build :()
+  - 2.3.1
   # OS X 10.9.5-10.10.0 (2.0.0-p481)
   - 2.0.0-p481
   # OS X 10.9.3-10.9.4
