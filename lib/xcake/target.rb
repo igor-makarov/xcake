@@ -186,9 +186,9 @@ module Xcake
 
       @build_phases = []
       @exclude_files = []
-      @linked_targets ||= []
-      @system_libraries ||= []
-      @target_dependencies ||= []
+      @linked_targets = []
+      @system_libraries = []
+      @target_dependencies = []
 
       yield(self) if block_given?
     end
