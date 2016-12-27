@@ -35,6 +35,9 @@ require 'xcake/target'
 require 'xcake/target/sugar'
 require 'xcake/target/configurable'
 
+require 'xcake/build_phase'
+require 'xcake/build_phase/shell_script_build_phase'
+
 require 'xcake/xcode/project'
 require 'xcake/xcode/scheme'
 require 'xcake/xcode/scheme_list'
