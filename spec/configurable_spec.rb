@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-# TODO: Move tests to Project/Target
 module Xcake
   describe Configurable do
     before :each do
