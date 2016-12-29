@@ -6,6 +6,8 @@ module Xcake
       @context = XcodeprojContext.new
     end
 
+    # Build Phase
+
     context 'when creating a project' do
       before :each do
         project_dsl = double('Project')

@@ -7,6 +7,8 @@ module Xcake
       @target = Target.new(project)
     end
 
+    # TODO: New Code
+
     context 'when adding a shell script build phase with a string' do
       before :each do
         @phase = @target.shell_script_build_phase('Hello World', <<-SCRIPT)
