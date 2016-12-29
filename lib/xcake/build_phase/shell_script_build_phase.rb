@@ -5,12 +5,12 @@ module Xcake
   class ShellScriptBuildPhase < BuildPhase
     attr_accessor :script
 
-    protected
+    def build_phase_type
+      Xcodeproj::Project::Object::PBXFrameworksBuildPhase
+    end
 
     def configure_native_build_phase(native_build_phase)
-      phase = target.new_shell_script_build_phase(name)
-      phase.shell_script = script
-      phase
+      native_build_phase.shell_script = script
     end
   end
 end
