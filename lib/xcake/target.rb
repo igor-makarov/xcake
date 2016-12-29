@@ -173,7 +173,7 @@ module Xcake
     attr_accessor :linked_targets
 
     # @param    [Proc] block
-    #           an optional block that configures the project through the DSL.
+    #           an optional block that configures the target through the DSL.
     #
     # @example  Creating a Target.
     #

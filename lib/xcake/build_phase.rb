@@ -5,15 +5,26 @@ module Xcake
   #
   class BuildPhase
 
-    #TODO: Document
+    # @param    [Proc] block
+    #           an optional block that configures the build phase through the DSL.
+    #
+    # @example  Creating a Build Phase.
+    #
+    #           BuildPhase.new do |p|
+    #             p.name "test"
+    #           end
+    #
     def initialize
       yield(self) if block_given?
     end
 
-    # The Name of the build phase as shown in Xcode
+    # The name of the build phase as shown in Xcode
     attr_accessor :name
 
-    # TODO: Document
+    # This method is called when generating the build phases
+    # subclasses should implement this to allow xcake to know
+    # what native build phase type this DSL Object represents
+    #
     def build_phase_type
       raise "build_phase_type not implemneted"
     end
