@@ -1,15 +1,14 @@
 module Xcake
-  # This class is used to hold a shell script build phase name
+  # This class is used to hold a link libraries build phase name
   # and script contents
   #
-  class ShellScriptBuildPhase
-    attr_accessor :name
-    attr_accessor :script
+  class LinkBuildPhase < BuildPhase
+    attr_accessor :libraries
 
     def generate_native_build_phase(target)
-      phase = target.new_shell_script_build_phase(name)
-      phase.shell_script = script
-      phase
+      phase = project.new(PBXFrameworksBuildPhase)
+      phase.name = name
+      target.build_phases << phase
     end
   end
 end

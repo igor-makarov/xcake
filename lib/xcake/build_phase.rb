@@ -3,13 +3,17 @@ module Xcake
   # Xcode project; This forms part of the DSL
   # and is usually stored in files named `Cakefile`.
   #
-  class ShellScriptBuildPhase
+  class BuildPhase
+    # The Name of the build phase as shown in Xcode
     attr_accessor :name
 
+    protected
+
+    # This method is called when generating the build phases
+    # subclasses should implement this to handle the creation 
+    # and configuration of the build phase
+    #
     def generate_native_build_phase(target)
-      phase = target.new_shell_script_build_phase(name)
-      phase.shell_script = script
-      phase
     end
   end
 end

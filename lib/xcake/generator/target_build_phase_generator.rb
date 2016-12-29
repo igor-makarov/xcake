@@ -14,7 +14,7 @@ module Xcake
 
       target.build_phases.each do |phase|
         EventHooks.run_hook :before_adding_custom_build_phase, phase, target
-        phase.visit(target)
+        phase.generate_native_build_phase(native_target)
       end
 
       # TODO: Refactor
