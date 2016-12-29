@@ -7,6 +7,14 @@ module Xcake
     attr_accessor :private
     attr_accessor :project
 
+    def initialize
+      @public = []
+      @private = []
+      @project = []
+
+      yield(self) if block_given?
+    end
+
     def generate_native_build_phase(target)
       phase = project.new(PBXHeadersBuildPhase)
       phase.name = name

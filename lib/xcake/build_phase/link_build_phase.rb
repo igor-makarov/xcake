@@ -1,9 +1,13 @@
 module Xcake
   # This class is used to hold a link libraries build phase name
-  # and script contents
   #
   class LinkBuildPhase < BuildPhase
-    attr_accessor :libraries
+    attr_accessor :files
+
+    def initialize
+      @files = []
+      yield(self) if block_given?
+    end
 
     def generate_native_build_phase(target)
       phase = project.new(PBXFrameworksBuildPhase)

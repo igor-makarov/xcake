@@ -4,6 +4,12 @@ module Xcake
   # and is usually stored in files named `Cakefile`.
   #
   class BuildPhase
+
+    #TODO: Document
+    def initialize
+      yield(self) if block_given?
+    end
+
     # The Name of the build phase as shown in Xcode
     attr_accessor :name
 

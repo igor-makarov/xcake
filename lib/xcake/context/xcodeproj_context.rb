@@ -9,6 +9,8 @@ module Xcake
 
     def create_object_for(dsl_object)
       case dsl_object
+      when BuildPhase
+        create_object_for_build_phase(dsl_object)
       when Project
         create_object_for_project(dsl_object)
       when Target
@@ -18,6 +20,10 @@ module Xcake
       when Node
         create_object_for_node(dsl_object)
       end
+    end
+
+    def create_object_for_build_phase(build_phase)
+      # - How to implement build phase
     end
 
     def create_object_for_project(project)
