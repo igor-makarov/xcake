@@ -21,7 +21,7 @@ module Xcake
         native_target.build_phases << native_build_phase
       end
 
-      # TODO: Refactor
+      # TODO: Refactor how to implement these ?
       target.target_dependencies.each do |dep|
         native_dep = @context.native_object_for(dep)
 

@@ -22,15 +22,19 @@ module Xcake
     def configure_native_build_phase(native_build_phase, context)
 
       #TODO: Refactor
+      #TODO: Add Settings / Attributes to files
+      #TODO: Constantfy visibility
 
       @public.each do |file|
         file_reference = context.file_reference_for_path(file)
-        native_build_phase.add_file_reference(file_reference)
+        build_file = native_build_phase.add_file_reference(file_reference)
+        build_file.settings = { "ATTRIBUTES" => ['Public'] }
       end
 
       @private.each do |file|
         file_reference = context.file_reference_for_path(file)
-        native_build_phase.add_file_reference(file_reference)
+        build_file = native_build_phase.add_file_reference(file_reference)
+        build_file.settings = { "ATTRIBUTES" => ['Private'] }
       end
 
       @project.each do |file|
