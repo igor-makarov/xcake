@@ -10,7 +10,7 @@ module Xcake
       yield(self) if block_given?
     end
 
-    def generate_native_build_phase(target)
+    def configure_native_build_phase(native_build_phase)
       phase = target.new_copy_files_build_phase(name)
     end
   end

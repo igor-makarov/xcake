@@ -7,7 +7,7 @@ module Xcake
 
     protected
 
-    def generate_native_build_phase(target)
+    def configure_native_build_phase(native_build_phase)
       phase = target.new_shell_script_build_phase(name)
       phase.shell_script = script
       phase

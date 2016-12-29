@@ -13,8 +13,12 @@ module Xcake
       native_target = @context.native_object_for(target)
 
       target.build_phases.each do |phase|
+
         EventHooks.run_hook :before_adding_custom_build_phase, phase, target
-        phase.generate_native_build_phase(native_target)
+
+        native_build_phase = @context.native_object_for(phase)
+        phase.configure_native_build_phase(native_build_phase, @context)
+        native_target.build_phases << native_build_phase
       end
 
       # TODO: Refactor

@@ -13,13 +13,17 @@ module Xcake
     # The Name of the build phase as shown in Xcode
     attr_accessor :name
 
+    # TODO: Document
+    def build_phase_type
+    end
+
     protected
 
     # This method is called when generating the build phases
-    # subclasses should implement this to handle the creation 
-    # and configuration of the build phase
+    # subclasses should implement this to handle the 
+    # configuration of the build phase
     #
-    def generate_native_build_phase(target)
+    def configure_native_build_phase(native_build_phase, context)
     end
   end
 end

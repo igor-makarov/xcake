@@ -5,7 +5,7 @@ module Xcake
     end
 
     def visit_target(target)
-      return unless target.linked_targets
+      return if target.linked_targets.empty?
 
       #TODO: Remove hook system in 0.8.x - 0.9.x ?
       #TODO: Constant
