@@ -13,6 +13,7 @@ module Xcake
       native_target = @context.native_object_for(target)
 
       target.build_phases.each do |phase|
+        EventHooks.run_hook :before_adding_custom_build_phase, phase, target
         phase.visit(target)
       end
 

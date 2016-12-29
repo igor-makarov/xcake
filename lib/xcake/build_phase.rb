@@ -5,7 +5,6 @@ module Xcake
   #
   class ShellScriptBuildPhase
     attr_accessor :name
-    attr_accessor :script
 
     def generate_native_build_phase(target)
       phase = target.new_shell_script_build_phase(name)
