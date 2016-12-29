@@ -20,6 +20,7 @@ module Xcake
     end
 
     def configure_native_build_phase(native_build_phase, context)
+      super(native_build_phase, context)
 
       #TODO: Refactor
       #TODO: Add Settings / Attributes to files

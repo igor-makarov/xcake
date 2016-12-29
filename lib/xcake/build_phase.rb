@@ -15,15 +15,15 @@ module Xcake
 
     # TODO: Document
     def build_phase_type
+      raise "build_phase_type not implemneted"
     end
-
-    protected
 
     # This method is called when generating the build phases
     # subclasses should implement this to handle the 
     # configuration of the build phase
     #
     def configure_native_build_phase(native_build_phase, context)
+      native_build_phase.name = name
     end
   end
 end

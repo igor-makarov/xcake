@@ -9,7 +9,9 @@ module Xcake
       Xcodeproj::Project::Object::PBXFrameworksBuildPhase
     end
 
-    def configure_native_build_phase(native_build_phase)
+    def configure_native_build_phase(native_build_phase, context)
+      super(native_build_phase, context)
+      
       native_build_phase.shell_script = script
     end
   end

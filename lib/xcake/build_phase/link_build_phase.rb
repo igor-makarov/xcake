@@ -14,6 +14,8 @@ module Xcake
     end
 
     def configure_native_build_phase(native_build_phase, context)
+      super(native_build_phase, context)
+
       @files.each do |file|
         file_reference = context.file_reference_for_path(file)
         native_build_phase.add_file_reference(file_reference)
