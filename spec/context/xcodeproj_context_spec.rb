@@ -6,7 +6,10 @@ module Xcake
       @context = XcodeprojContext.new
     end
 
-    # Build Phase
+    context 'when creating a build phase' do
+      it 'should create new build phase' do
+      end
+    end
 
     context 'when creating a project' do
       before :each do
