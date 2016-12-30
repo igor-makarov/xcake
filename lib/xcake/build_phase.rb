@@ -18,9 +18,6 @@ module Xcake
       yield(self) if block_given?
     end
 
-    # The name of the build phase as shown in Xcode
-    attr_accessor :name
-
     # This method is called when generating the build phases
     # subclasses should implement this to allow xcake to know
     # what native build phase type this DSL Object represents
@@ -34,7 +31,7 @@ module Xcake
     # configuration of the build phase
     #
     def configure_native_build_phase(native_build_phase, context)
-      native_build_phase.name = name
+      raise "configure_native_build_phase not implemented"
     end
   end
 end

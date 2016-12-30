@@ -6,17 +6,13 @@ module Xcake
     # Creates a new Copy Headers build phase for the
     # target
     #
-    # @param  [String] name
-    #         the name to use for the build phase
-    #
     # @param  [Proc] block
-    #          an optional block that configures the build phase through the DSL.
+    #         an optional block that configures the build phase through the DSL.
     #
     # @return [HeadersBuildPhase] the new xcode build phase
     #
-    def headers_build_phase(name, &block)
+    def headers_build_phase(&block)
       phase = HeadersBuildPhase.new(&block)
-      phase.name = name
       build_phases << phase
       phase
     end
@@ -24,17 +20,13 @@ module Xcake
     # Creates a new Link Libraries build phase for the
     # target
     #
-    # @param   [String] name
-    #          the name to use for the build phase
-    #
-    # @param   [Proc] block
-    #          an optional block that configures the build phase through the DSL.
+    # @param  [Proc] block
+    #         an optional block that configures the build phase through the DSL.
     #
     # @return [LinkBuildPhase] the new xcode build phase
     #
-    def link_build_phase(name, &block)
+    def link_build_phase(&block)
       phase = LinkBuildPhase.new(&block)
-      phase.name = name
       build_phases << phase
       phase
     end

@@ -10,11 +10,7 @@ module Xcake
 
     context 'when adding a copy headers build phase with a string' do
       before :each do
-        @phase = @target.headers_build_phase(@build_phase_name)
-      end
-
-      it 'should set the name' do
-        expect(@phase.name).to eq(@build_phase_name)
+        @phase = @target.headers_build_phase
       end
 
       it 'should add the build phase' do
@@ -24,11 +20,7 @@ module Xcake
 
     context 'when adding a link library build phase with a string' do
       before :each do
-        @phase = @target.link_build_phase(@build_phase_name)
-      end
-
-      it 'should set the name' do
-        expect(@phase.name).to eq(@build_phase_name)
+        @phase = @target.link_build_phase
       end
 
       it 'should add the build phase' do
