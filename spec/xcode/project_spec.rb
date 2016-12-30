@@ -54,7 +54,7 @@ module Xcake
           file_ref_a = @project.file_reference_for_path(path)
           file_ref_b = @project.file_reference_for_path(path)
 
-          expect(file_ref_a.real_path).to eq(file_ref_b.real_path)
+          expect(file_ref_a.uuid).to eq(file_ref_b.uuid)
         end
 
         it 'should not reuse file reference with same name under different folder' do
@@ -64,7 +64,7 @@ module Xcake
           file_ref_a = @project.file_reference_for_path(path_a)
           file_ref_b = @project.file_reference_for_path(path_b)
 
-          expect(file_ref_a.real_path).to_not eq(file_ref_b.real_path)
+          expect(file_ref_a.uuid).to_not eq(file_ref_b.uuid)
         end
       end
 
