@@ -209,6 +209,9 @@ target.language = :swift
 Sets the files to be included for a target, files and groups will be added
 to the project to match the file system.
 
+Xcake implicity figures out which build phase to add the files to, meaning
+source code will be compiled and libraries linked.
+
 [See Here](https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns)
 for file patterns
 
@@ -285,10 +288,28 @@ end
 
 ##### Link Libraries Build Phase
 
+You can create a Link Libraries build phase to link a lobrary when building.
 
+Note: If you import a library or framework using `include_files` then xcake
+already adds it to the Link Libraries build phase.
+
+```ruby
+target.link_build_phase "Build Phase Name" do |phase|
+  phase.files = ["LibraryToLink.a"] # array
+  phase.filwa << "OtherLibraryToLink.a" # add an item to array
+end
+```
 
 ##### Shell Script Build Phase
 
+You can create a Shell Script buld phase to run a script when building.
+
+```ruby
+target.shell_script_build_phase "Build Phase Name", <<-SCRIPT 
+  echo "Hello World"
+SCRIPT
+end
+```
 
 ## Configurations
 
