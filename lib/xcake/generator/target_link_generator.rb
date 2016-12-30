@@ -1,4 +1,7 @@
 module Xcake
+  # This generator handles linking targets
+  # specified as being linked in the Cakefile
+  #
   class TargetLinkGenerator < Generator
     def self.dependencies
       [TargetGenerator]
