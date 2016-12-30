@@ -12,7 +12,7 @@ module Xcake
     def configure_native_build_phase(native_build_phase, context)
       super(native_build_phase, context)
       
-      native_build_phase.shell_script = script
+      native_build_phase.shell_script = script.strip_heredoc
     end
   end
 end

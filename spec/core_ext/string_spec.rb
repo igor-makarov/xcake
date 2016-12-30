@@ -9,11 +9,11 @@ describe String do
     expect('Hey'.to_c).to eq('\\"Hey\\"')
   end
 
-  it 'should string heredoc indentation' do
+  it 'should strip heredoc indentation' do
     heredoc = <<-SCRIPT
     Hey
     SCRIPT
 
-    expect(heredoc).to eq("    Hey\n")
+    expect(heredoc.strip_heredoc).to eq("Hey\n")
   end
 end

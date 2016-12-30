@@ -26,7 +26,7 @@ module Xcake
     # what native build phase type this DSL Object represents
     #
     def build_phase_type
-      raise "build_phase_type not implemneted"
+      raise "build_phase_type not implemented"
     end
 
     # This method is called when generating the build phases
