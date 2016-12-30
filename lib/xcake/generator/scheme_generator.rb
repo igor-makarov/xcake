@@ -8,7 +8,15 @@ module Xcake
       EventHooks.run_hook :before_adding_user_schemes
 
       native_project = @context.native_object_for(project)
-      native_project.recreate_user_schemes
+      @scheme_list = SchemeList.new(native_project)
+    end
+
+    def visit_target(target)
+      @scheme_list.recreate_schemes
+    end
+
+    def leave_project(project)
+      @scheme_list.save(path)
     end
   end
 end

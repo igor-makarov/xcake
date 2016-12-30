@@ -2,8 +2,7 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
-
-    # Special subclass of the Xcodeproj which adds capabilities and
+    # Special subclass of the Xcodeproj::Project which adds capabilities and
     # helper methods xcake need
     #
     class Project < Xcodeproj::Project
@@ -46,19 +45,8 @@ module Xcake
         attributes['ORGANIZATIONNAME'] = organization
       end
 
-      # @return [SchemeList] the scheme list
-      #
-      def scheme_list
-        @scheme_list ||= SchemeList.new(self)
-      end
-
       def object_version
         Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
-      end
-
-      def recreate_user_schemes(*)
-        scheme_list.recreate_schemes
-        scheme_list.save(path)
       end
 
       # Configures the Project for use with Xcake.

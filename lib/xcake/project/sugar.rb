@@ -94,11 +94,16 @@ module Xcake
       test_target.language = host_target.language
 
       host_path = "#{host_target.name}.app/#{host_target.name}"
-      test_target.all_configurations.each do |c|
-        c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
-      end
-      test_target.all_configurations.each do |c|
-        c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+      
+      if host_target.type == :application
+        
+        test_target.all_configurations.each do |c|
+          c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
+        end
+
+        test_target.all_configurations.each do |c|
+          c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+        end
       end
     end
 
