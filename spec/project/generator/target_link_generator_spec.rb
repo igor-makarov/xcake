@@ -4,7 +4,7 @@ module Xcake
   describe TargetLinkGenerator do
     before :each do
       
-      link_build_phase = double('Link Build Phase')
+      link_build_phase_phase = double('Link Build Phase')
       @link_build_phase_files = []
       allow(link_build_phase).to receive(:files).and_return(@link_build_phase_files)
 

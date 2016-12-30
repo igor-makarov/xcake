@@ -37,7 +37,6 @@ require 'xcake/target/configurable'
 
 require 'xcake/build_phase'
 require 'xcake/build_phase/headers_build_phase'
-require 'xcake/build_phase/link_build_phase'
 require 'xcake/build_phase/shell_script_build_phase'
 
 require 'xcake/xcode/project'

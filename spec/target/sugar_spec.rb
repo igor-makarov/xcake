@@ -18,16 +18,6 @@ module Xcake
       end
     end
 
-    context 'when adding a link library build phase with a string' do
-      before :each do
-        @phase = @target.link_build_phase
-      end
-
-      it 'should add the build phase' do
-        expect(@target.build_phases.length).to eq(1)
-      end
-    end
-
     context 'when adding a shell script build phase with a string' do
       before :each do
         @script = <<-SCRIPT

@@ -10,12 +10,15 @@ module Xcake
     def visit_target(target)
       return if target.linked_targets.empty?
 
-      link_build_phase = target.link_build_phase
+      native_target = @context.native_object_for(linked_target)
+      frameworks_build_phase = native_target.frameworks_build_phase
       
       target.linked_targets.each do |linked_target|
-        native_target = @context.native_object_for(linked_target)
+        native_linked_target = @context.native_object_for(linked_target)
         target.target_dependencies << linked_target
-        link_build_phase.files << native_target.product_reference.path
+        
+        linked_product = native_linked_target.product_reference
+        frameworks_build_phase.add_file_reference(linked_product)
       end
     end
   end
