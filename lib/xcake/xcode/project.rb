@@ -118,8 +118,6 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
-      # TODO: Unit Test
-      #
       # Creates a new xcode file reference for a path
       #
       # @param [Pathname] path
