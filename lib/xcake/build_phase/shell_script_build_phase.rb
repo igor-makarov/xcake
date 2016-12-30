@@ -1,6 +1,5 @@
 module Xcake
-  # This class is used to hold a shell script build phase name
-  # and script contents
+  # This class is used to represent a shell script build phase
   #
   class ShellScriptBuildPhase < BuildPhase
     attr_accessor :script

@@ -1,5 +1,5 @@
 module Xcake
-  # This class is used to hold a link libraries build phase name
+  # This class is used to represent a link libraries build phase
   #
   class LinkBuildPhase < BuildPhase
     attr_accessor :files

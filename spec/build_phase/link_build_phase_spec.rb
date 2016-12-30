@@ -35,7 +35,7 @@ module Xcake
         @phase.configure_native_build_phase(@native_build_phase, @context)
       end
 
-      it 'add file reference to build phase' do
+      it 'should add file reference to build phase' do
         file_reference = double('File Reference')
         
         allow(@context).to receive(:file_reference_for_path).and_return(file_reference)

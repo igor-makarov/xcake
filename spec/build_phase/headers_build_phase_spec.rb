@@ -1,56 +1,116 @@
 require 'spec_helper'
 
+# build_file.settings = { "ATTRIBUTES" => ['Public'] }
+# build_file.settings = { "ATTRIBUTES" => ['Private'] }
+
 module Xcake
   describe HeadersBuildPhase do
-    
-    it 'should add any public headers specified' do
+
+    before :each do
+      @phase = HeadersBuildPhase.new
+
+      @file = 'Haeder.h'
+      @file_reference = double('File Reference')
+      @native_build_phase = double('Native Build Phase')
+      @context = double('Context')
+      @build_file = double('Build File')
+
+      allow(@build_file).to receive(:settings=)
+      allow(@native_build_phase).to receive(:name=)
+      allow(@native_build_phase).to receive(:add_file_reference).and_return(@build_file)
+      allow(@context).to receive(:file_reference_for_path).and_return(@file_reference)
     end
 
-    it 'should add any private headers specified' do
+    it 'should use correct build phase type' do
+      expect(@phase.build_phase_type).to eq(Xcodeproj::Project::Object::PBXHeadersBuildPhase)
     end
 
-    it 'should add any project headers specified' do
+    context 'public headers' do
+
+      it 'should be initialized with empty array' do
+        expect(@phase.public).to eq([])
+      end
+
+      context 'when added' do
+
+        before :each do
+          @phase.public = [
+            @file
+          ]
+        end
+
+        it 'should add file reference' do
+          expect(@context).to receive(:file_reference_for_path).with(@file)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+
+        it 'add file reference to build phase' do
+          expect(@native_build_phase).to receive(:add_file_reference).with(@file_reference)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+
+        it 'should set build file attribute to public' do
+          expect(@build_file).to receive(:settings=).with(PUBLIC_HEADER_ATTRIBUTE)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+      end
     end
 
-    # attr_accessor :public
-    # attr_accessor :private
-    # attr_accessor :project
+    context 'private headers' do
 
-    # def initialize
-    #   @public = []
-    #   @private = []
-    #   @project = []
+      it 'should be initialized with empty array' do
+        expect(@phase.private).to eq([])
+      end
 
-    #   yield(self) if block_given?
-    # end
+      context 'when added' do
 
-    # def build_phase_type
-    #   Xcodeproj::Project::Object::PBXHeadersBuildPhase
-    # end
+        before :each do
+          @phase.private = [
+            @file
+          ]
+        end
 
-    # def configure_native_build_phase(native_build_phase, context)
-    #   super(native_build_phase, context)
+        it 'should add file reference' do
+          expect(@context).to receive(:file_reference_for_path).with(@file)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
 
-    #   #TODO: Refactor
-    #   #TODO: Add Settings / Attributes to files
-    #   #TODO: Constantfy visibility
+        it 'should add file reference to build phase' do
+          expect(@native_build_phase).to receive(:add_file_reference).with(@file_reference)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
 
-    #   @public.each do |file|
-    #     file_reference = context.file_reference_for_path(file)
-    #     build_file = native_build_phase.add_file_reference(file_reference)
-    #     build_file.settings = { "ATTRIBUTES" => ['Public'] }
-    #   end
+        it 'should set build file attribute to private' do
+          expect(@build_file).to receive(:settings=).with(PRIVATE_HEADER_ATTRIBUTE)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+      end
+    end
 
-    #   @private.each do |file|
-    #     file_reference = context.file_reference_for_path(file)
-    #     build_file = native_build_phase.add_file_reference(file_reference)
-    #     build_file.settings = { "ATTRIBUTES" => ['Private'] }
-    #   end
+    context 'project headers' do
 
-    #   @project.each do |file|
-    #     file_reference = context.file_reference_for_path(file)
-    #     native_build_phase.add_file_reference(file_reference)
-    #   end
-    # end
+      it 'should be initialized with empty array' do
+        expect(@phase.project).to eq([])
+      end
+
+      context 'when added' do
+
+        before :each do
+          @phase.project = [
+            @file
+          ]
+        end
+
+        it 'should add file reference' do
+          expect(@context).to receive(:file_reference_for_path).with(@file)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+
+        it 'add file reference to build phase' do
+          expect(@native_build_phase).to receive(:add_file_reference).with(@file_reference)
+          @phase.configure_native_build_phase(@native_build_phase, @context)
+        end
+      end
+    end
   end
 end

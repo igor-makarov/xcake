@@ -1,6 +1,9 @@
 module Xcake
-  # This class is used to hold a headers build phase name
-  # and script contents
+
+  PUBLIC_HEADER_ATTRIBUTE = { "ATTRIBUTES" => ['Public'] }
+  PRIVATE_HEADER_ATTRIBUTE = { "ATTRIBUTES" => ['Private'] }
+
+  # This class is used to represent a copy headers build phase
   #
   class HeadersBuildPhase < BuildPhase
     attr_accessor :public
@@ -22,20 +25,16 @@ module Xcake
     def configure_native_build_phase(native_build_phase, context)
       super(native_build_phase, context)
 
-      #TODO: Refactor
-      #TODO: Add Settings / Attributes to files
-      #TODO: Constantfy visibility
-
       @public.each do |file|
         file_reference = context.file_reference_for_path(file)
         build_file = native_build_phase.add_file_reference(file_reference)
-        build_file.settings = { "ATTRIBUTES" => ['Public'] }
+        build_file.settings = PUBLIC_HEADER_ATTRIBUTE
       end
 
       @private.each do |file|
         file_reference = context.file_reference_for_path(file)
         build_file = native_build_phase.add_file_reference(file_reference)
-        build_file.settings = { "ATTRIBUTES" => ['Private'] }
+        build_file.settings = PRIVATE_HEADER_ATTRIBUTE
       end
 
       @project.each do |file|
