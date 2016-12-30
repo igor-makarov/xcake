@@ -1,6 +1,9 @@
 require 'xcake/core_ext/array'
 require 'xcake/core_ext/object'
 require 'xcake/core_ext/string'
+require 'xcake/xcode/project'
+require 'xcake/xcode/scheme'
+require 'xcake/xcode/scheme_list'
 require 'xcake/xcodeproj_ext/PBXGroup'
 require 'xcake/xcodeproj_ext/PBXNativeTarget'
 require 'xcake/modern_xcodeproj'
@@ -38,10 +41,6 @@ require 'xcake/target/configurable'
 require 'xcake/build_phase'
 require 'xcake/build_phase/headers_build_phase'
 require 'xcake/build_phase/shell_script_build_phase'
-
-require 'xcake/xcode/project'
-require 'xcake/xcode/scheme'
-require 'xcake/xcode/scheme_list'
 
 module Xcake
 end

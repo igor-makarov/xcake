@@ -8,7 +8,7 @@ module Xcake
       EventHooks.run_hook :before_adding_user_schemes
 
       native_project = @context.native_object_for(project)
-      @scheme_list = SchemeList.new(native_project)
+      @scheme_list = Xcode::SchemeList.new(native_project)
     end
 
     def visit_target(target)
@@ -16,7 +16,8 @@ module Xcake
     end
 
     def leave_project(project)
-      @scheme_list.save(path)
+      native_project = @context.native_object_for(project)
+      @scheme_list.save(native_project.path)
     end
   end
 end
