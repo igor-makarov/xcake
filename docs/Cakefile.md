@@ -260,11 +260,32 @@ end
 #### Build Phases
 
 Xcake already implcitly creates build phases for you depending on how you configure your target
-however you can explicity create additional build phases depending on your needs
+however you can explicity create additional build phases depending on your needs.
 
 ##### Copy Headers Build Phase
 
+You can create a Copy Headers build phase to expose headers for instance for a library. 
+
+```ruby
+target.headers_build_phase "Build Phase Name" do |phase|
+
+  ## Public Headers
+  phase.public = ["PublicHeader.h"] # array
+  phase.public << "OtherPublicHeader.h" # add an item to array
+
+  ## Private Headers
+  phase.private = ["PrivateHeader.h"] # array
+  phase.private << "OtherPrivateHeader.h" # add an item to array
+
+  ## Project Only Header
+  phase.project = ["ProjectHeader.h"] # array
+  phase.project << "OtherProjectHeader.h" # add an item to array
+end
+```
+
 ##### Link Libraries Build Phase
+
+
 
 ##### Shell Script Build Phase
 
