@@ -118,6 +118,9 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
+      # TODO: Unit Test
+      #
+      #
       # Creates a new xcode file reference for a path
       #
       # @param [Pathname] path
@@ -126,19 +129,26 @@ module Xcake
       # @return [PBXFileReference] new xcode file refrence
       #
       def file_reference_for_path(path)
+
         group = group_for_file_reference_path(path)
         group_path = Pathname.new group.dirname
+
+        ref = files.detect do |f|
+          f.path == path.cleanpath.relative_path_from(group_path).to_s
+        end
+        
+        return ref if ref
 
         file_path = path.cleanpath.relative_path_from group_path
         group.new_reference(file_path.to_s)
       end
 
-      # Creates a new xcode group for a path
+      # Finds or Creates a new xcode group for a path
       #
       # @param [Pathname] path
       # =>                path of the group from the source root
       #
-      # @return [PBXGroup] new xcode group
+      # @return [PBXGroup] existing or new xcode group
       #
       def group_for_file_reference_path(path)
         clean_path = path.cleanpath
@@ -149,12 +159,15 @@ module Xcake
 
       private
 
-      # Creates a new xcode variant group for a path
+      # Creates or finds a new xcode variant group for a path
+      #
+      # @note this method will return nil if the path isn't a valid
+      # variant group path
       #
       # @param [Pathname] path
       # =>                path of the variant group from the source root
       #
-      # @return [PBXVariantGroup] new xcode variant group
+      # @return [PBXVariantGroup] existing or new xcode variant group
       #
       def variant_group_for_path(path)
         group_path = path.dirname.cleanpath
