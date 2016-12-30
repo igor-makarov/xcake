@@ -66,7 +66,7 @@ module Xcake
       end
 
       EventHooks.before_adding_custom_build_phase do |phase, target|
-        board.puts "- Adding custom phase \"#{phase.name}\" for #{target}"
+        board.puts "- Adding \"#{phase}\" to #{target}"
       end
 
       EventHooks.before_adding_embed_watch_app_phase do

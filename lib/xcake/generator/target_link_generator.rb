@@ -8,7 +8,7 @@ module Xcake
       return if target.linked_targets.empty?
 
       native_target = @context.native_object_for(target)
-      link_build_phase = target.link_build_phase "Link Linked Targets"
+      link_build_phase = target.link_build_phase
       
       target.linked_targets.each do |linked_target|
         target.target_dependencies << linked_target

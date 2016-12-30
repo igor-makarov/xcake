@@ -19,5 +19,9 @@ module Xcake
         native_build_phase.add_file_reference(file_reference)
       end
     end
+
+    def to_s
+      "BuildPhase<Link Libraries>"
+    end
   end
 end

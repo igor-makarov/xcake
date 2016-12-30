@@ -17,5 +17,9 @@ module Xcake
       native_build_phase.name = name
       native_build_phase.shell_script = script.strip_heredoc
     end
+
+    def to_s
+      "BuildPhase<#{name}>"
+    end
   end
 end
