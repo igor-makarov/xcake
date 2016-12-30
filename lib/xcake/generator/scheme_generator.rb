@@ -12,7 +12,8 @@ module Xcake
     end
 
     def visit_target(target)
-      @scheme_list.recreate_schemes
+      native_target = @context.native_object_for(target)
+      @scheme_list.create_schemes_for_target(native_target)
     end
 
     def leave_project(project)
