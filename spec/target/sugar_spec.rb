@@ -5,53 +5,56 @@ module Xcake
     before :each do
       project = double('Project').as_null_object
       @target = Target.new(project)
+      @build_phase_name = 'Hello World'
     end
 
     context 'when adding a copy headers build phase with a string' do
-        before :each do
-          @phase = @target.shell_script_build_phase('Hello World', <<-SCRIPT)
-            echo hello world
-          SCRIPT
-        end
-
-        it 'should add the build phase' do
-          expect(@target.build_phases.length).to eq(1)
-        end
-
-        it 'should truncate the preceding whitespace' do
-          expect(@phase.script).not_to match(/^[ \t]/)
-        end
-    end
-
-    context 'when adding a link library build phase with a string' do
-        before :each do
-          @phase = @target.shell_script_build_phase('Hello World', <<-SCRIPT)
-            echo hello world
-          SCRIPT
-        end
-
-        it 'should add the build phase' do
-          expect(@target.build_phases.length).to eq(1)
-        end
-
-        it 'should truncate the preceding whitespace' do
-          expect(@phase.script).not_to match(/^[ \t]/)
-        end
-    end
-
-    context 'when adding a shell script build phase with a string' do
       before :each do
-        @phase = @target.shell_script_build_phase('Hello World', <<-SCRIPT)
-          echo hello world
-        SCRIPT
+        @phase = @target.headers_build_phase(@build_phase_name)
+      end
+
+      it 'should set the name' do
+        expect(@phase.name).to eq(@build_phase_name)
       end
 
       it 'should add the build phase' do
         expect(@target.build_phases.length).to eq(1)
       end
+    end
 
-      it 'should truncate the preceding whitespace' do
-        expect(@phase.script).not_to match(/^[ \t]/)
+    context 'when adding a link library build phase with a string' do
+      before :each do
+        @phase = @target.link_build_phase(@build_phase_name)
+      end
+
+      it 'should set the name' do
+        expect(@phase.name).to eq(@build_phase_name)
+      end
+
+      it 'should add the build phase' do
+        expect(@target.build_phases.length).to eq(1)
+      end
+    end
+
+    context 'when adding a shell script build phase with a string' do
+      before :each do
+        @script = <<-SCRIPT
+          echo hello world
+        SCRIPT
+
+        @phase = @target.shell_script_build_phase(@build_phase_name, @script)
+      end
+
+      it 'should set the name' do
+        expect(@phase.name).to eq(@build_phase_name)
+      end
+
+      it 'should set the script' do
+        expect(@phase.script).to eq(@script)
+      end
+
+      it 'should add the build phase' do
+        expect(@target.build_phases.length).to eq(1)
       end
     end
   end
