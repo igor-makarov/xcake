@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-# TODO: BDD NO Config
 module Xcake
   describe ConfigurationGenerator do
     before :each do

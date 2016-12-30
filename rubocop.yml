@@ -35,10 +35,6 @@ AllCops:
   Exclude:
     - 'lib/assets/custom_action_template.rb'
 
-##################
-# TODO
-##################
-
 # Offense count: 20
 Metrics/AbcSize:
   Max: 63

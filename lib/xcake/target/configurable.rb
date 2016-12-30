@@ -4,10 +4,6 @@ module Xcake
       @project
     end
 
-    # TODO: Move this to a constant, maybe Xcodeproj ones should be brought
-    # into here?
-    #
-    # Perhaps these could be made into a Gem itself?
     def default_settings
       {
         'INFOPLIST_FILE' => "#{name}/Supporting Files/Info.plist"

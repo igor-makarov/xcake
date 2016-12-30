@@ -24,7 +24,5 @@ module Xcake
       expect(@project).to receive(:organization=).with(@dsl_project.organization)
       @generator.visit_project(@dsl_project)
     end
-
-    # TODO: Spec dependencies
   end
 end

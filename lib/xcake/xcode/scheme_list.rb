@@ -74,7 +74,6 @@ module Xcake
           scheme.analyze_action.build_configuration = c.name
           scheme.archive_action.build_configuration = c.name
 
-          # TODO: We should structure this stuff out
           if unit_test_target
             unit_test_target.add_dependency(target)
             @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = { 'primary' => true }
@@ -88,8 +87,6 @@ module Xcake
       #
       # @param    [String] writing_path
       #           path to write to.
-      #
-      # TODO: Move to a Generator
       #
       def save(writing_path)
         schemes_dir = Scheme.user_data_dir(writing_path)

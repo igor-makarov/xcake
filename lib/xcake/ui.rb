@@ -1,8 +1,5 @@
 require 'cork'
 
-# TODO: i18n this.
-# TODO: Different modes depending on --verbose, and CI
-# TODO: Split output and UI code into seperate concerns.
 module Xcake
   class UI
     def self.register_ui_hooks

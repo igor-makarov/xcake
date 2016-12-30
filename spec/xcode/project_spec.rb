@@ -147,7 +147,5 @@ module Xcake
         end
       end
     end
-
-    # TODO: Test object generation
   end
 end

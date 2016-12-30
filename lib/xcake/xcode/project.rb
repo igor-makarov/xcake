@@ -114,7 +114,6 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
-      # TODO: Fix duplicates
       # Creates a new xcode file reference from the node
       #
       # @param [Pathname] path

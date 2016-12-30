@@ -59,8 +59,6 @@ module Xcake
       expect(@target.exclude_files).to eq([])
     end
 
-    #TODO: Move these into configurable_spec.rb
-
     it 'should have the correct default debug settings' do
       @target.platform = :ios
       @target.deployment_target = 8.0

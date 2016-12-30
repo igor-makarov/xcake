@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-# TODO: We will refactor this to 2 phase system - This generates phase in the DSL another generator actually makes the phases
 module Xcake
   describe TargetBuildPhaseGenerator do
     before :each do
