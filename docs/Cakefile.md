@@ -422,7 +422,7 @@ configuration.settings["ENABLE_BITCODE"] = false
 
 ### Build Settings Shortcuts
 
-Xcake also provides some shortcuts for some more common build settings.
+Xcake also provides some shortcuts for some common build settings.
 
 #### Supported Devices
 
