@@ -230,6 +230,45 @@ target.exclude_files = ["FolderToIgnore/*.*"] # array
 target.exclude_files << "OtherFolderToIgnore/*.*" # add an item to array
 ```
 
+#### Linked Targets
+
+If you have another library or framework based target in the project you wish to use
+from another target (i.e in your application), you can indicate to xcake that you wish
+to link them using Linked Targets.
+
+Xcake will make sue that the library is built and then linked to the target you wish to
+use it from.
+
+```
+target.linked_targets = [linked_target] # array
+```
+
+Here is a more illustrative example of how to link a library in the project so that it
+can be used from an application.
+
+```ruby
+
+libraryTarget = target do |library_target|
+# ...configuration here
+end
+
+application_for :ios, 10.0 do |application_target|
+  application_target.linked_targets = [libraryTarget] # array
+end
+```
+
+#### Build Phases
+
+Xcake already implcitly creates build phases for you depending on how you configure your target
+however you can explicity create additional build phases depending on your needs
+
+##### Copy Headers Build Phase
+
+##### Link Libraries Build Phase
+
+##### Shell Script Build Phase
+
+
 ## Configurations
 
 Configurations are an abstraction of build settings and scheme settings. Depending
