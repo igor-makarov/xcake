@@ -120,7 +120,6 @@ module Xcake
 
       # TODO: Unit Test
       #
-      #
       # Creates a new xcode file reference for a path
       #
       # @param [Pathname] path
@@ -132,14 +131,14 @@ module Xcake
 
         group = group_for_file_reference_path(path)
         group_path = Pathname.new group.dirname
+        file_path = path.cleanpath.relative_path_from group_path
 
         ref = files.detect do |f|
-          f.path == path.cleanpath.relative_path_from(group_path).to_s
+          f.path == file_path.to_s
         end
         
         return ref if ref
-
-        file_path = path.cleanpath.relative_path_from group_path
+        
         group.new_reference(file_path.to_s)
       end
 

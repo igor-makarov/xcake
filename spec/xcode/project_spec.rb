@@ -47,6 +47,15 @@ module Xcake
           file = @project.file_reference_for_path(path)
           expect(file.path).to eq('Hi.txt')
         end
+
+        it 'should reuse existing file reference' do
+          path = Pathname.new './Folder/Hi.txt'
+
+          file_ref_a = @project.file_reference_for_path(path)
+          file_ref_b = @project.file_reference_for_path(path)
+
+          expect(file_ref_a).to eq(file_ref_b)
+        end
       end
 
       context 'when creating group for file reference' do
