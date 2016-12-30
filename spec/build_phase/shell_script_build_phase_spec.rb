@@ -7,7 +7,7 @@ module Xcake
       @phase = ShellScriptBuildPhase.new
     end
     
-    it 'should has correct build phase type' do
+    it 'should use correct build phase type' do
       expect(@phase.build_phase_type).to eq(Xcodeproj::Project::Object::PBXFrameworksBuildPhase)
     end
 
