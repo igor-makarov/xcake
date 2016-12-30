@@ -5,7 +5,5 @@ module Xcake
     it 'displays the current version number with the --version flag' do
       expect(Command.version).to eq(VERSION)
     end
-
-    # TODO: Test other commnands
   end
 end
