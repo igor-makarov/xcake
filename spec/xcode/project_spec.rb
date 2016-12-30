@@ -48,13 +48,23 @@ module Xcake
           expect(file.path).to eq('Hi.txt')
         end
 
-        it 'should reuse existing file reference' do
+        it 'should not add duplicate file reference' do
           path = Pathname.new './Folder/Hi.txt'
 
           file_ref_a = @project.file_reference_for_path(path)
           file_ref_b = @project.file_reference_for_path(path)
 
           expect(file_ref_a).to eq(file_ref_b)
+        end
+
+        it 'should not reuse file reference with same name under different folder' do
+          path_a = Pathname.new './FolderA/Hi.txt'
+          path_b = Pathname.new './FolderB/Hi.txt'
+
+          file_ref_a = @project.file_reference_for_path(path_a)
+          file_ref_b = @project.file_reference_for_path(path_b)
+
+          expect(file_ref_a).to_not eq(file_ref_b)
         end
       end
 

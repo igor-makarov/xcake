@@ -131,10 +131,7 @@ module Xcake
         group_path = Pathname.new group.dirname
         file_path = path.cleanpath.relative_path_from group_path
 
-        ref = files.detect do |f|
-          f.path == file_path.to_s
-        end
-        
+        ref = group.find_file_by_path file_path
         return ref if ref
         
         group.new_reference(file_path.to_s)
