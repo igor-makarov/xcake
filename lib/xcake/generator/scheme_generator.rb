@@ -13,7 +13,7 @@ module Xcake
 
     def visit_target(target)
       native_target = @context.native_object_for(target)
-      @scheme_list.create_schemes_for_target(native_target)
+      @scheme_list.create_schemes_for_target(native_target) unless native_target.test_target_type?
     end
 
     def leave_project(project)
