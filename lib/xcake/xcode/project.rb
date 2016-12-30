@@ -2,6 +2,10 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
+
+    # Special subclass of the Xcodeproj which adds capabilities and
+    # helper methods xcake need
+    #
     class Project < Xcodeproj::Project
       # @return [Hash] the attributes of
       #                the project
@@ -114,7 +118,7 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
-      # Creates a new xcode file reference from the node
+      # Creates a new xcode file reference for a path
       #
       # @param [Pathname] path
       # =>                path of the file reference from the source root
@@ -129,6 +133,13 @@ module Xcake
         group.new_reference(file_path.to_s)
       end
 
+      # Creates a new xcode group for a path
+      #
+      # @param [Pathname] path
+      # =>                path of the group from the source root
+      #
+      # @return [PBXGroup] new xcode group
+      #
       def group_for_file_reference_path(path)
         clean_path = path.cleanpath
         group = variant_group_for_path(path)
@@ -138,6 +149,13 @@ module Xcake
 
       private
 
+      # Creates a new xcode variant group for a path
+      #
+      # @param [Pathname] path
+      # =>                path of the variant group from the source root
+      #
+      # @return [PBXVariantGroup] new xcode variant group
+      #
       def variant_group_for_path(path)
         group_path = path.dirname.cleanpath
         base_name = group_path.basename
