@@ -56,6 +56,7 @@ module Xcake
         allow(@app_target).to receive(:platform).and_return(:ios)
         allow(@app_target).to receive(:deployment_target).and_return(8.0)
         allow(@app_target).to receive(:language).and_return(:swift)
+        allow(@app_target).to receive(:type)
 
         @target = @project.ui_tests_for @app_target
       end
@@ -104,6 +105,7 @@ module Xcake
         allow(@app_target).to receive(:platform).and_return(:ios)
         allow(@app_target).to receive(:deployment_target).and_return(8.0)
         allow(@app_target).to receive(:language).and_return(:swift)
+        allow(@app_target).to receive(:type)
 
         @target = @project.unit_tests_for @app_target
       end
@@ -153,6 +155,7 @@ module Xcake
         allow(@app_target).to receive(:platform).and_return(:ios)
         allow(@app_target).to receive(:deployment_target).and_return(8.0)
         allow(@app_target).to receive(:language).and_return(:swift)
+        allow(@app_target).to receive(:type)
 
         @target = @project.extension_for @app_target
       end
