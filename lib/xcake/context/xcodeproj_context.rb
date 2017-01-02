@@ -48,5 +48,9 @@ module Xcake
       pathname = Pathname.new path
       @project.file_reference_for_path(pathname)
     end
+
+    def scheme_list
+      Xcode::SchemeList.new(@project)
+    end
   end
 end

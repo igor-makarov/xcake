@@ -14,5 +14,8 @@ module Xcake
 
     def file_reference_for_path(path)
     end
+
+    def scheme_list
+    end
   end
 end

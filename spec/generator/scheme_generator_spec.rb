@@ -12,11 +12,16 @@ module Xcake
       @generator = SchemeGenerator.new(@context)
     end
 
-    it 'should rhave correct dependencies' do
+    it 'should have correct dependencies' do
       expect(SchemeGenerator.dependencies).to eq([TargetGenerator, ConfigurationGenerator])
     end
 
     it 'should create schemes for each target' do
+      expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
+      @scheme_list.recreate_schemes
+    end
+
+    it 'should skip creating schemes for unit test target' do
       expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
       @scheme_list.recreate_schemes
     end
