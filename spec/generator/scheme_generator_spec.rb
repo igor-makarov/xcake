@@ -3,11 +3,10 @@ require 'spec_helper'
 module Xcake
   describe SchemeGenerator do
     before :each do
-      @dsl_project = double('DSL Project')
-      @project = double('Project')
-
+      @scheme_list = double('Scheme List')
       @context = double('Context')
-      allow(@context).to receive(:native_object_for).and_return(@project)
+
+      allow(@context).to receive(:scheme_list).and_return(@scheme_list)
 
       @generator = SchemeGenerator.new(@context)
     end
@@ -17,18 +16,25 @@ module Xcake
     end
 
     it 'should create schemes for each target' do
-      expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
-      @scheme_list.recreate_schemes
+      target = double('Target')
+      native_target = double('Native Target')
+
+      allow(native_target).to receive(:test_target_type?).and_return(false)
+      allow(@context).to receive(:native_object_for).and_return(native_target)
+
+      expect(@scheme_list).to receive(:create_schemes_for_target).with(native_target)
+      @generator.visit_target(target)
     end
 
     it 'should skip creating schemes for unit test target' do
-      expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
-      @scheme_list.recreate_schemes
-    end
+      test_target = double('Test Target')
+      native_target = double('Native Target')
 
-    it 'should recreate user schemes' do
-      expect(@project).to receive(:recreate_user_schemes)
-      @generator.visit_project(@dsl_project)
+      allow(native_target).to receive(:test_target_type?).and_return(true)
+      allow(@context).to receive(:native_object_for).and_return(native_target)
+
+      expect(@scheme_list).to_not receive(:create_schemes_for_target).with(native_target)
+      @generator.visit_target(test_target)
     end
   end
 end
