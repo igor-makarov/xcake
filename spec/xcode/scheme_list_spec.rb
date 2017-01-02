@@ -29,17 +29,7 @@ module Xcake
                                                       'SuppressBuildableAutocreation' => {})
       end
 
-      it 'should create schemes for each target' do
-        expect(@scheme_list).to receive(:create_schemes_for_target).with(@target)
-        @scheme_list.recreate_schemes
-      end
-
-      it 'should create scheme for application' do
-        expect(@scheme_list).to receive(:create_schemes_for_application).with(@target)
-        @scheme_list.create_schemes_for_target(@target)
-      end
-
-      context 'when creating scheme for application' do
+      context 'when creating scheme for target' do
         before :each do
           @build_configuration = double('Build Configuration').as_null_object
           allow(@target).to receive(:build_configurations).and_return([@build_configuration])
@@ -51,22 +41,22 @@ module Xcake
         it 'should set correct name' do
           allow(@build_configuration).to receive(:name).and_return('debug')
           expect(@scheme).to receive(:name=).with("#{@target.name}-#{@build_configuration.name}")
-          @scheme_list.create_schemes_for_application(@target)
+          @scheme_list.create_schemes_for_target(@target)
         end
 
         it 'should configure with build target' do
           expect(@scheme).to receive(:configure_with_targets).with(@target, nil)
-          @scheme_list.create_schemes_for_application(@target)
+          @scheme_list.create_schemes_for_target(@target)
         end
 
         it 'should suppress target scheme autocreation' do
-          @scheme_list.create_schemes_for_application(@target)
+          @scheme_list.create_schemes_for_target(@target)
           autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']
           expect(autocreation_setting).to eq(true)
         end
 
         it 'should store scheme' do
-          @scheme_list.create_schemes_for_application(@target)
+          @scheme_list.create_schemes_for_target(@target)
           expect(@scheme_list.schemes.count).to eq(1)
         end
 
@@ -78,16 +68,16 @@ module Xcake
 
           it 'should configure with test target' do
             expect(@scheme).to receive(:configure_with_targets).with(@target, @unit_test_target)
-            @scheme_list.create_schemes_for_application(@target)
+            @scheme_list.create_schemes_for_target(@target)
           end
 
           it 'add target as depedancy for unit test target' do
             expect(@unit_test_target).to receive(:add_dependency).with(@target)
-            @scheme_list.create_schemes_for_application(@target)
+            @scheme_list.create_schemes_for_target(@target)
           end
 
           it 'should suppress unit test target scheme autocreation' do
-            @scheme_list.create_schemes_for_application(@target)
+            @scheme_list.create_schemes_for_target(@target)
             autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@unit_test_target.uuid]['primary']
             expect(autocreation_setting).to eq(true)
           end
