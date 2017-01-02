@@ -8,7 +8,7 @@ module Xcake
   # native representation of a DSL object which is useful for operations
   # which require multiple steps.
   #
-  # See XcodeXcodeprojContext and the Genrators for how this is used.
+  # See XcodeprojContext and the Genrators for how this is used.
   #
   module Context
 
