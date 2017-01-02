@@ -50,7 +50,7 @@ module Xcake
     end
 
     def scheme_list
-      Xcode::SchemeList.new(@project)
+      @scheme_list ||= Xcode::SchemeList.new(@project)
     end
   end
 end
