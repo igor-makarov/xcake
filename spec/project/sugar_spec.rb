@@ -151,21 +151,23 @@ module Xcake
 
         before :each do
           allow(@app_target).to receive(:type).and_return(:library)
+
+          @target = @project.unit_tests_for @app_target
         end
 
         it 'should not set test host to application target executable' do
           executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
           test_host_set = satisfy do |c|
-            c.settings['TEST_HOST'] == executable_path
+            c.settings['TEST_HOST'] != executable_path
           end
-          expect(@target.all_configurations).not_to all(test_host_set)
+          expect(@target.all_configurations).to all(test_host_set)
         end
 
         it 'should not set bundle loader setting to test host' do
           bundle_loader_set = satisfy do |c|
-            c.settings['BUNDLE_LOADER'] == '$(TEST_HOST)'
+            c.settings['BUNDLE_LOADER'] != '$(TEST_HOST)'
           end
-          expect(@target.all_configurations).not_to all(bundle_loader_set)
+          expect(@target.all_configurations).to all(bundle_loader_set)
         end
       end
     end
