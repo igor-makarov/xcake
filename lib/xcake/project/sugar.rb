@@ -95,11 +95,14 @@ module Xcake
 
       host_path = "#{host_target.name}.app/#{host_target.name}"
       
+      #TODO: Custom Xcode setting constant
       if host_target.type == :application
-        
         test_target.all_configurations.each do |c|
           c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
           c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+        end
+      else 
+        test_target.all_configurations.each do |c|
           c.settings['LD_RUNPATH_SEARCH_PATHS'] = [
             '$(inherited)',
             '@executable_path/../Frameworks',
