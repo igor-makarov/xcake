@@ -4,9 +4,9 @@ module Xcake
   # The Context is an object that tracking of native objects in the project
   # format.
   #
-  # It allows components of the Xcake generator system to retrieve
+  # It allows components of the Xcake generator system to retrieve the
   # native representation of a DSL object which is useful for operations
-  # which require multiple stepas.
+  # which require multiple steps.
   #
   # See XcodeXcodeprojContext and the Genrators for how this is used.
   #
