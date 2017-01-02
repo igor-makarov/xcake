@@ -47,7 +47,6 @@ module Xcake
 
           unit_test_target = project.find_unit_test_target_for_target(target)
           scheme.configure_with_targets(target, unit_test_target)
-          puts "MAKE #{target}, #{unit_test_target}"
 
           scheme.test_action.build_configuration = c.name
           scheme.launch_action.build_configuration = c.name
