@@ -16,9 +16,9 @@ module Xcake
       expect(SchemeGenerator.dependencies).to eq([TargetGenerator, ConfigurationGenerator])
     end
 
-    # it 'should recreate user schemes' do
-    #   expect(@project).to receive(:recreate_user_schemes)
-    #   @generator.visit_project(@dsl_project)
-    # end
+    it 'should recreate user schemes' do
+      expect(@project).to receive(:recreate_user_schemes)
+      @generator.visit_project(@dsl_project)
+    end
   end
 end
