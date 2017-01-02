@@ -6,8 +6,7 @@ module Xcake
 
     def default_settings
       {
-        'INFOPLIST_FILE' => "#{name}/Supporting Files/Info.plist",
-        'LD_RUNPATH_SEARCH_PATHS'  => ['$(inherited)', '@executable_path/Frameworks', '@loader_path/Frameworks']
+        'INFOPLIST_FILE' => "#{name}/Supporting Files/Info.plist"
       }
     end
 

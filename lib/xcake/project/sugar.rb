@@ -99,10 +99,12 @@ module Xcake
         
         test_target.all_configurations.each do |c|
           c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
-        end
-
-        test_target.all_configurations.each do |c|
           c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+          c.settings['LD_RUNPATH_SEARCH_PATHS'] = [
+            '$(inherited)',
+            '@executable_path/../Frameworks',
+            '@loader_path/../Frameworks'
+          ]
         end
       end
     end
