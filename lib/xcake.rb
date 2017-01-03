@@ -1,13 +1,16 @@
 require 'xcake/core_ext/array'
 require 'xcake/core_ext/object'
 require 'xcake/core_ext/string'
+
 require 'xcake/xcode/project'
 require 'xcake/xcode/scheme'
 require 'xcake/xcode/scheme_list'
+
 require 'xcake/xcodeproj_ext/PBXGroup'
 require 'xcake/xcodeproj_ext/PBXNativeTarget'
-require 'xcake/modern_xcodeproj'
 
+require 'xcake/constants'
+require 'xcake/modern_xcodeproj'
 require 'xcake/version'
 require 'xcake/event_hooks'
 require 'xcake/ui'
