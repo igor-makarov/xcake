@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'claide', '< 2.0', '>= 0.9.1'
   spec.add_dependency 'cork'
-  spec.add_dependency 'deep_merge'
   spec.add_dependency 'hooks', '~> 0.4.1'
   spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 0.21'
 

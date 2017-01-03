@@ -23,6 +23,15 @@ module Xcake
                 expect(settings['COMBINE_HIDPI_IMAGES']).to eq('YES')
             end
 
+             it 'returns the build settings from xcake' do
+                settings = @helper.common_build_settings(:release, :osx, nil, Xcodeproj::Constants::PRODUCT_TYPE_UTI[:bundle])
+                expect(settings['LD_RUNPATH_SEARCH_PATHS']).to eq([
+                    '$(inherited)',
+                    '@executable_path/../Frameworks',
+                    '@loader_path/../Frameworks'
+                ])
+            end
+
             it 'returns a deep copy of the common build settings' do
                 settings_1 = @helper.common_build_settings(:release, :ios, nil, nil)
                 settings_2 = @helper.common_build_settings(:release, :ios, nil, nil)
