@@ -4,7 +4,7 @@ module Xcake
     describe Constants do
 
         before do
-            @helper = Xcodeproj::Constants
+            @helper = Xcake::Constants
         end
 
         describe '::common_build_settings' do
@@ -30,31 +30,6 @@ module Xcake
                 settings_1.object_id.should.not == settings_2.object_id
                 settings_1['SDKROOT'].object_id.should.not == settings_2['SDKROOT'].object_id
                 settings_1['SDKROOT'][1].object_id.should.not == settings_2['SDKROOT'][1].object_id
-            end
-        end
-
-        describe '::deep_dup' do
-            it 'creates a copy of a given object' do
-                object = 'String'
-                copy = @helper.deep_dup(object)
-                object.should == copy
-                object.object_id.should.not == copy.object_id
-            end
-
-            it 'creates a deep copy of an array' do
-                object = ['String']
-                copy = @helper.deep_dup(object)
-                object.should == copy
-                object.object_id.should.not == copy.object_id
-                object[1].object_id.should.not == copy.object_id[1]
-            end
-
-            it 'creates a deep copy of an array' do
-                object = { :value => 'String' }
-                copy = @helper.deep_dup(object)
-                object.should == copy
-                object.object_id.should.not == copy.object_id
-                object.values[1].object_id.should.not == copy.values.object_id[1]
             end
         end
     end

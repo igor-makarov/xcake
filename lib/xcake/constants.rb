@@ -67,5 +67,16 @@ module Xcake
 
         settings
       end
+
+      # Creates a deep copy of the given object
+      #
+      # @param  [Object] object
+      #         the object to copy.
+      #
+      # @return [Object] The deeply copy of the obejct object.
+      #
+      def self.deep_dup(object)
+          Xcodeproj::Project::ProjectHelper.deep_dup(object)
+      end
   end
 end
