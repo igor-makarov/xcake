@@ -1,14 +1,14 @@
 module Xcake
   module Constants
       COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
-          [:ios, :bundle] => {
+          [:ios, :unit_test_bundle] => {
               'LD_RUNPATH_SEARCH_PATHS' => [
                 '$(inherited)',
-                '@executable_path/../Frameworks',
-                '@loader_path/../Frameworks'
+                '@executable_path/Frameworks',
+                '@loader_path/Frameworks'
               ]
           }.freeze,
-          [:osx, :bundle] => {
+          [:osx, :unit_test_bundle] => {
               'LD_RUNPATH_SEARCH_PATHS' =>  [
                 '$(inherited)',
                 '@executable_path/../Frameworks',

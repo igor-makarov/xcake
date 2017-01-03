@@ -24,7 +24,7 @@ module Xcake
             end
 
              it 'returns the build settings from xcake' do
-                settings = @helper.common_build_settings(:release, :osx, nil, Xcodeproj::Constants::PRODUCT_TYPE_UTI[:bundle])
+                settings = @helper.common_build_settings(:release, :osx, nil, Xcodeproj::Constants::PRODUCT_TYPE_UTI[:unit_test_bundle])
                 expect(settings['LD_RUNPATH_SEARCH_PATHS']).to eq([
                     '$(inherited)',
                     '@executable_path/../Frameworks',
