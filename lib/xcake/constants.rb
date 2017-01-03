@@ -1,6 +1,6 @@
 module Xcake
   module Constants
-      COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.merge(
+      COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
           [:ios, :bundle] => {
               'LD_RUNPATH_SEARCH_PATHS' => [
                 '$(inherited)',
