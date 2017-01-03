@@ -9,7 +9,7 @@ module Xcake
     attr_accessor :script
 
     def build_phase_type
-      Xcodeproj::Project::Object::PBXFrameworksBuildPhase
+      Xcodeproj::Project::Object::PBXShellScriptBuildPhase
     end
 
     def configure_native_build_phase(native_build_phase, _context)

@@ -1,3 +1,7 @@
+v0.8.1
+======
+- Fixes error creating shell script build phase.
+
 v0.8.0
 ======
 - Dropped support for Xcodeproj 0.20.0.

@@ -18,7 +18,7 @@ module Xcake
     end
 
     it 'should use correct build phase type' do
-      expect(@phase.build_phase_type).to eq(Xcodeproj::Project::Object::PBXFrameworksBuildPhase)
+      expect(@phase.build_phase_type).to eq(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
     end
 
     it 'should set name when configuring native build phase' do
