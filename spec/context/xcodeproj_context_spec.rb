@@ -6,6 +6,11 @@ module Xcake
       @context = XcodeprojContext.new
     end
 
+    context 'when creating a build phase' do
+      it 'should create new build phase' do
+      end
+    end
+
     context 'when creating a project' do
       before :each do
         project_dsl = double('Project')
@@ -49,12 +54,17 @@ module Xcake
       end
 
       it 'should create new group' do
-        file = double('File Refrence')
+        file = double('File Reference')
 
         allow(@context.project).to receive(:file_reference_for_path).and_return(file)
         returned_file = @context.file_reference_for_path('path')
         expect(returned_file).to eq(file)
       end
+    end
+
+    it 'should return scheme list' do
+      scheme_list = @context.scheme_list
+      expect(scheme_list).to_not be_nil
     end
   end
 end

@@ -2,6 +2,9 @@ require 'xcodeproj'
 
 module Xcake
   module Xcode
+    # Special subclass of the Xcodeproj::Project which adds capabilities and
+    # helper methods xcake need
+    #
     class Project < Xcodeproj::Project
       # @return [Hash] the attributes of
       #                the project
@@ -42,19 +45,8 @@ module Xcake
         attributes['ORGANIZATIONNAME'] = organization
       end
 
-      # @return [SchemeList] the scheme list
-      #
-      def scheme_list
-        @scheme_list ||= SchemeList.new(self)
-      end
-
       def object_version
         Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
-      end
-
-      def recreate_user_schemes(*)
-        scheme_list.recreate_schemes
-        scheme_list.save(path)
       end
 
       # Configures the Project for use with Xcake.
@@ -114,7 +106,7 @@ module Xcake
         new(Xcodeproj::Project::Object::XCBuildConfiguration)
       end
 
-      # Creates a new xcode file reference from the node
+      # Creates a new xcode file reference for a path
       #
       # @param [Pathname] path
       # =>                path of the file reference from the source root
@@ -124,11 +116,21 @@ module Xcake
       def file_reference_for_path(path)
         group = group_for_file_reference_path(path)
         group_path = Pathname.new group.dirname
-
         file_path = path.cleanpath.relative_path_from group_path
+
+        ref = group.find_file_by_path file_path.to_s
+        return ref if ref
+
         group.new_reference(file_path.to_s)
       end
 
+      # Finds or Creates a new xcode group for a path
+      #
+      # @param [Pathname] path
+      # =>                path of the group from the source root
+      #
+      # @return [PBXGroup] existing or new xcode group
+      #
       def group_for_file_reference_path(path)
         clean_path = path.cleanpath
         group = variant_group_for_path(path)
@@ -138,6 +140,16 @@ module Xcake
 
       private
 
+      # Creates or finds a new xcode variant group for a path
+      #
+      # @note this method will return nil if the path isn't a valid
+      # variant group path
+      #
+      # @param [Pathname] path
+      # =>                path of the variant group from the source root
+      #
+      # @return [PBXVariantGroup] existing or new xcode variant group
+      #
       def variant_group_for_path(path)
         group_path = path.dirname.cleanpath
         base_name = group_path.basename

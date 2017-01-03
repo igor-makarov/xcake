@@ -14,13 +14,12 @@ module Xcake
     end
 
     def visit_target(target)
-
-      paths_to_include = Dir.glob(target.include_files).map { |f|
+      paths_to_include = Dir.glob(target.include_files).map do |f|
         Pathname.new(f).cleanpath.to_s
-      }
-      paths_to_exclude = Dir.glob(target.exclude_files).map { |f|
+      end
+      paths_to_exclude = Dir.glob(target.exclude_files).map do |f|
         Pathname.new(f).cleanpath.to_s
-      }
+      end
 
       paths = paths_to_include - paths_to_exclude
       paths.each do |p|

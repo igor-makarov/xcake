@@ -1,7 +1,7 @@
 module Xcake
-  # TODO: In future this should just infer extra targets and add it to the DSL
-  # we should then implement a 2nd pass generator which turns that DSL into
-  # build phases
+  # This generator generates the build phases for each target
+  # in the project
+  #
   class TargetBuildPhaseGenerator < Generator
     def self.dependencies
       [TargetGenerator, TargetDependencyGenerator]
@@ -11,6 +11,14 @@ module Xcake
       EventHooks.run_hook :before_adding_build_phases, target
 
       native_target = @context.native_object_for(target)
+
+      target.build_phases.each do |phase|
+        EventHooks.run_hook :before_adding_custom_build_phase, phase, target
+
+        native_build_phase = @context.native_object_for(phase)
+        phase.configure_native_build_phase(native_build_phase, @context)
+        native_target.build_phases << native_build_phase
+      end
 
       target.target_dependencies.each do |dep|
         native_dep = @context.native_object_for(dep)

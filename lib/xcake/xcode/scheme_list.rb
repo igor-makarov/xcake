@@ -33,32 +33,12 @@ module Xcake
         }
       end
 
-      # Creates the schemes based on the targets.
-      #
-      def recreate_schemes
-        @project.targets.each do |t|
-          create_schemes_for_target(t)
-        end
-      end
-
       # Creates schemes based on a target.
       #
       # @param    [Target] target
       #           target to create schemes for
       #
       def create_schemes_for_target(target)
-        case target.product_type
-        when Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application]
-          create_schemes_for_application(target)
-        end
-      end
-
-      # Creates schemes based on a application target
-      #
-      # @param    [Target] target
-      #           target to create application schemes for
-      #
-      def create_schemes_for_application(target)
         target.build_configurations.each do |c|
           scheme = Scheme.new
 
@@ -74,7 +54,6 @@ module Xcake
           scheme.analyze_action.build_configuration = c.name
           scheme.archive_action.build_configuration = c.name
 
-          # TODO: We should structure this stuff out
           if unit_test_target
             unit_test_target.add_dependency(target)
             @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = { 'primary' => true }
@@ -88,8 +67,6 @@ module Xcake
       #
       # @param    [String] writing_path
       #           path to write to.
-      #
-      # TODO: Move to a Generator
       #
       def save(writing_path)
         schemes_dir = Scheme.user_data_dir(writing_path)

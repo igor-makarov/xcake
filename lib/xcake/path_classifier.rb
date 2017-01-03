@@ -5,10 +5,10 @@ module Xcake
   #
   class PathClassifier
     EXTENSION_MAPPINGS = {
-      PBXFrameworksBuildPhase: %w{.a .dylib .so .framework}.freeze,
-      PBXHeadersBuildPhase: %w{.h .hpp}.freeze,
-      PBXSourcesBuildPhase: %w{.c .m .mm .cpp .swift .xcdatamodeld}.freeze,
-      PBXResourcesBuildPhase: %w{.xcassets}.freeze
+      PBXFrameworksBuildPhase: %w(.a .dylib .so .framework).freeze,
+      PBXHeadersBuildPhase: %w(.h .hpp).freeze,
+      PBXSourcesBuildPhase: %w(.c .m .mm .cpp .swift .xcdatamodeld).freeze,
+      PBXResourcesBuildPhase: %w(.xcassets).freeze
     }.freeze
 
     # @note This should be overidden
@@ -27,7 +27,7 @@ module Xcake
 
     def self.classification_for_path(path)
       classification = EXTENSION_MAPPINGS.detect do |_key, ext_group|
-        ext_group.any? {|ext| File.extname(path) == ext}
+        ext_group.any? { |ext| File.extname(path) == ext }
       end
 
       return :PBXResourcesBuildPhase if classification.nil?

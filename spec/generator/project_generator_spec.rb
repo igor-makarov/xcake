@@ -22,7 +22,5 @@ module Xcake
       expect(@dsl_project).to receive(:run_hook).with(:after_save)
       @generator.leave_project(@dsl_project)
     end
-
-    # TODO: Spec dependencies
   end
 end

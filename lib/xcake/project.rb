@@ -13,7 +13,6 @@ module Xcake
 
     # @!group Configuring a project
 
-    # TODO: Rename to name
     # @return [String] the name of the project file. This is used as
     #                  the filename.
     #

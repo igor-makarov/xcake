@@ -28,6 +28,9 @@ This document describes the level of support Xcake has for the various aspects o
 - Specify build settings via configurations
 - Simple methods for creating iOS, Mac and WatchOS Applications.
 - Simple methods for creating Unit Tests
+- Build Phases are generated implicity and can be specified explicity for:
+    - Copy Headerss
+    - Shell Script
 
 ## Configuration
 
@@ -45,4 +48,6 @@ This document describes the level of support Xcake has for the various aspects o
 ## Files
 
 - Can Include Normal Files
+- Can Include Bundles
+- Can Include Libraries
 - Can Include Localized Files

@@ -1,7 +1,7 @@
 module Xcake
   class TargetDependencyGenerator < Generator
     def self.dependencies
-      [TargetGenerator]
+      [TargetGenerator, TargetLinkGenerator]
     end
 
     def visit_target(target)

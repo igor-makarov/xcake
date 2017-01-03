@@ -9,6 +9,8 @@ module Xcake
 
     def create_object_for(dsl_object)
       case dsl_object
+      when BuildPhase
+        create_object_for_build_phase(dsl_object)
       when Project
         create_object_for_project(dsl_object)
       when Target
@@ -18,6 +20,10 @@ module Xcake
       when Node
         create_object_for_node(dsl_object)
       end
+    end
+
+    def create_object_for_build_phase(build_phase)
+      @project.new(build_phase.build_phase_type)
     end
 
     def create_object_for_project(project)
@@ -41,6 +47,10 @@ module Xcake
     def file_reference_for_path(path)
       pathname = Pathname.new path
       @project.file_reference_for_path(pathname)
+    end
+
+    def scheme_list
+      @scheme_list ||= Xcode::SchemeList.new(@project)
     end
   end
 end

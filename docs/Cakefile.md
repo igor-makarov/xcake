@@ -209,6 +209,9 @@ target.language = :swift
 Sets the files to be included for a target, files and groups will be added
 to the project to match the file system.
 
+Xcake implicity figures out which build phase to add the files to, meaning
+source code will be compiled and libraries linked.
+
 [See Here](https://guides.cocoapods.org/syntax/podspec.html#group_file_patterns)
 for file patterns
 
@@ -228,6 +231,84 @@ for file patterns
 ```ruby
 target.exclude_files = ["FolderToIgnore/*.*"] # array
 target.exclude_files << "OtherFolderToIgnore/*.*" # add an item to array
+```
+
+#### Linked Targets
+
+If you have another library or framework based target in the project you wish to use
+from another target (i.e in your application), you can indicate to xcake that you wish
+to link them using Linked Targets.
+
+Xcake will make sue that the library is built and then linked to the target you wish to
+use it from.
+
+```
+target.linked_targets = [linked_target] # array
+```
+
+Here is a more illustrative example of how to link a library in the project so that it
+can be used from an application.
+
+```ruby
+
+libraryTarget = target do |library_target|
+# ...configuration here
+end
+
+application_for :ios, 10.0 do |application_target|
+  application_target.linked_targets = [libraryTarget] # array
+end
+```
+
+#### Build Phases
+
+Xcake already implcitly creates build phases for you depending on how you configure your target
+however you can explicity create additional build phases depending on your needs.
+
+##### Copy Headers Build Phase
+
+You can create a Copy Headers build phase to expose headers for instance for a library. 
+
+```ruby
+target.headers_build_phase "Build Phase Name" do |phase|
+
+  ## Public Headers
+  phase.public = ["PublicHeader.h"] # array
+  phase.public << "OtherPublicHeader.h" # add an item to array
+
+  ## Private Headers
+  phase.private = ["PrivateHeader.h"] # array
+  phase.private << "OtherPrivateHeader.h" # add an item to array
+
+  ## Project Only Header
+  phase.project = ["ProjectHeader.h"] # array
+  phase.project << "OtherProjectHeader.h" # add an item to array
+end
+```
+
+##### Link Libraries Build Phase
+
+You can create a Link Libraries build phase to link a lobrary when building.
+
+Note: If you import a library or framework using `include_files` then xcake
+already adds it to the Link Libraries build phase.
+
+```ruby
+target.link_build_phase "Build Phase Name" do |phase|
+  phase.files = ["LibraryToLink.a"] # array
+  phase.filwa << "OtherLibraryToLink.a" # add an item to array
+end
+```
+
+##### Shell Script Build Phase
+
+You can create a Shell Script buld phase to run a script when building.
+
+```ruby
+target.shell_script_build_phase "Build Phase Name", <<-SCRIPT 
+  echo "Hello World"
+SCRIPT
+end
 ```
 
 ## Configurations
@@ -341,7 +422,7 @@ configuration.settings["ENABLE_BITCODE"] = false
 
 ### Build Settings Shortcuts
 
-Xcake also provides some shortcuts for some more common build settings.
+Xcake also provides some shortcuts for some common build settings.
 
 #### Supported Devices
 

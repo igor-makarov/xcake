@@ -47,6 +47,25 @@ module Xcake
           file = @project.file_reference_for_path(path)
           expect(file.path).to eq('Hi.txt')
         end
+
+        it 'should not add duplicate file reference' do
+          path = Pathname.new './Folder/Hi.txt'
+
+          file_ref_a = @project.file_reference_for_path(path)
+          file_ref_b = @project.file_reference_for_path(path)
+
+          expect(file_ref_a.uuid).to eq(file_ref_b.uuid)
+        end
+
+        it 'should not reuse file reference with same name under different folder' do
+          path_a = Pathname.new './FolderA/Hi.txt'
+          path_b = Pathname.new './FolderB/Hi.txt'
+
+          file_ref_a = @project.file_reference_for_path(path_a)
+          file_ref_b = @project.file_reference_for_path(path_b)
+
+          expect(file_ref_a.uuid).to_not eq(file_ref_b.uuid)
+        end
       end
 
       context 'when creating group for file reference' do
@@ -114,10 +133,6 @@ module Xcake
         expect(@project.object_version).to eq(Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s)
       end
 
-      it 'should have a scheme list' do
-        expect(@project.scheme_list).to_not be(nil)
-      end
-
       it 'should find unit test target for target' do
         target = double('Target')
         allow(target).to receive(:name).and_return('app')
@@ -129,25 +144,6 @@ module Xcake
         found_target = @project.find_unit_test_target_for_target(target)
         expect(found_target).to be(unit_test_target)
       end
-
-      context 'when recreating schemes' do
-        before :each do
-          @scheme_list = double('Scheme List').as_null_object
-          allow(@project).to receive(:scheme_list).and_return(@scheme_list)
-        end
-
-        it 'should tell scheme list to recreate schemes' do
-          expect(@scheme_list).to receive(:recreate_schemes)
-          @project.recreate_user_schemes
-        end
-
-        it 'should save scheme list' do
-          expect(@scheme_list).to receive(:save).with(@project.path)
-          @project.recreate_user_schemes
-        end
-      end
     end
-
-    # TODO: Test object generation
   end
 end
