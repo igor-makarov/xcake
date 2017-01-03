@@ -1,3 +1,14 @@
+v0.8.0
+======
+- Dropped support for Xcodeproj 0.20.0.
+- Adds support for Xcodeproj 1.4.x.
+- Adds support for copy headers build phase.
+- Adds linked targets to allow you to link to a library or framework created from your project.  
+- Fixes bug where runpath searchpaths wasn't set for unit test bundles causing libraries not to be loaded.
+- Fixes bug where Xcake could add duplicate file reference to project.
+- Schemes are generated across all targets not just Application targets.
+- UI Test no longer produce a redundant scheme.
+
 v0.7.1
 ======
 - Implemented syntax for declaring UI Test targets.
