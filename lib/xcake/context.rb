@@ -11,7 +11,6 @@ module Xcake
   # See XcodeprojContext and the Genrators for how this is used.
   #
   module Context
-
     # The internal hash of native objects reference by their
     # related DSL object
     #

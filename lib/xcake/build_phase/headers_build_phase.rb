@@ -1,7 +1,6 @@
 module Xcake
-
-  PUBLIC_HEADER_ATTRIBUTE = { "ATTRIBUTES" => ['Public'] }
-  PRIVATE_HEADER_ATTRIBUTE = { "ATTRIBUTES" => ['Private'] }
+  PUBLIC_HEADER_ATTRIBUTE = { 'ATTRIBUTES' => ['Public'] }.freeze
+  PRIVATE_HEADER_ATTRIBUTE = { 'ATTRIBUTES' => ['Private'] }.freeze
 
   # This class is used to represent a copy headers build phase
   #
@@ -42,7 +41,7 @@ module Xcake
     end
 
     def to_s
-      "BuildPhase<Copy Headers>"
+      'BuildPhase<Copy Headers>'
     end
   end
 end

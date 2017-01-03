@@ -23,7 +23,7 @@ module Xcake
     end
 
     def create_object_for_build_phase(build_phase)
-      @project.new(build_phase.build_phase_type) 
+      @project.new(build_phase.build_phase_type)
     end
 
     def create_object_for_project(project)

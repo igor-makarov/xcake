@@ -94,8 +94,8 @@ module Xcake
       test_target.language = host_target.language
 
       host_path = "#{host_target.name}.app/#{host_target.name}"
-      
-      #TODO: Custom Xcode setting constant
+
+      # TODO: Custom Xcode setting constant
       if host_target.type == :application
         test_target.all_configurations.each do |c|
           c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"

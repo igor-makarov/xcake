@@ -12,11 +12,11 @@ module Xcake
 
       native_target = @context.native_object_for(target)
       frameworks_build_phase = native_target.frameworks_build_phase
-      
+
       target.linked_targets.each do |linked_target|
         native_linked_target = @context.native_object_for(linked_target)
         target.target_dependencies << linked_target
-        
+
         linked_product = native_linked_target.product_reference
         frameworks_build_phase.add_file_reference(linked_product)
       end

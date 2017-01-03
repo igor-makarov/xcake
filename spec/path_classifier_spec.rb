@@ -2,7 +2,6 @@ require 'spec_helper'
 
 module Xcake
   describe PathClassifier do
-
     it 'should allow PBXResourcesBuildPhase to be implicity created' do
       should_create = PathClassifier.should_create_build_phase_for_classification?(:PBXResourcesBuildPhase)
       expect(should_create).to be(true)

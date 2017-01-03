@@ -2,7 +2,6 @@ require 'xcodeproj'
 
 module Xcake
   class Target
-
     # Creates a new Copy Headers build phase for the
     # target
     #

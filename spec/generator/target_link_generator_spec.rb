@@ -18,11 +18,11 @@ module Xcake
       @target_dependencies = []
       allow(@target).to receive(:linked_targets).and_return([@linked_target])
       allow(@target).to receive(:target_dependencies).and_return(@target_dependencies)
-    
+
       context = double('Context')
       allow(context).to receive(:native_object_for).with(@target).and_return(native_target)
       allow(context).to receive(:native_object_for).with(@linked_target).and_return(linked_native_target)
-      
+
       @generator = TargetLinkGenerator.new(context)
     end
 

@@ -124,7 +124,7 @@ module Xcake
     #
     #
     # @note Xcake defaults to including files in the folder with the same name as
-    #       the targt     
+    #       the targt
     #
     # @example
     #

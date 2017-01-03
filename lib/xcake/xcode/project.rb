@@ -120,7 +120,7 @@ module Xcake
 
         ref = group.find_file_by_path file_path.to_s
         return ref if ref
-        
+
         group.new_reference(file_path.to_s)
       end
 

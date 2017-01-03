@@ -19,7 +19,6 @@ module Xcake
     end
 
     context 'when adding files' do
-
       before :each do
         allow(@target).to receive(:include_files).and_return(@paths)
         allow(@target).to receive(:exclude_files).and_return([])
@@ -55,9 +54,8 @@ module Xcake
     end
 
     it 'should ignore paths with different root specifier' do
-
       exclude_paths = [
-          './File'
+        './File'
       ]
 
       allow(@target).to receive(:include_files).and_return(@paths)
@@ -70,9 +68,8 @@ module Xcake
     end
 
     it 'should ignore paths which shouldn\'t be installed' do
-
       exclude_paths = [
-          './File'
+        './File'
       ]
 
       allow(@target).to receive(:include_files).and_return(@paths)

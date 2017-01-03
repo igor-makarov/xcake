@@ -2,7 +2,6 @@ module Xcake
   # This class is used to represent a shell script build phase
   #
   class ShellScriptBuildPhase < BuildPhase
-
     # The name of the build phase as shown in Xcode
     attr_accessor :name
 
@@ -13,7 +12,7 @@ module Xcake
       Xcodeproj::Project::Object::PBXFrameworksBuildPhase
     end
 
-    def configure_native_build_phase(native_build_phase, context)
+    def configure_native_build_phase(native_build_phase, _context)
       native_build_phase.name = name
       native_build_phase.shell_script = script.strip_heredoc
     end

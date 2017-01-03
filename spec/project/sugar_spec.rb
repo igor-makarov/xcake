@@ -148,7 +148,6 @@ module Xcake
       end
 
       context 'for a non-application target' do
-
         before :each do
           allow(@app_target).to receive(:type).and_return(:library)
 

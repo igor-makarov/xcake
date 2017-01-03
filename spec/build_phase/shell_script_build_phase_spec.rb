@@ -2,15 +2,13 @@ require 'spec_helper'
 
 module Xcake
   describe ShellScriptBuildPhase do
-    
     before :each do
-
       @script = <<-SCRIPT
           echo hello world
       SCRIPT
 
       @phase = ShellScriptBuildPhase.new
-      @phase.name = "Name"
+      @phase.name = 'Name'
       @phase.script = @script
 
       @native_build_phase = double('Native Build Phase')
@@ -18,7 +16,7 @@ module Xcake
       allow(@native_build_phase).to receive(:name=)
       allow(@native_build_phase).to receive(:shell_script=)
     end
-    
+
     it 'should use correct build phase type' do
       expect(@phase.build_phase_type).to eq(Xcodeproj::Project::Object::PBXFrameworksBuildPhase)
     end

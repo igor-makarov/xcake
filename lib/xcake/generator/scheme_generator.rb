@@ -4,7 +4,7 @@ module Xcake
       [TargetGenerator, ConfigurationGenerator]
     end
 
-    def visit_project(project)
+    def visit_project(_project)
       EventHooks.run_hook :before_adding_user_schemes
     end
 

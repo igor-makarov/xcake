@@ -5,7 +5,6 @@ require 'spec_helper'
 
 module Xcake
   describe HeadersBuildPhase do
-
     before :each do
       @phase = HeadersBuildPhase.new
 
@@ -26,13 +25,11 @@ module Xcake
     end
 
     context 'public headers' do
-
       it 'should be initialized with empty array' do
         expect(@phase.public).to eq([])
       end
 
       context 'when added' do
-
         before :each do
           @phase.public = [
             @file
@@ -57,13 +54,11 @@ module Xcake
     end
 
     context 'private headers' do
-
       it 'should be initialized with empty array' do
         expect(@phase.private).to eq([])
       end
 
       context 'when added' do
-
         before :each do
           @phase.private = [
             @file
@@ -88,13 +83,11 @@ module Xcake
     end
 
     context 'project headers' do
-
       it 'should be initialized with empty array' do
         expect(@phase.project).to eq([])
       end
 
       context 'when added' do
-
         before :each do
           @phase.project = [
             @file
