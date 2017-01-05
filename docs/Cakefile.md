@@ -286,20 +286,6 @@ target.headers_build_phase "Build Phase Name" do |phase|
 end
 ```
 
-##### Link Libraries Build Phase
-
-You can create a Link Libraries build phase to link a lobrary when building.
-
-Note: If you import a library or framework using `include_files` then xcake
-already adds it to the Link Libraries build phase.
-
-```ruby
-target.link_build_phase "Build Phase Name" do |phase|
-  phase.files = ["LibraryToLink.a"] # array
-  phase.filwa << "OtherLibraryToLink.a" # add an item to array
-end
-```
-
 ##### Shell Script Build Phase
 
 You can create a Shell Script buld phase to run a script when building.
