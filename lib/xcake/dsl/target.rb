@@ -172,6 +172,10 @@ module Xcake
     #
     attr_accessor :linked_targets
 
+    # @return [Array<Scheme>] schemes for the target
+    #
+    attr_accessor :schemes
+
     # @param    [Proc] block
     #           an optional block that configures the target through the DSL.
     #
@@ -193,7 +197,21 @@ module Xcake
       yield(self) if block_given?
     end
 
-    ## Getters
+    # @!group Working with a target
+
+    # @param  [String] string
+    #         name of the new scheme
+    #
+    # @return [Scheme] the scheme
+    #         the newly created scheme
+    #
+    def scheme(name, &block)
+      scheme = Scheme.new(project, &block)
+      schemes << scheme
+      scheme
+    end
+
+    # @!group getters
 
     def include_files
       # Import files in folder with same name as target by default

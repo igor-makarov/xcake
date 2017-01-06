@@ -1,12 +1,13 @@
 module Xcake
-  # This class handles resolving the structure
+  # This class handles generating the default structure
   # of a project. Making sure that the structure of the
   # project is one Xcode can open and makes sense.
   #
-  # As part of this it will create default configurations
+  # It will create default configurations or schemes
   # if none are provided and will make sure both the project
   # and targets have all of the same configurations.
-  class ProjectStructureGenerator < Generator
+  #
+  class DefaultProjectStructureGenerator < Generator
     attr_accessor :project
 
     def visit_project(project)
