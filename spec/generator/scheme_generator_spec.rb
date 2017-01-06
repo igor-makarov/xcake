@@ -12,7 +12,7 @@ module Xcake
     end
 
     it 'should have correct dependencies' do
-      expect(SchemeGenerator.dependencies).to eq([TargetGenerator, ConfigurationGenerator])
+      expect(SchemeGenerator.dependencies).to eq([TargetGenerator, DefaultProjectStructureGenerator, ConfigurationGenerator])
     end
 
     it 'should create schemes for each target' do

@@ -1,7 +1,7 @@
 module Xcake
   class SchemeGenerator < Generator
     def self.dependencies
-      [TargetGenerator, ConfigurationGenerator]
+      [TargetGenerator, DefaultProjectStructureGenerator, ConfigurationGenerator]
     end
 
     def visit_project(_project)

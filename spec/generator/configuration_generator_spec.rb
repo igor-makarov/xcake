@@ -16,7 +16,7 @@ module Xcake
     it 'should have correct dependencies' do
       expect(ConfigurationGenerator.dependencies).to eq([
                                                           TargetGenerator,
-                                                          ProjectStructureGenerator
+                                                          DefaultProjectStructureGenerator
                                                         ])
     end
 

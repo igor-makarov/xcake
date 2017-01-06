@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 module Xcake
-  describe ProjectStructureGenerator do
+  describe DefaultProjectStructureGenerator do
     before :each do
       @context = double('Context')
-      @generator = ProjectStructureGenerator.new(@context)
+      @generator = DefaultProjectStructureGenerator.new(@context)
     end
 
     context 'when resolving project' do
