@@ -3,8 +3,7 @@ require 'spec_helper'
 module Xcake
   describe Target do
     before :each do
-      project = double('Project').as_null_object
-      @target = Target.new(project)
+      @target = Target.new
       @target.name = 'Test'
     end
 

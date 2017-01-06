@@ -7,10 +7,6 @@ module Xcake
     include Configurable
     include Visitable
 
-    # @return [Project] the project for the target.
-    #
-    attr_accessor :project
-
     # @return [String] the name of the target.
     #
     attr_accessor :name
@@ -185,9 +181,7 @@ module Xcake
     #             t.name "test"
     #           end
     #
-    def initialize(project)
-      @project = project
-
+    def initialize
       @build_phases = []
       @exclude_files = []
       @linked_targets = []
@@ -199,14 +193,13 @@ module Xcake
 
     # @!group Working with a target
 
-    # @param  [String] string
-    #         name of the new scheme
+    # Creates a new scheme for the target
     #
     # @return [Scheme] the scheme
     #         the newly created scheme
     #
-    def scheme(name, &block)
-      scheme = Scheme.new(project, &block)
+    def scheme(&block)
+      scheme = Scheme.new(&block)
       schemes << scheme
       scheme
     end
