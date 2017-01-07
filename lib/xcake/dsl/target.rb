@@ -195,11 +195,14 @@ module Xcake
 
     # Creates a new scheme for the target
     #
+    # @param  [String] name
+    #         the name of the new scheme 
+    #
     # @return [Scheme] the scheme
     #         the newly created scheme
     #
-    def scheme(&block)
-      scheme = Scheme.new(&block)
+    def scheme(name, &block)
+      scheme = Scheme.new(name, &block)
       schemes << scheme
       scheme
     end

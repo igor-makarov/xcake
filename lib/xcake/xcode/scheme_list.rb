@@ -33,43 +33,20 @@ module Xcake
         }
       end
 
-      # Creates schemes based on a target.
+      # Adds target to add instructions
+      # to tell xcode not to autocreate scheme for target
       #
       # @param    [Target] target
-      #           target to create schemes for
+      #           target to supress autocreation for
       #
-      def create_schemes_for_target(target)
-        target.build_configurations.each do |c|
-          scheme = Scheme.new
-
-          scheme.name = "#{target.name}-#{c.name}"
-          @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = { 'primary' => true }
-
-          unit_test_target = project.find_unit_test_target_for_target(target)
-          scheme.configure_with_targets(target, unit_test_target)
-
-          scheme.test_action.build_configuration = c.name
-          scheme.launch_action.build_configuration = c.name
-          scheme.profile_action.build_configuration = c.name
-          scheme.analyze_action.build_configuration = c.name
-          scheme.archive_action.build_configuration = c.name
-
-          if unit_test_target
-            unit_test_target.add_dependency(target)
-            @xcschememanagement['SuppressBuildableAutocreation'][unit_test_target.uuid] = { 'primary' => true }
-          end
-
-          schemes << scheme
-        end
+      def supress_autocreation_of_target(target)
+        @xcschememanagement['SuppressBuildableAutocreation'][target.uuid] = { 'primary' => true }
       end
 
       # Writes scheme list data.
       #
-      # @param    [String] writing_path
-      #           path to write to.
-      #
-      def save(writing_path)
-        schemes_dir = Scheme.user_data_dir(writing_path)
+      def save
+        schemes_dir = Scheme.user_data_dir(@project.path)
 
         FileUtils.rm_rf(schemes_dir)
         FileUtils.mkdir_p(schemes_dir)
