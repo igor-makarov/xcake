@@ -187,6 +187,7 @@ module Xcake
       @linked_targets = []
       @system_libraries = []
       @target_dependencies = []
+      @schemes = []
 
       yield(self) if block_given?
     end

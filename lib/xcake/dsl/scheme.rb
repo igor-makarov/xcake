@@ -8,37 +8,37 @@ module Xcake
 
     # The name for the scheme
     # 
-    attr_accessor name
+    attr_accessor :name
 
     # The configuration to use when testing
     #
     # Defaults to "Debug"
     # 
-    attr_accessor test_configuration
+    attr_accessor :test_configuration
 
     # The configuration to use when launching
     #
     # Defaults to "Debug"
     #
-    attr_accessor launch_configuration
+    attr_accessor :launch_configuration
 
     # The configuration to use when profiling
     #
     # Defaults to "Debug"
     #
-    attr_accessor profile_configuration
+    attr_accessor :profile_configuration
 
     # The configuration to use when analyzing
     #
     # Defaults to "Debug"
     #
-    attr_accessor analyze_configuration
+    attr_accessor :analyze_configuration
 
     # The configuration to use when archving
     #
     # Defaults to "Release"
     #
-    attr_accessor archive_configuration
+    attr_accessor :archive_configuration
 
     def initialize(name)
 

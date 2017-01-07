@@ -25,6 +25,8 @@ module Xcake
         target.configuration(c.name, c.type)
       end
 
+      native_target = @context.native_object_for(target)
+
       return if native_target.test_target_type?
       return unless target.schemes.empty?
 
