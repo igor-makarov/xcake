@@ -5,8 +5,9 @@ module Xcake
     before :each do
       @scheme_list = double('Scheme List').as_null_object
       @context = double('Context')
-      @scheme = double('Scheme')
+      @scheme = double('Scheme').as_null_object
       @target = double('Target')
+      @unit_test_target = double('Unit Test Target')
       @project = double('Project')
 
       allow(@target).to receive(:schemes).and_return([@scheme])
@@ -16,10 +17,13 @@ module Xcake
       @native_target = double('Native Target').as_null_object
       @native_project = double('Native Project').as_null_object
       @native_scheme = double('Native Scheme').as_null_object
+      @native_unit_test_target = double('Native Unit Test Target').as_null_object
 
+      allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
       allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
       allow(@context).to receive(:native_object_for).with(@project).and_return(@native_project)
       allow(@context).to receive(:native_object_for).with(@scheme).and_return(@native_scheme)
+      allow(@context).to receive(:native_object_for).with(@unit_test_target).and_return(@native_unit_test_target)
 
       @generator = SchemeGenerator.new(@context)
       @generator.visit_project(@project)
@@ -35,36 +39,68 @@ module Xcake
         @generator.visit_target(@target)
       end
 
-      it 'should configure with build target' do
-        expect(@scheme).to receive(:configure_with_targets).with(@target, nil)
-        @generator.visit_target(@target)
-      end
-
       it 'should suppress target scheme autocreation' do
-        autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']
-        expect(autocreation_setting).to eq(true)
+        expect(@scheme_list).to receive(:supress_autocreation_of_target).with(@native_target)
         @generator.visit_target(@target)
       end
 
-      context 'and adding unit test' do
-        before :each do
-          @unit_test_target = double('Unit Test Target').as_null_object
-          allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
-        end
+      context 'when configuring native scheme' do
+        it 'should configure with build target' do
+          allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
+          allow(@context).to receive(:native_object_for).with(nil).and_return(nil)
 
-        it 'should configure with test target' do
-          expect(@scheme).to receive(:configure_with_targets).with(@target, @unit_test_target)
+          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil)
           @generator.visit_target(@target)
         end
 
-        it 'add target as depedancy for unit test target' do
-          expect(@unit_test_target).to receive(:add_dependency).with(@target)
+        it 'should configure with test action' do
+          action = double('Build Action')
+          allow(@native_scheme).to receive(:test_action).and_return(action)
+          expect(action).to receive(:build_configuration=).with(@scheme.test_configuration)
+          @generator.visit_target(@target)
+        end
+
+         it 'should configure launch action' do
+          action = double('Launch Action')
+          allow(@native_scheme).to receive(:launch_action).and_return(action)
+          expect(action).to receive(:build_configuration=).with(@scheme.launch_configuration)
+          @generator.visit_target(@target)
+        end
+
+         it 'should configure profile action' do
+          action = double('Profile Action')
+          allow(@native_scheme).to receive(:profile_action).and_return(action)
+          expect(action).to receive(:build_configuration=).with(@scheme.profile_configuration)
+          @generator.visit_target(@target)
+        end
+
+         it 'should configure analyze action' do
+          action = double('Analyze Action')
+          allow(@native_scheme).to receive(:analyze_action).and_return(action)
+          expect(action).to receive(:build_configuration=).with(@scheme.analyze_configuration)
+          @generator.visit_target(@target)
+        end
+
+         it 'should configure archive action' do
+          action = double('Archive Action')
+          allow(@native_scheme).to receive(:archive_action).and_return(action)
+          expect(action).to receive(:build_configuration=).with(@scheme.archive_configuration)
+          @generator.visit_target(@target)
+        end
+      end
+
+      it 'should add scheme to scheme list' do
+        #     scheme_list.schemes << native_scheme
+      end
+
+      context 'and adding unit test' do
+        it 'should configure with test target' do
+          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, @native_unit_test_target)
           @generator.visit_target(@target)
         end
 
         it 'should suppress unit test target scheme autocreation' do
-          autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@unit_test_target.uuid]['primary']
-          expect(autocreation_setting).to eq(true)
+          expect(@scheme_list).to receive(:supress_autocreation_of_target).with(@native_unit_test_target)
           @generator.visit_target(@target)
         end
       end
