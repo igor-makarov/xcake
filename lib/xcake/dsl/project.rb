@@ -46,8 +46,8 @@ module Xcake
     #           end
     #
     def initialize(name = 'Project')
-      self.name = name
-      self.targets = []
+      @name = name
+      @targets = []
 
       yield(self) if block_given?
     end
@@ -63,7 +63,7 @@ module Xcake
     #         the newly created target
     #
     def target(&block)
-      target = Target.new(project, &block)
+      target = Target.new(&block)
       targets << target
       target
     end

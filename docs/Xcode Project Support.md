@@ -32,18 +32,16 @@ This document describes the level of support Xcake has for the various aspects o
     - Copy Headerss
     - Shell Script
 
-## Configuration
+## Build Configuration
 
-- Set name for configuration (Used for name of build configuration created)
+- Set name for configuration
 - Specify build settings
-- Used to create build configuration for project and targets.
-- Used to create schemes for applications
-- Set XCConfig to inherit settings from.
+- Set XCConfig to inherit settings from
 
 ## Scheme
 
-- No manual control. For Application targets, xcake creates them based on the configurations for those targets (i.e "myApp-Debug". "myApp-Release")
-- Xcode auto-creates them currently for other target types.
+- Set name for scheme
+- Set build configuration for each action (Build, Launch, Archive etc.)
 
 ## Files
 

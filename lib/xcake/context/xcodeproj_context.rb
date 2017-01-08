@@ -17,8 +17,8 @@ module Xcake
         create_object_for_target(dsl_object)
       when Configuration
         create_object_for_configuration(dsl_object)
-      when Node
-        create_object_for_node(dsl_object)
+      when Scheme
+        create_object_for_scheme(dsl_object)
       end
     end
 
@@ -40,8 +40,8 @@ module Xcake
       @project.new_configuration(configuration)
     end
 
-    def create_object_for_node(node)
-      @project.new_group(node)
+    def create_object_for_scheme(scheme)
+      Xcode::Scheme.new
     end
 
     def file_reference_for_path(path)

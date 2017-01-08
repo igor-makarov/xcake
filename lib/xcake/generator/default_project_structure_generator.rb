@@ -1,13 +1,13 @@
 module Xcake
-  # This class handles resolving the structure
+  # This class handles generating the default structure
   # of a project. Making sure that the structure of the
   # project is one Xcode can open and makes sense.
   #
-  # As part of this it will create default configurations
+  # It will create default configurations or schemes
   # if none are provided and will make sure both the project
   # and targets have all of the same configurations.
-  class ProjectStructureGenerator < Generator
-    attr_accessor :project
+  #
+  class DefaultProjectStructureGenerator < Generator
 
     def visit_project(project)
       EventHooks.run_hook :before_resolving_project_structure, project
@@ -22,6 +22,21 @@ module Xcake
 
       @project.all_configurations.each do |c|
         target.configuration(c.name, c.type)
+      end
+
+      native_target = @context.native_object_for(target)
+
+      return if native_target.test_target_type?
+      return unless target.schemes.empty?
+
+      target.all_configurations.each do |c|
+        target.scheme "#{target.name}-#{c.name}" do |s|
+            s.test_configuration = c.name
+            s.launch_configuration = c.name
+            s.profile_configuration = c.name
+            s.analyze_configuration = c.name
+            s.archive_configuration = c.name
+        end
       end
     end
 

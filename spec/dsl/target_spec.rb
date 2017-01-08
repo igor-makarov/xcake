@@ -3,8 +3,7 @@ require 'spec_helper'
 module Xcake
   describe Target do
     before :each do
-      project = double('Project').as_null_object
-      @target = Target.new(project)
+      @target = Target.new
       @target.name = 'Test'
     end
 
@@ -81,6 +80,15 @@ module Xcake
       settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       expect(@target.default_release_settings).to eq(settings)
+    end
+
+    it 'should initialize schemes' do
+      expect(@target.schemes).not_to be(nil)
+    end
+
+    it 'should store schemes when created' do
+      @target.scheme('Scheme')
+      expect(@target.schemes.count).to eq(1)
     end
   end
 end

@@ -23,27 +23,29 @@ require 'xcake/plugin'
 require 'xcake/visitable'
 require 'xcake/visitor'
 require 'xcake/generator'
+require 'xcake/path_classifier'
 
 require 'xcake/context'
 require 'xcake/context/xcodeproj_context'
 
-require 'xcake/configuration'
-require 'xcake/configuration/sugar'
-require 'xcake/configuration/proxies/preproccessor_definitions_setting_proxy'
-require 'xcake/configurable'
+require 'xcake/dsl/configuration'
+require 'xcake/dsl/configuration/sugar'
+require 'xcake/dsl/configuration/proxies/preproccessor_definitions_setting_proxy'
+require 'xcake/dsl/configurable'
 
-require 'xcake/project'
-require 'xcake/project/sugar'
-require 'xcake/project/hooks'
-require 'xcake/path_classifier'
+require 'xcake/dsl/project'
+require 'xcake/dsl/project/sugar'
+require 'xcake/dsl/project/hooks'
 
-require 'xcake/target'
-require 'xcake/target/sugar'
-require 'xcake/target/configurable'
+require 'xcake/dsl/scheme'
 
-require 'xcake/build_phase'
-require 'xcake/build_phase/headers_build_phase'
-require 'xcake/build_phase/shell_script_build_phase'
+require 'xcake/dsl/target'
+require 'xcake/dsl/target/sugar'
+require 'xcake/dsl/target/configurable'
+
+require 'xcake/dsl/build_phase'
+require 'xcake/dsl/build_phase/headers_build_phase'
+require 'xcake/dsl/build_phase/shell_script_build_phase'
 
 module Xcake
 end

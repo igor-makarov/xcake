@@ -65,8 +65,7 @@ module Xcake
     # This either finds a release configuration
     # with the same name or creates one.
     #
-    # @deprecated Please use `configuration <name>, :debug` this
-    #             woll be removed in 0.7.0
+    # @deprecated Please use `configuration <name>, :debug`
     #
     # @return [Configuration] the new or existing debug configuration
     #
@@ -77,8 +76,7 @@ module Xcake
     # This either finds a release configuration
     # with the same name or creates one.
     #
-    # @deprecated Please use `configuration <name>, :release` this
-    #             woll be removed in 0.7.0
+    # @deprecated Please use `configuration <name>, :release`
     #
     # @return [Configuration] the new or existing release configuration
     #

@@ -1,14 +1,9 @@
 module Xcake
-  # This class repesents configurations
-  # in a xcode project. This is an abstraction
-  # of Schemes and Build Configurations.
+  # This class represents a Build Configuration
+  # in a xcode project.
   #
   # This forms part of the DSL and is usally
   # stored in files named `Cakefile`.
-  #
-  # It holds the build settings and defines
-  # how many schemes are created for each
-  # target.
   #
   class Configuration
     include Visitable

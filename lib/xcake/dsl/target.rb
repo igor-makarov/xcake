@@ -7,10 +7,6 @@ module Xcake
     include Configurable
     include Visitable
 
-    # @return [Project] the project for the target.
-    #
-    attr_accessor :project
-
     # @return [String] the name of the target.
     #
     attr_accessor :name
@@ -172,6 +168,10 @@ module Xcake
     #
     attr_accessor :linked_targets
 
+    # @return [Array<Scheme>] schemes for the target
+    #
+    attr_accessor :schemes
+
     # @param    [Proc] block
     #           an optional block that configures the target through the DSL.
     #
@@ -181,19 +181,34 @@ module Xcake
     #             t.name "test"
     #           end
     #
-    def initialize(project)
-      @project = project
-
+    def initialize
       @build_phases = []
       @exclude_files = []
       @linked_targets = []
       @system_libraries = []
       @target_dependencies = []
+      @schemes = []
 
       yield(self) if block_given?
     end
 
-    ## Getters
+    # @!group Working with a target
+
+    # Creates a new scheme for the target
+    #
+    # @param  [String] name
+    #         the name of the new scheme 
+    #
+    # @return [Scheme] the scheme
+    #         the newly created scheme
+    #
+    def scheme(name, &block)
+      scheme = Scheme.new(name, &block)
+      schemes << scheme
+      scheme
+    end
+
+    # @!group getters
 
     def include_files
       # Import files in folder with same name as target by default
