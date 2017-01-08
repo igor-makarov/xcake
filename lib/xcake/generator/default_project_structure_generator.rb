@@ -8,7 +8,6 @@ module Xcake
   # and targets have all of the same configurations.
   #
   class DefaultProjectStructureGenerator < Generator
-    attr_accessor :project
 
     def visit_project(project)
       EventHooks.run_hook :before_resolving_project_structure, project
