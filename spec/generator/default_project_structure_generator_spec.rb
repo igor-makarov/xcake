@@ -3,7 +3,7 @@ require 'spec_helper'
 module Xcake
   describe DefaultProjectStructureGenerator do
     before :each do
-      @context = double('Context')
+      @context = double('Context').as_null_object
       @generator = DefaultProjectStructureGenerator.new(@context)
     end
 
