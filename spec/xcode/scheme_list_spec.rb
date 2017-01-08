@@ -93,18 +93,6 @@ module Xcake
             @scheme_list.write_plist(@writing_path)
           end
         end
-
-        context 'when writing plist' do
-          it 'it should use legacy method for older Xcodeproj' do
-            # @scheme_list.xcschememanagement,
-            # @scheme_list.write_plist(".")
-          end
-
-          it 'it should use modern method for current Xcodeproj' do
-            # @scheme_list.xcschememanagement,
-            # @scheme_list.write_plist(".")
-          end
-        end
       end
     end
   end
