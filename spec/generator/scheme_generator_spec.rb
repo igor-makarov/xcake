@@ -5,10 +5,24 @@ module Xcake
     before :each do
       @scheme_list = double('Scheme List').as_null_object
       @context = double('Context')
+      @scheme = double('Scheme')
+      @target = double('Target')
+      @project = double('Project')
 
+      allow(@target).to receive(:schemes).and_return([@scheme])
+      allow(@scheme).to receive(:name).and_return('Scheme')
       allow(@context).to receive(:scheme_list).and_return(@scheme_list)
 
+      @native_target = double('Native Target').as_null_object
+      @native_project = double('Native Project').as_null_object
+      @native_scheme = double('Native Scheme').as_null_object
+
+      allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
+      allow(@context).to receive(:native_object_for).with(@project).and_return(@native_project)
+      allow(@context).to receive(:native_object_for).with(@scheme).and_return(@native_scheme)
+
       @generator = SchemeGenerator.new(@context)
+      @generator.visit_project(@project)
     end
 
     it 'should have correct dependencies' do
@@ -16,14 +30,8 @@ module Xcake
     end
 
     context 'when creating scheme for target' do
-      before :each do
-        @scheme = double('Scheme').as_null_object
-        allow(Scheme).to receive(:new).and_return(@scheme)
-      end
-
       it 'should set name' do
-        allow(@build_configuration).to receive(:name).and_return('debug')
-        expect(@scheme).to receive(:name=).with("#{@target.name}-#{@build_configuration.name}")
+        expect(@native_scheme).to receive(:name=).with(@scheme.name)
         @generator.visit_target(@target)
       end
 

@@ -6,22 +6,23 @@ module Xcake
 
     def visit_project(project)
       EventHooks.run_hook :before_adding_user_schemes
-      @project = @context.native_object_for(project)
+      @project = project
     end
 
     def visit_target(target)
       scheme_list = @context.scheme_list
       native_target = @context.native_object_for(target)
 
-      scheme_list.supress_autocreation_of_target(native_target)
-
       target.schemes.each do |scheme| 
+
+        scheme_list.supress_autocreation_of_target(native_target)
 
         native_scheme = @context.native_object_for(scheme)
         native_scheme.name = scheme.name
 
           #TODO: Find multiple testing targets, move this into the DSL ?
-          unit_test_target = @project.find_unit_test_target_for_target(target)
+          native_project = @context.native_object_for(@project)
+          unit_test_target = native_project.find_unit_test_target_for_target(target)
           native_unit_test_target = @context.native_object_for(unit_test_target)
 
           if native_unit_test_target
