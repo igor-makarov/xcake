@@ -47,20 +47,66 @@ module Xcake
     context 'when visting target with no schemes' do
 
       before :each do
+        target_name = 'Target'
+        configuration_name = 'Configuration'
+
+        @configuration = double('Configuration').as_null_object
+        allow(@configuration).to receive(:name).and_return(configuration_name)
+
         @target = double('Target')
-       # allow(@target).to receive(:configuration)
+        allow(@target).to receive(:name).and_return(target_name)
+        allow(@target).to receive(:schemes).and_return([])
+        allow(@target).to receive(:configuration)
+        allow(@target).to receive(:all_configurations).and_return([@configuration])
+
+        @native_target = double('Native Target')
+        allow(@native_target).to receive(:test_target_type?).and_return(false)
+
+        allow(@context).to receive(:native_object_for).and_return(@native_target)
       end
       
       it 'should create a scheme with corret name for each configuration' do
-        configuration = double('Configuration').as_null_object
-
-      #  allow(@target).to receive(:all_configurations).and_return([configuration])
-
-      #  expect(@target).to receive(:scheme).with('Target-Configuration')
+        expect(@target).to receive(:scheme).with("#{@target.name}-#{@configuration.name}")
         @generator.visit_target(@target)
       end
 
-      it 'set all actions on scheme to use configuration' do
+      context 'when creating scheme' do
+        before :each do
+          @scheme = double('Scheme').as_null_object
+          expect(@target).to receive(:scheme).and_yield(@scheme)
+        end
+
+        it 'set test configuration on scheme to use configuration' do
+          expect(@scheme).to receive(:test_configuration=).with(@configuration.name)
+          @generator.visit_target(@target)
+        end
+
+        it 'set launch configuration on scheme to use configuration' do
+          expect(@scheme).to receive(:launch_configuration=).with(@configuration.name)
+          @generator.visit_target(@target)
+        end
+
+        it 'set profile configuration on scheme to use configuration' do
+          expect(@scheme).to receive(:profile_configuration=).with(@configuration.name)
+          @generator.visit_target(@target)
+        end
+
+        it 'set analyze configuration on scheme to use configuration' do
+          expect(@scheme).to receive(:analyze_configuration=).with(@configuration.name)
+          @generator.visit_target(@target)
+        end
+
+        it 'set archive configuration on scheme to use configuration' do
+          expect(@scheme).to receive(:archive_configuration=).with(@configuration.name)
+          @generator.visit_target(@target)
+        end
+      end
+
+      it 'should not create implicit schemes for testing targets' do
+        allow(@native_target).to receive(:test_target_type?).and_return(true)
+
+        expect(@target).not_to receive(:scheme)
+        @generator.visit_target(@target)
       end
     end
   end
