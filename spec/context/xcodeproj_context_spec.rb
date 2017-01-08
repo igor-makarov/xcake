@@ -48,6 +48,18 @@ module Xcake
       end
     end
 
+    context 'when creating a scheme' do
+      before :each do
+        @context.project = double('Project')
+      end
+
+      it 'should create new scheme' do
+        scheme_dsl = double('Scheme')
+        scheme = @context.create_object_for_scheme(scheme_dsl)
+        expect(scheme).to be_a(Xcode::Scheme)
+      end
+    end
+
     context 'when creating a file reference' do
       before :each do
         @context.project = double('Project')

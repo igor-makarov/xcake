@@ -12,6 +12,7 @@ module Xcake
         allow(@target).to receive(:name).and_return('app')
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
 
+        allow(@project).to receive(:path).and_return(@writing_path)
         allow(@project).to receive(:targets).and_return([@target])
         allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
       end
@@ -29,58 +30,12 @@ module Xcake
                                                       'SuppressBuildableAutocreation' => {})
       end
 
-      context 'when creating scheme for target' do
-        before :each do
-          @build_configuration = double('Build Configuration').as_null_object
-          allow(@target).to receive(:build_configurations).and_return([@build_configuration])
+      context 'when supressing target scheme autocreation' do
 
-          @scheme = double('Scheme').as_null_object
-          allow(Scheme).to receive(:new).and_return(@scheme)
-        end
-
-        it 'should set correct name' do
-          allow(@build_configuration).to receive(:name).and_return('debug')
-          expect(@scheme).to receive(:name=).with("#{@target.name}-#{@build_configuration.name}")
-          @scheme_list.create_schemes_for_target(@target)
-        end
-
-        it 'should configure with build target' do
-          expect(@scheme).to receive(:configure_with_targets).with(@target, nil)
-          @scheme_list.create_schemes_for_target(@target)
-        end
-
-        it 'should suppress target scheme autocreation' do
-          @scheme_list.create_schemes_for_target(@target)
+        it 'should store entry in xcschememanagement' do
+          @scheme_list.supress_autocreation_of_target(@target)
           autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']
           expect(autocreation_setting).to eq(true)
-        end
-
-        it 'should store scheme' do
-          @scheme_list.create_schemes_for_target(@target)
-          expect(@scheme_list.schemes.count).to eq(1)
-        end
-
-        context 'and adding unit test' do
-          before :each do
-            @unit_test_target = double('Unit Test Target').as_null_object
-            allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
-          end
-
-          it 'should configure with test target' do
-            expect(@scheme).to receive(:configure_with_targets).with(@target, @unit_test_target)
-            @scheme_list.create_schemes_for_target(@target)
-          end
-
-          it 'add target as depedancy for unit test target' do
-            expect(@unit_test_target).to receive(:add_dependency).with(@target)
-            @scheme_list.create_schemes_for_target(@target)
-          end
-
-          it 'should suppress unit test target scheme autocreation' do
-            @scheme_list.create_schemes_for_target(@target)
-            autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@unit_test_target.uuid]['primary']
-            expect(autocreation_setting).to eq(true)
-          end
         end
       end
 
@@ -91,7 +46,7 @@ module Xcake
           allow(@scheme_list).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
-          @scheme_list.save(@writing_path)
+          @scheme_list.save
         end
 
         context 'schemes' do
@@ -101,12 +56,13 @@ module Xcake
           end
 
           it 'should save scheme' do
+            allow(@project).to receive(:path).and_return(@writing_path)
             expect(@scheme).to receive(:save_as).with(@project.path, @scheme.name, true)
-            @scheme_list.save(@writing_path)
+            @scheme_list.save
           end
 
           it 'should add scheme to scheme managment list' do
-            @scheme_list.save('.')
+            @scheme_list.save
             scheme_entry = @scheme_list.xcschememanagement['SchemeUserState']["#{@scheme.name}.xcscheme_^#shared#^_"]
 
             expect(scheme_entry).to eq('isShown' => true)
@@ -118,7 +74,7 @@ module Xcake
             expected_path = Scheme.user_data_dir(@writing_path) + 'xcschememanagement.plist'
             expect(@scheme_list).to receive(:write_plist).with(expected_path)
 
-            @scheme_list.save(@writing_path)
+            @scheme_list.save
           end
         end
 
@@ -135,18 +91,6 @@ module Xcake
             expect(Xcodeproj::Plist).to receive(:write_to_path).with(@scheme_list.xcschememanagement, @writing_path)
 
             @scheme_list.write_plist(@writing_path)
-          end
-        end
-
-        context 'when writing plist' do
-          it 'it should use legacy method for older Xcodeproj' do
-            # @scheme_list.xcschememanagement,
-            # @scheme_list.write_plist(".")
-          end
-
-          it 'it should use modern method for current Xcodeproj' do
-            # @scheme_list.xcschememanagement,
-            # @scheme_list.write_plist(".")
           end
         end
       end

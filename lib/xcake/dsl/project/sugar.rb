@@ -89,6 +89,8 @@ module Xcake
     private
 
     def configure_test_target_for_host_target(test_target, host_target)
+      
+      test_target.target_dependencies << host_target
       test_target.platform = host_target.platform
       test_target.deployment_target = host_target.deployment_target
       test_target.language = host_target.language

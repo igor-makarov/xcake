@@ -36,6 +36,11 @@ require 'xcake/dsl/configurable'
 require 'xcake/dsl/project'
 require 'xcake/dsl/project/sugar'
 require 'xcake/dsl/project/hooks'
+<<<<<<< HEAD
+=======
+
+require 'xcake/dsl/scheme'
+>>>>>>> 3b0f6eba3e5dbb3da3dce3153e0dc82bc6db4619
 
 require 'xcake/dsl/target'
 require 'xcake/dsl/target/sugar'

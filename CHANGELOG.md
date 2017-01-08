@@ -1,3 +1,7 @@
+v0.8.2
+======
+- Adds ability to explicity specify schemes.
+
 v0.8.1
 ======
 - Fixes error creating shell script build phase.

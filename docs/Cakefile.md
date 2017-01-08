@@ -286,20 +286,6 @@ target.headers_build_phase "Build Phase Name" do |phase|
 end
 ```
 
-##### Link Libraries Build Phase
-
-You can create a Link Libraries build phase to link a lobrary when building.
-
-Note: If you import a library or framework using `include_files` then xcake
-already adds it to the Link Libraries build phase.
-
-```ruby
-target.link_build_phase "Build Phase Name" do |phase|
-  phase.files = ["LibraryToLink.a"] # array
-  phase.filwa << "OtherLibraryToLink.a" # add an item to array
-end
-```
-
 ##### Shell Script Build Phase
 
 You can create a Shell Script buld phase to run a script when building.
@@ -313,10 +299,7 @@ end
 
 ## Configurations
 
-Configurations are an abstraction of build settings and scheme settings. Depending
-on the target Xcake will create a scheme per target and per configuration.
-
-Xcake allows you define a hierarchy of build settings like you would in Xcode
+Xcake allows you define a hierarchy of build configuations like you would in Xcode
 for the Project and the Targets.
 
 ### Debug Configurations
@@ -394,7 +377,7 @@ it also has its own hiearchy of settings, which are in the following order
 - Custom Settings
   These are the settings set directly on the configuration.
 
-###Properties
+### Properties
 
 #### Name
 
@@ -447,4 +430,80 @@ Allows you to specify preprocessor definitions.
 
 ```ruby
 configuration.preprocessor_definitions["NAME"] = "VALUE"
+```
+## Schemes
+
+Xcake allows you to specify schemes for launching, testing,
+profiling and archiving targets.
+
+When no schemes are specified for a target then Xcake will auto generate 
+a scheme per configuration per target (i.e "Target-Debug" and "Target-Release")
+
+### Creating A Scheme
+
+We can create a scheme with the name of the target like so:
+
+```ruby
+target.scheme(target.name)
+```
+
+If we don't configure this scheme then it will default to the reccomended
+Apple settings of using the debug build configurations for everything
+except the Archive action which will use the Release configuration.
+
+We can modify settings for a scheme easily.
+
+```ruby
+target.scheme(target.name) do |scheme|
+  scheme.build_configuration = :staging
+end
+```
+### Properties
+
+#### Name
+
+Sets the name of the scheme
+
+```ruby
+scheme.name = "MyApp"
+```
+
+#### Test Configuration
+
+Sets the configuration to use when running tests
+
+```ruby
+scheme.test_configuration = :debug
+```
+
+#### Launch Configuration
+
+Sets the configuration to use when running tests
+
+```ruby
+scheme.launch_configuration = :debug
+```
+
+#### Profile Configuration
+
+Sets the configuration to use when profiling a target
+
+```ruby
+scheme.profile_configuration = :debug
+```
+
+#### Analyze Configuration
+
+Sets the configuration to use when analyzing a target
+
+```ruby
+scheme.analyze_configuration = :debug
+```
+
+#### Archive Configuration
+
+Sets the configuration to use when archiving
+
+```ruby
+scheme.archive_configuration = :debug
 ```
