@@ -87,7 +87,7 @@ module Xcake
     end
 
     it 'should store schemes when created' do
-      @target.scheme
+      @target.scheme('Scheme')
       expect(@target.schemes.count).to eq(1)
     end
   end
