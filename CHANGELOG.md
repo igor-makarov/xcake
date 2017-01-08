@@ -1,6 +1,7 @@
 v0.8.2
 ======
 - Adds ability to explicity specify schemes.
+- Reduced verbosity of output to the command line.
 
 v0.8.1
 ======
