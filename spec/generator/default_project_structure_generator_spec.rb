@@ -50,17 +50,7 @@ module Xcake
     end
 
     context 'when visting target with no schemes' do
-      before :each do
-        @target = double('Target').as_null_object
-      end
-
-      it 'should propogate debug configurations' do
-        @generator.visit_target(@target)
-      end
-
-      it 'should propogate release configurations' do
-        @generator.visit_target(@target)
-      end
+      
     end
   end
 end
