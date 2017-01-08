@@ -3,6 +3,7 @@ require 'spec_helper'
 module Xcake
   describe SchemeGenerator do
     before :each do
+      @scheme_list_schemes = []
       @scheme_list = double('Scheme List').as_null_object
       @context = double('Context')
       @scheme = double('Scheme').as_null_object
@@ -12,6 +13,7 @@ module Xcake
 
       allow(@target).to receive(:schemes).and_return([@scheme])
       allow(@scheme).to receive(:name).and_return('Scheme')
+      allow(@scheme_list).to receive(:schemes).and_return(@scheme_list_schemes)
       allow(@context).to receive(:scheme_list).and_return(@scheme_list)
 
       @native_target = double('Native Target').as_null_object
@@ -90,7 +92,8 @@ module Xcake
       end
 
       it 'should add scheme to scheme list' do
-        #     scheme_list.schemes << native_scheme
+        @generator.visit_target(@target)
+        expect(@scheme_list.schemes).to eq([@native_scheme])
       end
 
       context 'and adding unit test' do
