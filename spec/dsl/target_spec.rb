@@ -81,5 +81,14 @@ module Xcake
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       expect(@target.default_release_settings).to eq(settings)
     end
+
+    it 'should initialize schemes' do
+      expect(@target.schemes).not_to be(nil)
+    end
+
+    it 'should store schemes when created' do
+      @target.scheme
+      expect(@target.schemes.count).to eq(1)
+    end
   end
 end
