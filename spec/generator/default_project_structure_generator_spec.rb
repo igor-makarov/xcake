@@ -7,7 +7,7 @@ module Xcake
       @generator = DefaultProjectStructureGenerator.new(@context)
     end
 
-    context 'when resolving project' do
+    context 'when visting project' do
       before :each do
         @project = double('Project').as_null_object
       end
@@ -18,7 +18,7 @@ module Xcake
       end
     end
 
-    context 'when resolving target with no configurations' do
+    context 'when visting target with no configurations' do
       before :each do
         @target = double('Target').as_null_object
 
@@ -45,6 +45,20 @@ module Xcake
 
       it 'should propogate release configurations' do
         expect(@target).to receive(:configuration).with(@release_name, @release_type)
+        @generator.visit_target(@target)
+      end
+    end
+
+    context 'when visting target with no schemes' do
+      before :each do
+        @target = double('Target').as_null_object
+      end
+
+      it 'should propogate debug configurations' do
+        @generator.visit_target(@target)
+      end
+
+      it 'should propogate release configurations' do
         @generator.visit_target(@target)
       end
     end

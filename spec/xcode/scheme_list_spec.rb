@@ -12,6 +12,7 @@ module Xcake
         allow(@target).to receive(:name).and_return('app')
         allow(@target).to receive(:product_type).and_return(Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
 
+        allow(@project).to receive(:path).and_return(@writing_path)
         allow(@project).to receive(:targets).and_return([@target])
         allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
       end
@@ -91,7 +92,7 @@ module Xcake
           allow(@scheme_list).to receive(:write_plist)
           expect(FileUtils).to receive(:mkdir_p).with(schemes_dir)
 
-          @scheme_list.save(@writing_path)
+          @scheme_list.save
         end
 
         context 'schemes' do
@@ -101,12 +102,13 @@ module Xcake
           end
 
           it 'should save scheme' do
+            allow(@project).to receive(:path).and_return(@writing_path)
             expect(@scheme).to receive(:save_as).with(@project.path, @scheme.name, true)
-            @scheme_list.save(@writing_path)
+            @scheme_list.save
           end
 
           it 'should add scheme to scheme managment list' do
-            @scheme_list.save('.')
+            @scheme_list.save
             scheme_entry = @scheme_list.xcschememanagement['SchemeUserState']["#{@scheme.name}.xcscheme_^#shared#^_"]
 
             expect(scheme_entry).to eq('isShown' => true)
@@ -118,7 +120,7 @@ module Xcake
             expected_path = Scheme.user_data_dir(@writing_path) + 'xcschememanagement.plist'
             expect(@scheme_list).to receive(:write_plist).with(expected_path)
 
-            @scheme_list.save(@writing_path)
+            @scheme_list.save
           end
         end
 
