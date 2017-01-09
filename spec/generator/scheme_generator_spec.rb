@@ -21,7 +21,7 @@ module Xcake
       @native_scheme = double('Native Scheme').as_null_object
       @native_unit_test_target = double('Native Unit Test Target').as_null_object
 
-      allow(@project).to receive(:find_unit_test_target_for_target).and_return(@unit_test_target)
+      allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(@native_unit_test_target)
       allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
       allow(@context).to receive(:native_object_for).with(@project).and_return(@native_project)
       allow(@context).to receive(:native_object_for).with(@scheme).and_return(@native_scheme)
@@ -48,8 +48,7 @@ module Xcake
 
       context 'when configuring native scheme' do
         it 'should configure with build target' do
-          allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
-          allow(@context).to receive(:native_object_for).with(nil).and_return(nil)
+          allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(nil)
 
           expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil)
           @generator.visit_target(@target)

@@ -22,8 +22,7 @@ module Xcake
 
           #TODO: Find multiple testing targets, move this into the DSL ?
           native_project = @context.native_object_for(@project)
-          unit_test_target = @project.find_unit_test_target_for_target(target)
-          native_unit_test_target = @context.native_object_for(unit_test_target)
+          native_unit_test_target = native_project.find_unit_test_target_for_target(target)
 
           if native_unit_test_target
             scheme_list.supress_autocreation_of_target(native_unit_test_target)
