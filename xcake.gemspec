@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/jcampbell05/xcake/'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|example|docs|fastlane-plugin-xcake|gemfiles)/}) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.executables = %w(xcake)
   spec.require_paths = ['lib']
