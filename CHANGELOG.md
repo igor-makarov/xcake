@@ -1,3 +1,7 @@
+v0.8.5
+======
+- Fixes gem failing to load.
+
 v0.8.4
 ======
 - Reduces gem size.
