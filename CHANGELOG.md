@@ -1,3 +1,7 @@
+v0.8.3
+======
+- Fixes bug with scheme generator when configuring unit tests for schemes.
+
 v0.8.2
 ======
 - Adds ability to explicity specify schemes.
