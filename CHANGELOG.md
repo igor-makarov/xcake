@@ -1,3 +1,7 @@
+v0.8.4
+======
+- Reduces gem size.
+
 v0.8.3
 ======
 - Fixes bug with scheme generator when configuring unit tests for schemes.
