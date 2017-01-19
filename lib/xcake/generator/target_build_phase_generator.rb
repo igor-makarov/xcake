@@ -4,13 +4,21 @@ module Xcake
   #
   class TargetBuildPhaseGenerator < Generator
     def self.dependencies
-      [TargetGenerator, TargetDependencyGenerator]
+      [TargetGenerator, TargetDependencyGenerator, TargetFileReferenceGenerator]
     end
 
     def visit_target(target)
       EventHooks.run_hook :before_adding_build_phases, target
 
       native_target = @context.native_object_for(target)
+
+      target.pinned_build_phases.each do |phase|
+        EventHooks.run_hook :before_adding_custom_build_phase, phase, target
+
+        native_build_phase = @context.native_object_for(phase)
+        phase.configure_native_build_phase(native_build_phase, @context)
+        native_target.build_phases.unshift(native_build_phase)
+      end
 
       target.build_phases.each do |phase|
         EventHooks.run_hook :before_adding_custom_build_phase, phase, target
