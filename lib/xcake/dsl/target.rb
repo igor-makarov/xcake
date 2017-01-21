@@ -33,6 +33,11 @@ module Xcake
     attr_accessor :language
 
     # @return [Array<BuildPhase>] the list
+    #                             of build phases to place first for the project.
+    #
+    attr_accessor :pinned_build_phases
+
+    # @return [Array<BuildPhase>] the list
     #                             of build phases for the project.
     #
     attr_accessor :build_phases
@@ -182,6 +187,7 @@ module Xcake
     #           end
     #
     def initialize
+      @pinned_build_phases = []
       @build_phases = []
       @exclude_files = []
       @linked_targets = []
