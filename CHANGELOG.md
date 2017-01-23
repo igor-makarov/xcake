@@ -1,3 +1,7 @@
+v0.8.7
+======
+- Adds ability to specify shell script build phase before all other build phases.
+
 v0.8.5 & v0.8.6
 ===============
 - Fixes gem failing to load.
