@@ -27,6 +27,8 @@ module Xcake
     end
 
     def create_object_for_project(project)
+      FileUtils.remove_dir("#{project.name}.xcodeproj")
+
       @project = Xcode::Project.new("./#{project.name}.xcodeproj", true)
       @project.setup_for_xcake
       @project
