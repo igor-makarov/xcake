@@ -27,15 +27,16 @@ module Xcake
 
       it 'should remove old project' do
         Dir.mktmpdir do |dir|
-          Dir.chdir dir do
-            Dir.mkdir(@project_path)
-            hash_path = '#{@project_path}/**/*.*'
+          FileUtils.cd dir do
 
-            old_hash = Dir.glob(hash_path).hash
+            old_marker_path = "#{@project_path}/old_marker"
+
+            FileUtils.mkdir(@project_path)
+            FileUtils.touch(old_marker_path)
+
             @project = @context.create_object_for_project(@project_dsl)
-            new_hash = Dir.glob(hash_path).hash
 
-            expect(new_hash).not_to eq(old_hash)
+            expect(File.exist?(old_marker_path)).to eq(false)
           end
         end
       end
