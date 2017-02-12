@@ -27,6 +27,7 @@ module Xcake
             scheme_list.supress_autocreation_of_target(native_unit_test_target)
           end
 
+          # TODO: Spec
           if native_target.library_target_type?
             build_action = native_scheme.build_action
             build_action.build_for_running(true)

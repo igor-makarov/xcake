@@ -95,7 +95,7 @@ module Xcake
         expect(@scheme_list.schemes).to eq([@native_scheme])
       end
 
-      context 'and adding unit test' do
+      context 'when adding unit test scheme' do
         it 'should configure with test target' do
           expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, @native_unit_test_target)
           @generator.visit_target(@target)
