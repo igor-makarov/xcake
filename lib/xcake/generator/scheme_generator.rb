@@ -15,17 +15,21 @@ module Xcake
 
       target.schemes.each do |scheme| 
 
-        scheme_list.supress_autocreation_of_target(native_target)
+          scheme_list.supress_autocreation_of_target(native_target)
 
-        native_scheme = @context.native_object_for(scheme)
-        native_scheme.name = scheme.name
+          native_scheme = @context.native_object_for(scheme)
+          native_scheme.name = scheme.name
 
-          #TODO: Find multiple testing targets, move this into the DSL ?
           native_project = @context.native_object_for(@project)
           native_unit_test_target = native_project.find_unit_test_target_for_target(target)
 
           if native_unit_test_target
             scheme_list.supress_autocreation_of_target(native_unit_test_target)
+          end
+
+          if native_target.library_target_type?
+            build_action = native_scheme.build_action
+            build_action.build_for_running(true)
           end
 
           native_scheme.configure_with_targets(native_target, native_unit_test_target)
