@@ -1,9 +1,12 @@
 require 'spec_helper'
+require 'fileutils'
+require 'tmpdir'
 
 module Xcake
   describe XcodeprojContext do
     before :each do
       @context = XcodeprojContext.new
+      @project_path = './Name.xcodeproj'
     end
 
     context 'when creating a build phase' do
@@ -13,14 +16,28 @@ module Xcake
 
     context 'when creating a project' do
       before :each do
-        project_dsl = double('Project')
-        allow(project_dsl).to receive(:name).and_return('Name')
-
-        @project = @context.create_object_for_project(project_dsl)
+        @project_dsl = double('Project')
+        allow(@project_dsl).to receive(:name).and_return('Name')
       end
 
       it 'should set correct path' do
-        expect(@project.path.to_s).to eq(File.expand_path('./Name.xcodeproj'))
+        project = @context.create_object_for_project(@project_dsl)
+        expect(project.path.to_s).to eq(File.expand_path(@project_path))
+      end
+
+      it 'should remove old project' do
+        Dir.mktmpdir do |dir|
+          Dir.chdir dir do
+            Dir.mkdir(@project_path)
+            hash_path = '#{@project_path}/**/*.*'
+
+            old_hash = Dir.glob(hash_path).hash
+            @project = @context.create_object_for_project(@project_dsl)
+            new_hash = Dir.glob(hash_path).hash
+
+            expect(new_hash).not_to eq(old_hash)
+          end
+        end
       end
     end
 
