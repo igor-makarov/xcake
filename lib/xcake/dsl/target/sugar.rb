@@ -2,6 +2,24 @@ require 'xcodeproj'
 
 module Xcake
   class Target
+    # Creates a new Copy Files build phase for the
+    # target
+    #
+    # @param   [String] name
+    #          the name to use for the build phase
+    #
+    # @param   [Proc] block
+    #          an optional block that configures the build phase through the DSL.
+    #
+    # @return [CopyFilesBuildPhase] the new xcode build phase
+    #
+    def copy_files_build_phase(name, &block)
+      phase = CopyFilesBuildPhase.new(&block)
+      phase.name = name
+      build_phases << phase
+      phase
+    end
+
     # Creates a new Copy Headers build phase for the
     # target
     #
