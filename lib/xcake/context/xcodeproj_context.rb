@@ -30,7 +30,7 @@ module Xcake
       
       project_path = "./#{project.name}.xcodeproj"
       
-      if File.directory?(project_path)
+      if File.exist?(project_path)
         FileUtils.remove_dir(project_path)
       end
 
