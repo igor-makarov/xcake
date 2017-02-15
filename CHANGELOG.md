@@ -1,3 +1,9 @@
+v0.8.8
+======
+- Adds Copy Files build phase
+- Clears project before recreating it to prevent any errors
+- Fixes xcode prompting for "reccomended defaults"
+
 v0.8.7
 ======
 - Adds ability to specify shell script build phase before all other build phases.
