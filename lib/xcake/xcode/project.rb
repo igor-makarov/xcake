@@ -88,7 +88,7 @@ module Xcake
 
         native_target.build_configuration_list = new(Xcodeproj::Project::Object::XCConfigurationList)
 
-        product = products_group.new_product_ref_for_target(native_target.product_name, native_target.product_type)
+        product = products_group.new_product_ref_for_target(native_target.product_name, target.type)
         native_target.product_reference = product
 
         targets << native_target
