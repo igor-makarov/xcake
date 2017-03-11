@@ -10,6 +10,10 @@ module Xcake
       @generator.visit_project(@project)
     end
 
+    it 'should have correct dependencies' do
+      expect(DefaultProjectStructureGenerator.dependencies).to eq([ProjectMetadataGenerator, TargetGenerator])
+    end
+
     context 'when visting target with no configurations' do
       before :each do
         @target = double('Target')
