@@ -95,13 +95,16 @@ module Xcake
       test_target.deployment_target = host_target.deployment_target
       test_target.language = host_target.language
 
-      host_path = "#{host_target.name}.app/#{host_target.name}"
-
-      # TODO: Custom Xcode setting constant
       if host_target.type == :application
         test_target.all_configurations.each do |c|
-          c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_path}"
+
           c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+
+          if c.platform == :osx
+            c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS//#{host_target.name}"
+          else
+            c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+          end
         end
       end
     end
