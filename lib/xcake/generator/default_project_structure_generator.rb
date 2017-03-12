@@ -9,6 +9,10 @@ module Xcake
   #
   class DefaultProjectStructureGenerator < Generator
 
+    def self.dependencies
+      [ProjectMetadataGenerator, TargetGenerator]
+    end
+
     def visit_project(project)
       EventHooks.run_hook :before_resolving_project_structure, project
       @project = project
