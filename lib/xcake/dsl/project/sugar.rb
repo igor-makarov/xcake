@@ -100,8 +100,8 @@ module Xcake
 
           c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
 
-          if c.platform == :osx
-            c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS//#{host_target.name}"
+          if host_target.platform == :osx
+            c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
           else
             c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
           end
