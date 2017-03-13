@@ -131,19 +131,31 @@ module Xcake
       end
 
       context 'for an application target' do
-        it 'should set test host to application target executable' do
-          executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
-          test_host_set = satisfy do |c|
-            c.settings['TEST_HOST'] == executable_path
-          end
-          expect(@target.all_configurations).to all(test_host_set)
-        end
-
         it 'should set bundle loader setting to test host' do
           bundle_loader_set = satisfy do |c|
             c.settings['BUNDLE_LOADER'] == '$(TEST_HOST)'
           end
           expect(@target.all_configurations).to all(bundle_loader_set)
+        end
+
+        context 'on macOS' do
+          it 'should set test host to application target executable' do
+            executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
+            test_host_set = satisfy do |c|
+              c.settings['TEST_HOST'] == executable_path
+            end
+            expect(@target.all_configurations).to all(test_host_set)
+          end
+        end
+
+        context 'for iOS' do
+          it 'should set test host to application target executable' do
+            executable_path = "$(BUILT_PRODUCTS_DIR)/#{app_target.name}.app/Contents/MacOS//#{app_target.name}"
+            test_host_set = satisfy do |c|
+              c.settings['TEST_HOST'] == executable_path
+            end
+            expect(@target.all_configurations).to all(test_host_set)
+          end
         end
       end
 
