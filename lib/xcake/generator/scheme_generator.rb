@@ -30,7 +30,11 @@ module Xcake
           # TODO: Spec
           if native_target.library_target_type?
             build_action = native_scheme.build_action
-            build_action.build_for_running(true)
+
+            entry = Entry.initialize()
+            entry.build_for_running(true)
+
+            build_action.add_entry(entry)
           end
 
           native_scheme.configure_with_targets(native_target, native_unit_test_target)
