@@ -31,7 +31,7 @@ module Xcake
           if native_target.library_target_type?
             build_action = native_scheme.build_action
 
-            entry = Entry.initialize()
+            entry = Xcodeproj::XCScheme::BuildAction::Entry.initialize()
             entry.build_for_running(true)
 
             build_action.add_entry(entry)
