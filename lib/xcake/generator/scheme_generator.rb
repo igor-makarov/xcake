@@ -27,15 +27,15 @@ module Xcake
             scheme_list.supress_autocreation_of_target(native_unit_test_target)
           end
 
-          # TODO: Spec
-          if native_target.library_target_type?
-            build_action = native_scheme.build_action
+          # # TODO: Spec
+          # if native_target.library_target_type?
+          #   build_action = native_scheme.build_action
 
-            entry = Xcodeproj::XCScheme::BuildAction::Entry.initialize()
-            entry.build_for_running(true)
+          #   entry = Xcodeproj::XCScheme::BuildAction::Entry.initialize()
+          #   entry.build_for_running(true)
 
-            build_action.add_entry(entry)
-          end
+          #   build_action.add_entry(entry)
+          # end
 
           native_scheme.configure_with_targets(native_target, native_unit_test_target)
           native_scheme.test_action.build_configuration = scheme.test_configuration
