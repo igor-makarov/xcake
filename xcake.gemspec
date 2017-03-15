@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'claide', '< 2.0', '>= 0.9.1'
   spec.add_dependency 'cork'
   spec.add_dependency 'hooks', '~> 0.4.1'
-  spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 0.21'
+  spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 1.4.0'
 
   # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
   spec.add_dependency 'activesupport', '< 5'
