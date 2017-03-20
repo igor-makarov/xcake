@@ -1,3 +1,9 @@
+v0.8.9
+======
+- Fixes occasional crash when attempting to resolve Cakefile with implcit-configurations
+- Fixes wrong Test Host being set for macOS Unit Tests.
+- Fixes crash with schemes and framework targets.
+
 v0.8.8
 ======
 - Adds Copy Files build phase
