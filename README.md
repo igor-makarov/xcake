@@ -6,7 +6,7 @@
 [![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
-###Xcode projects made a piece of cake.
+### Describe Xcode project in a human readable format and (re)generate one on demand.
 
 You describe your project in a simple text file: your `Cakefile`.
 Xcake creates your project based on this including importing all of your files and creating groups
@@ -55,7 +55,7 @@ If you would like an example Cakefile for guidence, just run:
 xcake init
 ```
 
-              |  xcake
+| xcake |  |
 --------------------------|------------------------------------------------------------
 :sparkles: | Flexibly configure and create xcode project from one easy to read `Cakefile`
 :ship: | Generate from any computer, including a CI-server
