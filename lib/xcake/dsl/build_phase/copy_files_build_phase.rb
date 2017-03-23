@@ -12,7 +12,7 @@ module Xcake
       Xcodeproj::Project::Object::PBXCopyFilesBuildPhase
     end
 
-    def configure_native_build_phase(native_build_phase, _context)
+    def configure_native_build_phase(native_build_phase, context)
       native_build_phase.name = name
 
       @files.each do |file|
