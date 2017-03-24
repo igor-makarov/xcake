@@ -14,6 +14,9 @@ module Xcake
     # The destination path
     attr_accessor :destination_path
 
+    # Whether the files should be code signed on copy
+    attr_accessor :code_sign
+
     def build_phase_type
       Xcodeproj::Project::Object::PBXCopyFilesBuildPhase
     end
@@ -25,7 +28,10 @@ module Xcake
 
       @files.each do |file|
         file_reference = context.file_reference_for_path(file)
-        native_build_phase.add_file_reference(file_reference)
+        build_file = native_build_phase.add_file_reference(file_reference)
+        if code_sign
+          build_file.settings = { 'ATTRIBUTES' => ['CodeSignOnCopy'] }
+        end
       end
     end
 
