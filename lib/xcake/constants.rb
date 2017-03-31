@@ -19,6 +19,8 @@ module Xcake
 
     PRODUCT_TYPE_UTI = Xcodeproj::Constants::PRODUCT_TYPE_UTI
 
+    COPY_FILES_BUILD_PHASE_DESTINATIONS = Xcodeproj::Constants::COPY_FILES_BUILD_PHASE_DESTINATIONS
+
     # Returns the common build settings for a given platform and configuration
     # name.
     #

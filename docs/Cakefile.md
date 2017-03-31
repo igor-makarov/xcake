@@ -265,14 +265,15 @@ end
 Xcake already implcitly creates build phases for you depending on how you configure your target
 however you can explicity create additional build phases depending on your needs.
 
-##### Copy HFileseaders Build Phase
+##### Copy Files Build Phase
 
 You can create a Copy Files build phase to copy files into a bundle.
 
 ```ruby
-target.copy_files_phase "Build Phase Name" do |phase|
+target.copy_files_build_phase "Build Phase Name" do |phase|
   phase.files = ["PublicHeader.h"] # array
   phase.files << "OtherPublicHeader.h" # add an item to array
+  phase.destination = :resources # can be any of `Constants::COPY_FILES_BUILD_PHASE_DESTINATIONS.keys`
 end
 ```
 
