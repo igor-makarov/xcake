@@ -459,7 +459,7 @@ We can create a scheme with the name of the target like so:
 target.scheme(target.name)
 ```
 
-If we don't configure this scheme then it will default to the reccomended
+If we don't configure this scheme then it will default to the recommended
 Apple settings of using the debug build configurations for everything
 except the Archive action which will use the Release configuration.
 
