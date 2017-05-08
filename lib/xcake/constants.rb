@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash/deep_merge'
+
 module Xcake
   module Constants
     COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
