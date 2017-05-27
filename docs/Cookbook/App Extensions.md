@@ -57,6 +57,6 @@ Now that you've created your extension schemes and copied them appropriately, cr
 
 ```ruby
 project.after_save do
-	system "cp .xcake/*.xcscheme MyProject.xcodeproj/xcshareddata/xcschemes/"
+    system "cp .xcake/*.xcscheme MyProject.xcodeproj/xcshareddata/xcschemes/"
 end
 ```
