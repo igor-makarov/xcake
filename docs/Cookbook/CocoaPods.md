@@ -1,5 +1,5 @@
 # CocoaPods
-Because CocoaPods works by modifying an existing project file, all you really need to do is add an `after_save` hook that runs CocoaPods.
+[CocoaPods](https://github.com/CocoaPods/CocoaPods) is a common dependency manager for iOS. To automatically integrate CocoaPods into your Xcake-generated project, all you really need to do is add an `after_save` hook that runs CocoaPods.
 
 ```ruby
 project.after_save do
