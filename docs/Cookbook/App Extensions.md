@@ -7,15 +7,6 @@ There are 3 main things to do to get Xcake to generate a fully working App Exten
 
 ## Create the extension target
 An App Extension target can be defined using `extension_for`. The following code sample demonstrates some of the required attributes and caveats of their usage. Note that app extension targets do not need to be linked to their containing target.
-
-- `configuration.product_bundle_identifier`
-    - Must use the main app's bundle identifier as a prefix. For example, if your main app's bundle identifier is `"com.MyApp"`, the app extension must have a bundle identifier like `"com.MyApp.MyExtension"`.
-- `target.system_frameworks`
-    - Must be set appropriately based on the type of extension it is. Today Extensions, for example, require `NotificationCenter`. You may want to try creating an App Extension in Xcode or referencing a pre-existing one to see which system frameworks are included for that extension type.
-
-You may also need to explicitly add `include_files` and `exclude_files` depending on how your project is structured. Xcake will infer some of these things based on the names of targets and folders, so you can try just running `xcake make` and seeing if anything is missing.
-
-A common use case might be to have a Shared folder for files like commonly used asset catalogs or source files. The contents of this folder will need to be manually added to `include_files` using a pattern like `Shared/**/*.*`.
 ```ruby
 extension_for main_target do ext_target
     ext_target.name = "MyExtension"
@@ -30,6 +21,15 @@ extension_for main_target do ext_target
     ext_target.system_frameworks = ["NotificationCenter"]
 end
 ```
+
+- `configuration.product_bundle_identifier`
+    - Must use the main app's bundle identifier as a prefix. For example, if your main app's bundle identifier is `"com.MyApp"`, the app extension must have a bundle identifier like `"com.MyApp.MyExtension"`.
+- `target.system_frameworks`
+    - Must be set appropriately based on the type of extension it is. Today Extensions, for example, require `NotificationCenter`. You may want to try creating an App Extension in Xcode or referencing a pre-existing one to see which system frameworks are included for that extension type.
+
+You may also need to explicitly add `include_files` and `exclude_files` depending on how your project is structured. Xcake will infer some of these things based on the names of targets and folders, so you can try just running `xcake make` and seeing if anything is missing.
+
+A common use case might be to have a Shared folder for files like commonly used asset catalogs or source files. The contents of this folder will need to be manually added to `include_files` using a pattern like `Shared/**/*.*`.
 
 ## Create an Embed App Extensions build phase
 Use `copy_files_build_phase` to copy the app extension into the containing app.
