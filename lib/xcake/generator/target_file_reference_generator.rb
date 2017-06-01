@@ -30,6 +30,8 @@ module Xcake
     private
 
     def include_file_for_path_and_target(path, target)
+      return if File.directory?(path)
+
       file_reference = @context.file_reference_for_path(path)
       native_target = @context.native_object_for(target)
 
