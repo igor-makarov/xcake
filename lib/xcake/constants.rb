@@ -2,7 +2,7 @@ require 'active_support/core_ext/hash/deep_merge'
 
 module Xcake
   module Constants
-    COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
+    COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.dup.deep_merge(
       [:ios, :unit_test_bundle] => {
         'LD_RUNPATH_SEARCH_PATHS' => [
           '$(inherited)',
