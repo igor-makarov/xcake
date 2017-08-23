@@ -49,6 +49,14 @@ module Xcake
         Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
       end
 
+      def archive_version
+        Xcodeproj::Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
+      end
+
+      def classes
+        {}
+      end
+
       # Configures the Project for use with Xcake.
       # This makes sure we have sensible defaults and
       # it as clean as possible.
