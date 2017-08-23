@@ -56,7 +56,6 @@ module Xcake
       def classes
         {}
       end
-      
 
       # Configures the Project for use with Xcake.
       # This makes sure we have sensible defaults and
@@ -166,7 +165,7 @@ module Xcake
         return nil unless base_name.to_s.include?('.lproj')
         parent_group = group_for_path(group_path)
 
-          group = parent_group[path.basename.to_s]
+        group = parent_group[path.basename.to_s]
 
         unless group
           group = new(PBXVariantGroup)
