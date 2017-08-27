@@ -16,8 +16,8 @@ module Xcake
     ## This method will return an array of files based on the passed regular Exp
     ## NOTE:- directories will not be included in the array
     def get_cleaned_paths(reg_exp)
-      paths_without_directories = Dir.glob(reg_exp).select do |f|
-        !File.directory?(f)
+      paths_without_directories = Dir.glob(reg_exp).reject do |f|
+        File.directory?(f)
       end
       paths = paths_without_directories.map do |f|
         Pathname.new(f).cleanpath.to_s

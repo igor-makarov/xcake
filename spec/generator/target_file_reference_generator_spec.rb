@@ -67,28 +67,26 @@ module Xcake
       @generator.visit_target(@target)
     end
 
-    it 'should ingore directories' do
+    it "should ingore directories" do
+      dirName = "my.test"
+      file1 = "#{ dirName }/File1"
+      file2 = "#{ dirName }/File2"
       include_paths = [
-        'my.test',
-        'my.test/File1',
-        'my.test/File2'
+        dirName,
+        file1,
+        file2
       ]
-      allowed_paths = [
-        'my.test/File1',
-        'my.test/File2'
-      ]
-      file_reference1 = double('File Reference 1')
-      file_reference2 = double('File Reference 2')
+      file_ref1 = double("File Reference 1")
+      file_ref2 = double("File Reference 2")
       allow(@target).to receive(:include_files).and_return(include_paths)
       allow(@target).to receive(:exclude_files).and_return([])
       allow(Dir).to receive(:glob).with(include_paths).and_return(include_paths)
       allow(Dir).to receive(:glob).with([]).and_return([])
       allow(File).to receive(:directory?).and_return(false)
-      allow(File).to receive(:directory?).with('my.test').and_return(true)
-      allow(@context).to receive(:file_reference_for_path).with('my.test/File1').and_return(file_reference1)
-      allow(@context).to receive(:file_reference_for_path).with('my.test/File2').and_return(file_reference2)
-      
-      expect(@context).to_not receive(:file_reference_for_path).with('my.test')
+      allow(File).to receive(:directory?).with("my.test").and_return(true)
+      allow(@context).to receive(:file_reference_for_path).with(file1)
+      allow(@context).to receive(:file_reference_for_path).with(file2)
+      expect(@context).to_not receive(:file_reference_for_path).with(dirName)
       @generator.visit_target(@target)
     end
 
