@@ -13,13 +13,21 @@ module Xcake
       [TargetGenerator]
     end
 
+    ## This method will return an array of files based on the passed regular Exp
+    ## NOTE:- directories will not be included in the array
+    def get_cleaned_paths(reg_exp)
+      paths_without_directories = Dir.glob(reg_exp).select do |f|
+        !File.directory?(f)
+      end
+      paths = paths_without_directories.map do |f|
+        Pathname.new(f).cleanpath.to_s
+      end
+      paths
+    end
+
     def visit_target(target)
-      paths_to_include = Dir.glob(target.include_files).map do |f|
-        Pathname.new(f).cleanpath.to_s
-      end
-      paths_to_exclude = Dir.glob(target.exclude_files).map do |f|
-        Pathname.new(f).cleanpath.to_s
-      end
+      paths_to_include = get_cleaned_paths(target.include_files)
+      paths_to_exclude = get_cleaned_paths(target.exclude_files)
 
       paths = paths_to_include - paths_to_exclude
       paths.each do |p|
