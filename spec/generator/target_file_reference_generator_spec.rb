@@ -68,16 +68,14 @@ module Xcake
     end
 
     it "should ingore directories" do
-      dirName = "my.test"
-      file1 = "#{ dirName }/File1"
-      file2 = "#{ dirName }/File2"
+      dir_name = "my.test"
+      file1 = "#{dir_name}/File1"
+      file2 = "#{dir_name}/File2"
       include_paths = [
-        dirName,
+        dir_name,
         file1,
         file2
       ]
-      file_ref1 = double("File Reference 1")
-      file_ref2 = double("File Reference 2")
       allow(@target).to receive(:include_files).and_return(include_paths)
       allow(@target).to receive(:exclude_files).and_return([])
       allow(Dir).to receive(:glob).with(include_paths).and_return(include_paths)
@@ -86,7 +84,7 @@ module Xcake
       allow(File).to receive(:directory?).with("my.test").and_return(true)
       allow(@context).to receive(:file_reference_for_path).with(file1)
       allow(@context).to receive(:file_reference_for_path).with(file2)
-      expect(@context).to_not receive(:file_reference_for_path).with(dirName)
+      expect(@context).to_not receive(:file_reference_for_path).with(dir_name)
       @generator.visit_target(@target)
     end
 
