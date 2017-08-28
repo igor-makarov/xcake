@@ -67,7 +67,7 @@ module Xcake
       @generator.visit_target(@target)
     end
 
-    it "should ingore directories" do
+    it "should ignore directories" do
       dir_name = "my.test"
       file1 = "#{dir_name}/File1"
       file2 = "#{dir_name}/File2"
