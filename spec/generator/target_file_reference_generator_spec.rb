@@ -67,6 +67,27 @@ module Xcake
       @generator.visit_target(@target)
     end
 
+    it "should ignore directories" do
+      dir_name = "my.test"
+      file1 = "#{dir_name}/File1"
+      file2 = "#{dir_name}/File2"
+      include_paths = [
+        dir_name,
+        file1,
+        file2
+      ]
+      allow(@target).to receive(:include_files).and_return(include_paths)
+      allow(@target).to receive(:exclude_files).and_return([])
+      allow(Dir).to receive(:glob).with(include_paths).and_return(include_paths)
+      allow(Dir).to receive(:glob).with([]).and_return([])
+      allow(File).to receive(:directory?).and_return(false)
+      allow(File).to receive(:directory?).with("my.test").and_return(true)
+      allow(@context).to receive(:file_reference_for_path).with(file1)
+      allow(@context).to receive(:file_reference_for_path).with(file2)
+      expect(@context).to_not receive(:file_reference_for_path).with(dir_name)
+      @generator.visit_target(@target)
+    end
+
     it 'should ignore paths which shouldn\'t be installed' do
       exclude_paths = [
         './File'
