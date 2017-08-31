@@ -81,17 +81,16 @@ module Xcake
         expect(@target.language).to eq(:swift)
       end
 
-      it 'should set test host to application target executable' do
-        executable_path = "$(BUILT_PRODUCTS_DIR)/#{@app_target.name}.app/#{@app_target.name}"
+      it "should not set TEST_HOST setting" do
         test_host_set = satisfy do |c|
-          c.settings['TEST_HOST'] == executable_path
+          c.settings.key?("TEST_HOST") == false
         end
         expect(@target.all_configurations).to all(test_host_set)
       end
 
-      it 'should set bundle loader setting to test host' do
+      it "should not set BUNDLE_LOADER setting" do
         bundle_loader_set = satisfy do |c|
-          c.settings['BUNDLE_LOADER'] == '$(TEST_HOST)'
+          c.settings.key?("BUNDLE_LOADER") == false
         end
         expect(@target.all_configurations).to all(bundle_loader_set)
       end
