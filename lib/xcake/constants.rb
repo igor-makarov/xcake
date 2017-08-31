@@ -10,7 +10,21 @@ module Xcake
           '@loader_path/Frameworks'
         ]
       }.freeze,
+      [:ios, :ui_test_bundle] => {
+        'LD_RUNPATH_SEARCH_PATHS' => [
+          '$(inherited)',
+          '@executable_path/Frameworks',
+          '@loader_path/Frameworks'
+        ]
+      }.freeze,
       [:osx, :unit_test_bundle] => {
+        'LD_RUNPATH_SEARCH_PATHS' => [
+          '$(inherited)',
+          '@executable_path/../Frameworks',
+          '@loader_path/../Frameworks'
+        ]
+      }.freeze,
+      [:osx, :ui_test_bundle] => {
         'LD_RUNPATH_SEARCH_PATHS' => [
           '$(inherited)',
           '@executable_path/../Frameworks',
