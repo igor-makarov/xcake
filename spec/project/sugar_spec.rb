@@ -95,9 +95,9 @@ module Xcake
         expect(@target.all_configurations).to all(bundle_loader_set)
       end
 
-      it 'should set LD_RUNPATH_SEARCH_PATHS' do
+      it "should set LD_RUNPATH_SEARCH_PATHS" do
         runpath_set = satisfy do |c|
-          c.settings.key?('LD_RUNPATH_SEARCH_PATHS')
+          c.settings.key?("LD_RUNPATH_SEARCH_PATHS")
         end
         expect(@target.all_configurations).to all(runpath_set)
       end
@@ -136,9 +136,9 @@ module Xcake
         expect(@target.language).to eq(:swift)
       end
 
-      it 'should set LD_RUNPATH_SEARCH_PATHS' do
+      it "should set LD_RUNPATH_SEARCH_PATHS" do
         runpath_set = satisfy do |c|
-          c.settings.key?('LD_RUNPATH_SEARCH_PATHS')
+          c.settings.key?("LD_RUNPATH_SEARCH_PATHS")
         end
         expect(@target.all_configurations).to all(runpath_set)
       end
