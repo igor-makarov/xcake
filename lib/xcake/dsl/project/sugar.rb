@@ -97,13 +97,16 @@ module Xcake
 
       if host_target.type == :application
         test_target.all_configurations.each do |c|
-
-          c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
-
-          if host_target.platform == :osx
-            c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
+          if test_target.type == :ui_test_bundle
+            # Do nothing as they break UITests
+            # For more details https://github.com/jcampbell05/xcake/issues/115
           else
-            c.settings['TEST_HOST'] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+            c.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
+            if host_target.platform == :osx
+              c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
+            else
+              c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+            end
           end
         end
       end
