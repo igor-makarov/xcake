@@ -17,8 +17,8 @@ module Xcake
     ## NOTE:- directories will not be included in the array
     def get_cleaned_paths(reg_exp)
       paths_without_directories = Dir.glob(reg_exp).reject do |f|
-        fileExt = File.extname(f)
-        File.directory?(f) && fileExt != ".xcdatamodeld" && fileExt != '.xcassets'
+        file_ext = File.extname(f)
+        File.directory?(f) && file_ext != ".xcdatamodeld" && file_ext != ".xcassets"
       end
       paths = paths_without_directories.map do |f|
         Pathname.new(f).cleanpath.to_s
