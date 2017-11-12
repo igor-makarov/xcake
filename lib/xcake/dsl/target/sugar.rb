@@ -71,5 +71,27 @@ module Xcake
       build_phases << phase
       phase
     end
+
+    # Creates a new build rule for the
+    # target
+    #
+    # @param   [String] name
+    #          the name to use for the build rule
+    #
+    # @param   [Proc] block
+    #          an optional block that configures the build rule through the DSL.
+    #
+    # @return [BuildRule] the new xcode build rule
+    #
+    def build_rule(name, file_type, output_files, output_files_compiler_flags, script, &block)
+      rule = BuildRule.new(&block)
+      rule.name = name
+      rule.file_type = file_type
+      rule.output_files = output_files
+      rule.output_files_compiler_flags = output_files_compiler_flags
+      rule.script = script
+      build_rules << rule
+      rule
+    end
   end
 end

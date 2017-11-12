@@ -39,11 +39,11 @@ require 'xcake/dsl/project/hooks'
 
 require 'xcake/dsl/scheme'
 
-require 'xcake/dsl/scheme'
-
 require 'xcake/dsl/target'
 require 'xcake/dsl/target/sugar'
 require 'xcake/dsl/target/configurable'
+
+require 'xcake/dsl/build_rule'
 
 require 'xcake/dsl/build_phase'
 require 'xcake/dsl/build_phase/headers_build_phase'
