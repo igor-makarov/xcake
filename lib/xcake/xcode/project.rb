@@ -198,6 +198,19 @@ module Xcake
           t.name == "#{target.name}Tests"
         end
       end
+
+      # Finds a ui test target for a xcode target
+      #
+      # @param [Target] target
+      #                 target to find a xcode target for.
+      #
+      # @return [Target] ui test target
+      #
+      def find_ui_test_target_for_target(target)
+        targets.find do |t|
+          t.name == "#{target.name}UITests"
+        end
+      end
     end
   end
 end
