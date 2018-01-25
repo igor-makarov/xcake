@@ -55,6 +55,11 @@ module Xcake
     #
     define_hooks :before_adding_system_framework
 
+    # Defines hook which is ran before we add build rules
+    # to a target
+    #
+    define_hooks :before_adding_build_rules
+
     # Defines hook which is ran before we add build phases
     # to a target
     #
@@ -67,6 +72,11 @@ module Xcake
     # Defines hook which is ran before we add a file to the project
     #
     define_hooks :before_adding_file
+
+    # Defines hook which is ran before we add a custom build rule to
+    # a target
+    #
+    define_hooks :before_adding_custom_build_rule
 
     # Defines hook which is ran before we add a custom build phase to
     # a target

@@ -11,6 +11,8 @@ module Xcake
       case dsl_object
       when BuildPhase
         create_object_for_build_phase(dsl_object)
+      when BuildRule
+        create_object_for_build_rule(dsl_object)
       when Project
         create_object_for_project(dsl_object)
       when Target
@@ -24,6 +26,10 @@ module Xcake
 
     def create_object_for_build_phase(build_phase)
       @project.new(build_phase.build_phase_type)
+    end
+
+    def create_object_for_build_rule(build_rule)
+      @project.new(Xcodeproj::Project::Object::PBXBuildRule)
     end
 
     def create_object_for_project(project)

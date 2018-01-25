@@ -53,6 +53,10 @@ module Xcake
         board.puts_indented "- Integrating System Frameworks #{target.system_frameworks} for #{target}"
       end
 
+      EventHooks.before_adding_build_rules do |target|
+        board.puts_indented "- Creating build rules for #{target}"
+      end
+
       EventHooks.before_adding_build_phases do |target|
         board.puts_indented "- Creating build phases for #{target}"
       end
@@ -63,6 +67,10 @@ module Xcake
 
       EventHooks.before_adding_file do |node|
         board.puts "- Adding #{node.path}"
+      end
+
+      EventHooks.before_adding_custom_build_rule do |rule, target|
+        board.puts "- Adding \"#{rule}\" to #{target}"
       end
 
       EventHooks.before_adding_custom_build_phase do |phase, target|
