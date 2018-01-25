@@ -15,6 +15,7 @@ module Xcake
         allow(@project).to receive(:path).and_return(@writing_path)
         allow(@project).to receive(:targets).and_return([@target])
         allow(@project).to receive(:find_unit_test_target_for_target).and_return(nil)
+        allow(@project).to receive(:find_ui_test_target_for_target).and_return(nil)
       end
 
       it 'should store project' do
