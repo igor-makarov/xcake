@@ -1,3 +1,7 @@
+v0.8.12
+=======
+- Fixes bug with the target file reference generator
+
 v0.8.11
 =======
 - Fixes issues with .framework not being automatically included
@@ -13,7 +17,9 @@ v0.8.11
 
 v0.8.10
 =======
-- I forgot to add this will update with list
+- Fixes `deep_merge` error
+- Fixes undefined `dirname` error
+- Adds copy files build phase
 
 v0.8.9
 ======
