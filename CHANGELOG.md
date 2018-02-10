@@ -1,3 +1,7 @@
+v0.8.13
+=======
+- Fixes some of the gem being bundled with older code
+
 v0.8.12
 =======
 - Fixes bug with the target file reference generator
