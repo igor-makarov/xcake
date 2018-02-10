@@ -42,6 +42,11 @@ module Xcake
     #
     attr_accessor :build_phases
 
+    # @return [Array<BuildRule>] the list
+    #                             of build rules for the project.
+    #
+    attr_accessor :build_rules
+
     # @!group File patterns
 
     #
@@ -189,6 +194,7 @@ module Xcake
     def initialize
       @pinned_build_phases = []
       @build_phases = []
+      @build_rules = []
       @exclude_files = []
       @linked_targets = []
       @system_libraries = []

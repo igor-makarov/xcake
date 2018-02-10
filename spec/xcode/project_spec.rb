@@ -144,6 +144,18 @@ module Xcake
         found_target = @project.find_unit_test_target_for_target(target)
         expect(found_target).to be(unit_test_target)
       end
+
+      it 'should find ui test target for target' do
+        target = double('Target')
+        allow(target).to receive(:name).and_return('app')
+
+        ui_test_target = double('UI Test Target')
+        allow(ui_test_target).to receive(:name).and_return('appUITests')
+
+        allow(@project).to receive(:targets).and_return([target, ui_test_target])
+        found_target = @project.find_ui_test_target_for_target(target)
+        expect(found_target).to be(ui_test_target)
+      end
     end
   end
 end

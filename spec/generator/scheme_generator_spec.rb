@@ -9,6 +9,7 @@ module Xcake
       @scheme = double('Scheme').as_null_object
       @target = double('Target')
       @unit_test_target = double('Unit Test Target')
+      @ui_test_target = double('UI Test Target')
       @project = double('Project')
 
       allow(@target).to receive(:schemes).and_return([@scheme])
@@ -20,12 +21,15 @@ module Xcake
       @native_project = double('Native Project').as_null_object
       @native_scheme = double('Native Scheme').as_null_object
       @native_unit_test_target = double('Native Unit Test Target').as_null_object
+      @native_ui_test_target = double('Native UI Test Target').as_null_object
 
       allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(@native_unit_test_target)
+      allow(@native_project).to receive(:find_ui_test_target_for_target).and_return(@native_ui_test_target)
       allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
       allow(@context).to receive(:native_object_for).with(@project).and_return(@native_project)
       allow(@context).to receive(:native_object_for).with(@scheme).and_return(@native_scheme)
       allow(@context).to receive(:native_object_for).with(@unit_test_target).and_return(@native_unit_test_target)
+      allow(@context).to receive(:native_object_for).with(@ui_test_target).and_return(@native_ui_test_target)
 
       @generator = SchemeGenerator.new(@context)
       @generator.visit_project(@project)
@@ -49,6 +53,7 @@ module Xcake
       context 'when configuring native scheme' do
         it 'should configure with build target' do
           allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(nil)
+          allow(@native_project).to receive(:find_ui_test_target_for_target).and_return(nil)
 
           expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil)
           @generator.visit_target(@target)
@@ -95,14 +100,16 @@ module Xcake
         expect(@scheme_list.schemes).to eq([@native_scheme])
       end
 
-      context 'when adding unit test scheme' do
+      context 'when adding test scheme' do
         it 'should configure with test target' do
-          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, @native_unit_test_target)
+          expect(@native_scheme).to receive(:add_test_target).with(@native_unit_test_target)
+          expect(@native_scheme).to receive(:add_test_target).with(@native_ui_test_target)
           @generator.visit_target(@target)
         end
 
-        it 'should suppress unit test target scheme autocreation' do
+        it 'should suppress test target scheme autocreation' do
           expect(@scheme_list).to receive(:supress_autocreation_of_target).with(@native_unit_test_target)
+          expect(@scheme_list).to receive(:supress_autocreation_of_target).with(@native_ui_test_target)
           @generator.visit_target(@target)
         end
       end
