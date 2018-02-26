@@ -6,6 +6,16 @@
 [![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
+### No Longer Maintained ###
+
+It's been 4 years since Xcake was first released and the iOS development scene has changed.
+We now have Fastlane, Swift and almost everyone uses Cocoapods. On top of that I have less time to
+dedicate to this tool than before.
+
+Luckily whilst Xcake once stood alone, there are noe finally some very strong alternatives.
+
+For those who were interested in using or are using xcake then I reccomend taking a look at https://github.com/yonaskolb/XcodeGen
+
 ### Describe Xcode project in a human readable format and (re)generate one on demand.
 
 You describe your project in a simple text file: your `Cakefile`.
