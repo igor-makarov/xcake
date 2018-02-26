@@ -6,7 +6,7 @@
 [![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
-### No Longer Maintained ###
+### === No Longer Maintained === ###
 
 It's been 4 years since Xcake was first released and the iOS development scene has changed.
 We now have Fastlane, Swift and almost everyone uses Cocoapods. On top of that I have less time to
