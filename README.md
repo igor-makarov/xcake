@@ -114,6 +114,11 @@ There is a sample [app project](https://github.com/jcampbell05/xcake/blob/master
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
 
+## People who use Xcake
+
+- Bending Spoons
+- Moovit
+
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
 
