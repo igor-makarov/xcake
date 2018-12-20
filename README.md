@@ -1,9 +1,9 @@
 # Xcake
 [![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
-[![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
+[![Twitter: @igormaka](https://img.shields.io/badge/contact-@igormaka-blue.svg?style=flat)](https://twitter.com/igormaka)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
-[![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
+[![Build Status](https://img.shields.io/travis/igor-makarov/xcake/master.svg?style=flat)](https://travis-ci.org/igor-makarov/xcake)
+[![Test Coverage](https://img.shields.io/coveralls/igor-makarov/xcake/master.svg)](https://coveralls.io/github/igor-makarov/xcake)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
 ### === No Longer Maintained === ###
@@ -27,7 +27,7 @@ makes it easy to modify settings and allows you to create a clean project anytim
 
 Isn't this just like liftoff, generamba or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject.
 
-Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
+Get in contact with the developer on Twitter: [@igormaka](https://twitter.com/igormaka)
 
 -------
 <p align="center">
