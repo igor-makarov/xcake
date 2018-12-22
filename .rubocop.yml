@@ -33,6 +33,10 @@ Metrics/MethodLength:
     - 'lib/fastlane/actions/*.rb'
     - 'bin/fastlane'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+        
 # Offense count: 20
 Metrics/AbcSize:
   Max: 63

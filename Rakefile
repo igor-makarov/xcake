@@ -4,10 +4,7 @@ require 'rubocop/rake_task'
 
 RSpec::Core::RakeTask.new(:spec)
 
-RuboCop::RakeTask.new do |rubocop|
-  STDERR.puts Dir.pwd
-  rubocop.patterns = ['lib/**/*.rb']
-end
+RuboCop::RakeTask.new
 
 task :all do
   title 'Running tests'
