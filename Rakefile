@@ -2,10 +2,8 @@ require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
-unless ENV['CI']
-  ENV['XCAKE_CI_TASK_LINT'] = true
-  ENV['XCAKE_CI_TASK_TEST'] = true
-end
+ALL_TASKS = 'TEST LINT'.freeze
+tasks = ENV.fetch('XCAKE_CI_TASKS') { ALL_TASKS }.upcase.split(/\s+/)
 
 task :spec do
   begin
@@ -19,12 +17,12 @@ end
 RuboCop::RakeTask.new
 
 task :all do
-  if ENV['XCAKE_CI_TASK_LINT']
+  if tasks.include?('TEST')
     title 'Running tests'
     Rake::Task['spec'].invoke
   end
 
-  if ENV['XCAKE_CI_TASK_TEST']
+  if tasks.include?('LINT')
     title 'Checking code style'
     Rake::Task['rubocop'].invoke
   end

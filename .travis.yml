@@ -5,11 +5,11 @@ language: ruby
 matrix:
   include:
   - rvm: 2.5.0
-    env: XCAKE_CI_TASK_LINT=true
+    env: XCAKE_CI_TASKS=LINT
     git:
       submodules: false
 
-env: XCAKE_CI_TASK_TEST=true
+env: XCAKE_CI_TASKS=TEST
 
 gemfile:
   - Gemfile
