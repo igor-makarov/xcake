@@ -94,20 +94,19 @@ module Xcake
       test_target.deployment_target = host_target.deployment_target
       test_target.language = host_target.language
 
-      if host_target.type == :application
-        test_target.all_configurations.each do |c|
-          if test_target.type == :ui_test_bundle
-            # Do nothing as they break UITests
-            # For more details https://github.com/jcampbell05/xcake/issues/115
-          else
-            c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
-            c.settings['TEST_HOST'] = if host_target.platform == :osx
-                                        "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
-                                      else
-                                        "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
-                                      end
-          end
-        end
+      return unless host_target.type == :application
+
+      test_target.all_configurations.each do |c|
+        # Do nothing as they break UITests
+        # For more details https://github.com/jcampbell05/xcake/issues/115
+        next if test_target.type == :ui_test_bundle
+
+        c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+        c.settings['TEST_HOST'] = if host_target.platform == :osx
+                                    "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
+                                  else
+                                    "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+                                  end
       end
     end
 

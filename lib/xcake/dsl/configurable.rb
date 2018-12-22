@@ -39,10 +39,10 @@ module Xcake
     private
 
     def copy_parent_configurations
-      if parent_configurable
-        parent_configurable.all_configurations.each do |c|
-          configuration(c.name, c.type)
-        end
+      return unless parent_configurable
+
+      parent_configurable.all_configurations.each do |c|
+        configuration(c.name, c.type)
       end
     end
 

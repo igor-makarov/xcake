@@ -35,9 +35,6 @@ Metrics/ParameterLists:
 Style/Documentation:
   Enabled: false
 
-Style/GuardClause:
-  Enabled: false
-
 Style/SymbolArray:
   EnforcedStyle: brackets
 
