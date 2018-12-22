@@ -9,8 +9,7 @@ rvm:
   # The latest ruby version
   # - 2.4.0 # Doesn't build :()
   - 2.3.1
-  # OS X 10.9.5-10.10.0 (2.0.0-p481)
-  - 2.0.0-p481
-  # OS X 10.9.3-10.9.4
-  - 2.0.0-p451
+  - system
+  - ruby-2.0.0-p643
+  - ruby-2.0.0-p648
 before_install: gem install bundler -v 1.10.6
