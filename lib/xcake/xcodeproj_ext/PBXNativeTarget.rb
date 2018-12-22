@@ -10,7 +10,7 @@ module Xcodeproj
 
         def library_target_type?
           case symbol_type
-          when :framework, :dynamic_library, :static_library 
+          when :framework, :dynamic_library, :static_library
             true
           else
             false

@@ -40,11 +40,11 @@ module Xcake
 
       target.all_configurations.each do |c|
         target.scheme "#{target.name}-#{c.name}" do |s|
-            s.test_configuration = c.name
-            s.launch_configuration = c.name
-            s.profile_configuration = c.name
-            s.analyze_configuration = c.name
-            s.archive_configuration = c.name
+          s.test_configuration = c.name
+          s.launch_configuration = c.name
+          s.profile_configuration = c.name
+          s.analyze_configuration = c.name
+          s.archive_configuration = c.name
         end
       end
     end

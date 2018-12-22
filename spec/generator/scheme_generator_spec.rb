@@ -66,28 +66,28 @@ module Xcake
           @generator.visit_target(@target)
         end
 
-         it 'should configure launch action' do
+        it 'should configure launch action' do
           action = double('Launch Action')
           allow(@native_scheme).to receive(:launch_action).and_return(action)
           expect(action).to receive(:build_configuration=).with(@scheme.launch_configuration)
           @generator.visit_target(@target)
         end
 
-         it 'should configure profile action' do
+        it 'should configure profile action' do
           action = double('Profile Action')
           allow(@native_scheme).to receive(:profile_action).and_return(action)
           expect(action).to receive(:build_configuration=).with(@scheme.profile_configuration)
           @generator.visit_target(@target)
         end
 
-         it 'should configure analyze action' do
+        it 'should configure analyze action' do
           action = double('Analyze Action')
           allow(@native_scheme).to receive(:analyze_action).and_return(action)
           expect(action).to receive(:build_configuration=).with(@scheme.analyze_configuration)
           @generator.visit_target(@target)
         end
 
-         it 'should configure archive action' do
+        it 'should configure archive action' do
           action = double('Archive Action')
           allow(@native_scheme).to receive(:archive_action).and_return(action)
           expect(action).to receive(:build_configuration=).with(@scheme.archive_configuration)

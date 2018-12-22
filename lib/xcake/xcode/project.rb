@@ -142,7 +142,7 @@ module Xcake
       def group_for_file_reference_path(path)
         clean_path = path.cleanpath
         group = variant_group_for_path(path)
-        group = group_for_path(path) unless group
+        group ||= group_for_path(path)
         group
       end
 
@@ -163,6 +163,7 @@ module Xcake
         base_name = group_path.basename
 
         return nil unless base_name.to_s.include?('.lproj')
+
         parent_group = group_for_path(group_path)
 
         group = parent_group[path.basename.to_s]
@@ -181,6 +182,7 @@ module Xcake
         group_path = path.dirname.cleanpath
 
         return main_group unless group_path.to_s != '.'
+
         main_group.child_for_path(group_path.to_s)
       end
 

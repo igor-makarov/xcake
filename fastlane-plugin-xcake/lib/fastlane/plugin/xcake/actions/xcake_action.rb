@@ -18,8 +18,7 @@ module Fastlane
       end
 
       def self.available_options
-        [
-        ]
+        []
       end
 
       def self.is_supported?(platform)

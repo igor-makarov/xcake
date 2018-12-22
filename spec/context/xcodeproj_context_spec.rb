@@ -28,7 +28,6 @@ module Xcake
       it 'should remove old project' do
         Dir.mktmpdir do |dir|
           FileUtils.cd dir do
-
             old_marker_path = "#{@project_path}/old_marker"
 
             FileUtils.mkdir(@project_path)

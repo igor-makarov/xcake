@@ -35,7 +35,7 @@ module Xcake
 
       it 'should propogate debug configurations' do
         allow(@project).to receive(:all_configurations).and_return([@debug_configuration])
-     
+
         expect(@target).to receive(:configuration).with(@debug_name, @debug_type)
         @generator.visit_target(@target)
       end
@@ -49,7 +49,6 @@ module Xcake
     end
 
     context 'when visting target with no schemes' do
-
       before :each do
         target_name = 'Target'
         configuration_name = 'Configuration'
@@ -68,7 +67,7 @@ module Xcake
 
         allow(@context).to receive(:native_object_for).and_return(@native_target)
       end
-      
+
       it 'should create a scheme with corret name for each configuration' do
         expect(@target).to receive(:scheme).with("#{@target.name}-#{@configuration.name}")
         @generator.visit_target(@target)

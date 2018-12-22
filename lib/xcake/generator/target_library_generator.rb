@@ -5,7 +5,6 @@ module Xcake
     end
 
     def visit_target(target)
-
       system_libraries = target.system_libraries.to_a
 
       unless system_libraries.empty?

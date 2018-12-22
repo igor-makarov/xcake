@@ -162,8 +162,7 @@ module Xcake
         end
 
         context 'on macOS' do
-
-          before :each do 
+          before :each do
             allow(@app_target).to receive(:platform).and_return(:osx)
             @mac_target = @project.unit_tests_for @app_target
           end

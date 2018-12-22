@@ -33,9 +33,8 @@ module Xcake
     end
 
     def create_object_for_project(project)
-      
       project_path = "./#{project.name}.xcodeproj"
-      
+
       if File.exist?(project_path)
         FileUtils.remove_dir(project_path)
       end

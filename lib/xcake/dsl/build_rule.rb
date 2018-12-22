@@ -58,7 +58,7 @@ module Xcake
       native_build_rule.compiler_spec = "com.apple.compilers.proxy.script"
       native_build_rule.file_type = file_type
       native_build_rule.script = script.strip_heredoc
-      if output_files_compiler_flags.empty? then
+      if output_files_compiler_flags.empty?
         output_files.each do |file|
           native_build_rule.add_output_file(file)
         end

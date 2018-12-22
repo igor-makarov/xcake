@@ -209,7 +209,7 @@ module Xcake
     # Creates a new scheme for the target
     #
     # @param  [String] name
-    #         the name of the new scheme 
+    #         the name of the new scheme
     #
     # @return [Scheme] the scheme
     #         the newly created scheme

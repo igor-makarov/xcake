@@ -1,8 +1,8 @@
 module Xcake
   class ProjectGenerator < Generator
     def self.dependencies
-      Generator.descendants.select do |g|
-        g != self
+      Generator.descendants.reject do |g|
+        g == self
       end
     end
 

@@ -22,6 +22,7 @@ module Xcake
     def self.should_include_path?(path)
       return false if is_locale_container?(path)
       return false if is_inside_classified_container?(path)
+
       true
     end
 
@@ -31,6 +32,7 @@ module Xcake
       end
 
       return :PBXResourcesBuildPhase if classification.nil?
+
       classification.first
     end
 

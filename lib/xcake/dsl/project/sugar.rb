@@ -89,7 +89,6 @@ module Xcake
     private
 
     def configure_test_target_for_host_target(test_target, host_target)
-      
       test_target.target_dependencies << host_target
       test_target.platform = host_target.platform
       test_target.deployment_target = host_target.deployment_target
@@ -102,11 +101,11 @@ module Xcake
             # For more details https://github.com/jcampbell05/xcake/issues/115
           else
             c.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
-            if host_target.platform == :osx
-              c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
-            else
-              c.settings["TEST_HOST"] = "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
-            end
+            c.settings["TEST_HOST"] = if host_target.platform == :osx
+                                        "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
+                                      else
+                                        "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"
+                                      end
           end
         end
       end

@@ -24,7 +24,7 @@ module Xcake
           ".framework",
           ".bundle"
         ]
-        
+
         File.directory?(f) && !disallowed_extensions.include?(file_ext)
       end
       paths = paths_without_directories.map do |f|
