@@ -100,8 +100,8 @@ module Xcake
             # Do nothing as they break UITests
             # For more details https://github.com/jcampbell05/xcake/issues/115
           else
-            c.settings["BUNDLE_LOADER"] = "$(TEST_HOST)"
-            c.settings["TEST_HOST"] = if host_target.platform == :osx
+            c.settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
+            c.settings['TEST_HOST'] = if host_target.platform == :osx
                                         "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/Contents/MacOS/#{host_target.name}"
                                       else
                                         "$(BUILT_PRODUCTS_DIR)/#{host_target.name}.app/#{host_target.name}"

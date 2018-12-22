@@ -55,7 +55,7 @@ module Xcake
     #
     def configure_native_build_rule(native_build_rule, _context)
       native_build_rule.name = name
-      native_build_rule.compiler_spec = "com.apple.compilers.proxy.script"
+      native_build_rule.compiler_spec = 'com.apple.compilers.proxy.script'
       native_build_rule.file_type = file_type
       native_build_rule.script = script.strip_heredoc
       if output_files_compiler_flags.empty?

@@ -67,8 +67,8 @@ module Xcake
       @generator.visit_target(@target)
     end
 
-    it "should ignore directories other than xcdatamodeld and xcassets" do
-      dir_name = "my.test"
+    it 'should ignore directories other than xcdatamodeld and xcassets' do
+      dir_name = 'my.test'
       file1 = "#{dir_name}/File1"
       file2 = "#{dir_name}/File2"
       dir2 = "#{dir_name}/My.xcdatamodeld"

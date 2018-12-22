@@ -81,23 +81,23 @@ module Xcake
         expect(@target.language).to eq(:swift)
       end
 
-      it "should not set TEST_HOST setting" do
+      it 'should not set TEST_HOST setting' do
         test_host_set = satisfy do |c|
-          c.settings.key?("TEST_HOST") == false
+          c.settings.key?('TEST_HOST') == false
         end
         expect(@target.all_configurations).to all(test_host_set)
       end
 
-      it "should not set BUNDLE_LOADER setting" do
+      it 'should not set BUNDLE_LOADER setting' do
         bundle_loader_set = satisfy do |c|
-          c.settings.key?("BUNDLE_LOADER") == false
+          c.settings.key?('BUNDLE_LOADER') == false
         end
         expect(@target.all_configurations).to all(bundle_loader_set)
       end
 
-      it "should set LD_RUNPATH_SEARCH_PATHS" do
+      it 'should set LD_RUNPATH_SEARCH_PATHS' do
         runpath_set = satisfy do |c|
-          c.settings.key?("LD_RUNPATH_SEARCH_PATHS")
+          c.settings.key?('LD_RUNPATH_SEARCH_PATHS')
         end
         expect(@target.all_configurations).to all(runpath_set)
       end
@@ -136,9 +136,9 @@ module Xcake
         expect(@target.language).to eq(:swift)
       end
 
-      it "should set LD_RUNPATH_SEARCH_PATHS" do
+      it 'should set LD_RUNPATH_SEARCH_PATHS' do
         runpath_set = satisfy do |c|
-          c.settings.key?("LD_RUNPATH_SEARCH_PATHS")
+          c.settings.key?('LD_RUNPATH_SEARCH_PATHS')
         end
         expect(@target.all_configurations).to all(runpath_set)
       end

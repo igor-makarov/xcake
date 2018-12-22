@@ -19,10 +19,10 @@ module Xcake
       paths_without_directories = Dir.glob(reg_exp).reject do |f|
         file_ext = File.extname(f)
         disallowed_extensions = [
-          ".xcdatamodeld",
-          ".xcassets",
-          ".framework",
-          ".bundle"
+          '.xcdatamodeld',
+          '.xcassets',
+          '.framework',
+          '.bundle'
         ]
 
         File.directory?(f) && !disallowed_extensions.include?(file_ext)

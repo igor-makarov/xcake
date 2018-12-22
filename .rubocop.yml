@@ -28,8 +28,6 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Max: 130
 
-# # Offense count: 5
-# # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
   Max: 6
 
@@ -38,12 +36,6 @@ Style/Documentation:
   Enabled: false
 
 Style/GuardClause:
-  Enabled: false
-
-# Offense count: 881
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/StringLiterals:
   Enabled: false
 
 Style/SymbolArray:
