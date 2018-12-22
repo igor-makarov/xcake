@@ -2,7 +2,7 @@ lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'xcake/version'
 
-Gem::Specification.new do |spec|
+Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.name          = 'xcake'
   spec.version       = Xcake::VERSION
   spec.authors       = ['James Campbell']

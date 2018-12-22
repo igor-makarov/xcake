@@ -58,7 +58,7 @@ module Xcake
       end
     end
 
-    def leave_project(project)
+    def leave_project(_project)
       scheme_list = @context.scheme_list
       scheme_list.save
     end

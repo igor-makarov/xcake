@@ -21,7 +21,7 @@ module Fastlane
         []
       end
 
-      def self.is_supported?(platform)
+      def self.is_supported?(platform) # rubocop:disable Naming/PredicateName
         [:ios, :mac].include? platform
       end
 

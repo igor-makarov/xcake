@@ -60,8 +60,8 @@ module Xcake
     #
     # @return [Hash] The common build settings
     #
-    def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc)
-      target_product_type = (PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
+    def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/LineLength
+      target_product_type = (PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0] # rubocop:disable Metrics/LineLength
       common_settings = COMMON_BUILD_SETTINGS
 
       # Use intersecting settings for all key sets as base

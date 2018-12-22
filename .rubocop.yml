@@ -1,9 +1,3 @@
-##################
-# All rules specific to this repo
-##################
-
-inherit_from: .rubocop_general.yml
-
 AllCops:
   Include:
     - '**/*.rb'
@@ -12,167 +6,38 @@ AllCops:
 Gemspec/RequiredRubyVersion:
   Enabled: false
   
-# e.g.
-# def self.is_supported?(platform)
-# we may never use `platform`
 Lint/UnusedMethodArgument:
-  Enabled: false
+  AutoCorrect: false
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
-# the let(:key) { ... }
-Lint/ParenthesesAsGroupedExpression:
-  Exclude:
-    - 'spec/**/*'
-
-# We use `is_supported?` everywhere already
-Naming/PredicateName:
-  Enabled: false
-
-# Disable '+ should be surrounded with a single space' for xcodebuild_spec.rb
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'spec/actions_specs/xcodebuild_spec.rb'
-
-Metrics/MethodLength:
-  Exclude:
-    - 'lib/fastlane/actions/*.rb'
-    - 'bin/fastlane'
-    - 'lib/xcake/ui.rb'
-
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-    - '**/*.gemspec'
 
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
         
-# Offense count: 20
 Metrics/AbcSize:
-  Max: 63
+  Max: 30
+  Exclude: 
+    - 'lib/xcake/ui.rb'
 
-# Offense count: 7
-# Configuration parameters: CountComments.
-Metrics/ClassLength:
-  Max: 320
-
-# Offense count: 4
-Metrics/CyclomaticComplexity:
-  Max: 17
-
-# Offense count: 489
-# Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
-  Max: 372
+  Max: 130
 
-# Offense count: 5
-# Configuration parameters: CountKeywordArgs.
+# # Offense count: 5
+# # Configuration parameters: CountKeywordArgs.
 Metrics/ParameterLists:
-  Max: 17
-
-# Offense count: 3
-Metrics/PerceivedComplexity:
-  Max: 18
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/Alias:
-  Enabled: false
-
-# Offense count: 14
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
-Layout/AlignHash:
-  Enabled: false
-
-# Offense count: 22
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Enabled: false
-
-# Offense count: 1
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/ClassAndModuleChildren:
-  Enabled: false
+  Max: 6
 
 # Offense count: 19
 Style/Documentation:
   Enabled: false
 
-# Offense count: 112
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Layout/DotPosition:
-  Enabled: false
-
-# Offense count: 12
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Layout/EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Configuration parameters: MinBodyLength.
 Style/GuardClause:
-  Enabled: false
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: MaxLineLength.
-Style/IfUnlessModifier:
-  Enabled: false
-
-# Offense count: 74
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Layout/MultilineOperationIndentation:
-  Enabled: false
-
-# Offense count: 10
-# Cop supports --auto-correct.
-Style/NumericLiterals:
-  MinDigits: 14
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/PerlBackrefs:
-  Enabled: false
-
-# Offense count: 19
-# Cop supports --auto-correct.
-# Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Enabled: false
-
-# Offense count: 77
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Enabled: false
-
-# Offense count: 38
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/SignalException:
-  Enabled: false
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-Layout/SpaceInsideBlockBraces:
-  Enabled: false
-
-# Offense count: 291
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
-Layout/SpaceInsideHashLiteralBraces:
-  Enabled: false
-
-# Offense count: 8
-# Cop supports --auto-correct.
-Layout/SpaceInsideParens:
   Enabled: false
 
 # Offense count: 881
@@ -181,12 +46,6 @@ Layout/SpaceInsideParens:
 Style/StringLiterals:
   Enabled: false
 
-# Offense count: 9
-# Cop supports --auto-correct.
-# Configuration parameters: WordRegex.
-Style/WordArray:
-  MinSize: 19
-
 Style/SymbolArray:
   EnforcedStyle: brackets
 
@@ -194,3 +53,19 @@ Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     default: ()
     '%w': ()
+
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
+
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+
+Naming/FileName:
+  Exclude: 
+    - '**/PBX*.rb'
+
+Metrics/MethodLength:
+  Max: 25
+  Exclude: 
+    - 'lib/xcake/ui.rb'
+

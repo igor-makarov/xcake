@@ -17,7 +17,9 @@ module Xcake
     end
 
     it 'should have correct dependencies' do
-      expect(TargetBuildPhaseGenerator.dependencies).to eq([TargetGenerator, TargetDependencyGenerator, TargetFileReferenceGenerator])
+      expect(TargetBuildPhaseGenerator.dependencies).to eq([TargetGenerator,
+                                                            TargetDependencyGenerator,
+                                                            TargetFileReferenceGenerator])
     end
 
     it 'should create embed watch app build phase' do

@@ -90,7 +90,11 @@ module Xcake
       @target.type = :application
       @target.language = :objc
 
-      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug,
+                                                                         @target.platform,
+                                                                         @target.deployment_target.to_s,
+                                                                         @target.type,
+                                                                         @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
 
@@ -103,7 +107,11 @@ module Xcake
       @target.type = :application
       @target.language = :objc
 
-      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release,
+                                                                         @target.platform,
+                                                                         @target.deployment_target.to_s,
+                                                                         @target.type,
+                                                                         @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       expect(@target.default_release_settings).to eq(settings)
     end

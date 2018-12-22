@@ -20,8 +20,8 @@ module Xcake
     # into the project
     #
     def self.should_include_path?(path)
-      return false if is_locale_container?(path)
-      return false if is_inside_classified_container?(path)
+      return false if locale_container?(path)
+      return false if inside_classified_container?(path)
 
       true
     end
@@ -43,16 +43,16 @@ module Xcake
     class << self
       private
 
-      def is_locale_container?(path)
+      def locale_container?(path)
         components = path.split('/')
         File.extname(components.last) == '.lproj'
       end
 
-      def is_inside_classified_container?(path)
+      def inside_classified_container?(path)
         components = path.split('/')
 
         classified_component_index = components.index do |c|
-          is_classified?(c)
+          classified?(c)
         end
 
         if !classified_component_index.nil?
@@ -62,7 +62,7 @@ module Xcake
         end
       end
 
-      def is_classified?(path)
+      def classified?(path)
         EXTENSION_MAPPINGS.values.flatten.any? { |ext| File.extname(path) == ext }
       end
     end

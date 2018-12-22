@@ -8,7 +8,6 @@ module Xcake
   # and targets have all of the same configurations.
   #
   class DefaultProjectStructureGenerator < Generator
-
     def self.dependencies
       [ProjectMetadataGenerator, TargetGenerator]
     end
