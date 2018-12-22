@@ -37,4 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-git', '~> 0.1.1'
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'simplecov'
 end

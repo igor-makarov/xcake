@@ -1,8 +1,16 @@
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+                                                                 SimpleCov::Formatter::HTMLFormatter,
+                                                                 Coveralls::SimpleCov::Formatter
+                                                               ])
+SimpleCov.start do
+  add_filter %r{^/spec/}
+end
+
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'xcake'
-
-require 'coveralls'
-Coveralls.wear!
 
 # Load all of our Generators
 Xcake::Generator.load_plugins
