@@ -12,4 +12,10 @@ rvm:
   - system
   - ruby-2.0.0-p643
   - ruby-2.0.0-p648
-before_install: gem install bundler -v 1.10.6
+# before_install: 
+#   - |
+#       if [ "$(which ruby)" == "/usr/bin/ruby" ]; then 
+#         sudo gem install bundler
+#       else
+#         gem install bundler
+#       fi
