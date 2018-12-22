@@ -17,8 +17,8 @@ task :all do
   title 'Running tests'
   Rake::Task['spec'].invoke
 
-  # title 'Checking code style'
-  # Rake::Task['rubocop'].invoke
+  title 'Checking code style'
+  Rake::Task['rubocop'].invoke
 end
 
 task default: :all

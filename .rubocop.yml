@@ -7,7 +7,11 @@ inherit_from: .rubocop_general.yml
 AllCops:
   Include:
     - '**/*.rb'
+    - '**/*.gemspec'
 
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+  
 # e.g.
 # def self.is_supported?(platform)
 # we may never use `platform`
@@ -40,6 +44,7 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - '**/*.gemspec'
 
 Metrics/ModuleLength:
   Exclude:

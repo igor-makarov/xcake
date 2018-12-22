@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'xcake/version'
 
@@ -23,19 +22,19 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'claide', '< 2.0', '>= 0.9.1'
   spec.add_dependency 'cork'
+  spec.add_dependency 'deep_merge'
   spec.add_dependency 'hooks', '~> 0.4.1'
   spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 1.3.0'
-  spec.add_dependency 'deep_merge'
 
   # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
   spec.add_dependency 'activesupport', '< 5'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'coveralls', '~> 0.8'
+  spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4.0'
-  spec.add_development_dependency 'coveralls', '~> 0.8'
   spec.add_development_dependency 'rubocop-git', '~> 0.1.1'
-  spec.add_development_dependency 'yard', '~> 0.9'
-  spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'yard', '~> 0.9'
 end
