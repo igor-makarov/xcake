@@ -140,7 +140,6 @@ module Xcake
       # @return [PBXGroup] existing or new xcode group
       #
       def group_for_file_reference_path(path)
-        clean_path = path.cleanpath
         group = variant_group_for_path(path)
         group ||= group_for_path(path)
         group

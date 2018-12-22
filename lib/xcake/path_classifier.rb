@@ -40,29 +40,31 @@ module Xcake
       classification != :PBXHeadersBuildPhase
     end
 
-    private_class_method
+    class << self
+      private
 
-    def self.is_locale_container?(path)
-      components = path.split('/')
-      File.extname(components.last) == '.lproj'
-    end
-
-    def self.is_inside_classified_container?(path)
-      components = path.split('/')
-
-      classified_component_index = components.index do |c|
-        is_classified?(c)
+      def is_locale_container?(path)
+        components = path.split('/')
+        File.extname(components.last) == '.lproj'
       end
 
-      if !classified_component_index.nil?
-        classified_component_index < (components.length - 1)
-      else
-        false
-      end
-    end
+      def is_inside_classified_container?(path)
+        components = path.split('/')
 
-    def self.is_classified?(path)
-      EXTENSION_MAPPINGS.values.flatten.any? { |ext| File.extname(path) == ext }
+        classified_component_index = components.index do |c|
+          is_classified?(c)
+        end
+
+        if !classified_component_index.nil?
+          classified_component_index < (components.length - 1)
+        else
+          false
+        end
+      end
+
+      def is_classified?(path)
+        EXTENSION_MAPPINGS.values.flatten.any? { |ext| File.extname(path) == ext }
+      end
     end
   end
 end

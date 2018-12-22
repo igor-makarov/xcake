@@ -14,8 +14,6 @@ module Xcake
     # The internal hash of native objects reference by their
     # related DSL object
     #
-    attr_accessor :object_hash
-
     def object_hash
       @object_hash ||= {}
     end
