@@ -10,7 +10,6 @@ rvm:
   # - 2.4.0 # Doesn't build :()
   - 2.3.1
   - system
-  - ruby-2.0.0-p643
   - ruby-2.0.0-p648
 # before_install: 
 #   - |
