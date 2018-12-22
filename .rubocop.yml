@@ -14,6 +14,9 @@ AllCops:
 Lint/UnusedMethodArgument:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 # the let(:key) { ... }
 Lint/ParenthesesAsGroupedExpression:
   Exclude:
@@ -176,3 +179,8 @@ Style/WordArray:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%w': ()
