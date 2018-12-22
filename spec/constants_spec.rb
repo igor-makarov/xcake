@@ -7,16 +7,6 @@ module Xcake
     end
 
     describe '::common_build_settings' do
-      it 'returns the build settings for an application by default' do
-        settings = @helper.common_build_settings(:release, :ios, nil, nil)
-        expect(settings['CODE_SIGN_IDENTITY[sdk=iphoneos*]']).to eq('iPhone Developer')
-      end
-
-      it 'returns the build settings for an application' do
-        settings = @helper.common_build_settings(:release, :ios, nil, Xcodeproj::Constants::PRODUCT_TYPE_UTI[:application])
-        expect(settings['CODE_SIGN_IDENTITY[sdk=iphoneos*]']).to eq('iPhone Developer')
-      end
-
       it 'returns the build settings for a bundle' do
         settings = @helper.common_build_settings(:release, :osx, nil, Xcodeproj::Constants::PRODUCT_TYPE_UTI[:bundle])
         expect(settings['COMBINE_HIDPI_IMAGES']).to eq('YES')

@@ -6,7 +6,6 @@ gemfile:
   - gemfiles/Gemfile.xcodeproj-1.4.x
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
-  # The latest ruby version
   - 2.5.0
   - 2.4.0
   - 2.3.1
