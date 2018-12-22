@@ -2,6 +2,11 @@ require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
+unless ENV['CI']
+  ENV['XCAKE_CI_TASK_LINT'] = true
+  ENV['XCAKE_CI_TASK_TEST'] = true
+end
+
 task :spec do
   begin
     sh "bundle exec rspec #{specs('**')}"
@@ -14,11 +19,15 @@ end
 RuboCop::RakeTask.new
 
 task :all do
-  title 'Running tests'
-  Rake::Task['spec'].invoke
+  if ENV['XCAKE_CI_TASK_LINT']
+    title 'Running tests'
+    Rake::Task['spec'].invoke
+  end
 
-  title 'Checking code style'
-  Rake::Task['rubocop'].invoke
+  if ENV['XCAKE_CI_TASK_TEST']
+    title 'Checking code style'
+    Rake::Task['rubocop'].invoke
+  end
 end
 
 task default: :all

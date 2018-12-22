@@ -1,9 +1,18 @@
 os:
   - osx
 language: ruby
+
+matrix:
+  include:
+  - rvm: 2.5.0
+    env: XCAKE_CI_TASK_LINT=true
+    git:
+      submodules: false
+
+env: XCAKE_CI_TASK_TEST=true
+
 gemfile:
   - Gemfile
-  - gemfiles/Gemfile.xcodeproj-1.4.x
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
   - 2.5.0
