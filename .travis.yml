@@ -7,14 +7,7 @@ gemfile:
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
   # The latest ruby version
-  # - 2.4.0 # Doesn't build :()
+  - 2.5.0
+  - 2.4.0
   - 2.3.1
-  - system
   - ruby-2.0.0-p648
-# before_install: 
-#   - |
-#       if [ "$(which ruby)" == "/usr/bin/ruby" ]; then 
-#         sudo gem install bundler
-#       else
-#         gem install bundler
-#       fi
