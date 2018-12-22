@@ -18,8 +18,6 @@ module Xcake
       #
       attr_accessor :xcschememanagement
 
-      public
-
       # @param    [Project] project
       #           project to create scheme list for.
       #

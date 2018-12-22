@@ -16,6 +16,11 @@ module Xcake
         it 'should set default system frameworks' do
           expect(@target.system_frameworks).to eq(%w(Foundation UIKit))
         end
+
+        it 'should not default system frameworks when provided' do
+          @target.system_frameworks = ['CoreAudio']
+          expect(@target.system_frameworks).to eq(%w(CoreAudio))
+        end
       end
 
       context 'for tvos' do
@@ -25,6 +30,11 @@ module Xcake
 
         it 'should set default system frameworks' do
           expect(@target.system_frameworks).to eq(%w(Foundation UIKit))
+        end
+
+        it 'should not default system frameworks when provided' do
+          @target.system_frameworks = ['CoreAudio']
+          expect(@target.system_frameworks).to eq(%w(CoreAudio))
         end
       end
 
@@ -36,6 +46,11 @@ module Xcake
         it 'should set default system frameworks' do
           expect(@target.system_frameworks).to eq(%w(Foundation UIKit WatchKit))
         end
+
+        it 'should not default system frameworks when provided' do
+          @target.system_frameworks = ['CoreAudio']
+          expect(@target.system_frameworks).to eq(%w(CoreAudio))
+        end
       end
 
       context 'for osx' do
@@ -46,12 +61,23 @@ module Xcake
         it 'should set default system frameworks' do
           expect(@target.system_frameworks).to eq(%w(Cocoa))
         end
+
+        it 'should not default system frameworks when provided' do
+          @target.system_frameworks = ['CoreAudio']
+          expect(@target.system_frameworks).to eq(%w(CoreAudio))
+        end
       end
     end
 
     it 'should have the correct default include files' do
       @target.name = 'test'
       expect(@target.include_files).to eq(%w(./test/**/*.*))
+    end
+
+    it 'should not have default include files when provided' do
+      @target.name = 'test'
+      @target.include_files = %w(not_test/**/*.h)
+      expect(@target.include_files).to eq(%w(not_test/**/*.h))
     end
 
     it 'should have the correct default exclude files' do
@@ -64,7 +90,11 @@ module Xcake
       @target.type = :application
       @target.language = :objc
 
-      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:debug,
+                                                                         @target.platform,
+                                                                         @target.deployment_target.to_s,
+                                                                         @target.type,
+                                                                         @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
 
@@ -77,7 +107,11 @@ module Xcake
       @target.type = :application
       @target.language = :objc
 
-      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release, @target.platform, @target.deployment_target.to_s, @target.type, @target.language)
+      settings = Xcodeproj::Project::ProjectHelper.common_build_settings(:release,
+                                                                         @target.platform,
+                                                                         @target.deployment_target.to_s,
+                                                                         @target.type,
+                                                                         @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       expect(@target.default_release_settings).to eq(settings)
     end

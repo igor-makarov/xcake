@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in xcake.gemspec
 gemspec :path => '..'
-gem "xcodeproj", :git => 'https://github.com/CocoaPods/Xcodeproj'
+gem 'xcodeproj', :git => 'https://github.com/CocoaPods/Xcodeproj'

@@ -32,7 +32,6 @@ module Xcake
       end
 
       context 'when supressing target scheme autocreation' do
-
         it 'should store entry in xcschememanagement' do
           @scheme_list.supress_autocreation_of_target(@target)
           autocreation_setting = @scheme_list.xcschememanagement['SuppressBuildableAutocreation'][@target.uuid]['primary']

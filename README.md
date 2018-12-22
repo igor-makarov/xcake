@@ -1,33 +1,32 @@
 # Xcake
 [![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
-[![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
+[![Twitter: @igormaka](https://img.shields.io/badge/contact-@igormaka-blue.svg?style=flat)](https://twitter.com/igormaka)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
-[![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
+[![Build Status](https://img.shields.io/travis/igor-makarov/xcake/master.svg?style=flat)](https://travis-ci.org/igor-makarov/xcake)
+[![Test Coverage](https://img.shields.io/coveralls/igor-makarov/xcake/master.svg)](https://coveralls.io/github/igor-makarov/xcake)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
-### === No Longer Maintained === ###
+### Back under new management!
 
-It's been 4 years since Xcake was first released and the iOS development scene has changed.
-We now have Fastlane, Swift and almost everyone uses Cocoapods. On top of that I have less time to
-dedicate to this tool than before.
+The original author of Xcake, [James Campbell](https://github.com/jcampbell05) has decided to move on to other endeavors.  
+[Igor Makarov](https://github.com/igor-makarov) has volunteered to step in as the main maintainer, both because of his reliance on the gem for work, and because of general aversion to `.pbxproj` files.
 
-Luckily whilst Xcake once stood alone, there are noe finally some very strong alternatives.
+### Cakefile — A Podfile for your main project!
 
-For those who were interested in using or are using xcake then I reccomend taking a look at https://github.com/yonaskolb/XcodeGen
+Describe your project in a simple text file: your `Cakefile`.
+Xcake generates your project based on this file including importing all of your files and creating groups and targets to match the file hierarchy.
 
-### Describe Xcode project in a human readable format and (re)generate one on demand.
+This is perfect for working in teams or with CocoaPods as it reduces merge conflicts, makes it easy to modify settings and allows you to create a clean project anytime you need to.
 
-You describe your project in a simple text file: your `Cakefile`.
-Xcake creates your project based on this including importing all of your files and creating groups
-to match the file hiearchy.
+Isn't this just like Generamba or Crafter?  
+No, these tools are for scafolding an initial project structure to get you started (creating folder structure, git repo etc.).  
+Xcake will not create a folder structure, but will generate a project from it, and will continue to generate it each time you want it. Added some files? Generate! Renamed a folder? Generate!  
+Sick of seeing `.pbxproj` diffs in git? Add your project to `.gitignore` and generate it on checkout.
 
-This is perfect for working in teams or with cocoapods as it reduces conflicts,
-makes it easy to modify settings and allows you to create a clean project anytime you need to.
 
-Isn't this just like liftoff, generamba or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject.
+Get in contact with the developer on Twitter: [@igormaka](https://twitter.com/igormaka).
 
-Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
+PBX delendare est.
 
 -------
 <p align="center">

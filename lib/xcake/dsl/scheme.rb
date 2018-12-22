@@ -7,13 +7,13 @@ module Xcake
     include Visitable
 
     # The name for the scheme
-    # 
+    #
     attr_accessor :name
 
     # The configuration to use when testing
     #
     # Defaults to "Debug"
-    # 
+    #
     attr_accessor :test_configuration
 
     # The configuration to use when launching
@@ -41,7 +41,6 @@ module Xcake
     attr_accessor :archive_configuration
 
     def initialize(name)
-
       @name = name
       @test_configuration = 'Debug'
       @launch_configuration = 'Debug'

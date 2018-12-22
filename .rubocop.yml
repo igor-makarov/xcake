@@ -1,0 +1,60 @@
+AllCops:
+  Include:
+    - '**/*.rb'
+    - '**/*.gemspec'
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+  
+Lint/UnusedMethodArgument:
+  AutoCorrect: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*'
+        
+Metrics/AbcSize:
+  Max: 30
+  Exclude: 
+    - 'lib/xcake/ui.rb'
+
+Metrics/LineLength:
+  Max: 130
+
+Metrics/ParameterLists:
+  Max: 6
+
+# Offense count: 19
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%w': ()
+
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
+
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+
+Naming/FileName:
+  Exclude: 
+    - '**/PBX*.rb'
+
+Metrics/MethodLength:
+  Max: 25
+  Exclude: 
+    - 'lib/xcake/ui.rb'
+

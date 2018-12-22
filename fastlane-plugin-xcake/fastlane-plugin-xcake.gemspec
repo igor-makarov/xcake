@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fastlane/plugin/xcake/version'
 
@@ -19,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'xcake'
 
-  spec.add_development_dependency 'rspec', '~> 3.4.0'
   spec.add_development_dependency 'fastlane', '~> 1.89'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rspec', '~> 3.4.0'
 end

@@ -7,7 +7,7 @@ module Xcake
 
     attr_accessor :project
 
-    def create_object_for(dsl_object)
+    def create_object_for(dsl_object) # rubocop:disable Metrics/CyclomaticComplexity
       case dsl_object
       when BuildPhase
         create_object_for_build_phase(dsl_object)
@@ -28,17 +28,14 @@ module Xcake
       @project.new(build_phase.build_phase_type)
     end
 
-    def create_object_for_build_rule(build_rule)
+    def create_object_for_build_rule(_build_rule)
       @project.new(Xcodeproj::Project::Object::PBXBuildRule)
     end
 
     def create_object_for_project(project)
-      
       project_path = "./#{project.name}.xcodeproj"
-      
-      if File.exist?(project_path)
-        FileUtils.remove_dir(project_path)
-      end
+
+      FileUtils.remove_dir(project_path) if File.exist?(project_path)
 
       @project = Xcode::Project.new(project_path, true)
       @project.setup_for_xcake
@@ -53,7 +50,7 @@ module Xcake
       @project.new_configuration(configuration)
     end
 
-    def create_object_for_scheme(scheme)
+    def create_object_for_scheme(_scheme)
       Xcode::Scheme.new
     end
 

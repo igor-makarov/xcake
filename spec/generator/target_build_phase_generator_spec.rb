@@ -9,13 +9,17 @@ module Xcake
       @target = double('Target')
 
       @dsl_dependency = double('DSL Dependency')
+      allow(@dsl_target).to receive(:pinned_build_phases).and_return([])
+      allow(@dsl_target).to receive(:build_phases).and_return([])
       allow(@dsl_target).to receive(:target_dependencies).and_return([@dsl_dependency])
 
       allow(@context).to receive(:native_object_for).and_return(@target)
     end
 
     it 'should have correct dependencies' do
-      expect(TargetBuildPhaseGenerator.dependencies).to eq([TargetGenerator, TargetDependencyGenerator])
+      expect(TargetBuildPhaseGenerator.dependencies).to eq([TargetGenerator,
+                                                            TargetDependencyGenerator,
+                                                            TargetFileReferenceGenerator])
     end
 
     it 'should create embed watch app build phase' do

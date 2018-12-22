@@ -2,9 +2,8 @@ require 'spec_helper'
 
 module Xcake
   describe Project do
-
     before :each do
-       @project = Project.new('Test')
+      @project = Project.new('Test')
     end
 
     it 'should have a default project name' do

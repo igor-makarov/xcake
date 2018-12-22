@@ -5,14 +5,14 @@ module Xcake
     end
 
     def visit_target(target)
-      unless target.system_frameworks.nil?
-        EventHooks.run_hook :before_adding_system_framework, target
+      return if target.system_frameworks.nil?
 
-        native_target = @context.native_object_for(target)
+      EventHooks.run_hook :before_adding_system_framework, target
 
-        system_frameworks = target.system_frameworks
-        native_target.add_system_frameworks(system_frameworks)
-      end
+      native_target = @context.native_object_for(target)
+
+      system_frameworks = target.system_frameworks
+      native_target.add_system_frameworks(system_frameworks)
     end
   end
 end

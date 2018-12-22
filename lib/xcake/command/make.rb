@@ -7,9 +7,7 @@ module Xcake
       def run
         file_path = "#{Dir.pwd}/Cakefile"
 
-        unless File.exist?(file_path)
-          raise Xcake::Informative, "Couldn't find Cakefile"
-        end
+        raise Xcake::Informative, "Couldn't find Cakefile" unless File.exist?(file_path)
 
         EventHooks.run_hook :before_cakefile_read
         file_contents = File.read(file_path)

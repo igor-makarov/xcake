@@ -38,7 +38,7 @@ module Xcake
       end
 
       EventHooks.before_attaching_xcconfig do |configuration|
-        board.puts_indented "- Attaching XCConfig #{configuration.configuration_file} to build configuration #{configuration.name}"
+        board.puts_indented "- Attaching XCConfig #{configuration.configuration_file} to build configuration #{configuration.name}" # rubocop:disable Metrics/LineLength
       end
 
       EventHooks.before_adding_system_library do |target|

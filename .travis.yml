@@ -1,16 +1,19 @@
 os:
   - osx
 language: ruby
+
+matrix:
+  include:
+  - rvm: 2.5.0
+    env: XCAKE_CI_TASKS=LINT
+    git:
+      submodules: false
+
+env: XCAKE_CI_TASKS=TEST
+
 gemfile:
-  - gemfiles/Gemfile.xcodeproj-1.3.x
-  - gemfiles/Gemfile.xcodeproj-1.4.x
+  - Gemfile
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
-  # The latest ruby version
-  # - 2.4.0 # Doesn't build :()
-  - 2.3.1
-  # OS X 10.9.5-10.10.0 (2.0.0-p481)
-  - 2.0.0-p481
-  # OS X 10.9.3-10.9.4
-  - 2.0.0-p451
-before_install: gem install bundler -v 1.10.6
+  - 2.5.0
+  - ruby-2.0.0-p648

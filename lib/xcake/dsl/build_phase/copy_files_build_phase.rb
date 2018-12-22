@@ -29,9 +29,7 @@ module Xcake
       @files.each do |file|
         file_reference = context.file_reference_for_path(file)
         build_file = native_build_phase.add_file_reference(file_reference)
-        if code_sign
-          build_file.settings = { 'ATTRIBUTES' => ['CodeSignOnCopy'] }
-        end
+        build_file.settings = { 'ATTRIBUTES' => ['CodeSignOnCopy'] } if code_sign
       end
     end
 

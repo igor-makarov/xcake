@@ -9,7 +9,7 @@ module Xcake
 
       @phase.name = 'Name'
       @phase.files = [
-          @file
+        @file
       ]
 
       @file_reference = double('File Reference')

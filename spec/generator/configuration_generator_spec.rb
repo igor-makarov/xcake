@@ -50,7 +50,7 @@ module Xcake
         @main_group = double('Native Main Group')
 
         allow(@context).to receive(:native_object_for).with(@node)
-          .and_return(@main_group)
+                                                      .and_return(@main_group)
 
         allow(@context).to receive(:native_object_for).with(@configuration).and_return(@native_configuration)
         allow(@context).to receive(:native_object_for).with(@configurable).and_return(@native_configurable)

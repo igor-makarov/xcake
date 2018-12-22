@@ -67,8 +67,8 @@ module Xcake
       @generator.visit_target(@target)
     end
 
-    it "should ignore directories other than xcdatamodeld and xcassets" do
-      dir_name = "my.test"
+    it 'should ignore directories other than xcdatamodeld and xcassets' do
+      dir_name = 'my.test'
       file1 = "#{dir_name}/File1"
       file2 = "#{dir_name}/File2"
       dir2 = "#{dir_name}/My.xcdatamodeld"
@@ -105,10 +105,6 @@ module Xcake
     end
 
     it 'should ignore paths which shouldn\'t be installed' do
-      exclude_paths = [
-        './File'
-      ]
-
       allow(@target).to receive(:include_files).and_return(@paths)
       allow(@target).to receive(:exclude_files).and_return([])
       allow(PathClassifier).to receive(:should_include_path?).and_return(false)

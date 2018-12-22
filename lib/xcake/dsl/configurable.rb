@@ -39,9 +39,11 @@ module Xcake
     private
 
     def copy_parent_configurations
+      return unless parent_configurable
+
       parent_configurable.all_configurations.each do |c|
         configuration(c.name, c.type)
-      end if parent_configurable
+      end
     end
 
     public
@@ -93,13 +95,13 @@ module Xcake
       default_settings = default_settings_for_type(type)
       configurations = configurations_of_type(type)
 
-      if name.nil?
-        build_configuration = configurations.first
-      else
-        build_configuration = configurations.detect do |c|
-          c.name == name.to_s
-        end
-      end
+      build_configuration = if name.nil?
+                              configurations.first
+                            else
+                              configurations.detect do |c|
+                                c.name == name.to_s
+                              end
+                            end
 
       if build_configuration.nil?
 
