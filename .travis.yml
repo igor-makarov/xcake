@@ -2,11 +2,9 @@ os:
   - osx
 language: ruby
 gemfile:
-  - gemfiles/Gemfile.xcodeproj-1.3.x
+  - Gemfile
   - gemfiles/Gemfile.xcodeproj-1.4.x
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
   - 2.5.0
-  - 2.4.0
-  - 2.3.1
   - ruby-2.0.0-p648
