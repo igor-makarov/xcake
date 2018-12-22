@@ -77,7 +77,7 @@ module Xcake
     it 'should not have default include files when provided' do
       @target.name = 'test'
       @target.include_files = %w(not_test/**/*.h)
-      expect(@target.include_files).to eq(%w(bla/**/*.h))
+      expect(@target.include_files).to eq(%w(not_test/**/*.h))
     end
 
     it 'should have the correct default exclude files' do
