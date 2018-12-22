@@ -27,11 +27,11 @@ Lint/ParenthesesAsGroupedExpression:
     - 'spec/**/*'
 
 # We use `is_supported?` everywhere already
-Style/PredicateName:
+Naming/PredicateName:
   Enabled: false
 
 # Disable '+ should be surrounded with a single space' for xcodebuild_spec.rb
-Style/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   Exclude:
     - 'spec/actions_specs/xcodebuild_spec.rb'
 
@@ -85,7 +85,7 @@ Style/Alias:
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
-Style/AlignHash:
+Layout/AlignHash:
   Enabled: false
 
 # Offense count: 22
@@ -106,13 +106,13 @@ Style/Documentation:
 # Offense count: 112
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/DotPosition:
+Layout/DotPosition:
   Enabled: false
 
 # Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   Enabled: false
 
 # Configuration parameters: MinBodyLength.
@@ -128,7 +128,7 @@ Style/IfUnlessModifier:
 # Offense count: 74
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   Enabled: false
 
 # Offense count: 10
@@ -161,18 +161,18 @@ Style/SignalException:
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   Enabled: false
 
 # Offense count: 291
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 
 # Offense count: 8
 # Cop supports --auto-correct.
-Style/SpaceInsideParens:
+Layout/SpaceInsideParens:
   Enabled: false
 
 # Offense count: 881

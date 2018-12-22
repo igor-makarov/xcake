@@ -13,7 +13,7 @@ Lint/UselessAssignment:
 
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/IndentHash:
+Layout/IndentHash:
   Enabled: false
 
 Style/RaiseArgs:
@@ -33,8 +33,9 @@ Lint/UnusedBlockArgument:
 Style/GlobalVars:
   Enabled: false
 
-Style/FileName:
-  Enabled: false
+Naming/FileName:
+  Exclude: 
+    - '**/PBX*.rb'
 
 # $? Exit
 Style/SpecialGlobalVars:
@@ -81,7 +82,7 @@ Style/IfUnlessModifier:
   Enabled: false
 
 # That looks wrong
-Style/AlignHash:
+Layout/AlignHash:
   Enabled: false
 
 # and and or is okay
@@ -106,7 +107,7 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 18
 
-Style/DotPosition:
+Layout/DotPosition:
   Enabled: false
 
 Style/GuardClause:
