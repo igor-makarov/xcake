@@ -22,8 +22,8 @@ module Xcake
       end
 
       it 'returns a deep copy of the common build settings' do
-        settings_1 = @helper.common_build_settings(:release, :ios, nil, nil)
-        settings_2 = @helper.common_build_settings(:release, :ios, nil, nil)
+        settings1 = @helper.common_build_settings(:release, :ios, nil, nil)
+        settings2 = @helper.common_build_settings(:release, :ios, nil, nil)
 
         expect(settings_1.object_id).to_not eq(settings_2.object_id)
         expect(settings_1['SDKROOT'].object_id).to_not eq(settings_2['SDKROOT'].object_id)

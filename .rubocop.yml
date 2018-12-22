@@ -35,8 +35,13 @@ Metrics/MethodLength:
   Exclude:
     - 'lib/fastlane/actions/*.rb'
     - 'bin/fastlane'
+    - 'lib/xcake/ui.rb'
 
 Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
         
