@@ -17,6 +17,6 @@ module Xcodeproj
           end
         end
       end
-   end
+    end
   end
 end

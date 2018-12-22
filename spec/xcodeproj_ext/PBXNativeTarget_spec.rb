@@ -26,6 +26,6 @@ module Xcodeproj
           expect(target.library_target_type?).to eq(true)
         end
       end
-      end
-   end
+    end
+  end
 end

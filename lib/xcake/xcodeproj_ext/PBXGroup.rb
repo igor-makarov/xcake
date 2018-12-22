@@ -24,7 +24,7 @@ module Xcodeproj
           else
             child.child_for_path(path)
           end
-       end
+        end
 
         def dirname
           return '.' if parent.kind_of? Xcake::Xcode::Project
@@ -37,7 +37,7 @@ module Xcodeproj
             parent.dirname.to_s
           end
         end
-     end
-   end
+      end
+    end
   end
 end
