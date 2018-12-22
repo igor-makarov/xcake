@@ -4,6 +4,10 @@
 
 inherit_from: .rubocop_general.yml
 
+AllCops:
+  Include:
+    - '**/*.rb'
+
 # e.g.
 # def self.is_supported?(platform)
 # we may never use `platform`
@@ -28,12 +32,6 @@ Metrics/MethodLength:
   Exclude:
     - 'lib/fastlane/actions/*.rb'
     - 'bin/fastlane'
-
-AllCops:
-  Include:
-    - 'fastlane/Fastfile'
-  Exclude:
-    - 'lib/assets/custom_action_template.rb'
 
 # Offense count: 20
 Metrics/AbcSize:
@@ -171,3 +169,6 @@ Style/StringLiterals:
 # Configuration parameters: WordRegex.
 Style/WordArray:
   MinSize: 19
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
