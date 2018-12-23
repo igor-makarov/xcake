@@ -7,9 +7,10 @@ tasks = ENV.fetch('XCAKE_CI_TASKS') { ALL_TASKS }.upcase.split(/\s+/)
 
 task :spec do
   begin
-    sh "bundle exec rspec #{specs('**')}"
+    all_specs = specs('.', 'fastlane-plugin-xcake')
+    sh "bundle exec rspec #{all_specs}"
   rescue RuntimeError
-    STDERR.puts "Tests failed!"
+    STDERR.puts 'Tests failed!'
     exit 1
   end
 end
@@ -33,8 +34,11 @@ task default: :all
 # Helpers
 #-----------------------------------------------------------------------------#
 
-def specs(dir)
-  FileList["spec/#{dir}/*_spec.rb"].shuffle.join(' ')
+def specs(*dirs)
+  dirs = dirs.flatten if dirs.first.kind_of?(Array)
+  dirs.map do |dir|
+    FileList["#{dir}/spec/**/*_spec.rb"].shuffle
+  end.flatten.join(' ')
 end
 
 def title(title)
