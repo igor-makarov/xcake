@@ -2,6 +2,7 @@ AllCops:
   Include:
     - '**/*.rb'
     - '**/*.gemspec'
+    - 'Rakefile'
 
 Gemspec/RequiredRubyVersion:
   Enabled: false
@@ -52,6 +53,7 @@ Style/RaiseArgs:
 Naming/FileName:
   Exclude: 
     - '**/PBX*.rb'
+    - '**/Rakefile'
 
 Metrics/MethodLength:
   Max: 25
