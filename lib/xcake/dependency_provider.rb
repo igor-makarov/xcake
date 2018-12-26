@@ -7,9 +7,9 @@ module Xcake
     def initialize(dependency_class)
       plugins = dependency_class.load_plugins
 
-      @dependency_graph = plugins.map do |p|
-        [p, p.dependencies]
-      end.to_h
+      @dependency_graph = plugins.each_with_object({}) do |p, hash|
+        hash[p] = p.dependencies
+      end
     end
 
     def tsort_each_node(&block)
