@@ -1,5 +1,5 @@
 require 'xcake/core_ext/array'
-require 'xcake/core_ext/object'
+require 'xcake/core_ext/class'
 require 'xcake/core_ext/string'
 
 require 'xcake/xcode/project'
