@@ -6,10 +6,10 @@ matrix:
   include:
   - rvm: 2.5.0
     env: XCAKE_CI_TASKS=LINT
-    git:
-      submodules: false
 
-env: XCAKE_CI_TASKS=TEST
+env: 
+  - |
+    XCAKE_CI_TASKS=TEST
 
 gemfile:
   - Gemfile
@@ -18,6 +18,10 @@ rvm:
   - 2.5.0
   - ruby-2.0.0-p648
 
-addons:
- code_climate:
-   repo_token: ce53533c444ac133e8b0b15e988c1b5c3af1aecabb41da49e11bfb4ca2131f34
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
+after_script:
+  - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.json coverage/backend/.resultset.json # Format backend coverage
+  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage -r ce53533c444ac133e8b0b15e988c1b5c3af1aecabb41da49e11bfb4ca2131f34; fi  # Upload coverage/codeclimate.json
