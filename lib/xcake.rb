@@ -1,4 +1,3 @@
-require 'xcake/core_ext/array'
 require 'xcake/core_ext/class'
 require 'xcake/core_ext/string'
 
