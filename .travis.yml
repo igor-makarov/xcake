@@ -2,11 +2,6 @@ os:
   - osx
 language: ruby
 
-matrix:
-  include:
-  - rvm: 2.5.0
-    env: XCAKE_CI_TASKS=LINT
-
 env: 
   - |
     XCAKE_CI_TASKS=TEST
