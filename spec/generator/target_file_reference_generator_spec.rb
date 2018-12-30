@@ -22,6 +22,7 @@ module Xcake
       before :each do
         allow(@target).to receive(:include_files).and_return(@paths)
         allow(@target).to receive(:exclude_files).and_return([])
+        allow(@target).to receive(:info_plist_paths).and_return([])
       end
 
       it 'should add them to the project' do
@@ -47,6 +48,7 @@ module Xcake
     it 'should ignore excluded paths' do
       allow(@target).to receive(:include_files).and_return(@paths)
       allow(@target).to receive(:exclude_files).and_return(@paths)
+      allow(@target).to receive(:info_plist_paths).and_return([])
 
       path = @paths.first
       expect(@context).to_not receive(:file_reference_for_path).with(path)
@@ -86,6 +88,7 @@ module Xcake
       ]
       allow(@target).to receive(:include_files).and_return(include_paths)
       allow(@target).to receive(:exclude_files).and_return([])
+      allow(@target).to receive(:info_plist_paths).and_return([])
       allow(Dir).to receive(:glob).with(include_paths).and_return(include_paths)
       allow(Dir).to receive(:glob).with([]).and_return([])
       allow(File).to receive(:directory?).and_return(false)
@@ -101,6 +104,33 @@ module Xcake
       expect(@context).to receive(:file_reference_for_path).with(dir3)
       expect(@context).to_not receive(:file_reference_for_path).with(file3)
       expect(@context).to_not receive(:file_reference_for_path).with(file4)
+      @generator.visit_target(@target)
+    end
+
+    it 'should not add an Info.plist file as a resource if the target uses it as its own' do
+      dir_name = 'my.test'
+      file1 = "#{dir_name}/File1"
+      file2 = "#{dir_name}/File2"
+      plist_file = "#{dir_name}/Info.plist"
+      include_paths = [
+        dir_name,
+        file1,
+        file2,
+        plist_file
+      ]
+      allow(@target).to receive(:include_files).and_return(include_paths)
+      allow(@target).to receive(:exclude_files).and_return([])
+      allow(@target).to receive(:info_plist_paths).and_return([plist_file])
+      allow(Dir).to receive(:glob).with(include_paths).and_return(include_paths)
+      allow(Dir).to receive(:glob).with([]).and_return([])
+      allow(File).to receive(:directory?).and_return(false)
+      allow(File).to receive(:directory?).with(dir_name).and_return(true)
+      allow(@context).to receive(:file_reference_for_path).with(file1)
+      allow(@context).to receive(:file_reference_for_path).with(file2)
+      expect(@context).to receive(:file_reference_for_path).with(plist_file)
+      allow(@context).to receive(:build_phase_by_class).with(file1)
+      allow(@context).to receive(:build_phase_by_class).with(file2)
+      expect(@context).to_not receive(:build_phase_by_class).with(plist_file)
       @generator.visit_target(@target)
     end
 
