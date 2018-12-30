@@ -14,7 +14,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.homepage      = 'https://github.com/igor-makarov/xcake/'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|example|docs|gemfiles)/}) }
+  spec.files         = `git ls-files lib bin -z`.split("\x0")
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.executables   = %w(xcake)
   spec.require_paths = ['lib']
