@@ -9,8 +9,8 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.email         = ['igormaka@gmail.com']
 
   spec.summary       = 'Generate Xcode Projects'
-  spec.description   = 'Cakefile — A Podfile for your main project. ' \
-                       'Create your Xcode projects automatically using a stupid simple DSL.'
+  spec.description   = 'Cakefile — A Podfile for your main project. 🍰' \
+                       'Describe Xcode projects in a human readable format and (re)generate one on demand.'
   spec.homepage      = 'https://github.com/igor-makarov/xcake/'
   spec.license       = 'MIT'
 
