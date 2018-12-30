@@ -1,0 +1,146 @@
+Build settings from command line:
+    SDKROOT = iphonesimulator12.1
+
+Build Preparation
+Build task concurrency set to 8 via user default IDEBuildOperationMaxNumberOfConcurrentCompileTasks
+
+note: Using new build system
+** CLEAN SUCCEEDED ** [0.045 sec]
+
+Build Preparation
+Build task concurrency set to 8 via user default IDEBuildOperationMaxNumberOfConcurrentCompileTasks
+
+note: Using new build system
+note: Planning build
+note: Constructing build description
+note: Using build description 'dd576afb26a74ae991e1a37b3465adff'
+Build system information
+note: Using eager compilation
+
+CreateBuildDirectory /Users/Igor/xcake/spec/fixtures/integration/first/temp/build (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    builtin-create-build-directory /Users/Igor/xcake/spec/fixtures/integration/first/temp/build
+
+MkDir /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    /bin/mkdir -p /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/Entitlements-Simulated.plist (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/Entitlements-Simulated.plist
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/Entitlements.plist (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/Entitlements.plist
+
+ProcessProductPackaging "" /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app-Simulated.xcent (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    
+
+Entitlements:
+
+{
+    "application-identifier" = "2RDBE39Z4G.";
+    "keychain-access-groups" =     (
+        "2RDBE39Z4G."
+    );
+}
+
+
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app-Simulated.xcent
+
+ProcessProductPackaging "" /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app.xcent (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    
+
+Entitlements:
+
+{
+    "com.apple.security.get-task-allow" = 1;
+}
+
+
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app.xcent
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/all-product-headers.yaml (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/all-product-headers.yaml
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-project-headers.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-project-headers.hmap
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.hmap
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-own-target-headers.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-generated-files.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-generated-files.hmap
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-target-headers.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-non-framework-target-headers.hmap (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-non-framework-target-headers.hmap
+
+ProcessInfoPlistFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/Info.plist /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Supporting\ Files/Info.plist (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    builtin-infoPlistUtility /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Supporting\ Files/Info.plist -genpkginfo /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/Info.plist
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp.LinkFileList (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp.LinkFileList
+
+WriteAuxiliaryFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp.LinkFileList (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    write-file /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp.LinkFileList
+
+CompileC /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/Source.o /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Source.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    export LANG=en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu11 -fobjc-arc -fobjc-weak -fmodules -gmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -fbuild-session-file=/var/folders/y8/dnxylq5s6tx6l775q0b04xvr0000gn/C/org.llvm.clang/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -fno-common -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-float-conversion -Wnon-literal-null-conversion -Wobjc-literal-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wdeprecated-implementations -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mios-simulator-version-min=9.0 -g -fvisibility=hidden -Wno-sign-conversion -Winfinite-recursion -Wcomma -Wblock-capture-autoreleasing -Wstrict-prototypes -Wno-semicolon-before-method-body -Wunguarded-availability -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-generated-files.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-own-target-headers.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-target-headers.hmap -iquote /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-project-headers.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/include -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/i386 -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources -F/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -MMD -MT dependencies -MF /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/Source.d --serialize-diagnostics /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/Source.dia -c /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Source.m -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/Source.o
+
+CompileC /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/Source.o /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Source.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    export LANG=en_US.US-ASCII
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu11 -fobjc-arc -fobjc-weak -fmodules -gmodules -fmodules-prune-interval=86400 -fmodules-prune-after=345600 -fbuild-session-file=/var/folders/y8/dnxylq5s6tx6l775q0b04xvr0000gn/C/org.llvm.clang/ModuleCache.noindex/Session.modulevalidation -fmodules-validate-once-per-build-session -Wnon-modular-include-in-framework-module -Werror=non-modular-include-in-framework-module -Wno-trigraphs -fpascal-strings -Os -fno-common -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wdocumentation -Wunreachable-code -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Wno-objc-interface-ivars -Werror=objc-root-class -Wno-arc-repeated-use-of-weak -Wimplicit-retain-self -Wduplicate-method-match -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wno-float-conversion -Wnon-literal-null-conversion -Wobjc-literal-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wdeprecated-implementations -DNS_BLOCK_ASSERTIONS=1 -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -mios-simulator-version-min=9.0 -g -fvisibility=hidden -Wno-sign-conversion -Winfinite-recursion -Wcomma -Wblock-capture-autoreleasing -Wstrict-prototypes -Wno-semicolon-before-method-body -Wunguarded-availability -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-generated-files.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-own-target-headers.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-all-target-headers.hmap -iquote /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp-project-headers.hmap -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/include -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources/x86_64 -I/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/DerivedSources -F/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -MMD -MT dependencies -MF /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/Source.d --serialize-diagnostics /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/Source.dia -c /Users/Igor/xcake/spec/fixtures/integration/first/temp/BananaApp/Source.m -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/Source.o
+
+Ld /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp normal x86_64 (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    export IPHONEOS_DEPLOYMENT_TARGET=9.0
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk -L/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -F/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -filelist /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp.LinkFileList -Xlinker -rpath -Xlinker @executable_path/Frameworks -mios-simulator-version-min=9.0 -dead_strip -Xlinker -object_path_lto -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp_lto.o -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app-Simulated.xcent -framework Foundation -framework UIKit -Xlinker -dependency_info -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp_dependency_info.dat -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp
+
+Ld /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp normal i386 (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    export IPHONEOS_DEPLOYMENT_TARGET=9.0
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.1.sdk -L/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -F/Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator -filelist /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp.LinkFileList -Xlinker -rpath -Xlinker @executable_path/Frameworks -mios-simulator-version-min=9.0 -dead_strip -Xlinker -object_path_lto -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp_lto.o -Xlinker -objc_abi_version -Xlinker 2 -fobjc-arc -fobjc-link-runtime -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app-Simulated.xcent -framework Foundation -framework UIKit -Xlinker -dependency_info -Xlinker /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp_dependency_info.dat -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp
+
+CreateUniversalBinary /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/BananaApp normal i386\ x86_64 (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/i386/BananaApp /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/Objects-normal/x86_64/BananaApp -output /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/BananaApp
+
+GenerateDSYMFile /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app.dSYM /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/BananaApp (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app/BananaApp -o /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app.dSYM
+
+CodeSign /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate
+    
+Signing Identity:     "-"
+
+    /usr/bin/codesign --force --sign - --entitlements /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Project.build/Release-iphonesimulator/BananaApp.build/BananaApp.app.xcent --timestamp=none /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app
+
+Touch /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app (in target: BananaApp)
+    cd /Users/Igor/xcake/spec/fixtures/integration/first/temp
+    /usr/bin/touch -c /Users/Igor/xcake/spec/fixtures/integration/first/temp/build/Release-iphonesimulator/BananaApp.app
+
+** BUILD SUCCEEDED ** [0.284 sec]
+

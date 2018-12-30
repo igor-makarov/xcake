@@ -7,7 +7,17 @@ tasks = ENV.fetch('XCAKE_CI_TASKS') { ALL_TASKS }.upcase.split(/\s+/)
 
 task :spec do
   begin
-    all_specs = specs('.', 'fastlane-plugin-xcake')
+    all_specs = specs('.', 'fastlane-plugin-xcake', except_specs: ['./spec/integration_spec.rb'])
+    sh "bundle exec rspec #{all_specs}"
+  rescue RuntimeError
+    STDERR.puts 'Tests failed!'
+    exit 1
+  end
+end
+
+task :integration do
+  begin
+    all_specs = 'spec/integration_spec.rb'
     sh "bundle exec rspec #{all_specs}"
   rescue RuntimeError
     STDERR.puts 'Tests failed!'
@@ -21,6 +31,9 @@ task :all do
   if tasks.include?('TEST')
     title 'Running tests'
     Rake::Task['spec'].invoke
+
+    title 'Running integration tests'
+    Rake::Task['integration'].invoke
   end
 
   if tasks.include?('LINT')
@@ -34,10 +47,10 @@ task default: :all
 # Helpers
 #-----------------------------------------------------------------------------#
 
-def specs(*dirs)
+def specs(*dirs, except_specs: [])
   dirs = dirs.flatten if dirs.first.kind_of?(Array)
   dirs.map do |dir|
-    FileList["#{dir}/spec/**/*_spec.rb"].shuffle
+    FileList["#{dir}/spec/**/*_spec.rb"].shuffle - except_specs
   end.flatten.join(' ')
 end
 

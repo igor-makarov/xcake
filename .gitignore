@@ -11,10 +11,9 @@ Gemfile*.lock
 /tmp/
 fastlane-plugin-xcake/Gemfile.lock
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
+## Xcake test fixture temp files
+spec/fixtures/integration/*/temp/**
+spec/fixtures/integration/**/xcuserdata/**
 
 ## Documentation cache and generated files:
 /.yardoc/
