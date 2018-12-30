@@ -1,5 +1,8 @@
 require 'spec_helper'
 require 'yaml'
+require 'simplecov'
+
+SimpleCov.command_name 'test:integration'
 
 RSpec::Matchers.define :eq_project do |expected|
   match do |actual|
