@@ -15,7 +15,7 @@ task :spec do
   end
 end
 
-RuboCop::RakeTask.new
+RuboCop::RakeTask.new(:lint)
 
 task :all do
   if tasks.include?('TEST')
@@ -25,7 +25,7 @@ task :all do
 
   if tasks.include?('LINT')
     title 'Checking code style'
-    Rake::Task['rubocop'].invoke
+    Rake::Task['lint'].invoke
   end
 end
 
