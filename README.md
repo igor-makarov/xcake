@@ -3,7 +3,7 @@
 [![Twitter: @igormaka](https://img.shields.io/badge/contact-@igormaka-blue.svg?style=flat)](https://twitter.com/igormaka)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/igor-makarov/xcake/master.svg?style=flat)](https://travis-ci.org/igor-makarov/xcake)
-[![Test Coverage](https://img.shields.io/coveralls/igor-makarov/xcake/master.svg)](https://coveralls.io/github/igor-makarov/xcake)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/97d4476df2b0809a18ea/test_coverage)](https://codeclimate.com/github/igor-makarov/xcake/test_coverage)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
 ### Back under new management!
