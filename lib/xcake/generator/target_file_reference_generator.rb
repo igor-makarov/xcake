@@ -52,6 +52,7 @@ module Xcake
       build_phase_symbol = PathClassifier.classification_for_path(path)
 
       return unless PathClassifier.should_create_build_phase_for_classification?(build_phase_symbol)
+      return if target.info_plist_paths.include?(path)
 
       build_phase_class = Xcodeproj::Project::Object.const_get(build_phase_symbol)
       build_phase = native_target.build_phase_by_class(build_phase_class)

@@ -1,0 +1,3 @@
+application_for :ios, 9.0 do |application|
+  application.name = 'BananaApp'
+end

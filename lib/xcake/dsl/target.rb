@@ -232,6 +232,10 @@ module Xcake
       @system_frameworks ||= default_system_frameworks_for(platform)
     end
 
+    def info_plist_paths
+      all_configurations.map { |config| config.settings['INFOPLIST_FILE'] }.uniq
+    end
+
     # @!group Conversion
 
     def to_s
