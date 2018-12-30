@@ -5,17 +5,18 @@ require 'xcake/version'
 Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.name          = 'xcake'
   spec.version       = Xcake::VERSION
-  spec.authors       = ['James Campbell']
-  spec.email         = ['james@supmenow.com']
+  spec.authors       = ['Igor Makarov', 'James Campbell']
+  spec.email         = ['igormaka@gmail.com']
 
-  spec.summary       = 'DSL for Xcode Projects.'
-  spec.description   = 'Create your Xcode projects automatically using a stupid simple DSL.'
-  spec.homepage      = 'https://github.com/jcampbell05/xcake/'
+  spec.summary       = 'Generate Xcode Projects'
+  spec.description   = 'Cakefile — A Podfile for your main project. ' \
+                       'Create your Xcode projects automatically using a stupid simple DSL.'
+  spec.homepage      = 'https://github.com/igor-makarov/xcake/'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|example|docs|gemfiles)/}) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.executables = %w(xcake)
+  spec.executables   = %w(xcake)
   spec.require_paths = ['lib']
 
   spec.required_ruby_version = '>= 2.0.0'
