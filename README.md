@@ -33,7 +33,7 @@ PBX delendare est.
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a> &bull;
-    <a href="http://www.rubydoc.info/github/jcampbell05/xcake/master/file/docs/Getting%20Started.md">Documentation</a>
+    <a href="http://www.rubydoc.info/github/igor-makarov/xcake/master/file/docs/Getting%20Started.md">Documentation</a>
 </p>
 
 -------
