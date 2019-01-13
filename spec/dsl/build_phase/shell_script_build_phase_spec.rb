@@ -15,6 +15,13 @@ module Xcake
 
       allow(@native_build_phase).to receive(:name=)
       allow(@native_build_phase).to receive(:shell_script=)
+
+      @paths = %w(path1 path2 path3 path4 path5).shuffle
+
+      allow(@native_build_phase).to receive(:input_paths=)
+      allow(@native_build_phase).to receive(:output_paths=)
+      allow(@native_build_phase).to receive(:input_file_list_paths=)
+      allow(@native_build_phase).to receive(:output_file_list_paths=)
     end
 
     it 'should use correct build phase type' do
@@ -29,6 +36,32 @@ module Xcake
     it 'should set script' do
       expect(@native_build_phase).to receive(:shell_script=).with(@script.strip_heredoc)
       @phase.configure_native_build_phase(@native_build_phase, nil)
+    end
+
+    context 'Input/Ouput paths' do
+      it 'should set input paths' do
+        @phase.input_paths = @paths
+        expect(@native_build_phase).to receive(:input_paths=).with(@paths)
+        @phase.configure_native_build_phase(@native_build_phase, nil)
+      end
+
+      it 'should set output paths' do
+        @phase.output_paths = @paths
+        expect(@native_build_phase).to receive(:output_paths=).with(@paths)
+        @phase.configure_native_build_phase(@native_build_phase, nil)
+      end
+
+      it 'should set input file list paths' do
+        @phase.input_file_list_paths = @paths
+        expect(@native_build_phase).to receive(:input_file_list_paths=).with(@paths)
+        @phase.configure_native_build_phase(@native_build_phase, nil)
+      end
+
+      it 'should set output file list paths' do
+        @phase.output_file_list_paths = @paths
+        expect(@native_build_phase).to receive(:output_file_list_paths=).with(@paths)
+        @phase.configure_native_build_phase(@native_build_phase, nil)
+      end
     end
   end
 end
