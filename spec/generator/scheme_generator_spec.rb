@@ -55,7 +55,9 @@ module Xcake
           allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(nil)
           allow(@native_project).to receive(:find_ui_test_target_for_target).and_return(nil)
 
-          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil)
+          launch_target = @native_target.respond_to?(:launchable_target_type?) && @native_target.launchable_target_type?
+
+          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil, launch_target: launch_target)
           @generator.visit_target(@target)
         end
 

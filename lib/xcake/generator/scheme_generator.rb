@@ -19,24 +19,17 @@ module Xcake
         native_scheme = @context.native_object_for(scheme)
         native_scheme.name = scheme.name
 
-        native_scheme.configure_with_targets(native_target, nil)
+        launch_target = native_target.respond_to?(:launchable_target_type?) && native_target.launchable_target_type?
+
+        native_scheme.configure_with_targets(native_target, nil, launch_target: launch_target)
 
         native_project = @context.native_object_for(@project)
+
         native_unit_test_target = native_project.find_unit_test_target_for_target(target)
-
-        if native_unit_test_target
-          scheme_list.supress_autocreation_of_target(native_unit_test_target)
-          # native_scheme.add_build_target(native_unit_test_target, false)
-          native_scheme.add_test_target(native_unit_test_target)
-        end
-
         native_ui_test_target = native_project.find_ui_test_target_for_target(target)
 
-        if native_ui_test_target
-          scheme_list.supress_autocreation_of_target(native_ui_test_target)
-          # native_scheme.add_build_target(native_ui_test_target, false)
-          native_scheme.add_test_target(native_ui_test_target)
-        end
+        add_unit_test_target(native_unit_test_target, scheme_list, native_scheme)
+        add_ui_test_target(native_ui_test_target, scheme_list, native_scheme)
 
         # # TODO: Spec
         # if native_target.library_target_type?
@@ -56,6 +49,20 @@ module Xcake
 
         scheme_list.schemes << native_scheme
       end
+    end
+
+    def add_unit_test_target(native_unit_test_target, scheme_list, native_scheme)
+      return unless native_unit_test_target
+
+      scheme_list.supress_autocreation_of_target(native_unit_test_target)
+      native_scheme.add_test_target(native_unit_test_target)
+    end
+
+    def add_ui_test_target(native_ui_test_target, scheme_list, native_scheme)
+      return unless native_ui_test_target
+
+      scheme_list.supress_autocreation_of_target(native_ui_test_target)
+      native_scheme.add_test_target(native_ui_test_target)
     end
 
     def leave_project(_project)
