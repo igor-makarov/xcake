@@ -59,8 +59,6 @@ module Xcake
           Dir.chdir(fixture) do
             Xcake.make_helper
             expect(Dir['temp/*.xcodeproj']).to eq(%w(temp/Project.xcodeproj))
-            expected_proj = Xcodeproj::Project.open('output/Project.xcodeproj')
-            expect(Xcodeproj::Project.open('temp/Project.xcodeproj')).to eq_project(expected_proj)
           end
         end
         it 'Should build fixture with xcodebuild with no errors' do
