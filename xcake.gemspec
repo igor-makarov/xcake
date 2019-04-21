@@ -30,11 +30,12 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
   spec.add_dependency 'activesupport', '< 5'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
+  spec.add_development_dependency 'bundler', '>= 1.10'
   spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'pry-rescue'
   spec.add_development_dependency 'pry-stack_explorer'
   spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rb-readline', '~> 0.5.4'
   spec.add_development_dependency 'rspec', '~> 3.4.0'
   spec.add_development_dependency 'rubocop-git', '~> 0.1.1'
   spec.add_development_dependency 'simplecov'
