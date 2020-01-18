@@ -16,6 +16,12 @@ rvm:
   - 2.6.0
   - 2.7.0
 
+matrix:
+  include:
+  - rvm: 2.7.0
+    os: linux
+    env: XCAKE_CI_TASKS=LINT
+
 before_script:
   - gem install bundler -v "~> 1.17"
   - bundle install --jobs=3
