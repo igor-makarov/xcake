@@ -1,4 +1,6 @@
-os: osx
+os: 
+  - osx
+  - linux
 language: ruby
 install: true
 
@@ -11,7 +13,14 @@ gemfile:
   - gemfiles/Gemfile.xcodeproj-edge
 rvm:
   - 2.5.0
-  - ruby-2.0.0-p648
+  - 2.6.0
+  - 2.7.0
+
+matrix:
+  include:
+  - rvm: 2.7.0
+    os: linux
+    env: XCAKE_CI_TASKS=LINT
 
 before_script:
   - gem install bundler -v "~> 1.17"
