@@ -31,6 +31,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_dependency 'activesupport', '< 5'
 
   spec.add_development_dependency 'bundler', '>= 1.10'
+  spec.add_development_dependency 'os', '~> 1.0'
   spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'pry-rescue'
   spec.add_development_dependency 'pry-stack_explorer'
