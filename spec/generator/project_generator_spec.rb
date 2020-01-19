@@ -18,6 +18,11 @@ module Xcake
       @generator.leave_project(@dsl_project)
     end
 
+    it 'should run the before save hook' do
+      expect(@dsl_project).to receive(:run_hook).with(:before_save, @project)
+      @generator.leave_project(@dsl_project)
+    end
+
     it 'should run the after save hook' do
       expect(@dsl_project).to receive(:run_hook).with(:after_save)
       @generator.leave_project(@dsl_project)
