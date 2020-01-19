@@ -8,6 +8,7 @@ module Xcake
 
     def leave_project(project)
       native_project = @context.native_object_for(project)
+      project.run_hook :before_save, native_project
       native_project.save
       project.run_hook :after_save
 
