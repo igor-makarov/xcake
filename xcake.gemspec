@@ -35,7 +35,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'pry-rescue'
   spec.add_development_dependency 'pry-stack_explorer'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rb-readline', '~> 0.5.4'
   spec.add_development_dependency 'rspec', '~> 3.4.0'
   spec.add_development_dependency 'rubocop', '~> 0.64.0'
