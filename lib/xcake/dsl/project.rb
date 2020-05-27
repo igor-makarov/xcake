@@ -63,7 +63,7 @@ module Xcake
     #         the newly created target
     #
     def target(&block)
-      target = Target.new(&block)
+      target = Target.new(self, &block)
       targets << target
       target
     end
