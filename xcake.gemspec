@@ -27,8 +27,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_dependency 'hooks', '~> 0.4.1'
   spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 1.3.0'
 
-  # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
-  spec.add_dependency 'activesupport', '< 5'
+  spec.add_dependency 'activesupport', '~> 5', '>= 5.2.4.3'
 
   spec.add_development_dependency 'bundler', '>= 1.10'
   spec.add_development_dependency 'os', '~> 1.0'
