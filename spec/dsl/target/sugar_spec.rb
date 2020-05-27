@@ -3,7 +3,8 @@ require 'spec_helper'
 module Xcake
   describe Target do
     before :each do
-      @target = Target.new
+      @project = Project.new
+      @target = Target.new(@project)
       @build_phase_name = 'Hello World'
     end
 

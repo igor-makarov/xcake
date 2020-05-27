@@ -3,7 +3,8 @@ require 'spec_helper'
 module Xcake
   describe Target do
     before :each do
-      @target = Target.new
+      @project = Project.new
+      @target = Target.new(@project)
       @target.name = 'Test'
     end
 
@@ -114,6 +115,12 @@ module Xcake
                                                                          @target.language)
       settings['INFOPLIST_FILE'] = 'Test/Supporting Files/Info.plist'
       expect(@target.default_release_settings).to eq(settings)
+    end
+
+    it 'should inherit settings' do
+      @project.debug_configuration :Test
+      expect(@target.all_configurations.count).to eq(1)
+      expect(@target.all_configurations.first.name).to eq('Test')
     end
 
     it 'should initialize schemes' do

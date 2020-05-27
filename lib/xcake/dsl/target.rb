@@ -182,16 +182,19 @@ module Xcake
     #
     attr_accessor :schemes
 
+    # @param    [Project] project
+    #           the project the target belongs to.
+    #
     # @param    [Proc] block
     #           an optional block that configures the target through the DSL.
     #
     # @example  Creating a Target.
     #
-    #           Target.new do |t|
+    #           Target.new(project) do |t|
     #             t.name "test"
     #           end
     #
-    def initialize
+    def initialize(project)
       @pinned_build_phases = []
       @build_phases = []
       @build_rules = []
@@ -200,6 +203,7 @@ module Xcake
       @system_libraries = []
       @target_dependencies = []
       @schemes = []
+      @project = project
 
       yield(self) if block_given?
     end
