@@ -300,14 +300,31 @@ end
 
 ##### Shell Script Build Phase
 
-You can create a Shell Script buld phase to run a script when building.
+You can create a Shell Script build phase to run a script when building.
+The following creates a simple script printing `Hello World`:
 
 ```ruby
-target.shell_script_build_phase "Build Phase Name", <<-SCRIPT 
-  echo "Hello World"
-SCRIPT
+target.shell_script_build_phase "Build Phase Name", "echo 'Hello World'"
 end
 ```
+
+You can optionally define input- and output (file list) paths, combinbed with a multi-line script, like this:
+
+```ruby
+myScript = <<-SCRIPT
+    echo "This is a multi-line script"
+    echo "Hello World"
+SCRIPT
+target.shell_script_build_phase "Build Phase Name", myScript do |phase|
+    phase.input_paths = ["$(SRCROOT)/$(TARGET_NAME)/**/*.txt"]
+    phase.output_paths = ["$(SRCROOT)/$(TARGET_NAME)/OutputFiles/MyFile.txt"]
+    phase.input_file_list_paths = ["$(SRCROOT)/$(TARGET_NAME)/**/*.xcfilelist"]
+    phase.output_file_list_paths = ["$(SRCROOT)/$(TARGET_NAME)/OutputFiles/MyFileList.xcfilelist"]
+end
+```
+
+Note: to move the build phase before all other build phases (right before the `Compile Sources` phase), use `target.pre_shell_script_build_phase` instead.
+
 
 ## Configurations
 
