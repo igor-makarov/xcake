@@ -308,7 +308,7 @@ target.shell_script_build_phase "Build Phase Name", "echo 'Hello World'"
 end
 ```
 
-You implement multi-line scripts, and define input- and output (file list) paths like this:
+You can optionally define input- and output (file list) paths, combinbed with a multi-line script, like this:
 
 ```ruby
 myScript = <<-SCRIPT
@@ -318,8 +318,8 @@ SCRIPT
 target.shell_script_build_phase "Build Phase Name", myScript do |phase|
     phase.input_paths = ["$(SRCROOT)/$(TARGET_NAME)/**/*.txt"]
     phase.output_paths = ["$(SRCROOT)/$(TARGET_NAME)/OutputFiles/MyFile.txt"]
-    phase.input_file_list_paths = []
-    phase.output_file_list_paths = []
+    phase.input_file_list_paths = ["$(SRCROOT)/$(TARGET_NAME)/**/*.xcfilelist"]
+    phase.output_file_list_paths = ["$(SRCROOT)/$(TARGET_NAME)/OutputFiles/MyFileList.xcfilelist"]
 end
 ```
 
