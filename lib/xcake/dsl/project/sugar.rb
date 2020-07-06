@@ -60,6 +60,10 @@ module Xcake
         t.type = :ui_test_bundle
         configure_test_target_for_host_target(t, host_target)
 
+        t.all_configurations.each do |c|
+          c.settings['TEST_TARGET_NAME'] = host_target.name
+        end
+
         yield(t) if block_given?
       end
     end

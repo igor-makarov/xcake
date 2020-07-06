@@ -101,6 +101,13 @@ module Xcake
         end
         expect(@target.all_configurations).to all(runpath_set)
       end
+
+      it 'should set TEST_TARGET_NAME to be host target' do
+        runpath_set = satisfy do |c|
+          c.settings['TEST_TARGET_NAME'] == @app_target.name
+        end
+        expect(@target.all_configurations).to all(runpath_set)
+      end
     end
 
     context 'when creating unit test target' do
