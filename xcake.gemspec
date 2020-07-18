@@ -19,7 +19,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.executables   = %w(xcake)
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.0.0'
+  spec.required_ruby_version = '>= 2.3.3'
 
   spec.add_dependency 'claide', '< 2.0', '>= 0.9.1'
   spec.add_dependency 'cork'
@@ -28,7 +28,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_dependency 'xcodeproj', '< 2.0.0', '>= 1.3.0'
 
   # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
-  spec.add_dependency 'activesupport', '< 5'
+  spec.add_dependency 'activesupport', '< 6'
 
   spec.add_development_dependency 'bundler', '>= 1.10'
   spec.add_development_dependency 'os', '~> 1.0'
