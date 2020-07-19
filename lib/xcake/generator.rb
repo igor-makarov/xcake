@@ -3,7 +3,7 @@ module Xcake
     include Dependency
     include Plugin
     include Visitor
-    Class.send(:include, CoreExtensions::ClassDescendants) # done with send because of old ruby versions
+    extend CoreExtensions::ClassDescendants
 
     attr_accessor :context
 

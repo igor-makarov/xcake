@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 class Parent
-  Class.send(:include, Xcake::CoreExtensions::ClassDescendants) # done with send because of old ruby versions
+  extend Xcake::CoreExtensions::ClassDescendants
 end
 
 class Child < Parent
