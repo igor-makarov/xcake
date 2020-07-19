@@ -1,0 +1,27 @@
+name: Lint
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Bundler
+      run: |
+        bundle install --jobs=3
+
+    - name: Lint
+      run: |
+        export XCAKE_CI_TASKS=LINT
+        bundle exec rake
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+    - main
