@@ -1,7 +1,7 @@
 module Xcake
   module CoreExtensions
     # @example  Including in a class
-    #           Class.send(:include, Xcake::CoreExtensions::ClassDescendants) # done with send because of old ruby versions
+    #           extend Xcake::CoreExtensions::ClassDescendants
     #
     module ClassDescendants
       # Returns all descendants of a class

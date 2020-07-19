@@ -5,6 +5,8 @@ module Xcake
     end
 
     module ClassMethods
+      include CoreExtensions::ClassDescendants
+
       def load_plugins
         Dir[plugins_location].each { |file| require file }
         descendants
