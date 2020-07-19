@@ -2,7 +2,7 @@
 [![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
 [![Twitter: @igormaka](https://img.shields.io/badge/contact-@igormaka-blue.svg?style=flat)](https://twitter.com/igormaka)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/igor-makarov/xcake/master.svg?style=flat)](https://travis-ci.org/igor-makarov/xcake)
+[![Build Status](https://github.com/igor-makarov/xcake/workflows/Test/badge.svg)](https://github.com/igor-makarov/xcake/actions)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
 ### Back under new management!
