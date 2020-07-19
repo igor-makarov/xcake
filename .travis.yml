@@ -27,9 +27,3 @@ matrix:
 before_script:
   - gem install bundler -v "~> 1.17"
   - bundle install --jobs=3
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-
-after_script:
-  - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.json coverage/backend/.resultset.json # Format backend coverage
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage -r ce53533c444ac133e8b0b15e988c1b5c3af1aecabb41da49e11bfb4ca2131f34; fi  # Upload coverage/codeclimate.json
