@@ -7,7 +7,7 @@ module Xcake
     EXTENSION_MAPPINGS = {
       PBXFrameworksBuildPhase: %w(.a .dylib .so .framework).freeze,
       PBXHeadersBuildPhase: %w(.h .hpp).freeze,
-      PBXSourcesBuildPhase: %w(.c .m .mm .cpp .swift .xcdatamodeld .java).freeze,
+      PBXSourcesBuildPhase: %w(.c .m .mm .cpp .cc .swift .xcdatamodeld .java).freeze,
       PBXResourcesBuildPhase: %w(.xcassets).freeze
     }.freeze
 
