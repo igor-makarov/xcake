@@ -7,7 +7,7 @@ module Xcake
       # Returns all descendants of a class
       #
       def descendants
-        ObjectSpace.each_object(singleton_class).select { |klass| klass < self }
+        ObjectSpace.each_object(singleton_class).select { |klass| klass < self }.sort_by(&:to_s)
       end
     end
   end
