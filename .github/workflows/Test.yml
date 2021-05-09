@@ -5,14 +5,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-10.15]
-        ruby: [2.3.3, 2.4, 2.5, 2.6, 2.7]
+        ruby: [2.6, 2.7]
         gemfile: [Gemfile]
         include:
           - os: ubuntu-latest
-            ruby: 2.3.3
+            ruby: 2.6
             gemfile: gemfiles/Gemfile.xcodeproj-edge
           - os: macos-10.15
-            ruby: 2.3.3
+            ruby: 2.6
             gemfile: gemfiles/Gemfile.xcodeproj-edge
     runs-on: ${{ matrix.os }}
     env:
