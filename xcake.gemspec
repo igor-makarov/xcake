@@ -21,8 +21,6 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
 
   spec.required_ruby_version = '>= 2.6'
 
-  # Lock `activesupport` (transitive dependency via `xcodeproj`) to keep supporting system ruby
-  spec.add_runtime_dependency 'activesupport', '< 6'
   spec.add_runtime_dependency 'claide', '< 2.0', '>= 0.9.1'
   spec.add_runtime_dependency 'cork'
   spec.add_runtime_dependency 'deep_merge'
