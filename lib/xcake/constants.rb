@@ -1,4 +1,4 @@
-require 'active_support/core_ext/hash/deep_merge'
+require 'deep_merge'
 
 module Xcake
   module Constants
