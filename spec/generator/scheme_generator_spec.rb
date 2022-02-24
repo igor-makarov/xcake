@@ -25,6 +25,7 @@ module Xcake
 
       allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(@native_unit_test_target)
       allow(@native_project).to receive(:find_ui_test_target_for_target).and_return(@native_ui_test_target)
+      allow(@native_target).to receive(:launchable_target_type?).and_return(false)
       allow(@context).to receive(:native_object_for).with(@target).and_return(@native_target)
       allow(@context).to receive(:native_object_for).with(@project).and_return(@native_project)
       allow(@context).to receive(:native_object_for).with(@scheme).and_return(@native_scheme)
@@ -51,12 +52,20 @@ module Xcake
       end
 
       context 'when configuring native scheme' do
-        it 'should configure with build target' do
-          allow(@native_project).to receive(:find_unit_test_target_for_target).and_return(nil)
-          allow(@native_project).to receive(:find_ui_test_target_for_target).and_return(nil)
+        context 'should configure with build target' do
+          it 'should configure as launch target if launchable' do
+            allow(@native_target).to receive(:launchable_target_type?).and_return(true)
 
-          expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil)
-          @generator.visit_target(@target)
+            expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil, launch_target: true)
+            @generator.visit_target(@target)
+          end
+
+          it 'should not configure as launch target if not launchable' do
+            allow(@native_target).to receive(:launchable_target_type?).and_return(false)
+
+            expect(@native_scheme).to receive(:configure_with_targets).with(@native_target, nil, launch_target: false)
+            @generator.visit_target(@target)
+          end
         end
 
         it 'should configure with test action' do
