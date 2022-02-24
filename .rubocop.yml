@@ -22,9 +22,7 @@ Metrics/ModuleLength:
     - 'spec/**/*'
         
 Metrics/AbcSize:
-  Max: 30
-  Exclude: 
-    - 'lib/xcake/ui.rb'
+  Enabled: false
 
 Metrics/LineLength:
   Max: 130
