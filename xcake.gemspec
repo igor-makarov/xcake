@@ -25,7 +25,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.add_runtime_dependency 'cork'
   spec.add_runtime_dependency 'deep_merge'
   spec.add_runtime_dependency 'hooks', '~> 0.4.1'
-  spec.add_runtime_dependency 'xcodeproj', '< 2.0.0', '>= 1.3.0'
+  spec.add_runtime_dependency 'xcodeproj', '< 2.0.0', '>= 1.7.0'
 
   spec.add_development_dependency 'bundler', '>= 1.10'
   spec.add_development_dependency 'os', '~> 1.0'

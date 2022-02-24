@@ -8,7 +8,7 @@
 # just helper variables to use these values in a consistent way across whole file
 
 iOSdeploymentTarget = "8.0"
-currentSwiftVersion = "3.0.1" # to set "Use Legacy Swift ..." to "No"
+currentSwiftVersion = "4.2"
 companyIdentifier = "com.CakeMania"
 developmentTeamId = "XYZXYZ" # for automatic debug signing in Xcode 8
 testSuffix = "Tst"

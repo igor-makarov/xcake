@@ -1,4 +1,6 @@
-Gemfile*.lock
+/Gemfile*.lock
+/gemfiles/Gemfile*.lock
+
 *.gem
 *.rbc
 /.config
