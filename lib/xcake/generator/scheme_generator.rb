@@ -19,7 +19,7 @@ module Xcake
         native_scheme = @context.native_object_for(scheme)
         native_scheme.name = scheme.name
 
-        native_scheme.configure_with_targets(native_target, nil)
+        native_scheme.configure_with_targets(native_target, nil, launch_target: native_target.launchable_target_type?)
 
         native_project = @context.native_object_for(@project)
         native_unit_test_target = native_project.find_unit_test_target_for_target(target)
