@@ -2,7 +2,7 @@
 # http://www.rubydoc.info/github/jcampbell05/xcake/master/file/docs/Cakefile.md
 
 iOSdeploymentTarget = "8.0"
-currentSwiftVersion = "3.0.1" # to set "Use Legacy Swift ..." to "No"
+currentSwiftVersion = "4.2"
 companyIdentifier = "com.CakeMania"
 developmentTeamId = "XYZXYZ" # for automatic debug signing in Xcode 8
 testSuffix = "Tst"
