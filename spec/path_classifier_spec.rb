@@ -176,6 +176,23 @@ module Xcake
       end
     end
 
+    context 'for an intent definition' do
+      it 'should include intent definition' do
+        should_install = PathClassifier.should_include_path?('./Model.intentdefinition')
+        expect(should_install).to be(true)
+      end
+
+      it 'should not include files inside' do
+        should_install = PathClassifier.should_include_path?('./Model.intentdefinition/Model.intentdefinition')
+        expect(should_install).to be(false)
+      end
+
+      it 'should classify as PBXSourcesBuildPhase' do
+        classification = PathClassifier.classification_for_path('./Model.intentdefinition')
+        expect(classification).to be(:PBXSourcesBuildPhase)
+      end
+    end
+
     context 'for a xcassets folder' do
       it 'should include xcassets folder' do
         should_install = PathClassifier.should_include_path?('./Assets.xcassets')
