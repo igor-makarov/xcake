@@ -5,14 +5,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13, macos-14, macos-15]
+        os: [ubuntu-latest, macos-14, macos-15, macos-26, macos-latest]
         ruby: [2.6, 2.7]
         gemfile: [Gemfile]
         include:
           - os: ubuntu-latest
             ruby: 2.6
             gemfile: gemfiles/Gemfile.xcodeproj-edge
-          - os: macos-13
+          - os: macos-14
             ruby: 2.6
             gemfile: gemfiles/Gemfile.xcodeproj-edge
     runs-on: ${{ matrix.os }}
@@ -37,10 +37,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-13]
+        os: [macos-14]
         gemfile: [Gemfile]
         include:
-          - os: macos-13
+          - os: macos-14
             gemfile: gemfiles/Gemfile.xcodeproj-edge
     runs-on: ${{ matrix.os }}
     env:
